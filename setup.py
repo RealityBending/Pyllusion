@@ -19,7 +19,7 @@ maintainer_email = "dom.makowski@gmail.com",
 packages = find_packages(),
 package_data = {
 	"pyllusion.stimuli":["*.ai"],
-	"neuropsydia.stimuli":["*.png"]},
+	"pyllusion.stimuli":["*.png"]},
 install_requires = [
     'neuropsydia'],
 dependency_links=[
