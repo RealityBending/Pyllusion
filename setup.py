@@ -21,7 +21,7 @@ package_data = {
 	"pyllusion.stimuli":["*.ai"],
 	"neuropsydia.stimuli":["*.png"]},
 install_requires = [
-    'neuropsydia > 1.0.0'],
+    'neuropsydia'],
 dependency_links=[
 	"https://github.com/neuropsychology/Neuropsydia.py/zipball/master"],
 long_description = open('README.md').read(),
