@@ -1,7 +1,7 @@
 """
 The Ponzo illusion.
 """
-#from . import pyllusion_path
+from . import pyllusion_path
 
 import numpy as np
 import pandas as pd
@@ -49,8 +49,8 @@ def zollner_compute(illusion_strength=0, real_angle=0):
 def zollner_display(parameters):
     """
     """
-    n.image("stimuli/line.png", x=0, y=2, size=18.2, rotate=parameters["Real_Angle"]/2, scale_by="width")
-    n.image("stimuli/line.png", x=0, y=-2, size=18.2, rotate=-parameters["Real_Angle"]/2, scale_by="width")
+    n.image(pyllusion_path + "line.png", x=0, y=2, size=18.2, rotate=parameters["Real_Angle"]/2, scale_by="width")
+    n.image(pyllusion_path + "line.png", x=0, y=-2, size=18.2, rotate=-parameters["Real_Angle"]/2, scale_by="width")
 
     
     for i in range (11):
