@@ -31,6 +31,14 @@ def ponzo_compute(illusion_strength=0, real_difference=0, bottom_line_size=6):
     top_line_right_x = 0+top_line_size/2
     top_line_right_y = bottom_line_left_y + distance
 
+    if top_line_size >= bottom_line_size:
+        difficulty_ratio = top_line_size / bottom_line_size
+        difficulty_diff = top_line_size - bottom_line_size
+    else:
+        difficulty_ratio = bottom_line_size / top_line_size
+        difficulty_diff = bottom_line_size - top_line_size
+        
+    difficulty = 
     parameters = {"Distance": distance,
                   "Bottom_Line_Left_x": bottom_line_left_x,
                   "Bottom_Line_Left_y": bottom_line_left_y,
@@ -42,6 +50,8 @@ def ponzo_compute(illusion_strength=0, real_difference=0, bottom_line_size=6):
                   "Top_Line_Right_x": top_line_right_x,
                   "Top_Line_Right_y": top_line_right_y,
                   "Top_Line_Size": top_line_size,
+                  "Difficulty": abs(difficulty_ratio),
+                  "Difficulty_Absolute": abs(difficulty_diff),
                   "Illusion_Strength": illusion_strength,
                   "Illusion_Strength_Absolute": abs(illusion_strength)}
 

@@ -12,12 +12,10 @@ import neuropsydia as n
 def zollner_compute(illusion_strength=0, real_angle=0):
     """
     """
-
-
     parameters = {"Illusion_Strength": illusion_strength,
+                  "Difficulty": abs(real_angle),
                   "Real_Angle": real_angle,
                   "Real_Angle_Absolute": abs(real_angle)}
-
 
     return(parameters)
 

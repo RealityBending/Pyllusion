@@ -73,6 +73,9 @@ def delboeuf_compute(distance=5, distance_auto = True, inner_size_smaller=3, out
                   "Real_Difference_Inner_Difference": inner_size_larger-inner_size_smaller,
                   "Real_Difference_Outer_Ratio": inner_size_larger/outer_size_smaller-1,
                   "Real_Difference_Outer_Difference": inner_size_larger-outer_size_smaller,
+                  
+                  "Difficulty": abs(inner_size_larger/inner_size_smaller-1),
+                  "Difficulty_Absolute": abs(inner_size_larger-inner_size_smaller),
 
                   "Real_Location_Smaller": location_smaller,
                   "Illusion_Strength_Absolute": abs(illusion_strength),
