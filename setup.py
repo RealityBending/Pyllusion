@@ -24,7 +24,7 @@ install_requires = [
     'neuropsydia > 1.0.0'],
 dependency_links=[
 	"https://github.com/neuropsychology/Neuropsydia.py/zipball/master"],
-long_description = open('README.rst').read(),
+long_description = open('README.md').read(),
 keywords = "python pyllusion visual optical illusions",
 url = "https://github.com/DominiqueMakowski/Pyllusion/",
 download_url = 'https://github.com/DominiqueMakowski/Pyllusion/zipball/master',
