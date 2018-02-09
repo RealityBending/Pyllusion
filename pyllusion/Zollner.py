@@ -27,10 +27,10 @@ def zollner_compute(illusion_strength=0, real_angle=0):
     slope = np.tan(np.radians(slope+90))
     x = 1/slope
     
-    x1 = -x
-    y1 = -1
-    x2 = x
-    y2 = 1
+    x1 = -x*1.5
+    y1 = -1*1.5
+    x2 = x*1.5
+    y2 = 1*1.5
     
     
     parameters = {"Illusion_Strength": illusion_strength,
@@ -57,9 +57,6 @@ def zollner_display(parameters):
         n.line(left_x=-5+i+parameters["Distractor_Left_x"], left_y=2+parameters["Distractor_Left_y"], right_x=-5+i+parameters["Distractor_Right_x"], right_y=2+parameters["Distractor_Right_y"], line_color="black", thickness=6)
     for i in range (11):
         n.line(left_x=-5+i-parameters["Distractor_Left_x"], left_y=-2+parameters["Distractor_Left_y"], right_x=-5+i-parameters["Distractor_Right_x"], right_y=-2+parameters["Distractor_Right_y"], line_color="black", thickness=6)
-
-
-
 
 
 
