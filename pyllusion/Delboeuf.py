@@ -9,20 +9,49 @@ import neuropsydia as n
 
 
 
-def delboeuf_compute(distance=5, distance_auto = True, inner_size_smaller=3, outer_size_smaller=0, location_smaller="left", real_difference_ratio=0, illusion_strength=0):
+def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, distance_auto=True):
     """
+    Delboeuf Illusion
+
+    Parameters
+    ----------
+    difficulty : float
+        Size of right inner circle.
+    illusion : float
+        Size of outer circles.
+    inner_size_left : float
+        Size of left inner circle.
+    distance : float
+        distance between circles.
+    distance_auto : bool
+        If true, distance is between edges (fixed spacing), if false, between centers (fixed location).
     """
 
-    inner_size_larger = inner_size_smaller*(real_difference_ratio+1)
-    outer_size_smaller = (inner_size_smaller + (inner_size_larger/10))*(outer_size_smaller+1)
-    outer_size_larger = inner_size_larger + (inner_size_larger/10)
+    inner_size_right = inner_size_left +  inner_size_left * difficulty
 
-    if illusion_strength < 0:
-        illusion_type = "Incongruent"
-        outer_size_larger = outer_size_larger + (outer_size_larger * abs(illusion_strength))
-    else:
-        illusion_type = "Congruent"
-        outer_size_smaller = outer_size_smaller + (outer_size_smaller * abs(illusion_strength))
+    outer_size_left = inner_size_left + (inner_size_left/10)
+    outer_size_right = inner_size_right + (inner_size_right/10)
+
+    if difficulty > 0: # if right is larger
+        if illusion > 0: # if right is supposed to look smaller
+            illusion_type = "Incongruent"
+            outer_size_right = outer_size_right + outer_size_right * illusion
+        else:
+            illusion_type = "Congruent"
+            outer_size_left = outer_size_left + outer_size_left * abs(illusion)
+    else: # if left is larger
+        if illusion > 0: # if left is supposed to look smaller
+            illusion_type = "Incongruent"
+            outer_size_left = outer_size_left + outer_size_left * illusion
+        else:
+            illusion_type = "Congruent"
+            outer_size_right = outer_size_right + outer_size_right * abs(illusion)
+
+    inner_size_smaller = min([inner_size_left, inner_size_right])
+    inner_size_larger = max([inner_size_left, inner_size_right])
+    outer_size_smaller = min([outer_size_left, outer_size_right])
+    outer_size_larger = max([outer_size_left, outer_size_right])
+
 
 
 
@@ -30,57 +59,44 @@ def delboeuf_compute(distance=5, distance_auto = True, inner_size_smaller=3, out
         distance_centers = distance
         position_left = 0 - distance_centers/2
         position_right = 0 + distance_centers/2
-        distance_edges_inner = distance_centers - (inner_size_smaller/2 + inner_size_larger/2)
-        distance_edges_outer = distance_centers - (outer_size_smaller/2 + outer_size_larger/2)
+        distance_edges_inner = distance_centers - (inner_size_left/2 + inner_size_right/2)
+        distance_edges_outer = distance_centers - (outer_size_left/2 + outer_size_right/2)
     else:
         distance_edges_outer = distance
-        distance_centers = distance_edges_outer + (outer_size_smaller/2 + outer_size_larger/2)
-        distance_edges_inner = distance_centers - (inner_size_smaller/2 + inner_size_larger/2)
+        distance_centers = distance_edges_outer + (inner_size_left/2 + inner_size_right/2)
+        distance_edges_inner = distance_centers - (outer_size_left/2 + outer_size_right/2)
         position_left = 0-distance_centers/2
         position_right = 0+distance_centers/2
 
 
 
-    if location_smaller == "left":
-        inner_left_size = inner_size_smaller
-        inner_right_size = inner_size_larger
-        outer_left_size = outer_size_smaller
-        outer_right_size = outer_size_larger
-    else:
-        inner_left_size = inner_size_larger
-        inner_right_size = inner_size_smaller
-        outer_left_size = outer_size_larger
-        outer_right_size = outer_size_smaller
+    parameters = {"Illusion": illusion,
+                  "Illusion_Absolute": abs(illusion),
+                  "Illusion_Type": illusion_type,
+                  "Difficulty": difficulty,
+                  "Difficulty_Absolute": abs(difficulty),
 
+                  "Difficulty_Ratio": inner_size_larger/inner_size_smaller,
+                  "Difficulty_Diff": inner_size_larger-inner_size_smaller,
 
+                  "Size_Inner_Left": inner_size_left,
+                  "Size_Inner_Right": inner_size_right,
+                  "Size_Outer_Left": outer_size_left,
+                  "Size_Outer_Right": outer_size_right,
 
-    parameters = {"Distance_Centers": distance_centers,
+                  "Distance_Centers": distance_centers,
                   "Distance_Edges_Inner": distance_edges_inner,
+                  "Distance_Edges_Outer": distance_edges_outer,
                   "Auto_Distance": distance_auto,
-                  "Position_Left": position_left,
-                  "Position_Right": position_right,
 
                   "Size_Inner_Smaller": inner_size_smaller,
                   "Size_Inner_Larger": inner_size_larger,
                   "Size_Outer_Smaller": outer_size_smaller,
                   "Size_Outer_Larger": outer_size_larger,
-                  "Size_Inner_Left": inner_left_size,
-                  "Size_Inner_Right": inner_right_size,
-                  "Size_Outer_Left": outer_left_size,
-                  "Size_Outer_Right": outer_right_size,
 
-                  "Real_Difference_Inner_Ratio": inner_size_larger/inner_size_smaller-1,
-                  "Real_Difference_Inner_Difference": inner_size_larger-inner_size_smaller,
-                  "Real_Difference_Outer_Ratio": inner_size_larger/outer_size_smaller-1,
-                  "Real_Difference_Outer_Difference": inner_size_larger-outer_size_smaller,
-                  
-                  "Difficulty": abs(inner_size_larger/inner_size_smaller-1),
-                  "Difficulty_Absolute": abs(inner_size_larger-inner_size_smaller),
 
-                  "Real_Location_Smaller": location_smaller,
-                  "Illusion_Strength_Absolute": abs(illusion_strength),
-                  "Illusion_Strength": illusion_strength,
-                  "Illusion_Type": illusion_type
+                  "Position_Left": position_left,
+                  "Position_Right": position_right,
                   }
 
     return(parameters)

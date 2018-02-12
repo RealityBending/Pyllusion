@@ -15,7 +15,20 @@ n.start()
 # Delboeuf
 # =============================================================================
 #n.instructions("Delboeuf")
-#
+
+for difficulty in [0.1, 0.5, 0.8, -0.8, -0.5]:
+    for illusion in [0, 0.5, -0.5]:
+
+        n.newpage()
+        parameters = il.delboeuf_compute(difficulty=difficulty, illusion=illusion)
+        il.delboeuf_display(parameters)
+        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
+        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
+        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
+        n.refresh()
+        n.response()
+
+
 #for i in range(10):
 #    location_smaller = np.random.choice(["right", "left"])
 #    distance = round(np.random.uniform(1, 5), 1)
@@ -46,58 +59,56 @@ n.start()
 # =============================================================================
 #n.instructions("Ponzo")
 #
-#for i in range(10):
-#    illusion_strength = round(np.random.uniform(-10, 10), 1)
-#    real_difference = round(np.random.uniform(0, 0.5 ), 1)
+#for difficulty in [25, -25]:
+#    for illusion in [20, -20]:
 #
-#    n.newpage()
-#    parameters = il.ponzo_compute(illusion_strength=illusion_strength, real_difference=real_difference)
-#    il.ponzo_display(parameters)
-#    n.write("Illusion" + str(illusion_strength), y=9)
-#    n.write("Real" + str(real_difference), y=8)
-#    n.refresh()
-#    n.response()
+#        n.newpage()
+#        parameters = il.ponzo_compute(difficulty=difficulty, illusion=illusion)
+#        il.ponzo_display(parameters)
+#        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
+#        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
+#        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
+#        n.refresh()
+#        n.response()
 
 
 
 # =============================================================================
 # RodFrame
 # =============================================================================
-n.instructions("Rod and Frame")
-
-for rod_angle in np.arange(-20, 21, 5):
-    for illusion_strength in np.arange(-45, 46, 15):
-
-
-        n.newpage()
-        parameters = il.rodframe_compute(illusion_strength=illusion_strength, rod_angle=rod_angle)
-        il.rodframe_display(parameters)
-        n.write("Illusion: " + str(round(parameters["Illusion_Strength"], 2)), y=9)
-        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=8)
-        n.refresh()
-        n.response()
+#n.instructions("Rod and Frame")
+#
+#for difficulty in [15, -15]:
+#    for illusion in [30, -30]:
+#
+#        n.newpage()
+#        parameters = il.rodframe_compute(difficulty=difficulty, illusion=illusion)
+#        il.rodframe_display(parameters)
+#        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
+#        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
+#        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
+#        n.refresh()
+#        n.response()
 
 
 
 # =============================================================================
 # Zollner
 # =============================================================================
-#n.instructions("Zollner")
+#for difficulty in [5, -5]:
+#    for illusion in [20, -20]:
 #
-#for i in range(20):
-#    illusion_strength = round(np.random.uniform(-1.5, 1.5), 2)
-#    real_angle = round(np.random.uniform(-10, 10), 2)
+#        n.newpage()
+#        parameters = il.zollner_compute(difficulty=difficulty, illusion=illusion)
+#        il.zollner_display(parameters)
+#        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
+#        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
+#        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
+#        n.refresh()
+#        n.response()
+
 #
-#    n.newpage()
-#    parameters = il.zollner_compute(illusion_strength=illusion_strength, real_angle=real_angle)
-#    il.zollner_display(parameters)
-#    n.write("Illusion: " + str(illusion_strength), y=9)
-#    n.write("Real: " + str(real_angle), y=8)
-#    n.refresh()
-#    n.response()
-#
-#
-#n.close()
+
 
 
 # =============================================================================
@@ -111,3 +122,4 @@ for rod_angle in np.arange(-20, 21, 5):
 #img.show()
 
 
+n.close()
