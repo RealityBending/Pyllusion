@@ -65,17 +65,17 @@ n.start()
 # =============================================================================
 n.instructions("Rod and Frame")
 
-for i in range(10):
-    illusion_strength = round(np.random.uniform(-45, 45), 1)
-    rod_angle = round(np.random.uniform(-10, 10), 1)
+for rod_angle in np.arange(-20, 21, 5):
+    for illusion_strength in np.arange(-45, 46, 15):
 
-    n.newpage()
-    parameters = il.rodframe_compute(illusion_strength=illusion_strength, rod_angle=rod_angle)
-    il.rodframe_display(parameters)
-    n.write("Illusion: " + str(round(parameters["Illusion_Strength"], 2)), y=9)
-    n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=8)
-    n.refresh()
-    n.response()
+
+        n.newpage()
+        parameters = il.rodframe_compute(illusion_strength=illusion_strength, rod_angle=rod_angle)
+        il.rodframe_display(parameters)
+        n.write("Illusion: " + str(round(parameters["Illusion_Strength"], 2)), y=9)
+        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=8)
+        n.refresh()
+        n.response()
 
 
 
