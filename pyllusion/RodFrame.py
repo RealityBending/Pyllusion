@@ -20,8 +20,8 @@ def rodframe_compute(illusion_strength=0, frame_size=10, rod_angle=0, rod_size=6
                   "Rod_Angle": rod_angle,
                   "Frame_Size": frame_size,
                   "Rod_Size": rod_size,
-                  "Difficulty": 1-(abs(rod_angle)/45),
-                  "Illusion_Strength": illusion_strength/45}
+                  "Difficulty": abs(rod_angle),
+                  "Illusion_Strength": illusion_strength}
 
     return(parameters)
 

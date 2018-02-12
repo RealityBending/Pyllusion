@@ -82,32 +82,32 @@ for i in range(10):
 # =============================================================================
 # Zollner
 # =============================================================================
-n.instructions("Zollner")
-
-for i in range(20):
-    illusion_strength = round(np.random.uniform(-1.5, 1.5), 2)
-    real_angle = round(np.random.uniform(-10, 10), 2)
-
-    n.newpage()
-    parameters = il.zollner_compute(illusion_strength=illusion_strength, real_angle=real_angle)
-    il.zollner_display(parameters)
-    n.write("Illusion: " + str(illusion_strength), y=9)
-    n.write("Real: " + str(real_angle), y=8)
-    n.refresh()
-    n.response()
-
-
-n.close()
+#n.instructions("Zollner")
+#
+#for i in range(20):
+#    illusion_strength = round(np.random.uniform(-1.5, 1.5), 2)
+#    real_angle = round(np.random.uniform(-10, 10), 2)
+#
+#    n.newpage()
+#    parameters = il.zollner_compute(illusion_strength=illusion_strength, real_angle=real_angle)
+#    il.zollner_display(parameters)
+#    n.write("Illusion: " + str(illusion_strength), y=9)
+#    n.write("Real: " + str(real_angle), y=8)
+#    n.refresh()
+#    n.response()
+#
+#
+#n.close()
 
 
 # =============================================================================
 # Pareidolia
 # =============================================================================
-img1 = il.create_image_blobs(figsize=(10, 10), n=2500, blobsize=1, blur_radius=5, background="black")
-img2 = il.create_image_blobs(figsize=(10, 10), n=150, blobsize=2.5, blur_radius=15, background="black")
-img3 = il.create_image_blobs(figsize=(10, 10), n=10, blobsize=5, blur_radius=15, background="black")
-
-img = il.merge_images(il.merge_images(img3, img2), img1)
-img.show()
+#img1 = il.create_image_blobs(figsize=(10, 10), n=2500, blobsize=1, blur_radius=5, background="black")
+#img2 = il.create_image_blobs(figsize=(10, 10), n=150, blobsize=2.5, blur_radius=15, background="black")
+#img3 = il.create_image_blobs(figsize=(10, 10), n=10, blobsize=5, blur_radius=15, background="black")
+#
+#img = il.merge_images(il.merge_images(img3, img2), img1)
+#img.show()
 
 
