@@ -9,7 +9,7 @@ import neuropsydia as n
 
 
 
-def ponzo_compute(difficulty=0, illusion=0, distance=10, bottom_line_length=10, bottom_line_thickness=14, vertical_lines_thickness=5):
+def ponzo_compute(difficulty=0, illusion=0, distance=10, bottom_line_length=8, bottom_line_thickness=14, vertical_lines_thickness=5):
     """
     Ponzo Illusion
 
