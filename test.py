@@ -16,17 +16,17 @@ n.start()
 # =============================================================================
 #n.instructions("Delboeuf")
 
-for difficulty in [0.1, 0.5, 0.8, -0.8, -0.5]:
-    for illusion in [0, 0.5, -0.5]:
-
-        n.newpage()
-        parameters = il.delboeuf_compute(difficulty=difficulty, illusion=illusion)
-        il.delboeuf_display(parameters)
-        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
-        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
-        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
-        n.refresh()
-        n.response()
+#for difficulty in [0.1, 0.5, 0.8, -0.8, -0.5]:
+#    for illusion in [0, 0.5, -0.5]:
+#
+#        n.newpage()
+#        parameters = il.delboeuf_compute(difficulty=difficulty, illusion=illusion)
+#        il.delboeuf_display(parameters)
+#        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
+#        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
+#        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
+#        n.refresh()
+#        n.response()
 
 
 #for i in range(10):
@@ -108,6 +108,14 @@ for difficulty in [0.1, 0.5, 0.8, -0.8, -0.5]:
 #        n.response()
 
 #
+
+# =============================================================================
+# TFM
+# =============================================================================
+n.instructions("Transparency From Motion")
+for i in np.arange(0, 360, 60):
+    parameters = il.TFM(angle=i)
+    response = il.TFM_Response(parameters)
 
 
 
