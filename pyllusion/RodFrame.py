@@ -55,5 +55,5 @@ def rodframe_display(parameters):
     """
     """
     n.image(pyllusion_path + "frame.png", rotate=-1*parameters["Frame_Angle"], size=parameters["Frame_Size"])
-    n.image(pyllusion_path + "rod.png", rotate=-1*parameters["Rod_Angle"], size=parameters["Rod_Size"])
+    n.image(pyllusion_path + "rod_red.png", rotate=-1*parameters["Rod_Angle"], size=parameters["Rod_Size"])
 
