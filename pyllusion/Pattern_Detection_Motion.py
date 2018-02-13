@@ -13,7 +13,7 @@ import datetime
 
 
 
-def PDM(signal=50, angle=0, n_points=1000, motion_size=75, box_size=8, point_size=0.05, point_speed=1, ITI=1000):
+def PDM(signal=50, angle=0, n_points=1000, motion_slow=0, motion_size=75, box_size=8, point_size=0.05, point_speed=1, ITI=1000):
     """
     Pattern Detection in Motion
     """
@@ -90,6 +90,8 @@ def PDM(signal=50, angle=0, n_points=1000, motion_size=75, box_size=8, point_siz
         random_y += random_y_movement
         # TODO: ensure that points stay in the mask area (and transport them from one side to another if needed)
         n.refresh()
+        if motion_slow > 0:
+            n.time.wait(motion_slow)
 
     # Save
     duration = datetime.datetime.now()-time_start

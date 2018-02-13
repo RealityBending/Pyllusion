@@ -7,8 +7,9 @@ import neuropsydia as n
 import numpy as np
 import pandas as pd
 import pyllusion as il
+import neurokit as nk
 import PsiStaircase
-
+import scipy
 
 
 n.start()
@@ -115,15 +116,17 @@ n.start()
 # =============================================================================
 #n.instructions("Transparency From Motion")
 #for i in np.arange(0, 360, 60):
-#    parameters = il.TFM(angle=i)
+#    parameters = il.TFM(angle=i, motion_slow=10)
 #    response = il.TFM_response(parameters)
+
 
 # =============================================================================
 # Pattern Detection in Motion
 # =============================================================================
-n_trials = 30
+n_trials = 20
 
-staircase = PsiStaircase.Psi(stimRange=np.arange(0, 75.5, 0.5), Pfunction='cGauss', nTrials=n_trials, threshold=None, thresholdPrior=('uniform', None), slope=None, slopePrior=('uniform', None), guessRate=None, guessPrior=('uniform', None), lapseRate=None, lapsePrior=('uniform', None), marginalize=True, thread=True)
+# PSI STAIRCASE
+staircase = PsiStaircase.Psi(stimRange=np.arange(0, 100, 1), Pfunction='Gumbel', nTrials=n_trials, threshold=None, thresholdPrior=('uniform', None), slope=None, slopePrior=('uniform', None), guessRate=None, guessPrior=('uniform', None), lapseRate=None, lapsePrior=('uniform', None), marginalize=True, thread=True)
 
 n.instructions("Pattern Detection in Motion")
 
@@ -134,7 +137,7 @@ for trial in range(n_trials):
         pass # hang in this loop until the psi calculation has finished
     signal = staircase.xCurrent
 
-    parameters = il.PDM(signal=signal, angle=angle)
+    parameters = il.PDM(signal=signal, angle=angle, motion_slow=10)
     response = il.PDM_response(parameters)
     if response == angle:
         correct = 1
@@ -150,19 +153,29 @@ print("====")
 print("Slope: %.02f +- %.02f" %(staircase.eSlope, staircase.stdSlope))
 print("Treshold: %.02f +- %.02f" %(staircase.eThreshold, staircase.stdThreshold))
 
-#
-#staircase.eSlope
-#staircase.stdSlope
-#staircase.eThreshold
-#staircase.stdThreshold
 
+# STAIRCASE
+n.instructions("Pattern Detection in Motion")
 
-#pd.Series(staircase.threshold, staircase.pThreshold).plot()
-#pd.Series(staircase.slope, staircase.pSlope).plot()
+for trial in range(n_trials):
+    signal = None
+    angle = np.random.uniform(0, 360)
+    while staircase.xCurrent == None:
+        pass # hang in this loop until the psi calculation has finished
+    signal = 100
 
+    parameters = il.PDM(signal=signal, angle=angle, motion_slow=10)
+    response = il.PDM_response(parameters)
+    if response == angle:
+        correct = 1
+    else:
+        correct = 0
+    print(correct)
+    print(signal)
+    print("---")
 
-
-#staircase.plot()
+    staircase.addData(correct)
+    
 # =============================================================================
 # Pareidolia
 # =============================================================================
