@@ -49,7 +49,7 @@ def zollner_compute(difficulty=0, illusion=0):
                   "Distractor_Right_x": x2,
                   "Distractor_Right_y": y2,
                   "Distractor_Slope": slope,
-                  "Distractor_Thickness": 30,
+                  "Distractor_Thickness": 25,
                   "Top_Line_Angle": difficulty,
                   "Bottom_Line_Angle": -difficulty,
                   "Top_Line_x": -0.25,
