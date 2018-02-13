@@ -5,8 +5,9 @@ Pyllusion module testing suite.
 
 import neuropsydia as n
 import numpy as np
+import pandas as pd
 import pyllusion as il
-
+import PsiStaircase
 
 
 
@@ -112,13 +113,56 @@ n.start()
 # =============================================================================
 # TFM
 # =============================================================================
-n.instructions("Transparency From Motion")
-for i in np.arange(0, 360, 60):
-    parameters = il.TFM(angle=i)
-    response = il.TFM_Response(parameters)
+#n.instructions("Transparency From Motion")
+#for i in np.arange(0, 360, 60):
+#    parameters = il.TFM(angle=i)
+#    response = il.TFM_response(parameters)
+
+# =============================================================================
+# Pattern Detection in Motion
+# =============================================================================
+n_trials = 30
+
+staircase = PsiStaircase.Psi(stimRange=np.arange(0, 75.5, 0.5), Pfunction='cGauss', nTrials=n_trials, threshold=None, thresholdPrior=('uniform', None), slope=None, slopePrior=('uniform', None), guessRate=None, guessPrior=('uniform', None), lapseRate=None, lapsePrior=('uniform', None), marginalize=True, thread=True)
+
+n.instructions("Pattern Detection in Motion")
+
+for trial in range(n_trials):
+    signal = None
+    angle = np.random.uniform(0, 360)
+    while staircase.xCurrent == None:
+        pass # hang in this loop until the psi calculation has finished
+    signal = staircase.xCurrent
+
+    parameters = il.PDM(signal=signal, angle=angle)
+    response = il.PDM_response(parameters)
+    if response == angle:
+        correct = 1
+    else:
+        correct = 0
+    print(correct)
+    print(signal)
+    print("---")
+
+    staircase.addData(correct)
+
+print("====")
+print("Slope: %.02f +- %.02f" %(staircase.eSlope, staircase.stdSlope))
+print("Treshold: %.02f +- %.02f" %(staircase.eThreshold, staircase.stdThreshold))
+
+#
+#staircase.eSlope
+#staircase.stdSlope
+#staircase.eThreshold
+#staircase.stdThreshold
+
+
+#pd.Series(staircase.threshold, staircase.pThreshold).plot()
+#pd.Series(staircase.slope, staircase.pSlope).plot()
 
 
 
+#staircase.plot()
 # =============================================================================
 # Pareidolia
 # =============================================================================

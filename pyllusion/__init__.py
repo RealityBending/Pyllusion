@@ -21,4 +21,5 @@ from .Pareidolia import *
 from .Ponzo import *
 from .RodFrame import *
 from .Zollner import *
-from .TFM import *
+from .Transparency_From_Motion import *
+from .Pattern_Detection_Motion import *

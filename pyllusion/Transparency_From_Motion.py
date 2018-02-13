@@ -105,7 +105,7 @@ def TFM(angle=0, n_points=1000, motion_size=75, box_size=8, point_size=0.05, poi
     return(parameters)
 
 
-def TFM_Response(parameters):
+def TFM_response(parameters):
     pygame.mouse.set_visible(True)
 
     n.newpage("grey")
