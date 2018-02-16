@@ -78,19 +78,19 @@ n.start()
 # =============================================================================
 # RodFrame
 # =============================================================================
-#n.instructions("Rod and Frame")
-#
-#for difficulty in [15, -15]:
-#    for illusion in [30, -30]:
-#
-#        n.newpage()
-#        parameters = il.rodframe_compute(difficulty=difficulty, illusion=illusion)
-#        il.rodframe_display(parameters)
-#        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
-#        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
-#        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
-#        n.refresh()
-#        n.response()
+n.instructions("Rod and Frame")
+
+for difficulty in [15, -15]:
+    for illusion in [30, -30]:
+
+        n.newpage("grey")
+        parameters = il.rodframe_compute(difficulty=difficulty, illusion=illusion)
+        il.rodframe_display(parameters)
+        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
+        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
+        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
+        n.refresh()
+        n.response()
 
 
 
@@ -126,56 +126,70 @@ n.start()
 n_trials = 20
 
 # PSI STAIRCASE
-staircase = PsiStaircase.Psi(stimRange=np.arange(0, 100, 1), Pfunction='Gumbel', nTrials=n_trials, threshold=None, thresholdPrior=('uniform', None), slope=None, slopePrior=('uniform', None), guessRate=None, guessPrior=('uniform', None), lapseRate=None, lapsePrior=('uniform', None), marginalize=True, thread=True)
+#staircase = PsiStaircase.Psi(stimRange=np.arange(0, 100, 1), Pfunction='Gumbel', nTrials=n_trials, threshold=None, thresholdPrior=('uniform', None), slope=None, slopePrior=('uniform', None), guessRate=None, guessPrior=('uniform', None), lapseRate=None, lapsePrior=('uniform', None), marginalize=True, thread=True)
+#
+#n.instructions("Pattern Detection in Motion")
+#
+#for trial in range(n_trials):
+#    signal = None
+#    angle = np.random.uniform(0, 360)
+#    while staircase.xCurrent == None:
+#        pass # hang in this loop until the psi calculation has finished
+#    signal = staircase.xCurrent
+#
+#    parameters = il.PDM(signal=signal, angle=angle, motion_slow=10)
+#    response = il.PDM_response(parameters)
+#    if response == angle:
+#        correct = 1
+#    else:
+#        correct = 0
+#    print(correct)
+#    print(signal)
+#    print("---")
+#
+#    staircase.addData(correct)
+#
+#print("====")
+#print("Slope: %.02f +- %.02f" %(staircase.eSlope, staircase.stdSlope))
+#print("Treshold: %.02f +- %.02f" %(staircase.eThreshold, staircase.stdThreshold))
 
-n.instructions("Pattern Detection in Motion")
-
-for trial in range(n_trials):
-    signal = None
-    angle = np.random.uniform(0, 360)
-    while staircase.xCurrent == None:
-        pass # hang in this loop until the psi calculation has finished
-    signal = staircase.xCurrent
-
-    parameters = il.PDM(signal=signal, angle=angle, motion_slow=10)
-    response = il.PDM_response(parameters)
-    if response == angle:
-        correct = 1
-    else:
-        correct = 0
-    print(correct)
-    print(signal)
-    print("---")
-
-    staircase.addData(correct)
-
-print("====")
-print("Slope: %.02f +- %.02f" %(staircase.eSlope, staircase.stdSlope))
-print("Treshold: %.02f +- %.02f" %(staircase.eThreshold, staircase.stdThreshold))
 
 
-# STAIRCASE
-n.instructions("Pattern Detection in Motion")
 
-for trial in range(n_trials):
-    signal = None
-    angle = np.random.uniform(0, 360)
-    while staircase.xCurrent == None:
-        pass # hang in this loop until the psi calculation has finished
-    signal = 100
 
-    parameters = il.PDM(signal=signal, angle=angle, motion_slow=10)
-    response = il.PDM_response(parameters)
-    if response == angle:
-        correct = 1
-    else:
-        correct = 0
-    print(correct)
-    print(signal)
-    print("---")
 
-    staircase.addData(correct)
-    
+
+
+# =============================================================================
+# Illusory movement
+# =============================================================================
+#n.instructions("Pattern Detection in Motion")
+#
+#
+#staircase = staircase_glm(signal_range=[0, 100], treshold=0.80, n=100, burn=5)
+#
+#for trial in range(n_trials):
+#    angle = np.random.uniform(0, 360)
+#    signal = staircase.predict_next_value()
+#
+#    parameters = il.PDM(signal=signal, angle=angle, motion_slow=10)
+#    response = il.PDM_response(parameters)
+#    if response == angle:
+#        correct = 1
+#    else:
+#        correct = 0
+#
+#    staircase.add_response(correct, signal)
+#
+#fig, axes = plt.subplots(nrows=2, ncols=2)
+#
+#staircase.get_treshold()
+#
+#data = staircase.get_data()
+#data["Signal"].plot()
+
+
+
 # =============================================================================
 # Pareidolia
 # =============================================================================
