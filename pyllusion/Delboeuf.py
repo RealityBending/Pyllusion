@@ -9,7 +9,7 @@ import neuropsydia as n
 
 
 
-def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, distance_auto=True):
+def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, distance_auto=True, background_color="grey"):
     """
     Delboeuf Illusion
 
@@ -25,6 +25,8 @@ def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, di
         distance between circles.
     distance_auto : bool
         If true, distance is between edges (fixed spacing), if false, between centers (fixed location).
+    background_color : str
+        Background color.
     """
 
     inner_size_right = inner_size_left +  inner_size_left * difficulty
@@ -97,6 +99,8 @@ def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, di
 
                   "Position_Left": position_left,
                   "Position_Right": position_right,
+
+                  "Background_Color": background_color
                   }
 
     return(parameters)
@@ -107,9 +111,9 @@ def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, di
 def delboeuf_display(parameters=None):
     """
     """
-    n.circle(x=parameters["Position_Left"], size=parameters["Size_Outer_Left"], fill_color="white", line_color="black", thickness=0.05)
+    n.circle(x=parameters["Position_Left"], size=parameters["Size_Outer_Left"], fill_color=parameters["Background_Color"], line_color="black", thickness=0.05)
     n.circle(x=parameters["Position_Left"], size=parameters["Size_Inner_Left"], fill_color="red", line_color="white")
-    n.circle(x=parameters["Position_Right"], size=parameters["Size_Outer_Right"], fill_color="white", line_color="black", thickness=0.05)
+    n.circle(x=parameters["Position_Right"], size=parameters["Size_Outer_Right"], fill_color=parameters["Background_Color"], line_color="black", thickness=0.05)
     n.circle(x=parameters["Position_Right"], size=parameters["Size_Inner_Right"], fill_color="red", line_color="white")
 
 
