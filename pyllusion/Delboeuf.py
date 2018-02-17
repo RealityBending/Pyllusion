@@ -9,7 +9,7 @@ import neuropsydia as n
 
 
 
-def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, distance_auto=True, background_color="grey"):
+def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, distance_auto=True, background_color="white"):
     """
     Delboeuf Illusion
 

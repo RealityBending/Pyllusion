@@ -139,9 +139,11 @@ def TFM_response(parameters):
 
     x, y = n.Coordinates.from_pygame(x=x, y=y)
     if x < 0:
+        response_side = "LEFT"
         response = parameters["Angle"]
         n.rectangle(x=-5, width=10, height=20, fill_color="green")
     else:
+        response_side = "RIGHT"
         response = parameters["Angle"]+180
         n.rectangle(x=5, width=10, height=20, fill_color="green")
     if response >= 360:
@@ -151,5 +153,5 @@ def TFM_response(parameters):
     n.refresh()
     n.time.wait(50)
     pygame.mouse.set_visible(False)
-    return(response)
+    return(response, response_side)
 
