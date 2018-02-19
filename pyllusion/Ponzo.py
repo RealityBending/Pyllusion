@@ -9,7 +9,7 @@ import neuropsydia as n
 
 
 
-def ponzo_compute(difficulty=0, illusion=0, distance=10, bottom_line_length=8, bottom_line_thickness=14, vertical_lines_thickness=5):
+def ponzo_compute(difficulty=0, illusion=0, distance=10, minimum_length=5, bottom_line_thickness=14, vertical_lines_thickness=5):
     """
     Ponzo Illusion
 
@@ -19,14 +19,25 @@ def ponzo_compute(difficulty=0, illusion=0, distance=10, bottom_line_length=8, b
         Real difference of top line.
     illusion : float
         Distance between lines.
-    bottom_line_size : float
-        Bottom line size.
+    minimum_length : float
+        Minimum line size.
     bottom_line_y : float
         Bottom line vertical position.
     bottom_line_thickness : float
         Horizontal lines' thickness.
     """
-    top_line_length = bottom_line_length + (difficulty*bottom_line_length)
+    if difficulty > 0: # if down is smaller
+        bottom_line_length = minimum_length
+        top_line_length = bottom_line_length + (abs(difficulty)*bottom_line_length)
+
+    else:
+        top_line_length = minimum_length
+        bottom_line_length = top_line_length + (abs(difficulty)*top_line_length)
+
+    length_smaller = min([bottom_line_length, top_line_length])
+    length_larger = max([bottom_line_length, top_line_length])
+
+
 
     bottom_line_left_x = 0-bottom_line_length/2
     bottom_line_right_x = 0+bottom_line_length/2
@@ -48,6 +59,8 @@ def ponzo_compute(difficulty=0, illusion=0, distance=10, bottom_line_length=8, b
     else:
         illusion_type = "Congruent"
 
+
+
     larger_line = max([top_line_length, bottom_line_length])
     smallest_line = min([top_line_length, bottom_line_length])
 
@@ -64,8 +77,8 @@ def ponzo_compute(difficulty=0, illusion=0, distance=10, bottom_line_length=8, b
                   "Top_Line_Right_y": top_line_right_y,
                   "Top_Line_Length": top_line_length,
 
-                  "Larger_Line_Length": larger_line,
-                  "Smallest_Line_Length": smallest_line,
+                  "Larger_Line_Length": length_larger,
+                  "Smallest_Line_Length": length_smaller,
 
                   "Vertical_Line_Angle": vertical_angle,
 

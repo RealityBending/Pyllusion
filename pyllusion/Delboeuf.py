@@ -9,7 +9,7 @@ import neuropsydia as n
 
 
 
-def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, distance_auto=True, background_color="white"):
+def delboeuf_compute(difficulty=0, illusion=0, minimum_size=2.5, distance=5, distance_auto=True, background_color="white"):
     """
     Delboeuf Illusion
 
@@ -19,8 +19,8 @@ def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, di
         Size of right inner circle.
     illusion : float
         Size of outer circles.
-    inner_size_left : float
-        Size of left inner circle.
+    minimum_size : float
+        Size of smaller inner circle.
     distance : float
         distance between circles.
     distance_auto : bool
@@ -28,31 +28,38 @@ def delboeuf_compute(difficulty=0, illusion=0, inner_size_left=3, distance=5, di
     background_color : str
         Background color.
     """
+    if difficulty > 0: # if right is smaller
+        inner_size_right = minimum_size
+        inner_size_left = inner_size_right + inner_size_right * abs(difficulty)
+        outer_size_left = inner_size_left + (inner_size_left/10)
+        outer_size_right = inner_size_right + (inner_size_right/10)
 
-    inner_size_right = inner_size_left +  inner_size_left * difficulty
-
-    outer_size_left = inner_size_left + (inner_size_left/10)
-    outer_size_right = inner_size_right + (inner_size_right/10)
-
-    if difficulty > 0: # if right is larger
-        if illusion > 0: # if right is supposed to look smaller
+        if illusion > 0:
             illusion_type = "Incongruent"
-            outer_size_right = outer_size_right + outer_size_right * illusion
-        else:
-            illusion_type = "Congruent"
             outer_size_left = outer_size_left + outer_size_left * abs(illusion)
-    else: # if left is larger
-        if illusion > 0: # if left is supposed to look smaller
-            illusion_type = "Incongruent"
-            outer_size_left = outer_size_left + outer_size_left * illusion
         else:
             illusion_type = "Congruent"
             outer_size_right = outer_size_right + outer_size_right * abs(illusion)
+
+    else:
+        inner_size_left = minimum_size
+        inner_size_right = inner_size_left +  inner_size_left * abs(difficulty)
+        outer_size_left = inner_size_left + (inner_size_left/10)
+        outer_size_right = inner_size_right + (inner_size_right/10)
+
+        if illusion > 0:
+            illusion_type = "Incongruent"
+            outer_size_right = outer_size_right + outer_size_right * abs(illusion)
+        else:
+            illusion_type = "Congruent"
+            outer_size_left = outer_size_left + outer_size_left * abs(illusion)
+
 
     inner_size_smaller = min([inner_size_left, inner_size_right])
     inner_size_larger = max([inner_size_left, inner_size_right])
     outer_size_smaller = min([outer_size_left, outer_size_right])
     outer_size_larger = max([outer_size_left, outer_size_right])
+
 
 
 

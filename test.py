@@ -8,7 +8,6 @@ import numpy as np
 import pandas as pd
 import pyllusion as il
 import neurokit as nk
-import PsiStaircase
 import scipy
 
 
@@ -17,8 +16,8 @@ n.start()
 # Delboeuf
 # =============================================================================
 #n.instructions("Delboeuf")
-
-#for difficulty in [0.1, 0.5, 0.8, -0.8, -0.5]:
+#
+#for difficulty in [0, 0.8, -0.8]:
 #    for illusion in [0, 0.5, -0.5]:
 #
 #        n.newpage()
@@ -59,38 +58,38 @@ n.start()
 # =============================================================================
 # Ponzo
 # =============================================================================
-#n.instructions("Ponzo")
-#
-#for difficulty in [25, -25]:
-#    for illusion in [20, -20]:
-#
-#        n.newpage()
-#        parameters = il.ponzo_compute(difficulty=difficulty, illusion=illusion)
-#        il.ponzo_display(parameters)
-#        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
-#        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
-#        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
-#        n.refresh()
-#        n.response()
+n.instructions("Ponzo")
+
+for difficulty in [0.5, -0.5]:
+    for illusion in [20, -20]:
+
+        n.newpage()
+        parameters = il.ponzo_compute(difficulty=difficulty, illusion=illusion)
+        il.ponzo_display(parameters)
+        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
+        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
+        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
+        n.refresh()
+        n.response()
 
 
 
 # =============================================================================
 # RodFrame
 # =============================================================================
-n.instructions("Rod and Frame")
-
-for difficulty in [15, -15]:
-    for illusion in [30, -30]:
-
-        n.newpage("grey")
-        parameters = il.rodframe_compute(difficulty=difficulty, illusion=illusion)
-        il.rodframe_display(parameters)
-        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
-        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
-        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
-        n.refresh()
-        n.response()
+#n.instructions("Rod and Frame")
+#
+#for difficulty in [15, -15]:
+#    for illusion in [30, -30]:
+#
+#        n.newpage("grey")
+#        parameters = il.rodframe_compute(difficulty=difficulty, illusion=illusion)
+#        il.rodframe_display(parameters)
+#        n.write("Difficulty: " + str(round(parameters["Difficulty"], 2)), y=9)
+#        n.write("Illusion: " + str(round(parameters["Illusion"], 2)), y=8)
+#        n.write("Type: " + str(parameters["Illusion_Type"]), y=7)
+#        n.refresh()
+#        n.response()
 
 
 
