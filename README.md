@@ -1,5 +1,5 @@
 # Pyllusion
-An Python Module for Generating Visual Illusions
+A Python Module for Generating Visual Illusions
 
 -------
 
