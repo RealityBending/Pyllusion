@@ -8,7 +8,7 @@ def pareidolia(width=480, height=480):
     """
     >>> import pyllusion as pyl
     >>>
-    >>> pyl.pareidolia(width=480, height=480, blur=blur_64, size=size, background="black", color="white")
+    >>> pyl.pareidolia(width=480, height=480)
     """
     blur_modifier = 1.3
 
