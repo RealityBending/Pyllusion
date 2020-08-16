@@ -1,7 +1,7 @@
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 
 
-def image_text(text="Hello", width=500, height=500, color="black", background="white", font="arial.ttf"):
+def image_text(text="Hello", width=500, height=500, color="black", background="white", font="arial.ttf", **kwargs):
     """
     Parameters
     ----------

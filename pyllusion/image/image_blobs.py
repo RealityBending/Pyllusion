@@ -1,4 +1,5 @@
 import numpy as np
+import scipy.signal
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from .utilities import _coord_circle
 
@@ -44,3 +45,18 @@ def _draw_blob(width, height=None, size=0.1, blur=0, color="black"):
     blob = blob.filter(PIL.ImageFilter.GaussianBlur(radius=blur * 0.01 * width))
     return blob
 
+
+
+
+
+
+def _gaussian_kernel(width=480, sd=3):
+    """Returns a 2D Gaussian kernel.
+
+    >>> array = _gaussian_kernel(width=480, sd=64)
+    >>> array = pyl.rescale(array, scale=[0, 1], to=[0, 255])
+    >>> PIL.Image.fromarray(array.astype(np.uint8))
+    """
+    gkern1d = scipy.signal.gaussian(width, std=sd).reshape(width, 1)
+    gkern2d = np.outer(gkern1d, gkern1d)
+    return gkern2d

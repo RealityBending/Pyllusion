@@ -46,9 +46,10 @@ pip install https://github.com/DominiqueMakowski/Pyllusion/zipball/master
 
 ## Features
 
-```{python, eval=FALSE}
-import pandas as pd
-import numpy as np
+```{python}
+import pyllusion as pyl
+
+pyl.autostereogram(stimulus="3D", width=1024, height=768)
 ```
 
 

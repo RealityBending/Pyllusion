@@ -13,7 +13,7 @@ from .image import image_noise, image_text
 
 
 
-def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, invert=False, **kwargs):
+def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, invert=False, guide=True, **kwargs):
     """
     Given a depth map, return an autostereogram Image computed from that depth
     map.
@@ -24,12 +24,12 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
     >>>
     >>> pyl.autostereogram(stimulus="3D", width=1000, height=500, font="arialbd.ttf")
     >>> pyl.autostereogram(stimulus="3D",
-    ...                    pattern=pyllusion.random_circles,
-    ...                    n_repetitions=20,
-    ...                    n_circles=6000,
+    ...                    pattern=pyl.image_circles,
+    ...                    n_repetitions=16,
+    ...                    n=1000,
     ...                    invert=True,
     ...                    alpha=0.75,
-    ...                    size_max=0.06)
+    ...                    size_max=0.7)
     """
     # If '/' and '.' in string, we assume it's a path
     if "/" in stimulus and "." in stimulus:
@@ -73,10 +73,11 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
                 image_pixels[x, y] = image_pixels[x - strip_width + shift_amplitude, y]
 
     # Add guide
-    draw = PIL.ImageDraw.Draw(image)
-    for i in [-2, 0]:
-        diameter = 0.005 * width
-        center_x = (width / 2) + (i * strip_width / 2)
-        center_y = 0.5 * height
-        draw.ellipse([center_x-diameter, center_y-diameter, center_x+diameter, center_y+diameter], fill=(255, 0, 0))
+    if guide is True:
+        draw = PIL.ImageDraw.Draw(image)
+        for i in [-2, 0]:
+            diameter = 0.005 * width
+            center_x = (width / 2) + (i * strip_width / 2)
+            center_y = 0.5 * height
+            draw.ellipse([center_x-diameter, center_y-diameter, center_x+diameter, center_y+diameter], fill=(255, 0, 0))
     return image
