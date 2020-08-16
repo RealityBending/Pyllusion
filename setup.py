@@ -9,7 +9,7 @@ def find_version():
 
 setup(
 name = "pyllusion",
-description = ("An Python Module for Generating Visual Illusions."),
+description = ("A Python Module for Generating Illusions."),
 version = find_version(),
 license = "Mozilla Public License Version 2.0",
 author = "Dominique Makowski",
@@ -20,8 +20,7 @@ packages = find_packages(),
 package_data = {
 	"pyllusion.stimuli":["*.ai"],
 	"pyllusion.stimuli":["*.png"]},
-install_requires = [
-    'neuropsydia'],
+install_requires = ["numpy", "pandas", "Pillow"],
 dependency_links=[
 	"https://github.com/neuropsychology/Neuropsydia.py/zipball/master"],
 long_description = open('README.md').read(),
