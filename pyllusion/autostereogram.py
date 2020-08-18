@@ -4,14 +4,6 @@ import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from .image import image_noise, image_text
 
 
-# =============================================================================
-# Autostereogram
-# =============================================================================
-
-
-
-
-
 
 def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, invert=False, guide=True, **kwargs):
     """
@@ -27,7 +19,7 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
     ...                    pattern=pyl.image_circles,
     ...                    n_repetitions=16,
     ...                    n=1000,
-    ...                    invert=True,
+    ...                    invert=False,
     ...                    alpha=0.75,
     ...                    size_max=0.7)
     """
@@ -41,6 +33,9 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
     depth_map = depth_map.convert('L')
     depth_map = PIL.ImageOps.autocontrast(depth_map)
 
+    if invert is False:
+        depth_map = PIL.ImageOps.invert(depth_map)
+
     # Get size of depth map
     width, height = depth_map.size
 
@@ -49,6 +44,10 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
     strip_width = np.int(width / n_repetitions)
 
     image = PIL.Image.new("RGB", (width, height))
+
+    # Fix conflicting arguments
+    conflicting_args = ["width", "height", "font"]
+    kwargs = {key: kwargs[key] for key in kwargs if key not in conflicting_args}
 
     # Create strip of pattern
     if pattern is None:
@@ -61,7 +60,6 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
     depth_pixels = depth_map.load()
     image_pixels = image.load()
 
-    invert = -1 if invert else 1
     for x in range(width):
         for y in range(height):
             # Need one full strip's worth to borrow from.
@@ -69,7 +67,6 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
                 image_pixels[x, y] = strip_pixels[x, y]
             else:
                 shift_amplitude = depth * (depth_pixels[x, y] / n_repetitions)
-                shift_amplitude = invert * shift_amplitude
                 image_pixels[x, y] = image_pixels[x - strip_width + shift_amplitude, y]
 
     # Add guide

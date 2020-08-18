@@ -7,7 +7,7 @@ def image_text(text="Hello", width=500, height=500, color="black", background="w
     ----------
     font : str
         The name of the font to be used. Note that the font is what controls features like bold / italic.
-    For instance, 'arialbd.ttf', 'arialblk.ttf' or 'ariali.ttf' can be used for bold, black and italic, respectively.
+    For instance, 'arialbd.ttf', 'ariblk.ttf' or 'ariali.ttf' can be used for bold, black and italic, respectively.
 
     Examples
     --------

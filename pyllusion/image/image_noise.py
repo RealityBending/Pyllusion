@@ -3,7 +3,6 @@ import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from .utilities import _rgb
 
 
-
 def image_noise(width=500, height=500, red=np.random.uniform,
                  green=np.random.uniform, blue=np.random.uniform,
                  blackwhite=False, blur=0, **kwargs):
