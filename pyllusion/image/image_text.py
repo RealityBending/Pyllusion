@@ -1,7 +1,7 @@
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 
 
-def image_text(text="Hello", width=500, height=500, color="black", background="white", font="arial.ttf", **kwargs):
+def image_text(text="Hello", width=500, height=500, color="black", background="white", font="arial.ttf", blur=0, **kwargs):
     """
     Parameters
     ----------
@@ -11,13 +11,13 @@ def image_text(text="Hello", width=500, height=500, color="black", background="w
 
     Examples
     --------
-    >>> import pyllusion as pyl
+    >>> import pyllusion as ill
     >>>
-    >>> pyl.image_text(text="Hello")
-    >>> pyl.image_text(text="Hello", font="arialbd.ttf", color="red")
+    >>> ill.image_text(text="Hello")
+    >>> ill.image_text(text="Hello", font="arialbd.ttf", color="red")
     """
-    img  = PIL.Image.new('RGB', (width, height), color = background)
-    draw = PIL.ImageDraw.Draw(img)
+    image  = PIL.Image.new('RGB', (width, height), color = background)
+    draw = PIL.ImageDraw.Draw(image)
 
     # Initialize values
     size, text_width = 0, 0
@@ -32,4 +32,10 @@ def image_text(text="Hello", width=500, height=500, color="black", background="w
 
     # font = ImageFont.truetype('/Library/Fonts/Arial.ttf', 36)
     draw.text((text_x, text_y), text, font=loaded_font, fill=color)
-    return img
+
+    # Blur the background a bit
+    if blur > 0:
+        image = image.filter(PIL.ImageFilter.GaussianBlur(blur * height))
+
+
+    return image

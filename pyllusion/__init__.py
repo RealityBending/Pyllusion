@@ -7,7 +7,8 @@ __version__ = "0.0.5"
 
 
 # Import first submodule
-from .autostereogram import *
+from .image import *
+
 
 
 # Get path of stimuli images
@@ -17,5 +18,7 @@ from .autostereogram import *
 # pyllusion_path = pyllusion_path + "stimuli\\"
 
 # Import rest of submodules
-from .image import *
+from .illusion import *
+
+from .autostereogram import *
 from .pareidolia import *

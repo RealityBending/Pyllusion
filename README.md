@@ -9,6 +9,24 @@ A Python Module for Generating Visual Illusions
 
 ## Features
 
+### Delboeuf Illusion
+
+The [**Delboeuf
+illusion**](https://en.wikipedia.org/wiki/Delboeuf_illusion) is an
+optical illusion of relative size perception, where circles of identical
+size appear as different. The illusion was named for the Belgian
+philosopher, mathematician, experimental psychologist, hypnotist, and
+psychophysicist Joseph Remi Leopold Delboeuf (1831–1896), who created it
+in 1865.
+
+``` python
+import pyllusion as ill
+
+ill.delboeuf_image(illusion_strength=1)
+```
+
+![](docs/img/README_delboeuf1.png)
+
 ### Autostereograms
 
 [Autostereograms](https://en.wikipedia.org/wiki/Autostereogram) are
@@ -27,9 +45,7 @@ It can take a bit of time to “get there”, but once you are used to it,
 it’s a mind-blowing experience 🤯
 
 ``` python
-import pyllusion as pyl
-
-pyl.autostereogram(stimulus="3D", width=1600, height=900)
+ill.autostereogram(stimulus="3D", width=1600, height=900)
 ```
 
 ![](docs/img/README_autostereogram1.png)
@@ -40,13 +56,16 @@ skull](https://github.com/DominiqueMakowski/Pyllusion/docs/img/depthmask.png)
 that you will see as emerging from the background), and customise the
 pattern used by providing another function (here, the `image_circles()`
 function to which we can provide additional arguments like `blackwhite`,
-the number of circles `n` and their transparency with `alpha`).
+the number of circles `n`, their size range and their transparency with
+`alpha`).
 
 ``` python
-pyl.autostereogram(stimulus="docs/img/depthmask.png",
-                   pattern=pyl.image_circles,
+ill.autostereogram(stimulus="docs/img/depthmask.png",
+                   pattern=ill.image_circles,
                    blackwhite=True,
                    alpha=0.75,
+                   size_min=0.005,
+                   size_max=0.03,
                    n=1000)
 ```
 

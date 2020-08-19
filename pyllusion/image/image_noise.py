@@ -11,10 +11,11 @@ def image_noise(width=500, height=500, red=np.random.uniform,
 
     Examples
     ----------
-    >>> import pyllusion as pyl
+    >>> import pyllusion as ill
     >>>
-    >>> pyl.image_noise(width=300, height=300)
-    >>> pyl.image_noise(width=300, height=300, blackwhite=True)
+    >>> ill.image_noise()
+    >>> ill.image_noise(blackwhite=True)
+    >>> ill.image_noise(blur=0.005)
     """
     # Generate random colors
     r = red(size=(width, height), **kwargs)
@@ -31,6 +32,7 @@ def image_noise(width=500, height=500, red=np.random.uniform,
         image = image.convert('L').convert('RGB')
 
     # Blur the background a bit
-    image = image.filter(PIL.ImageFilter.BoxBlur(blur * 0.01 * np.min([width, height])))
+    if blur > 0:
+        image = image.filter(PIL.ImageFilter.GaussianBlur(blur * height))
 
     return image
