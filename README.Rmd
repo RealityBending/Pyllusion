@@ -30,10 +30,12 @@ matplotlib$use("Agg", force = TRUE)
 ```
 
 
-```{r fig.align="center", out.width = "600px", echo=FALSE, fig.cap="*A Python Module for Generating Visual Illusions*"}
-knitr::include_graphics("docs/img/logo.png")
-```
 
+<p align="center">
+  <img width="600" src="docs/img/logo.png">
+</p>
+
+<h5 align="center">*A Python Module for Generating Visual Illusions*</h5>
 
 # Overview
 
@@ -101,7 +103,7 @@ It can take a bit of time to "get there", but once you are used to it, it's a mi
 ill.autostereogram(stimulus="3D", width=1600, height=900)
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = ill.autostereogram(stimulus="3D", width=1600, height=900, font="arial.ttf", blur=0.001)
+img = ill.autostereogram(stimulus="3D", width=1600, height=900, font="arial.ttf")
 img.save("docs/img/README_autostereogram1.png")
 ```
 

@@ -84,18 +84,22 @@ def _coord_text(image, text="hello", size="auto", x=0, y=0, font="arial.ttf", un
 
     if size == "auto":
         # Initialize values
-        size, text_width = 0, 0
+        size, top_left_x, top_left_y, right_x, bottom_y = 0, width, height, 0, 0
         # Loop until max size is reached
-        while x - (text_width / 2) > 0.01 * width:
+        while top_left_x > 0.01 * width and right_x < 0.99 * width and top_left_y > 0.01 * height and bottom_y < 0.99 * height:
             loaded_font = PIL.ImageFont.truetype(font, size)
             text_width, text_height = loaded_font.getsize(text)
+            top_left_x = x - (text_width / 2)
+            top_left_y = y - (text_height / 2)
+            right_x = top_left_x + text_width
+            bottom_y = top_left_y + text_height
             size += 1  # Increment text size
     else:
         loaded_font = PIL.ImageFont.truetype(font, size)
         text_width, text_height = loaded_font.getsize(text)
+        top_left_x = x - (text_width / 2)
+        top_left_y = y - (text_height / 2)
 
-    top_left_x = x - (text_width / 2)
-    top_left_y = y - (text_height / 2)
     coord = top_left_x, top_left_y
 
     return coord, loaded_font

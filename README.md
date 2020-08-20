@@ -1,15 +1,15 @@
 
-<div class="figure" style="text-align: center">
+<p align="center">
 
-<img src="docs/img/logo.png" alt="*A Python Module for Generating Visual Illusions*" width="600px" />
-
-<p class="caption">
-
-*A Python Module for Generating Visual Illusions*
+<img width="600" src="docs/img/logo.png">
 
 </p>
 
-</div>
+<h5 align="center">
+
+*A Python Module for Generating Visual Illusions*
+
+</h5>
 
 # Overview
 
