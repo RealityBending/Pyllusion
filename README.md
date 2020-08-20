@@ -43,9 +43,10 @@ You can credit the package as follows:
 The [**Delboeuf
 illusion**](https://en.wikipedia.org/wiki/Delboeuf_illusion) is an
 optical illusion of relative size perception, where circles of identical
-size appear as different. The illusion was named for the Belgian
-philosopher, mathematician, experimental psychologist, hypnotist, and
-psychophysicist Joseph Remi Leopold Delboeuf, who created it in 1865.
+size appear as different because of their surrounding context. The
+illusion was named for the Belgian philosopher, mathematician,
+experimental psychologist, hypnotist, and psychophysicist Joseph Remi
+Leopold Delboeuf (1831–1896), who created it in 1865.
 
 ``` python
 import pyllusion as ill
@@ -57,9 +58,27 @@ ill.delboeuf_image(illusion_strength=1)
 
 ### Ebbinghaus Illusion
 
-  - **TO DO** *(consider helping\!)*
+The [**Ebbinghaus
+illusion**](https://en.wikipedia.org/wiki/Ebbinghaus_illusion) is an
+optical illusion of relative size perception, where circles of identical
+size appear as different because of their surrounding context. The
+illusion was named after its creator the German psychologist Hermann
+Ebbinghaus (1850–1909), though it got popularized by Edward B. Titchener
+in a 1901 textbook of experimental psychology.
+
+``` python
+import pyllusion as ill
+
+ill.ebbinghaus_image(illusion_strength=1)
+```
+
+![](docs/img/README_ebbinghaus1.png)
 
 ### Ponzo Illusion
+
+  - **TO DO** *(consider helping\!)*
+
+### Rod and Frame Illusion
 
   - **TO DO** *(consider helping\!)*
 
@@ -94,6 +113,8 @@ pattern used by providing another function (here, the `image_circles()`
 function to which we can provide additional arguments like `blackwhite`,
 the number of circles `n`, their size range and their transparency with
 `alpha`).
+
+![](docs/img/depthmask.png)
 
 ``` python
 ill.autostereogram(stimulus="docs/img/depthmask.png",

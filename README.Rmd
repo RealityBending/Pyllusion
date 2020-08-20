@@ -65,7 +65,7 @@ Retrieved from https://github.com/DominiqueMakowski/Pyllusion
 
 ### Delboeuf Illusion
 
-The [**Delboeuf illusion**](https://en.wikipedia.org/wiki/Delboeuf_illusion) is an optical illusion of relative size perception, where circles of identical size appear as different. The illusion was named for the Belgian philosopher, mathematician, experimental psychologist, hypnotist, and psychophysicist Joseph Remi Leopold Delboeuf, who created it in 1865.
+The [**Delboeuf illusion**](https://en.wikipedia.org/wiki/Delboeuf_illusion) is an optical illusion of relative size perception, where circles of identical size appear as different because of their surrounding context. The illusion was named for the Belgian philosopher, mathematician, experimental psychologist, hypnotist, and psychophysicist Joseph Remi Leopold Delboeuf (1831–1896), who created it in 1865.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 import pyllusion as ill
@@ -84,9 +84,27 @@ img.save("docs/img/README_delboeuf1.png")
 
 ### Ebbinghaus Illusion
 
-- **TO DO** *(consider helping!)*
+The [**Ebbinghaus illusion**](https://en.wikipedia.org/wiki/Ebbinghaus_illusion) is an optical illusion of relative size perception, where circles of identical size appear as different because of their surrounding context. The illusion was named after its creator the German psychologist Hermann Ebbinghaus (1850–1909), though it got popularized by Edward B. Titchener in a 1901 textbook of experimental psychology.
+
+```{python, warning=FALSE, message=FALSE, eval=FALSE}
+import pyllusion as ill
+
+ill.ebbinghaus_image(illusion_strength=1)
+```
+```{python message=FALSE, warning=FALSE, echo=FALSE}
+import pyllusion as ill
+
+img = ill.ebbinghaus_image(illusion_strength=1)
+img.save("docs/img/README_ebbinghaus1.png")
+```
+
+![](docs/img/README_ebbinghaus1.png)
 
 ### Ponzo Illusion
+
+- **TO DO** *(consider helping!)*
+
+### Rod and Frame Illusion
 
 - **TO DO** *(consider helping!)*
 
@@ -110,6 +128,9 @@ img.save("docs/img/README_autostereogram1.png")
 ![](docs/img/README_autostereogram1.png)
 
 The function is highly customisable, and we can use a black and white image as a **depth mask** (in this case, the [picture of a skull](https://github.com/DominiqueMakowski/Pyllusion/docs/img/depthmask.png) that you will see as emerging from the background), and customise the pattern used by providing another function (here, the `image_circles()` function to which we can provide additional arguments like `blackwhite`, the number of circles `n`, their size range and their transparency with `alpha`).
+
+
+![](docs/img/depthmask.png)
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 ill.autostereogram(stimulus="docs/img/depthmask.png",
