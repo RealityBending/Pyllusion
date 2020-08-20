@@ -7,6 +7,19 @@ A Python Module for Generating Visual Illusions
 
     pip install https://github.com/DominiqueMakowski/Pyllusion/zipball/master
 
+## Contribution
+
+You have some ideas? Want to improve things, add new illusions, and help
+us shake people’s brain? Let us know, we would be very happy to have you
+on board :relaxed:.
+
+## Citation
+
+You can credit the package as follows:
+
+    Makowski, D. (2020). Pyllusion: A Python Module for Generating Visual Illusions. GitHub. 
+    Retrieved from https://github.com/DominiqueMakowski/Pyllusion
+
 ## Features
 
 ### Delboeuf Illusion

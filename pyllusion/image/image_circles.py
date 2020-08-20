@@ -62,7 +62,8 @@ def image_circle(width=800, height=600, x=0, y=0, size=1, color="black", outline
     # Get image
     if image is None:
         image  = PIL.Image.new('RGBA', (width, height), color = background)
-    image = image.convert("RGBA")
+    else:
+        image = image.convert("RGBA")
     width, height = image.size
 
     # Upsample

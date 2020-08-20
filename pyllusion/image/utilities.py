@@ -34,6 +34,7 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid"):
     Examples
     --------
     >>> import pyllusion as ill
+    >>> import PIL.Image, PIL.ImageDraw
     >>>
     >>> image  = PIL.Image.new('RGB', (500, 400), color = "white")
     >>> draw = PIL.ImageDraw.Draw(image, 'RGBA')
@@ -58,3 +59,43 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid"):
     coord = [(x-radius, y-radius), (x+radius, y+radius)]
 
     return coord
+
+
+def _coord_text(image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid"):
+    """Get text coordinates
+
+    Examples
+    --------
+    >>> import pyllusion as ill
+    >>> import PIL.Image, PIL.ImageDraw
+    >>>
+    >>> image  = PIL.Image.new('RGB', (500, 500), color = "white")
+    >>> draw = PIL.ImageDraw.Draw(image, 'RGB')
+    >>>
+    >>> coord, font = _coord_text(image, size="auto", x=-0.5, y=0.5)
+    >>> draw.text(coord, text, fill="black", font=font)
+    >>> image
+    """
+    if unit == "grid":
+        # Get coordinates in pixels
+        width, height = image.size
+        x = np.int(rescale(x, to=[0, width], scale=[-1, 1]))
+        y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+
+    if size == "auto":
+        # Initialize values
+        size, text_width = 0, 0
+        # Loop until max size is reached
+        while x - (text_width / 2) > 0.01 * width:
+            loaded_font = PIL.ImageFont.truetype(font, size)
+            text_width, text_height = loaded_font.getsize(text)
+            size += 1  # Increment text size
+    else:
+        loaded_font = PIL.ImageFont.truetype(font, size)
+        text_width, text_height = loaded_font.getsize(text)
+
+    top_left_x = x - (text_width / 2)
+    top_left_y = y - (text_height / 2)
+    coord = top_left_x, top_left_y
+
+    return coord, loaded_font

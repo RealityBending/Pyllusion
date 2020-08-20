@@ -1,7 +1,7 @@
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from .utilities import _coord_text
 
-
-def image_text(text="Hello", width=500, height=500, color="black", background="white", font="arial.ttf", blur=0, **kwargs):
+def image_text(text="Hello", width=500, height=500, x=0, y=0, size="auto", color="black", background="white", font="arial.ttf", blur=0, image=None, **kwargs):
     """
     Parameters
     ----------
@@ -13,29 +13,33 @@ def image_text(text="Hello", width=500, height=500, color="black", background="w
     --------
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_text(text="Hello")
-    >>> ill.image_text(text="Hello", font="arialbd.ttf", color="red")
+    >>> image = ill.image_text(text="Hello", size=40)
+    >>> image = ill.image_text(image=image, size=30, y=0.5, text="I'm Red", color="red")
+    >>> image = ill.image_text(image=image, size=20, x=0.5, text="Bold and blurred", font="arialbd.ttf", blur=0.005)
+    >>> image
     """
-    image  = PIL.Image.new('RGB', (width, height), color = background)
-    draw = PIL.ImageDraw.Draw(image)
+    # Get image
+    if image is None:
+        image  = PIL.Image.new('RGBA', (width, height), color = background)
+    else:
+        image = image.convert("RGBA")
+    width, height = image.size
 
-    # Initialize values
-    size, text_width = 0, 0
-    # Loop until max size is reached
-    while text_width <= 0.9 * width:
-        loaded_font = PIL.ImageFont.truetype(font, size)
-        text_width, text_height = loaded_font.getsize(text)
-        size += 1  # Increment text size
+    # Create mask
+    mask = PIL.Image.new('RGBA', (width, height))
+    draw = PIL.ImageDraw.Draw(mask)
 
-    text_x = (width - text_width) / 2
-    text_y = (height - text_height) / 2
+    # Get coordinates
+    coord, font = _coord_text(mask, text=text, size=size, x=x, y=y, font=font)
 
-    # font = ImageFont.truetype('/Library/Fonts/Arial.ttf', 36)
-    draw.text((text_x, text_y), text, font=loaded_font, fill=color)
+    # Draw
+    draw.text(coord, text, font=font, fill=color)
 
-    # Blur the background a bit
+    # Blur the image a bit
     if blur > 0:
-        image = image.filter(PIL.ImageFilter.GaussianBlur(blur * height))
+        mask = mask.filter(PIL.ImageFilter.GaussianBlur(blur * height))
 
+    # Merge and return
+    image = PIL.Image.alpha_composite(image, mask)
 
     return image
