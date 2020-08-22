@@ -54,7 +54,7 @@ You have some ideas? Want to improve things, add new illusions, and help us shak
 
 ## Citation
 
-You can credit the package as follows:
+You can cite the package as follows:
 
 ```
 Makowski, D. (2020). Pyllusion: A Python Module for Generating Visual Illusions. GitHub. 
@@ -84,17 +84,17 @@ img.save("docs/img/README_delboeuf1.png")
 
 ### Ebbinghaus Illusion
 
-The [**Ebbinghaus illusion**](https://en.wikipedia.org/wiki/Ebbinghaus_illusion) is an optical illusion of relative size perception, where circles of identical size appear as different because of their surrounding context. The illusion was named after its creator the German psychologist Hermann Ebbinghaus (1850–1909), though it got popularized by Edward B. Titchener in a 1901 textbook of experimental psychology.
+The [**Ebbinghaus illusion**](https://en.wikipedia.org/wiki/Ebbinghaus_illusion) is an optical illusion of relative size perception, where circles of identical size appear as different because of their surrounding context (the right red circle appears as smaller). The illusion was named after its creator the German psychologist Hermann Ebbinghaus (1850–1909), though it got popularized by Edward B. Titchener in a 1901 textbook of experimental psychology.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 import pyllusion as ill
 
-ill.ebbinghaus_image(illusion_strength=1)
+ill.ebbinghaus_image(illusion_strength=2)
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
 import pyllusion as ill
 
-img = ill.ebbinghaus_image(illusion_strength=1)
+img = ill.ebbinghaus_image(illusion_strength=2)
 img.save("docs/img/README_ebbinghaus1.png")
 ```
 
@@ -102,9 +102,39 @@ img.save("docs/img/README_ebbinghaus1.png")
 
 ### Ponzo Illusion
 
-- **TO DO** *(consider helping!)*
+The [**Ponzo illusion**](https://en.wikipedia.org/wiki/Ponzo_illusion) is an optical illusion of relative size perception, where horizontal lines of identical size appear as different because of their surrounding context (the top line appear as longer, as it is interepreted as being in the distance). The illusion was named after its creator the Italian psychologist Mario Ponzo (1882–1960) in 1911, who suggested that the human mind judges an object's size based on its background.
+
+```{python, warning=FALSE, message=FALSE, eval=FALSE}
+import pyllusion as ill
+
+ill.ponzo_image(illusion_strength=20)
+```
+```{python message=FALSE, warning=FALSE, echo=FALSE}
+import pyllusion as ill
+
+img = ill.ponzo_image(illusion_strength=20)
+img.save("docs/img/README_ponzo1.png")
+```
+
+![](docs/img/README_ponzo1.png)
 
 ### Rod and Frame Illusion
+
+- **TO DO** *(consider helping!)*
+
+### Müller-Lyer illusion Illusion
+
+- **TO DO** *(consider helping!)*
+
+### Zöllner illusion Illusion
+
+- **TO DO** *(consider helping!)*
+
+### Münsterberg Illusion (Café Wall)
+
+- **TO DO** *(consider helping!)*
+
+### White illusion
 
 - **TO DO** *(consider helping!)*
 
@@ -153,4 +183,8 @@ img.save("docs/img/README_autostereogram2.png")
 ```
 
 ![](docs/img/README_autostereogram2.png)
+
+## References
+
+Bertamini, M. (2017). [*Programming visual illusions for everyone*](https://www.programmingvisualillusionsforeveryone.online). Springer.
 

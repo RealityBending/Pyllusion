@@ -127,27 +127,29 @@ def delboeuf_parameters(difference=0, size_min=0.25, illusion_strength=0, distan
 # ------------------------------------------
 
 
-def _delboeuf_parameters_sizeouter(outer_size_left, outer_size_right, illusion_strength=0, difference=0, scale_down=False):
+def _delboeuf_parameters_sizeouter(outer_size_left, outer_size_right, illusion_strength=0, difference=0, both_sizes=False):
+    if both_sizes is True:
+        illusion_strength = illusion_strength / 2
 
     # Actual outer size based on illusion
     if difference > 0: # if right is smaller
         if illusion_strength > 0:
             outer_size_left = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_left
-            if scale_down is True:
+            if both_sizes is True:
                 outer_size_right = outer_size_right / np.sqrt(1 + np.abs(illusion_strength))
         else:
             outer_size_right = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_right
-            if scale_down is True:
+            if both_sizes is True:
                 outer_size_left = outer_size_left / np.sqrt(1 + np.abs(illusion_strength))
 
     else:
         if illusion_strength > 0:
             outer_size_right = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_right
-            if scale_down is True:
+            if both_sizes is True:
                 outer_size_left = outer_size_left / np.sqrt(1 + np.abs(illusion_strength))
         else:
             outer_size_left = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_left
-            if scale_down is True:
+            if both_sizes is True:
                 outer_size_right = outer_size_right / np.sqrt(1 + np.abs(illusion_strength))
 
     return outer_size_left, outer_size_right

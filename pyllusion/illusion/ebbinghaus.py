@@ -78,7 +78,7 @@ def ebbinghaus_parameters(difference=0, size_min=0.25, illusion_strength=0, dist
                                                                        outer_size_right,
                                                                        difference=difference,
                                                                        illusion_strength=illusion_strength,
-                                                                       scale_down=True)
+                                                                       both_sizes=True)
 
     # Location outer circles
     l_outer_x, l_outer_y, l_distance_edges = _ebbinghaus_parameters_outercircles(x=position_left,

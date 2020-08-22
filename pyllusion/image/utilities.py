@@ -103,3 +103,23 @@ def _coord_text(image, text="hello", size="auto", x=0, y=0, font="arial.ttf", un
     coord = top_left_x, top_left_y
 
     return coord, loaded_font
+
+
+
+def _coord_line(image=None, x1=0, y1=0, x2=None, y2=None, length=None, angle=None):
+    if x2 is None and y2 is None:
+        x2 = x1 + np.sin(np.deg2rad(angle)) * length
+        y2 = y1 + np.cos(np.deg2rad(angle)) * length
+    if length is None and angle is None:
+        length = np.sqrt((x1 - x2)**2 + (y1 - y2)**2)
+        angle = np.rad2deg(np.arccos(np.abs(x1-x2) / length))
+
+    # Get coordinates in pixels
+    if image is not None:
+        width, height = image.size
+        x1 = np.int(rescale(x1, to=[0, width], scale=[-1, 1]))
+        y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
+        x2 = np.int(rescale(x2, to=[0, width], scale=[-1, 1]))
+        y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+        length = np.int(rescale(length, to=[0, height], scale=[0, 2]))
+    return (x1, y1, x2, y2), length, angle
