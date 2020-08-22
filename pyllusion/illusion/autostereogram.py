@@ -1,7 +1,7 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 
-from .image import image_noise, image_text
+from ..image import image_noise, image_text
 
 
 

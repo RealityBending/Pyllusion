@@ -3,7 +3,7 @@ import numpy as np
 from .utilities import _coord_line
 
 
-def image_line(width=800, height=600, x=0, y=0, x2=None, y2=None, length=1, angle=0, size=1, color="black", background="white", blur=0, antialias=True, image=None, **kwargs):
+def image_line(width=800, height=600, x=0, y=0, x2=None, y2=None, length=1, rotate=0, size=1, color="black", background="white", blur=0, antialias=True, image=None, **kwargs):
     """
     Parameters
     ----------
@@ -12,10 +12,10 @@ def image_line(width=800, height=600, x=0, y=0, x2=None, y2=None, length=1, angl
     --------
     >>> import pyllusion as ill
     >>>
-    >>> image = ill.image_line(x=0, y=0, length=0.5, angle=90)
-    >>> image = ill.image_line(image=image, x=0, y=-0.5, length=1, angle=0, color="red")
-    >>> image = ill.image_line(image=image, x=0, y=0, length=0.5, angle=-90, size=3)
-    >>> image = ill.image_line(image=image, x=-1, y=-1, length=1, angle=45, size=5, blur=0.01)
+    >>> image = ill.image_line(x=0, y=0, length=0.5, rotate=90)
+    >>> image = ill.image_line(image=image, x=0, y=-0.5, length=1, rotate=0, color="red")
+    >>> image = ill.image_line(image=image, x=0, y=0, length=0.5, rotate=-90, size=3)
+    >>> image = ill.image_line(image=image, x=-1, y=-1, length=1, rotate=45, size=5, blur=0.01)
     >>> image
     """
     # Get image
@@ -34,8 +34,7 @@ def image_line(width=800, height=600, x=0, y=0, x2=None, y2=None, length=1, angl
     draw = PIL.ImageDraw.Draw(mask)
 
     # Get coordinates
-    # coord = _coord_line(mask, text=text, size=size, x=x, y=y, font=font)
-    coord, length, angle = _coord_line(mask, x1=x, y1=y, x2=x2, y2=y2, length=length, angle=angle)
+    coord, length, angle = _coord_line(mask, x1=x, y1=y, x2=x2, y2=y2, length=length, angle=rotate)
 
     # Draw
     draw.line(coord, fill=color, width=size)

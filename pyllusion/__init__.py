@@ -20,5 +20,4 @@ from .image import *
 # Import rest of submodules
 from .illusion import *
 
-from .autostereogram import *
 from .pareidolia import *

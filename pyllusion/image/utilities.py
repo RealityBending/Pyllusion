@@ -123,3 +123,19 @@ def _coord_line(image=None, x1=0, y1=0, x2=None, y2=None, length=None, angle=Non
         y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
         length = np.int(rescale(length, to=[0, height], scale=[0, 2]))
     return (x1, y1, x2, y2), length, angle
+
+
+def _coord_rectangle(image=None, x=0, y=0, size_width=1, size_height=1):
+    x1 = x - (size_width / 2)
+    y1 = y + (size_height / 2)
+    x2 = x + (size_width / 2)
+    y2 = y - (size_height / 2)
+
+    # Get coordinates in pixels
+    if image is not None:
+        width, height = image.size
+        x1 = np.int(rescale(x1, to=[0, width], scale=[-1, 1]))
+        y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
+        x2 = np.int(rescale(x2, to=[0, width], scale=[-1, 1]))
+        y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+    return (x1, y1, x2, y2)

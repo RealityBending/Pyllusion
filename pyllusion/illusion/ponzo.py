@@ -9,7 +9,7 @@ def ponzo_image(parameters=None, width=800, height=600, outline=20, background="
     ---------
     >>> import pyllusion as ill
     >>>
-    >>> parameters = ill.ponzo_parameters(difference=0, illusion_strength=45)
+    >>> parameters = ill.ponzo_parameters(difficulty=0, illusion_strength=20)
     >>> ill.ponzo_image(parameters)
     """
     # Create white canvas and get drawing context
@@ -50,13 +50,13 @@ def ponzo_image(parameters=None, width=800, height=600, outline=20, background="
 
 
 
-def ponzo_parameters(difference=0, size_min=0.5, illusion_strength=0, distance=1):
+def ponzo_parameters(difficulty=0, size_min=0.5, illusion_strength=0, distance=1):
     """
     Ponzo Illusion
 
     Parameters
     ----------
-    difference : float
+    difficulty : float
         Real difference of top line.
     illusion_strength : float
         Distance between lines.
@@ -67,9 +67,9 @@ def ponzo_parameters(difference=0, size_min=0.5, illusion_strength=0, distance=1
     bottom_line_thickness : float
         Horizontal lines' thickness.
     """
-    parameters = _ponzo_parameters_topbottom(difference=difference, size_min=size_min, distance=distance)
+    parameters = _ponzo_parameters_topbottom(difficulty=difficulty, size_min=size_min, distance=distance)
 
-    parameters.update(_ponzo_parameters_leftright(difference, illusion_strength))
+    parameters.update(_ponzo_parameters_leftright(difficulty, illusion_strength))
 
     parameters.update({"Illusion": "Ponzo"})
 
@@ -78,40 +78,18 @@ def ponzo_parameters(difference=0, size_min=0.5, illusion_strength=0, distance=1
 
 
 
-def _ponzo_parameters_leftright(difference, illusion_strength):
+def _ponzo_parameters_leftright(difficulty, illusion_strength):
     # Angle of lines
     angle = illusion_strength
-    angle = -1 * angle if difference > 0 else angle
+    angle = -1 * angle if difficulty > 0 else angle
 
-    # Left line ------
+    # Left line
     left_coord, length, _ = _coord_line(x1=-0.5, y1=0, length=1, angle=angle)
     left_x1, left_y1, left_x2, left_y2, length = _ponzo_parameters_adjust(left_coord, angle, side="Left")
-    # left_x1, left_y1, left_x2, left_y2, length = left_coord
 
-    # # Fix upper y to 0.5
-    # left_y2 = 1.1
-    # left_x2 = ((left_y2 - left_y1) * np.tan(np.deg2rad(angle)) + left_x1)
-    # length = np.sqrt((left_x1 - left_x2)**2 + (left_y1 - left_y2)**2)
-
-    # # Fix lower y to -0.5
-    # left_y1 = -1.1
-    # left_x1 = -1 * ((left_y2 - left_y1) * np.tan(np.deg2rad(angle)) - left_x2)
-    # length = np.sqrt((left_x1 - left_x2)**2 + (left_y1 - left_y2)**2)
-
-    # Right line ------
+    # Right line
     right_coord, length, _ = _coord_line(x1=0.5, y1=0, length=1, angle=-angle)
     right_x1, right_y1, right_x2, right_y2, length = _ponzo_parameters_adjust(right_coord, angle, side="Right")
-    # right_x1, right_y1, right_x2, right_y2 = right_coord
-
-    # # Fix upper y to 0.5
-    # right_y2 = 1.1
-    # right_x2 = -1 * ((right_y2 - right_y1) * np.tan(np.deg2rad(angle)) - right_x1)
-    # length = np.sqrt((right_x1 - right_x2)**2 + (right_y1 - right_y2)**2)
-
-    # # Fix lower y to -0.5
-    # right_y1 = -1.1
-    # right_x1 = ((right_y2 - right_y1) * np.tan(np.deg2rad(angle)) + right_x2)
-    # length = np.sqrt((right_x1 - right_x2)**2 + (right_y1 - right_y2)**2)
 
     parameters = {
         "Illusion_Strength": illusion_strength,
@@ -183,14 +161,14 @@ def _ponzo_parameters_adjust(coord, angle, side="Left"):
 
 
 
-def _ponzo_parameters_topbottom(difference=0, size_min=0.5, distance=1):
+def _ponzo_parameters_topbottom(difficulty=0, size_min=0.5, distance=1):
 
-    if difference > 0: # if down is smaller
+    if difficulty > 0: # if down is smaller
         bottom_length = size_min
-        top_length = (1 + np.abs(difference)) * size_min
+        top_length = (1 + np.abs(difficulty)) * size_min
     else:
         top_length = size_min
-        bottom_length = (1 + np.abs(difference)) * size_min
+        bottom_length = (1 + np.abs(difficulty)) * size_min
 
     bottom_x1 = -(bottom_length / 2)
     bottom_y1 = -(distance / 2)
@@ -202,7 +180,7 @@ def _ponzo_parameters_topbottom(difference=0, size_min=0.5, distance=1):
     top_x2 = top_length / 2
     top_y2 = distance / 2
 
-    parameters = {"Difficulty": difference,
+    parameters = {"Difficulty": difficulty,
                   "Distance": distance,
 
                   "Bottom_x1": bottom_x1,

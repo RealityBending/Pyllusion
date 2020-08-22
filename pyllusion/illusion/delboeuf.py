@@ -8,7 +8,7 @@ def delboeuf_image(parameters=None, width=800, height=600, outline=10, backgroun
     ---------
     >>> import pyllusion as ill
     >>>
-    >>> parameters = ill.delboeuf_parameters(difference=2, illusion_strength=1)
+    >>> parameters = ill.delboeuf_parameters(difficulty=2, illusion_strength=1)
     >>> ill.delboeuf_image(parameters)
     """
     # Create white canvas and get drawing context
@@ -46,13 +46,13 @@ def delboeuf_image(parameters=None, width=800, height=600, outline=10, backgroun
 # Parameters
 # ------------------------------------------
 
-def delboeuf_parameters(difference=0, size_min=0.25, illusion_strength=0, distance=1, distance_auto=False):
+def delboeuf_parameters(difficulty=0, size_min=0.25, illusion_strength=0, distance=1, distance_auto=False):
     """Compute Parameters for Delboeuf Illusion.
 
     Parameters
     ----------
-    difference : float
-        Size of left inner circle as relative to the right (in percentage, e.g., if ``difference=1``,
+    difficulty : float
+        Size of left inner circle as relative to the right (in percentage, e.g., if ``difficulty=1``,
         it means that the left circle will be 100% bigger, i.e., 2 times bigger than the right).
     size_min : float
         Size of smaller inner circle.
@@ -70,7 +70,7 @@ def delboeuf_parameters(difference=0, size_min=0.25, illusion_strength=0, distan
     >>> parameters = ill.delboeuf_parameters()
     """
     # Size inner circles
-    parameters = _delboeuf_parameters_sizeinner(difference=difference, size_min=size_min)
+    parameters = _delboeuf_parameters_sizeinner(difficulty=difficulty, size_min=size_min)
     inner_size_left = parameters["Size_Inner_Left"]
     inner_size_right = parameters["Size_Inner_Right"]
 
@@ -81,7 +81,7 @@ def delboeuf_parameters(difference=0, size_min=0.25, illusion_strength=0, distan
     # Actual outer size based on illusion
     outer_size_left, outer_size_right = _delboeuf_parameters_sizeouter(outer_size_left,
                                                                        outer_size_right,
-                                                                       difference=difference,
+                                                                       difficulty=difficulty,
                                                                        illusion_strength=illusion_strength)
 
     # Get location and distances
@@ -127,12 +127,12 @@ def delboeuf_parameters(difference=0, size_min=0.25, illusion_strength=0, distan
 # ------------------------------------------
 
 
-def _delboeuf_parameters_sizeouter(outer_size_left, outer_size_right, illusion_strength=0, difference=0, both_sizes=False):
+def _delboeuf_parameters_sizeouter(outer_size_left, outer_size_right, illusion_strength=0, difficulty=0, both_sizes=False):
     if both_sizes is True:
         illusion_strength = illusion_strength / 2
 
     # Actual outer size based on illusion
-    if difference > 0: # if right is smaller
+    if difficulty > 0: # if right is smaller
         if illusion_strength > 0:
             outer_size_left = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_left
             if both_sizes is True:
@@ -155,18 +155,18 @@ def _delboeuf_parameters_sizeouter(outer_size_left, outer_size_right, illusion_s
     return outer_size_left, outer_size_right
 
 
-def _delboeuf_parameters_sizeinner(difference=0, size_min=0.25):
+def _delboeuf_parameters_sizeinner(difficulty=0, size_min=0.25):
 
-    size_bigger = np.sqrt(1 + np.abs(difference)) * size_min
+    size_bigger = np.sqrt(1 + np.abs(difficulty)) * size_min
 
-    if difference > 0: # if right is smaller
+    if difficulty > 0: # if right is smaller
         inner_size_right = size_min
         inner_size_left = size_bigger
     else:
         inner_size_right = size_bigger
         inner_size_left = size_min
 
-    parameters = {"Difference": difference,
+    parameters = {"Difficulty": difficulty,
                   "Size_Inner_Left": inner_size_left,
                   "Size_Inner_Right": inner_size_right,
                   "Size_Inner_Difference": np.pi * (size_bigger / 2)**2 / np.pi * (size_min / 2)**2

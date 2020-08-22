@@ -10,7 +10,7 @@ def ebbinghaus_image(parameters=None, width=800, height=600, background="white",
     ---------
     >>> import pyllusion as ill
     >>>
-    >>> parameters = ill.ebbinghaus_parameters(difference=2, illusion_strength=1)
+    >>> parameters = ill.ebbinghaus_parameters(difficulty=2, illusion_strength=1)
     >>> ill.ebbinghaus_image(parameters)
     """
     # Create white canvas and get drawing context
@@ -59,9 +59,9 @@ def _ebbinghaus_image_draw(image, p, side="Left", color_inner="red", color_outer
 # Parameters
 # ------------------------------------------
 
-def ebbinghaus_parameters(difference=0, size_min=0.25, illusion_strength=0, distance=1, distance_auto=False):
+def ebbinghaus_parameters(difficulty=0, size_min=0.25, illusion_strength=0, distance=1, distance_auto=False):
     # Size inner circles
-    parameters = _delboeuf_parameters_sizeinner(difference=difference, size_min=size_min)
+    parameters = _delboeuf_parameters_sizeinner(difficulty=difficulty, size_min=size_min)
     inner_size_left = parameters["Size_Inner_Left"]
     inner_size_right = parameters["Size_Inner_Right"]
 
@@ -76,7 +76,7 @@ def ebbinghaus_parameters(difference=0, size_min=0.25, illusion_strength=0, dist
     # Actual outer size based on illusion
     outer_size_left, outer_size_right = _delboeuf_parameters_sizeouter(outer_size_left,
                                                                        outer_size_right,
-                                                                       difference=difference,
+                                                                       difficulty=difficulty,
                                                                        illusion_strength=illusion_strength,
                                                                        both_sizes=True)
 
