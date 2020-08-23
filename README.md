@@ -51,7 +51,7 @@ Leopold Delboeuf (1831–1896), who created it in 1865.
 ``` python
 import pyllusion as ill
 
-ill.delboeuf_image(illusion_strength=1)
+ill.delboeuf_image(illusion_strength=3)
 ```
 
 ![](docs/img/README_delboeuf1.png)
@@ -72,6 +72,21 @@ ill.ebbinghaus_image(illusion_strength=2)
 ```
 
 ![](docs/img/README_ebbinghaus1.png)
+
+### Müller-Lyer illusion Illusion
+
+The [**Müller-Lyer
+illusion**](https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion) is
+an optical illusion causing the participant to perceive two segments as
+being of different length depending on the shape of the arrows. The
+illusion was named after its creator the erman sociologist Franz Carl
+Müller-Lyer (1857–1916) in 1889.
+
+``` python
+ill.mullerlyer_image(illusion_strength=30)
+```
+
+![](docs/img/README_mullerlyer1.png)
 
 ### Ponzo Illusion
 
@@ -101,10 +116,6 @@ ill.rodframe_image(illusion_strength=11)
 ```
 
 ![](docs/img/README_rodframe1.png)
-
-### Müller-Lyer illusion Illusion
-
-  - **TO DO** *(consider helping\!)*
 
 ### Zöllner illusion Illusion
 

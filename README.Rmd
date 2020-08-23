@@ -70,12 +70,12 @@ The [**Delboeuf illusion**](https://en.wikipedia.org/wiki/Delboeuf_illusion) is 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 import pyllusion as ill
 
-ill.delboeuf_image(illusion_strength=1)
+ill.delboeuf_image(illusion_strength=3)
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
 import pyllusion as ill
 
-img = ill.delboeuf_image(illusion_strength=1)
+img = ill.delboeuf_image(illusion_strength=3)
 img.save("docs/img/README_delboeuf1.png")
 ```
 
@@ -95,6 +95,23 @@ img.save("docs/img/README_ebbinghaus1.png")
 ```
 
 ![](docs/img/README_ebbinghaus1.png)
+
+
+
+### Müller-Lyer illusion Illusion
+
+The [**Müller-Lyer illusion**](https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion) is an optical illusion causing the participant to perceive two segments as being of different length depending on the shape of the arrows. The illusion was named after its creator the erman sociologist Franz Carl Müller-Lyer (1857–1916) in 1889.
+
+```{python, warning=FALSE, message=FALSE, eval=FALSE}
+ill.mullerlyer_image(illusion_strength=30)
+```
+```{python message=FALSE, warning=FALSE, echo=FALSE}
+img = ill.mullerlyer_image(illusion_strength=30)
+img.save("docs/img/README_mullerlyer1.png")
+```
+
+![](docs/img/README_mullerlyer1.png)
+
 
 ### Ponzo Illusion
 
@@ -124,9 +141,6 @@ img.save("docs/img/README_rodframe1.png")
 
 ![](docs/img/README_rodframe1.png)
 
-### Müller-Lyer illusion Illusion
-
-- **TO DO** *(consider helping!)*
 
 ### Zöllner illusion Illusion
 

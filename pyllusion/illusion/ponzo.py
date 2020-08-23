@@ -73,7 +73,6 @@ def ponzo_parameters(difficulty=0, size_min=0.5, illusion_strength=0, distance=1
 
     parameters.update({"Illusion": "Ponzo"})
 
-
     return parameters
 
 
