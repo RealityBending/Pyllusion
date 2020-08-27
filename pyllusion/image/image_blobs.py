@@ -2,24 +2,54 @@ import numpy as np
 import scipy.signal
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from .utilities import _coord_circle
+from .rescale import rescale
 
-def image_blobs(width=500, height=500, n=100,
-                size=0.1, blur=0.1, color="black", background="white"):
+def image_blobs(width=500, height=500, n=100, sd=8):
     """
-    >>> import pyllusion as pyl
+    >>> import pyllusion as ill
     >>>
-    >>> pyl.image_blobs(width=480, blur=1, size=0.1)
+    >>> ill.image_blobs()
     """
 
-    # Create white canvas and get drawing context
-    image  = PIL.Image.new('RGBA', (width, height), color = background)
-
+    array = np.zeros((height, width))
     for _ in range(n):
-        # Create mask of image size
-        blob = _draw_blob(image.size, size=size, blur=blur, color=color)
-        image = PIL.Image.alpha_composite(image, blob)
+        x = np.random.randint(width)
+        y = np.random.randint(height)
+        blob = _image_blob(x=x, y=y, width=width, height=height, sd=sd)
+        array += blob
 
-    return image.convert("RGB")
+    array = rescale(array, scale=[0, 1], to=[0, 255])
+    image = PIL.Image.fromarray(array.astype(np.uint8))
+    return image
+
+
+def image_blob(x=450, y=100, width=800, height=600, sd=3):
+    """Return an image of blob
+    """
+    array = _image_blob(x=x, y=y, width=width, height=height, sd=sd)
+    array = rescale(array, scale=[0, 1], to=[0, 255])
+    image = PIL.Image.fromarray(array.astype(np.uint8))
+    return image
+
+
+def _image_blob(x=450, y=100, width=800, height=600, sd=3):
+    """Returns a 2D Gaussian kernel.
+
+    >>> import pyllusion as ill
+    >>> import matplotlib.pyplot as plt
+    >>> array = _image_blob(sd=8)
+    >>> plt.imshow(array)
+    """
+
+    _x = height - x
+    _y = width - y
+    parent_width = 3 * (np.max([x, y, _x, _y]))
+    gkern1d = scipy.signal.gaussian(parent_width, std=sd).reshape(parent_width, 1)
+    parent_blob = np.outer(gkern1d, gkern1d)
+
+    w = int(parent_width / 2)
+    blob = parent_blob[w - y: (w - y) + height, w - x: (w - x) + width]
+    return blob
 
 
 def _draw_blob(width, height=None, size=0.1, blur=0, color="black"):
@@ -44,24 +74,3 @@ def _draw_blob(width, height=None, size=0.1, blur=0, color="black"):
 
     blob = blob.filter(PIL.ImageFilter.GaussianBlur(radius=blur * 0.01 * width))
     return blob
-
-
-
-
-def _gaussian_kernel(x=450, y=100, width=800, height=600, sd=3):
-    """Returns a 2D Gaussian kernel.
-
-    >>> array = _gaussian_kernel(sd=8)
-    >>> array = pyl.rescale(array, scale=[0, 1], to=[0, 255])
-    >>> PIL.Image.fromarray(array.astype(np.uint8))
-    """
-
-    _x = height - x
-    _y = width - y
-    parent_width = 2 * (np.max([x, y, _x, _y]))
-    gkern1d = scipy.signal.gaussian(parent_width, std=sd).reshape(parent_width, 1)
-    parent_blob = np.outer(gkern1d, gkern1d)
-
-    w = int(parent_width / 2)
-    image = parent_blob[w - y: (w - y) + height, w - x: (w - x) + width]
-    return image
