@@ -86,7 +86,7 @@ def paraleipodia_image(n_layers=3, sd=[8, 16, 32], width=500, height=500):
     for layer in range(n_layers):
         array_layer = np.zeros((height, width))
         sd_layer = sd[layer]
-        n = int((width / (sd_layer * .15))**2)
+        n = int((width / (sd_layer**2 * .15))**2)  # square sd to decrease n
         weight = 5**layer
         for _ in range(n):
             x = np.random.randint(width)
