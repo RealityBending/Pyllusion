@@ -7,7 +7,7 @@
 
 <h5 align="center">
 
-*A Python Module for Generating Visual Illusions*
+*A Parametric Framework to Generate Visual Illusions using Python*
 
 </h5>
 
@@ -44,7 +44,7 @@ on board :relaxed:.
 
 You can cite the package as follows:
 
-    Makowski, D. (2020). Pyllusion: A Python Module for Generating Visual Illusions. GitHub. 
+    Makowski, D., Pham, T., Lau, Z. J. (2020). Pyllusion: A Parametric Framework to Generate Visual Illusions using Python. GitHub. 
     Retrieved from https://github.com/DominiqueMakowski/Pyllusion
 
 ## Features
@@ -123,21 +123,6 @@ ill.ponzo_image(parameters)
 
 ![](docs/img/README_ponzo1.png)
 
-### Rod and Frame Illusion
-
-The [**Rod and frame
-illusion**](https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion)
-is an optical illusion causing the participant to perceive the rod to be
-oriented congruent with the orientation of the frame.
-
-``` python
-parameters = ill.rodframe_parameters(illusion_strength=11)
-
-ill.rodframe_image(parameters)
-```
-
-![](docs/img/README_rodframe1.png)
-
 ### Vertical–horizontal illusion
 
 The [**vertical–horizontal
@@ -154,6 +139,21 @@ ill.verticalhorizontal_image(parameters)
 
 ![](docs/img/README_verticalhorizontal1.png)
 
+### Rod and Frame Illusion
+
+The [**Rod and frame
+illusion**](https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion)
+is an optical illusion causing the participant to perceive the rod to be
+oriented congruent with the orientation of the frame.
+
+``` python
+parameters = ill.rodframe_parameters(illusion_strength=11)
+
+ill.rodframe_image(parameters)
+```
+
+![](docs/img/README_rodframe1.png)
+
 ### Zöllner illusion Illusion
 
   - **TO DO** *(consider helping\!)*
@@ -163,6 +163,28 @@ ill.verticalhorizontal_image(parameters)
   - **TO DO** *(consider helping\!)*
 
 ### White illusion
+
+  - **TO DO** *(consider helping\!)*
+
+### Simultaneous Contrast illusion
+
+Perception example: A neutral gray target will appear lighter or darker
+than it does in isolation when immediately preceded by, or
+simultaneously compared to, respectively, a dark gray or light gray
+target. [**Simultaneous
+contrast**](https://en.wikipedia.org/wiki/Contrast_effect), identified
+by Michel Eugène Chevreul, refers to the manner in which the colors of
+two different objects affect each other.
+
+  - **TO DO** *(consider helping\!)*
+
+### Chubb illusion
+
+The [**Chubb illusion**](https://en.wikipedia.org/wiki/Chubb_illusion)
+is an optical illusion or error in visual perception in which the
+apparent contrast of an object varies substantially to most viewers
+depending on its relative contrast to the field on which it is
+displayed.
 
   - **TO DO** *(consider helping\!)*
 
