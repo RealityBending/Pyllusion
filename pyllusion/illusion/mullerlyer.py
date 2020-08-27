@@ -11,7 +11,7 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
     ---------
     >>> import pyllusion as ill
     >>>
-    >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=3)
+    >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=30)
     >>> ill.mullerlyer_image(parameters)
     """
     # Create white canvas and get drawing context
@@ -26,8 +26,8 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
         for side in ["1", "2"]:
             image = image_line(
                 image=image,
-                x=parameters["Distractor_" + which + side + "_x1"],
-                y=parameters["Distractor_" + which + side + "_y1"],
+                x1=parameters["Distractor_" + which + side + "_x1"],
+                y1=parameters["Distractor_" + which + side + "_y1"],
                 x2=parameters["Distractor_" + which + side + "_x2"],
                 y2=parameters["Distractor_" + which + side + "_y2"],
                 color="black",
@@ -36,8 +36,8 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
     # Target lines (horizontal)
     for position in ["Bottom", "Top"]:
         image = image_line(image=image,
-                   x=parameters[position + "_x1"],
-                   y=parameters[position + "_y1"],
+                   x1=parameters[position + "_x1"],
+                   y1=parameters[position + "_y1"],
                    x2=parameters[position + "_x2"],
                    y2=parameters[position + "_y2"],
                    color="red",
