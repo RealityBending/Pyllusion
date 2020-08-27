@@ -75,7 +75,7 @@ def mullerlyer_parameters(difficulty=0, size_min=0.5, illusion_strength=0, dista
                     parameters["Distractor_" + which + side + c + "_y2"] = y2 - 2 * (y2 - y1)
 
 
-    parameters.update({"Illusion": "Muller-Lyer",
+    parameters.update({"Illusion": "MullerLyer",
                        "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
                        "Distractor_Length": length})
 

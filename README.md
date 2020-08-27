@@ -138,6 +138,22 @@ ill.rodframe_image(parameters)
 
 ![](docs/img/README_rodframe1.png)
 
+### Vertical–horizontal illusion
+
+The [**vertical–horizontal
+illusion**](https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion)
+is the tendency for observers to overestimate the length of a vertical
+line relative to a horizontal line of the same length (Shipley et al.,
+1949).
+
+``` python
+parameters = ill.verticalhorizontal_parameters(illusion_strength=90)
+
+ill.verticalhorizontal_image(parameters)
+```
+
+![](docs/img/README_verticalhorizontal1.png)
+
 ### Zöllner illusion Illusion
 
   - **TO DO** *(consider helping\!)*

@@ -68,11 +68,12 @@ def rodframe_parameters(difficulty=0, illusion_strength=0):
         frame_angle = -1 * illusion_strength
 
 
-    parameters = {"Frame_Angle": frame_angle,
+    parameters = {"Illusion": "RodFrame",
+                  "Frame_Angle": frame_angle,
                   "Rod_Angle": rod_angle,
                   "Angle_Difference": rod_angle - frame_angle,
-                  "Difficulty": rod_angle,
-                  "Illusion": illusion_strength,
+                  "Difficulty": difficulty,
+                  "Illusion_Strength": illusion_strength,
                   "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent"
                   }
 
