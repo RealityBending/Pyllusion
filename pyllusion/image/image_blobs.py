@@ -48,19 +48,20 @@ def _draw_blob(width, height=None, size=0.1, blur=0, color="black"):
 
 
 
-
-
-def _gaussian_kernel(x=280, y=280, width=480, sd=3):
+def _gaussian_kernel(x=450, y=100, width=800, height=600, sd=3):
     """Returns a 2D Gaussian kernel.
 
-    >>> array = _gaussian_kernel(width=480, sd=64)
+    >>> array = _gaussian_kernel(sd=8)
     >>> array = pyl.rescale(array, scale=[0, 1], to=[0, 255])
     >>> PIL.Image.fromarray(array.astype(np.uint8))
     """
 
-    gkern1d = scipy.signal.gaussian(width, std=sd).reshape(width, 1)
-    blob = np.outer(gkern1d, gkern1d)
+    _x = height - x
+    _y = width - y
+    parent_width = 2 * (np.max([x, y, _x, _y]))
+    gkern1d = scipy.signal.gaussian(parent_width, std=sd).reshape(parent_width, 1)
+    parent_blob = np.outer(gkern1d, gkern1d)
 
-    M = np.zeros((width, width))
-    M[x - (sd): x + (sd), y - (sd): y + (sd)] = blob
-    return M
+    w = int(parent_width / 2)
+    image = parent_blob[w - y: (w - y) + height, w - x: (w - x) + width]
+    return image
