@@ -27,7 +27,7 @@ def image_blob(x=450, y=100, width=800, height=600, sd=3):
     """Return an image of blob
     """
     array = _image_blob(x=x, y=y, width=width, height=height, sd=sd)
-    array = rescale(array, scale=[0, 1], to=[0, 255])
+    array = rescale(array, to=[0, 255])
     image = PIL.Image.fromarray(array.astype(np.uint8))
     return image
 
