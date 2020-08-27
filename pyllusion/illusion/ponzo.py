@@ -22,8 +22,8 @@ def ponzo_image(parameters=None, width=800, height=600, outline=20, background="
     # Distractors lines
     for side in ["Left", "Right"]:
         image = image_line(image=image,
-                   x=parameters[side + "_x1"],
-                   y=parameters[side + "_y1"],
+                   x1=parameters[side + "_x1"],
+                   y1=parameters[side + "_y1"],
                    x2=parameters[side + "_x2"],
                    y2=parameters[side + "_y2"],
                    color="black",
@@ -32,8 +32,8 @@ def ponzo_image(parameters=None, width=800, height=600, outline=20, background="
     # Target lines (horizontal)
     for position in ["Bottom", "Top"]:
         image = image_line(image=image,
-                   x=parameters[position + "_x1"],
-                   y=parameters[position + "_y1"],
+                   x1=parameters[position + "_x1"],
+                   y1=parameters[position + "_y1"],
                    x2=parameters[position + "_x2"],
                    y2=parameters[position + "_y2"],
                    color="red",
@@ -83,11 +83,11 @@ def _ponzo_parameters_leftright(difficulty, illusion_strength):
     angle = -1 * angle if difficulty > 0 else angle
 
     # Left line
-    left_coord, length, _ = _coord_line(x1=-0.5, y1=0, length=1, angle=angle)
+    left_coord, length, _ = _coord_line(x=-0.5, y=0, length=1, angle=angle)
     left_x1, left_y1, left_x2, left_y2, length = _ponzo_parameters_adjust(left_coord, angle, side="Left")
 
     # Right line
-    right_coord, length, _ = _coord_line(x1=0.5, y1=0, length=1, angle=-angle)
+    right_coord, length, _ = _coord_line(x=0.5, y=0, length=1, angle=-angle)
     right_x1, right_y1, right_x2, right_y2, length = _ponzo_parameters_adjust(right_coord, angle, side="Right")
 
     parameters = {

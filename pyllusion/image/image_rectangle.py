@@ -2,7 +2,7 @@ import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from .utilities import _color, _coord_rectangle
 
 
-def image_rectangle(width=800, height=600, x=0, y=0, size_width=1, size_height=1, rotate=0, color="black", outline=0, color_outline="black", background="white", alpha=1, blur=0, antialias=True, adjust_width=False, image=None, **kwargs):
+def image_rectangle(width=800, height=600, x=0, y=0, size_width=1, size_height=1, rotate=0, color="black", outline=0, color_outline="black", background="white", alpha=1, blur=0, antialias=True, adjust_width=False, adjust_height=False, image=None, **kwargs):
     """
     Parameters
     ----------
@@ -27,6 +27,8 @@ def image_rectangle(width=800, height=600, x=0, y=0, size_width=1, size_height=1
     # Adjust size for ratio
     if adjust_width is True:
         size_width = size_width * (height / width)
+    if adjust_height is True:
+        size_height = size_height * (width / height)
 
     # Upsample
     if antialias is True:
