@@ -8,7 +8,7 @@ def image_blobs(width=500, height=500, n=100, sd=8):
     """
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_blobs()
+    >>> ill.image_blobs(n=500)
     """
 
     array = np.zeros((height, width))
@@ -18,7 +18,7 @@ def image_blobs(width=500, height=500, n=100, sd=8):
         blob = _image_blob(x=x, y=y, width=width, height=height, sd=sd)
         array += blob
 
-    array = rescale(array, scale=[0, 1], to=[0, 255])
+    array = rescale(array, to=[0, 255])
     image = PIL.Image.fromarray(array.astype(np.uint8))
     return image
 
