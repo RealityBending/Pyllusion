@@ -110,7 +110,7 @@ def zollner_parameters(
         distractors_bottom_y2[i] = y2
 
     parameters = {
-        "Illusion": "Contrast",
+        "Illusion": "Zollner",
         "Illusion_Strength": illusion_strength,
         "Difference": difference,
         "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",

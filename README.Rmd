@@ -191,9 +191,15 @@ img.save("docs/img/README_rodframe1.png")
 
 The [**Poggendorff illusion**](https://en.wikipedia.org/wiki/Poggendorff_illusion) is an optical illusion that involves the misperception of the position of one segment of a transverse line that has been interrupted by the contour of an intervening structure. It is named after Johann Christian Poggendorff who discovered in Zöllner's illusion after 1860. The magnitude of the illusion depends on the properties of the obscuring pattern and the nature of its borders.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Poggendorff_illusion.svg/640px-Poggendorff_illusion.svg.png)
-
-- **TO DO** *(consider helping!)*
+```{python, warning=FALSE, message=FALSE, eval=FALSE}
+parameters = ill.poggendorff_parameters(illusion_strength=-50)
+ill.poggendorff_image(parameters)
+```
+```{python message=FALSE, warning=FALSE, echo=FALSE}
+img = ill.poggendorff_image(illusion_strength=-50)
+img.save("docs/img/README_poggendorff1.png")
+```
+![](docs/img/README_poggendorff1.png)
 
 ### Simultaneous Contrast illusion
 
@@ -225,13 +231,13 @@ img.save("docs/img/README_contrast1.png")
 
 
 
-### Chubb illusion
+<!-- ### Chubb illusion -->
 
-The [**Chubb illusion**](https://en.wikipedia.org/wiki/Chubb_illusion) is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed.
+<!-- The [**Chubb illusion**](https://en.wikipedia.org/wiki/Chubb_illusion) is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. -->
 
-![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif)
+<!-- ![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif) -->
 
-- **TO DO** *(consider helping!)*
+<!-- - **TO DO** *(consider helping!)* -->
 
 
 ### Autostereograms

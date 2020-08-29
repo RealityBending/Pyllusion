@@ -174,9 +174,12 @@ who discovered in Zöllner’s illusion after 1860. The magnitude of the
 illusion depends on the properties of the obscuring pattern and the
 nature of its borders.
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Poggendorff_illusion.svg/640px-Poggendorff_illusion.svg.png)
+``` python
+parameters = ill.poggendorff_parameters(illusion_strength=-50)
+ill.poggendorff_image(parameters)
+```
 
-  - **TO DO** *(consider helping\!)*
+![](docs/img/README_poggendorff1.png)
 
 ### Simultaneous Contrast illusion
 
@@ -208,17 +211,13 @@ perceived of different luminance depending on their background.
 
   - **TO DO** *(consider helping\!)*
 
-### Chubb illusion
+<!-- ### Chubb illusion -->
 
-The [**Chubb illusion**](https://en.wikipedia.org/wiki/Chubb_illusion)
-is an optical illusion or error in visual perception in which the
-apparent contrast of an object varies substantially to most viewers
-depending on its relative contrast to the field on which it is
-displayed.
+<!-- The [**Chubb illusion**](https://en.wikipedia.org/wiki/Chubb_illusion) is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. -->
 
-![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif)
+<!-- ![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif) -->
 
-  - **TO DO** *(consider helping\!)*
+<!-- - **TO DO** *(consider helping!)* -->
 
 ### Autostereograms
 

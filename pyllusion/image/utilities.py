@@ -4,10 +4,6 @@ import PIL.ImageColor
 from .rescale import rescale
 
 
-
-
-
-
 def _rgb(x):
     """Convert 0-1 values to RGB 0-255 values.
     """
@@ -56,12 +52,14 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid"):
 
     radius = diameter / 2
     # Choose diameter and centre
-    coord = [(x-radius, y-radius), (x+radius, y+radius)]
+    coord = [(x - radius, y - radius), (x + radius, y + radius)]
 
     return coord
 
 
-def _coord_text(image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid"):
+def _coord_text(
+    image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid"
+):
     """Get text coordinates
 
     Examples
@@ -86,7 +84,12 @@ def _coord_text(image, text="hello", size="auto", x=0, y=0, font="arial.ttf", un
         # Initialize values
         size, top_left_x, top_left_y, right_x, bottom_y = 0, width, height, 0, 0
         # Loop until max size is reached
-        while top_left_x > 0.01 * width and right_x < 0.99 * width and top_left_y > 0.01 * height and bottom_y < 0.99 * height:
+        while (
+            top_left_x > 0.01 * width
+            and right_x < 0.99 * width
+            and top_left_y > 0.01 * height
+            and bottom_y < 0.99 * height
+        ):
             loaded_font = PIL.ImageFont.truetype(font, size)
             text_width, text_height = loaded_font.getsize(text)
             top_left_x = x - (text_width / 2)
@@ -105,8 +108,21 @@ def _coord_text(image, text="hello", size="auto", x=0, y=0, font="arial.ttf", un
     return coord, loaded_font
 
 
-
-def _coord_line(image=None, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=None, angle=None, adjust_width=False, adjust_height=False):
+def _coord_line(
+    image=None,
+    x=0,
+    y=0,
+    x1=None,
+    y1=None,
+    x2=None,
+    y2=None,
+    length=None,
+    angle=None,
+    adjust_width=False,
+    adjust_height=False,
+):
+    """
+    """
 
     # Center to None if x1 entered
     x = None if x1 is not None else x
@@ -124,7 +140,7 @@ def _coord_line(image=None, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length
         if length is None and angle is None:
             length, angle = _coord_line_lengthangle(x, y, x2, y2)
             length = length * 2
-        x1, y1 = _coord_line_x2y2(x2, y2, length, 180+angle)
+        x1, y1 = _coord_line_x2y2(x2, y2, length, 180 + angle)
 
     # Get coordinates in pixels
     if image is not None:
@@ -147,13 +163,17 @@ def _coord_line_x2y2(x1=None, y1=None, length=None, angle=None):
     x2 = x1 + np.sin(np.deg2rad(angle)) * length
     y2 = y1 + np.cos(np.deg2rad(angle)) * length
     return x2, y2
+
+
 def _coord_line_lengthangle(x1=None, y1=None, x2=None, y2=None):
-    length = np.sqrt((x1 - x2)**2 + (y1 - y2)**2)
-    angle = np.rad2deg(np.arccos(np.abs(x1-x2) / length))
+    length = np.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+    angle = np.rad2deg(np.arccos(np.abs(x1 - x2) / length))
     return length, angle
 
 
 def _coord_rectangle(image=None, x=0, y=0, size_width=1, size_height=1):
+    """
+    """
     x1 = x - (size_width / 2)
     y1 = y + (size_height / 2)
     x2 = x + (size_width / 2)
