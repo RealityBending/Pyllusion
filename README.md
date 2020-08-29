@@ -134,6 +134,21 @@ ill.verticalhorizontal_image(parameters)
 
 ![](docs/img/README_verticalhorizontal1.png)
 
+### Zöllner Illusion
+
+The [**Zöllner
+illusion**](https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion) is an
+optical illusion, where horizontal lines are perceived as not parallel
+because of their background. It is named after its discoverer, the
+German astrophysicist Johann Karl Friedrich Zöllner in 1860.
+
+``` python
+parameters = ill.zollner_parameters(illusion_strength=75)
+ill.zollner_image(parameters)
+```
+
+![](docs/img/README_zollner1.png)
+
 ### Rod and Frame Illusion
 
 The [**Rod and frame
@@ -147,18 +162,6 @@ ill.rodframe_image(parameters)
 ```
 
 ![](docs/img/README_rodframe1.png)
-
-### Zöllner Illusion
-
-The [**Zöllner
-illusion**](https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion) is an
-optical illusion, where horizontal lines are perceived as not parallel
-because of their background. It is named after its discoverer, the
-German astrophysicist Johann Karl Friedrich Zöllner in 1860.
-
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zollner_illusion.svg/1920px-Zollner_illusion.svg.png)
-
-  - **TO DO** *(consider helping\!)*
 
 ### Poggendorff Illusion
 
@@ -262,6 +265,14 @@ ill.autostereogram(stimulus="docs/img/depthmask.png",
 ```
 
 ![](docs/img/README_autostereogram2.png)
+
+### Transparency from Motion
+
+  - **TO DO** *(consider helping\!)*
+
+### Pattern Detection in Motion
+
+  - **TO DO** *(consider helping\!)*
 
 ## References
 

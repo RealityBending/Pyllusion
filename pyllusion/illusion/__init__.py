@@ -9,4 +9,5 @@ from .rodframe import rodframe_parameters, rodframe_image
 from .mullerlyer import mullerlyer_parameters, mullerlyer_image
 from .verticalhorizontal import verticalhorizontal_parameters, verticalhorizontal_image
 from .contrast import contrast_parameters, contrast_image
+from .zollner import zollner_parameters, zollner_image
 from .autostereogram import autostereogram

@@ -16,12 +16,12 @@ def contrast_image(parameters=None, width=800, height=600, **kwargs):
         parameters = contrast_parameters(**kwargs)
 
     # Background upper
-    image  = PIL.Image.new('RGB', (width, height), color=parameters["Background_Upper_RGB"])
+    image  = PIL.Image.new('RGB', (width, height), color=parameters["Background_Top_RGB"])
     # Background lower
-    image = image_rectangle(image=image, y=-0.5, size_height=1, size_width=2, color=parameters["Background_Lower_RGB"], antialias=False)
+    image = image_rectangle(image=image, y=-0.5, size_height=1, size_width=2, color=parameters["Background_Bottom_RGB"], antialias=False)
 
-    image = image_rectangle(image=image, y=0.5, size_height=0.5, size_width=1, color=parameters["Rectangle_Upper_RGB"], antialias=False)
-    image = image_rectangle(image=image, y=-0.5, size_height=0.5, size_width=1, color=parameters["Rectangle_Lower_RGB"], antialias=False)
+    image = image_rectangle(image=image, y=0.5, size_height=0.5, size_width=1, color=parameters["Rectangle_Top_RGB"], antialias=False)
+    image = image_rectangle(image=image, y=-0.5, size_height=0.5, size_width=1, color=parameters["Rectangle_Bottom_RGB"], antialias=False)
 
     return image
 
@@ -70,15 +70,15 @@ def contrast_parameters(difference=0, illusion_strength=0):
         "Difference": difference,
         "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
 
-        "Background_Upper": background_up,
-        "Background_Lower": background_low,
-        "Rectangle_Upper": up,
-        "Rectangle_Lower": low,
+        "Background_Top": background_up,
+        "Background_Bottom": background_low,
+        "Rectangle_Top": up,
+        "Rectangle_Bottom": low,
 
-        "Background_Upper_RGB": background_up_rgb,
-        "Background_Lower_RGB": background_low_rgb,
-        "Rectangle_Upper_RGB": up_rgb,
-        "Rectangle_Lower_RGB": low_rgb
+        "Background_Top_RGB": background_up_rgb,
+        "Background_Bottom_RGB": background_low_rgb,
+        "Rectangle_Top_RGB": up_rgb,
+        "Rectangle_Bottom_RGB": low_rgb
     }
 
     return parameters
