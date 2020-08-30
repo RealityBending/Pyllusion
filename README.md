@@ -21,14 +21,17 @@ manipulate and generate illusions in a systematic way.
 
 The parametric approach implemented in this software proposes to
 **describe illusions using a set of parameters**, such as for instance
-`difference` and `illusion_strength`, that will independently impact
-either the objective difference of the core components of the illusion
-(e.g., the difference between the two segments in the
-[Müller-Lyer](#müller-lyer-illusion-illusion) illusion) or the
-intensity of the illusion effect (e.g., the angle of the “distractors”
-arrows). Describing illusions using a set of parameters could foster
-**reproducible science**, as similar stimuli can be reported, generated
-and manipulated regardless of the display format and software.
+the *difference* and *illusion strength*. These two parameters can be
+modulated to independently impact either the objective difference of the
+core components of the illusion (e.g., the difference between the two
+segments in the [Müller-Lyer](#müller-lyer-illusion-illusion) illusion)
+or the intensity of the illusion effect (e.g., the angle of the
+“distractors” arrows).
+
+Describing illusions using a set of parameters aims at fostering
+**reproducible science**, allowing neuroscientists to easily report,
+generate and manipulate similar stimuli regardless of the display format
+and software.
 
 ## Installation
 
@@ -207,9 +210,12 @@ ill.contrast_image(parameters)
 is a brightness illusion in which rectangles of the same grey color are
 perceived of different luminance depending on their background.
 
-![](https://www.newworldencyclopedia.org/d/images/0/0d/White_illusion.png)
+``` python
+parameters = ill.white_parameters(illusion_strength=100)
+ill.white_image(parameters)
+```
 
-  - **TO DO** *(consider helping\!)*
+![](docs/img/README_white1.png)
 
 <!-- ### Chubb illusion -->
 
