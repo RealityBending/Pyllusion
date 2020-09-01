@@ -14,7 +14,13 @@ def _color(color="black", alpha=1, mode="RGB"):
     """Sanitize color to RGB(A) format.
     """
     if isinstance(color, str):
+        if color == "transparent":
+            return (0, 0, 0, 0)
         color = PIL.ImageColor.getrgb(color)
+    elif isinstance(color, (int, np.integer)):
+        color = tuple([color] * 3)
+    elif isinstance(color, (list, np.ndarray)):
+        color = tuple(color)
 
     # Add transparency
     if mode == "RGBA":

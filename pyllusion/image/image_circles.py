@@ -4,14 +4,27 @@ from .utilities import _color, _rgb, _coord_circle
 from .rescale import rescale
 
 
-def image_circles(width=500, height=500, n=100,
-                  size_min=0.05, size_max=0.2, size=None,
-                  blackwhite=False, alpha=1, blur=0, antialias=True, image=None, background="white"):
+def image_circles(
+    width=500,
+    height=500,
+    n=100,
+    x=None,
+    y=None,
+    size_min=0.05,
+    size_max=0.2,
+    size=None,
+    color=None,
+    alpha=1,
+    blur=0,
+    antialias=True,
+    image=None,
+    background="white",
+):
     """
     >>> import pyllusion as ill
     >>>
     >>> ill.image_circles()
-    >>> ill.image_circles(blackwhite=True, blur=0.01)
+    >>> ill.image_circles(color="bw", blur=0.01)
     >>> ill.image_circles(n=250, size_min=0.1, size_max=0.6, alpha=0.5)
     """
     # Sanity checks
@@ -20,35 +33,60 @@ def image_circles(width=500, height=500, n=100,
 
     # Get image
     if image is None:
-        image  = PIL.Image.new('RGB', (width, height), color = background)
+        image = PIL.Image.new("RGB", (width, height), color=background)
+
+    # Sanitize circle parameters
+    if x is None:
+        x = np.random.uniform(-1, 1, n)
+    if y is None:
+        y = np.random.uniform(-1, 1, n)
+    if size is None:
+        size = np.random.uniform(size_min, size_max, n)
+    else:
+        try:
+            len(size)
+        except TypeError:
+            size = [size] * n
+    if color is None:
+        color = np.random.randint(0, 256, size=(n, 3))
+    elif isinstance(color, str):
+        if color in ["bw", "blackwhite"]:
+            color = np.random.randint(0, 256, size=n)
+        else:
+            color = [color] * n
 
     # Draw circle
-    for _ in range(n):
-        # Choose RGB values for this circle
-        rgb = tuple(np.random.randint(0, 256, size=3))
-
-        # Diameter
-        if size is not None:
-            diameter = size
-        else:
-            diameter = np.random.uniform(size_min, size_max)
-        # Circle position
-        x=np.random.uniform(-1, 1)
-        y=np.random.uniform(-1, 1)
-
+    for i in range(n):
         # Draw
-        image = image_circle(image=image, x=x, y=y, size=diameter, color=rgb, alpha=alpha, blur=blur, antialias=antialias)
-
-    # Convert to black and white
-    if blackwhite is True:
-        image = image.convert('L').convert('RGB')
+        image = image_circle(
+            image=image,
+            x=x[i],
+            y=y[i],
+            size=size[i],
+            color=color[i],
+            alpha=alpha,
+            blur=blur,
+            antialias=antialias,
+        )
 
     return image
 
 
-
-
-def image_circle(width=800, height=600, x=0, y=0, size=1, color="black", outline=0, color_outline="black", alpha=1, blur=0, antialias=True, image=None, background="white"):
+def image_circle(
+    width=800,
+    height=600,
+    x=0,
+    y=0,
+    size=1,
+    color="black",
+    outline=0,
+    color_outline="black",
+    alpha=1,
+    blur=0,
+    antialias=True,
+    image=None,
+    background="white",
+):
     """
     >>> import pyllusion as ill
     >>>
@@ -61,7 +99,7 @@ def image_circle(width=800, height=600, x=0, y=0, size=1, color="black", outline
     """
     # Get image
     if image is None:
-        image  = PIL.Image.new('RGBA', (width, height), color = background)
+        image = PIL.Image.new("RGBA", (width, height), color=background)
     else:
         image = image.convert("RGBA")
     width, height = image.size
@@ -71,14 +109,19 @@ def image_circle(width=800, height=600, x=0, y=0, size=1, color="black", outline
         width, height = width * 3, height * 3
 
     # Create mask
-    mask = PIL.Image.new('RGBA', (width, height))
+    mask = PIL.Image.new("RGBA", (width, height))
     draw = PIL.ImageDraw.Draw(mask)
 
     # Circle coordinates
     coord = _coord_circle(mask, diameter=size, x=x, y=y)
 
     # Draw circle
-    draw.ellipse(coord, fill=_color(color, alpha=alpha, mode="RGBA"), width=outline, outline=color_outline)
+    draw.ellipse(
+        coord,
+        fill=tuple(_color(color, alpha=alpha, mode="RGBA")),
+        width=outline,
+        outline=color_outline,
+    )
 
     # resize with antialiasing
     if antialias is True:
