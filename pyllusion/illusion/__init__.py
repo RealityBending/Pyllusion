@@ -13,3 +13,4 @@ from .poggendorff import poggendorff_parameters, poggendorff_image
 from .contrast import contrast_parameters, contrast_image
 from .white import white_parameters, white_image
 from .autostereogram import autostereogram
+from .pareidolia import pareidolia

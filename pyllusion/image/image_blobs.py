@@ -5,7 +5,8 @@ from .utilities import _coord_circle
 from .rescale import rescale
 
 def image_blobs(width=500, height=500, n=100, sd=8):
-    """
+    """Return an image with blobs of the same standard deviations (SD).
+
     >>> import pyllusion as ill
     >>>
     >>> ill.image_blobs(n=500)

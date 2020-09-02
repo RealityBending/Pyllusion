@@ -1,8 +1,7 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 
-from ..image import image_noise, image_text, rescale
-from ..image.image_blobs import _image_blob
+from ..image import image_noise, image_text
 
 
 
@@ -78,23 +77,4 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
             center_x = (width / 2) + (i * strip_width / 2)
             center_y = 0.5 * height
             draw.ellipse([center_x-diameter, center_y-diameter, center_x+diameter, center_y+diameter], fill=(255, 0, 0))
-    return image
-
-
-def paraleipodia_image(n_layers=3, sd=[8, 16, 32], width=500, height=500):
-    array = np.zeros((height, width))
-    for layer in range(n_layers):
-        array_layer = np.zeros((height, width))
-        sd_layer = sd[layer]
-        n = int((width / (sd_layer**2 * .15))**2)  # square sd to decrease n
-        weight = 5**layer
-        for _ in range(n):
-            x = np.random.randint(width)
-            y = np.random.randint(height)
-            blob = _image_blob(x=x, y=y, width=width, height=height, sd=sd_layer)
-            array_layer += blob
-        array += weight * array_layer
-
-    array = rescale(array, to=[0, 255])
-    image = PIL.Image.fromarray(array.astype(np.uint8))
     return image

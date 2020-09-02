@@ -18,4 +18,3 @@ from .image import *
 from .illusion import *
 from .movement import *
 
-from .pareidolia import *
