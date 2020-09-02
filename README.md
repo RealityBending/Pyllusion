@@ -262,7 +262,7 @@ the number of circles `n`, their size range and their transparency with
 ``` python
 ill.autostereogram(stimulus="docs/img/depthmask.png",
                    pattern=ill.image_circles,
-                   blackwhite=True,
+                   color="blackwhite",
                    alpha=0.75,
                    size_min=0.005,
                    size_max=0.03,
@@ -271,13 +271,37 @@ ill.autostereogram(stimulus="docs/img/depthmask.png",
 
 ![](docs/img/README_autostereogram2.png)
 
-### Transparency from Motion
+### Transparency From Motion (TFM)
 
-  - **TO DO** *(consider helping\!)*
+In visual perception, the [**kinetic depth
+effect**](https://en.wikipedia.org/wiki/Kinetic_depth_effect) refers to
+the phenomenon whereby the three-dimensional structural form of an
+object can be perceived when the object is moving (Wallach & O’Connell,
+1953; [Mamassian &
+Wallace, 2010](https://jov.arvojournals.org/article.aspx?articleid=2191769)).
+One of its derivative is the **Transparency-From-Motion** illusion,
+consisting in the superposition of two dot clouds moving in different
+directions that results in the perception of two transparent layers (See
+;
+[Schütz, 2014](https://jov.arvojournals.org/article.aspx?articleid=2193903);
+[Wexler et
+al., 2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf);
+[Schütz &
+Mamassian, 2016](https://jov.arvojournals.org/article.aspx?articleid=2548036)
+and <http://lab-perception.org/demo/p/tfm> for a demo).
 
-### Pattern Detection in Motion
+``` python
+parameters = ill.motiontransparency_parameters(angle=45)
+images = ill.motiontransparency_images(parameters)
 
-  - **TO DO** *(consider helping\!)*
+ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])
+```
+
+![](docs/img/README_TFM1.gif)
+
+<!-- ### Pattern Detection in Motion  -->
+
+<!-- - **TO DO** *(consider helping!)* -->
 
 ## References
 

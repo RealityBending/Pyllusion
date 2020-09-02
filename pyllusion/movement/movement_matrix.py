@@ -32,6 +32,7 @@ def movement_matrix(
     # Initialize arrays
     x = np.zeros((n_frames, n))
     y = np.zeros((n_frames, n))
+
     # Starting locations
     if keep_in_circle is not False:
         a = np.random.uniform(0, 1, n) * 2 * np.pi

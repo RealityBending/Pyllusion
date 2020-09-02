@@ -275,7 +275,7 @@ The function is highly customisable, and we can use a black and white image as a
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 ill.autostereogram(stimulus="docs/img/depthmask.png",
                    pattern=ill.image_circles,
-                   blackwhite=True,
+                   color="blackwhite",
                    alpha=0.75,
                    size_min=0.005,
                    size_max=0.03,
@@ -284,7 +284,7 @@ ill.autostereogram(stimulus="docs/img/depthmask.png",
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
 img = ill.autostereogram(stimulus="docs/img/depthmask.png",
                    pattern=ill.image_circles,
-                   blackwhite=True,
+                   color="blackwhite",
                    alpha=0.75,
                    size_min=0.005,
                    size_max=0.03,
@@ -298,7 +298,7 @@ img.save("docs/img/README_autostereogram2.png")
 
 In visual perception, the [**kinetic depth effect**](https://en.wikipedia.org/wiki/Kinetic_depth_effect) refers to the phenomenon whereby the three-dimensional structural form of an object can be perceived when the object is moving (Wallach \& O'Connell, 1953; [Mamassian \& Wallace, 2010](https://jov.arvojournals.org/article.aspx?articleid=2191769)). One of its derivative is the **Transparency-From-Motion** illusion, consisting in the superposition of two dot clouds moving in different directions that results in the perception of two transparent layers (See ; [Schütz, 2014](https://jov.arvojournals.org/article.aspx?articleid=2193903); [Wexler et al., 2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf); [Schütz \& Mamassian, 2016](https://jov.arvojournals.org/article.aspx?articleid=2548036) and http://lab-perception.org/demo/p/tfm for a demo).
 
-```{python, warning=FALSE, message=FALSE, eval=angle=45FALSE}
+```{python, warning=FALSE, message=FALSE, eval=FALSE}
 parameters = ill.motiontransparency_parameters(angle=45)
 images = ill.motiontransparency_images(parameters)
 
@@ -309,17 +309,15 @@ ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["F
 parameters = ill.motiontransparency_parameters(angle=45)
 images = ill.motiontransparency_images(parameters)
 
-ill.images_to_gif(images, path="docs/img/Transparency_From_Motion.gif", fps=parameters["FPS"])
+ill.images_to_gif(images, path="docs/img/README_TFM1.gif", fps=parameters["FPS"])
 ```
 
-![](docs/img/Transparency_From_Motion.gif)
+![](docs/img/README_TFM1.gif)
 
 
-- **TO DO** *(consider helping!)*
+<!-- ### Pattern Detection in Motion  -->
 
-### Pattern Detection in Motion 
-
-- **TO DO** *(consider helping!)*
+<!-- - **TO DO** *(consider helping!)* -->
 
 ## References
 

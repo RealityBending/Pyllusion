@@ -17,6 +17,8 @@ def movement_circles(n=50, duration=2, fps=30, **kwargs):
     # Generate PIL images
     images = []
     for i in range(n_frames):
-        images.append(image_circles(n=n, x=x[i], y=y[i], **kwargs))
+        images.append(
+            image_circles(width=width, height=height, n=n, x=x[i], y=y[i], **kwargs)
+        )
 
     return images
