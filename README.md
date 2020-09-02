@@ -225,6 +225,17 @@ ill.white_image(parameters)
 
 <!-- - **TO DO** *(consider helping!)* -->
 
+### Kanizsa Square
+
+The **Kanizsa Square** is an [illusory
+contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion. See
+[Keane et
+al., 2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
+
+![](https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534@1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png)
+
+  - **TO DO** *(consider helping\!)*
+
 ### Autostereograms
 
 [Autostereograms](https://en.wikipedia.org/wiki/Autostereogram) are
@@ -302,6 +313,15 @@ ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["F
 <!-- ### Pattern Detection in Motion  -->
 
 <!-- - **TO DO** *(consider helping!)* -->
+
+### Pinna illusion
+
+See also [Zeljic et
+al., 2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717).
+
+  - **TO DO** *(consider helping\!)*
+
+![](http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg)
 
 ## References
 
