@@ -10,7 +10,8 @@ def contrast_image(parameters=None, width=800, height=600, **kwargs):
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.contrast_parameters(difference=0, illusion_strength=-50)
-    >>> ill.contrast_image(parameters)
+    >>> ill.contrast_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     """
     # Create white canvas and get drawing context
     if parameters is None:

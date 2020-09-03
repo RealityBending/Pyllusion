@@ -23,9 +23,12 @@ def image_circles(
     """
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_circles()
-    >>> ill.image_circles(color="bw", blur=0.01)
-    >>> ill.image_circles(n=250, size_min=0.1, size_max=0.6, alpha=0.5)
+    >>> ill.image_circles()  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
+    >>> ill.image_circles(color="bw", blur=0.01)  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
+    >>> ill.image_circles(n=250, size_min=0.1, size_max=0.6, alpha=0.5)  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     # Sanity checks
     if size_max <= size_min:
@@ -95,7 +98,8 @@ def image_circle(
     >>> image = ill.image_circle(image=image, color="blue", x=-0.3, size=0.5, blur=0.05)
     >>> image = ill.image_circle(image=image, color="yellow", y=0.5, alpha=0.5)
     >>> image = ill.image_circle(image=image, color="white", size=0.3, y=-0.5, outline=1)
-    >>> image
+    >>> image  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     # Get image
     if image is None:

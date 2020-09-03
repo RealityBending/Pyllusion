@@ -13,7 +13,8 @@ def poggendorff_image(
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.poggendorff_parameters(difference=0, illusion_strength=-55)
-    >>> ill.poggendorff_image(parameters)
+    >>> ill.poggendorff_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
 
 
     """

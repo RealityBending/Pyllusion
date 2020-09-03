@@ -11,8 +11,12 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
     ---------
     >>> import pyllusion as ill
     >>>
+    >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=3)
+    >>> ill.mullerlyer_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=30)
-    >>> ill.mullerlyer_image(parameters)
+    >>> ill.mullerlyer_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     """
     # Create white canvas and get drawing context
     if parameters is None:

@@ -13,7 +13,8 @@ def pareidolia(n_layers=3, sd=[8, 16, 32], width=500, height=500):
     ---------
     >>> import pyllusion as ill
     >>>
-    >>> ill.pareidolia(n_layers=2, sd=[8, 16])
+    >>> ill.pareidolia(n_layers=2, sd=[8, 16])  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
 
     """
     array = np.zeros((height, width))

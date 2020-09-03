@@ -8,9 +8,12 @@ def rodframe_image(parameters=None, width=800, height=600, outline=20, backgroun
     ---------
     >>> import pyllusion as ill
     >>>
+    >>> parameters = ill.rodframe_parameters(difficulty=0, illusion_strength=11)
+    >>> ill.rodframe_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     >>> parameters = ill.rodframe_parameters(difficulty=20, illusion_strength=20)
-    >>> ill.rodframe_image(parameters)
-
+    >>> ill.rodframe_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     """
     # Create white canvas and get drawing context
     if parameters is None:

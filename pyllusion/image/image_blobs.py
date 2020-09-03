@@ -9,7 +9,9 @@ def image_blobs(width=500, height=500, n=100, sd=8):
 
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_blobs(n=500)
+    >>> ill.image_blobs(n=500)  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
+
     """
 
     array = np.zeros((height, width))
@@ -39,7 +41,8 @@ def _image_blob(x=450, y=100, width=800, height=600, sd=3):
     >>> import pyllusion as ill
     >>> import matplotlib.pyplot as plt
     >>> array = _image_blob(sd=8)
-    >>> plt.imshow(array)
+    >>> plt.imshow(array)  #doctest: +ELLIPSIS
+     <...>
     """
 
     _x = height - x

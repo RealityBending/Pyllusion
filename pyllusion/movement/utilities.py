@@ -2,7 +2,8 @@ def images_to_gif(images, path="mygif.gif", fps=30):
     """
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_blobs(n=500)
+    >>> ill.image_blobs(n=500)  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     try:
         import imageio
@@ -13,4 +14,3 @@ def images_to_gif(images, path="mygif.gif", fps=30):
         )
     duration = 1 / fps
     imageio.mimsave(path, images, duration=duration, fps=fps)
-

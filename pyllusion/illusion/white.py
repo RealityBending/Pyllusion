@@ -11,7 +11,8 @@ def white_image(parameters=None, width=800, height=600, **kwargs):
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.white_parameters(difference=0, illusion_strength=100)
-    >>> ill.white_image(parameters)
+    >>> ill.white_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     """
     # Create white canvas and get drawing context
     if parameters is None:

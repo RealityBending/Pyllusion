@@ -19,7 +19,8 @@ def image_line(width=800, height=600, x=0, y=0, x1=None, y1=None, x2=None, y2=No
     >>> image = ill.image_line(image=image, length=1, rotate=20, color="red")
     >>> image = ill.image_line(image=image, x1=0, y1=0, length=0.5, rotate=-90, size=3)
     >>> image = ill.image_line(image=image, x1=-1, y1=-1, length=1, rotate=45, size=5, blur=0.005)
-    >>> image
+    >>> image  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     # Get image
     if image is None:

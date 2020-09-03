@@ -11,7 +11,8 @@ def ebbinghaus_image(parameters=None, width=800, height=600, background="white",
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.ebbinghaus_parameters(difficulty=2, illusion_strength=1)
-    >>> ill.ebbinghaus_image(parameters)
+    >>> ill.ebbinghaus_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     """
     # Create white canvas and get drawing context
     if parameters is None:

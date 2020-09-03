@@ -3,12 +3,12 @@ from .movement_matrix import movement_matrix
 from ..image import image_circles
 
 
-def movement_circles(n=50, duration=2, fps=30, **kwargs):
+def movement_circles(n=50, duration=2, fps=30, width=500, height=500, **kwargs):
     """
     >>> import pyllusion as ill
     >>>
     >>> images = ill.movement_circles(n=50, duration=4, fps=30, color="black", size=0.05)
-    >>> ill.images_to_gif(images, path="mygif.gif", fps=30)
+    >>> #ill.images_to_gif(images, path="mygif.gif", fps=30)
     """
     n_frames = int(duration * fps)
 

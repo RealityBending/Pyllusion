@@ -34,7 +34,8 @@ def image_rectangle(
     >>> image = ill.image_rectangle(image=image, x=0.5, size_width=0.5, rotate=45, color="red")
     >>> image = ill.image_rectangle(image=image, y=0.25, size_height=0.2,  color="yellow", alpha=0.5)
     >>> image = ill.image_rectangle(image=image, size_width=0.5, size_height=0.5, blur=0.01, color="green", adjust_width=True)
-    >>> image
+    >>> image  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     # Get image
     if image is None:

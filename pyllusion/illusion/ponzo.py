@@ -10,7 +10,8 @@ def ponzo_image(parameters=None, width=800, height=600, outline=20, background="
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.ponzo_parameters(difficulty=0, illusion_strength=20)
-    >>> ill.ponzo_image(parameters)
+    >>> ill.ponzo_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     """
     # Create white canvas and get drawing context
     if parameters is None:
