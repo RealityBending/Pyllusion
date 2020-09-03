@@ -14,8 +14,7 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
     ---------
     >>> import pyllusion as ill
     >>>
-    >>> ill.autostereogram(stimulus="3D", width=1000, height=500, font="arialbd.ttf")  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>  #doctest: +SKIP
+    >>> ill.autostereogram(stimulus="3D", width=1000, height=500, font="arialbd.ttf")  #doctest: +SKIP
     >>> ill.autostereogram(stimulus="3D",
     ...                    pattern=ill.image_circles,
     ...                    n_repetitions=16,
