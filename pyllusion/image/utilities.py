@@ -65,7 +65,7 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid"):
 
 
 def _coord_text(
-    image, text="hello", size="auto", x=0, y=0, font="./arial.ttf", unit="grid"
+    image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid"
 ):
     """Get text coordinates
 
@@ -77,10 +77,9 @@ def _coord_text(
     >>> image  = PIL.Image.new('RGB', (500, 500), color = "white")
     >>> draw = PIL.ImageDraw.Draw(image, 'RGB')
     >>>
-    >>> coord, font = _coord_text(image, size="auto", x=-0.5, y=0.5)
-    >>> draw.text(coord, text="hello", fill="black", font=font)
-    >>> image  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> coord, font = _coord_text(image, size="auto", x=-0.5, y=0.5)  #doctest: +SKIP
+    >>> draw.text(coord, text="hello", fill="black", font=font)  #doctest: +SKIP
+    >>> image  #doctest: +SKIP
     """
     if unit == "grid":
         # Get coordinates in pixels

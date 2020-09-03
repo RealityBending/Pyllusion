@@ -3,7 +3,7 @@ from .movement_matrix import movement_matrix
 from ..image import image_circles
 
 
-def movement_circles(n=50, duration=2, fps=30, **kwargs):
+def movement_circles(n=50, duration=2, fps=30, width=500, height=500, **kwargs):
     """
     >>> import pyllusion as ill
     >>>

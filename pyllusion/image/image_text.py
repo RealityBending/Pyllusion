@@ -13,13 +13,11 @@ def image_text(text="Hello", width=500, height=500, x=0, y=0, size="auto", color
     --------
     >>> import pyllusion as ill
     >>>
-    >>> image = ill.image_text(text="Hello", size=40)
-    >>> image = ill.image_text(image=image, size=30, y=0.5, text="I'm Red", color="red")
-    >>> image = ill.image_text(image=image, size=20, x=0.5, text="Bold and blurred", font="arialbd.ttf", blur=0.005)
-    >>> image  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
-    >>> ill.image_text(text="3D", width=1600, height=900, font="arial.ttf", blur=0.01)  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> image = ill.image_text(text="Hello", size=40)  #doctest: +SKIP
+    >>> image = ill.image_text(image=image, size=30, y=0.5, text="I'm Red", color="red")  #doctest: +SKIP
+    >>> image = ill.image_text(image=image, size=20, x=0.5, text="Bold and blurred", font="arialbd.ttf", blur=0.005)  #doctest: +SKIP
+    >>> image  #doctest: +SKIP
+    >>> ill.image_text(text="3D", width=1600, height=900, font="arial.ttf", blur=0.01)  #doctest: +SKIP
     """
     # Get image
     if image is None:
