@@ -4,11 +4,8 @@ The Pyllusion module.
 __version__ = "0.0.5"
 
 
-
-
 # Import first submodule
 from .image import *
-
 
 
 # Get path of stimuli images
@@ -19,5 +16,5 @@ from .image import *
 
 # Import rest of submodules
 from .illusion import *
+from .movement import *
 
-from .pareidolia import *

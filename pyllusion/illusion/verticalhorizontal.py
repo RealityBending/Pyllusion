@@ -15,7 +15,6 @@ def verticalhorizontal_image(
     >>> parameters = ill.verticalhorizontal_parameters(difficulty=0, illusion_strength=90)
     >>> ill.verticalhorizontal_image(parameters)  #doctest: +ELLIPSIS
     <PIL.Image.Image ...>
-
     """
     # Create white canvas and get drawing context
     if parameters is None:

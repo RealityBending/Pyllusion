@@ -18,7 +18,7 @@ test_requirements = dependencies + [
 setup(
     # Info
     name = "pyllusion",
-    description = ("A Python Module for Generating Illusions."),
+    description = ("A Parametric Framework to Generate Visual Illusions."),
     version = find_version(),
     license = "Mozilla Public License Version 2.0",
     
@@ -41,13 +41,9 @@ setup(
     package_data = {
         "pyllusion.stimuli":["*.ai"],
         "pyllusion.stimuli":["*.png"]},
-<<<<<<< Updated upstream
     install_requires = dependencies,
     dependency_links=[],
-    long_description = open('README.md').read(),
-=======
     long_description = open('README.md', encoding='utf8').read(),
->>>>>>> Stashed changes
     keywords = "python pyllusion visual optical illusions",
     url = "https://github.com/DominiqueMakowski/Pyllusion/",
     download_url = 'https://github.com/DominiqueMakowski/Pyllusion/zipball/master',

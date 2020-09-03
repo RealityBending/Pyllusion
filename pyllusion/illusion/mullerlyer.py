@@ -11,14 +11,12 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
     ---------
     >>> import pyllusion as ill
     >>>
-<<<<<<< Updated upstream
     >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=3)
-    >>> ill.mullerlyer_image(parameters)
-=======
+    >>> ill.mullerlyer_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=30)
     >>> ill.mullerlyer_image(parameters)  #doctest: +ELLIPSIS
     <PIL.Image.Image ...>
->>>>>>> Stashed changes
     """
     # Create white canvas and get drawing context
     if parameters is None:
@@ -32,8 +30,8 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
         for side in ["1", "2"]:
             image = image_line(
                 image=image,
-                x=parameters["Distractor_" + which + side + "_x1"],
-                y=parameters["Distractor_" + which + side + "_y1"],
+                x1=parameters["Distractor_" + which + side + "_x1"],
+                y1=parameters["Distractor_" + which + side + "_y1"],
                 x2=parameters["Distractor_" + which + side + "_x2"],
                 y2=parameters["Distractor_" + which + side + "_y2"],
                 color="black",
@@ -42,8 +40,8 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
     # Target lines (horizontal)
     for position in ["Bottom", "Top"]:
         image = image_line(image=image,
-                   x=parameters[position + "_x1"],
-                   y=parameters[position + "_y1"],
+                   x1=parameters[position + "_x1"],
+                   y1=parameters[position + "_y1"],
                    x2=parameters[position + "_x2"],
                    y2=parameters[position + "_y2"],
                    color="red",
@@ -81,7 +79,7 @@ def mullerlyer_parameters(difficulty=0, size_min=0.5, illusion_strength=0, dista
                     parameters["Distractor_" + which + side + c + "_y2"] = y2 - 2 * (y2 - y1)
 
 
-    parameters.update({"Illusion": "Muller-Lyer",
+    parameters.update({"Illusion": "MullerLyer",
                        "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
                        "Distractor_Length": length})
 

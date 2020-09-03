@@ -8,15 +8,12 @@ def rodframe_image(parameters=None, width=800, height=600, outline=20, backgroun
     ---------
     >>> import pyllusion as ill
     >>>
-<<<<<<< Updated upstream
     >>> parameters = ill.rodframe_parameters(difficulty=0, illusion_strength=11)
-    >>> ill.rodframe_image(parameters)
-=======
+    >>> ill.rodframe_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     >>> parameters = ill.rodframe_parameters(difficulty=20, illusion_strength=20)
     >>> ill.rodframe_image(parameters)  #doctest: +ELLIPSIS
     <PIL.Image.Image ...>
->>>>>>> Stashed changes
-
     """
     # Create white canvas and get drawing context
     if parameters is None:
@@ -36,21 +33,20 @@ def rodframe_image(parameters=None, width=800, height=600, outline=20, backgroun
         adjust_width=True)
 
     # Rod
-    coord, _, _ = _coord_line(x1=0, y1=0, length=0.4, angle=parameters["Rod_Angle"])
-    _, _, x2, y2 = coord
-    coord, _, _ = _coord_line(x1=0, y1=0, length=0.4, angle=180+parameters["Rod_Angle"])
-    _, _, x1, y1 = coord
+    coord, _, _ = _coord_line(x=0, y=0, length=0.8, angle=parameters["Rod_Angle"])
+    x1, y1, x2, y2 = coord
 
     image = image_line(
         image=image,
-        x=x1,
-        y=y1,
+        x1=x1,
+        y1=y1,
         x2=x2,
         y2=y2,
         length=None,
         rotate=None,
         color="red",
-        size=20)
+        size=20,
+        adjust_width=True)
 
     return image
 
@@ -75,13 +71,12 @@ def rodframe_parameters(difficulty=0, illusion_strength=0):
         frame_angle = -1 * illusion_strength
 
 
-
-
-    parameters = {"Frame_Angle": frame_angle,
+    parameters = {"Illusion": "RodFrame",
+                  "Frame_Angle": frame_angle,
                   "Rod_Angle": rod_angle,
                   "Angle_Difference": rod_angle - frame_angle,
-                  "Difficulty": rod_angle,
-                  "Illusion": illusion_strength,
+                  "Difficulty": difficulty,
+                  "Illusion_Strength": illusion_strength,
                   "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent"
                   }
 

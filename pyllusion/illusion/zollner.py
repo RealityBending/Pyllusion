@@ -13,7 +13,6 @@ def zollner_image(parameters=None, width=800, height=600, background="white", **
     >>> parameters = ill.zollner_parameters(illusion_strength=75)
     >>> ill.zollner_image(parameters)  #doctest: +ELLIPSIS
     <PIL.Image.Image ...>
-
     """
     # Create white canvas and get drawing context
     if parameters is None:

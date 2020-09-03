@@ -2,7 +2,26 @@ import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from .utilities import _color, _coord_rectangle
 
 
-def image_rectangle(width=800, height=600, x=0, y=0, size_width=1, size_height=1, rotate=0, color="black", outline=0, color_outline="black", background="white", alpha=1, blur=0, antialias=True, adjust_width=False, image=None, **kwargs):
+def image_rectangle(
+    width=800,
+    height=600,
+    x=0,
+    y=0,
+    size_width=1,
+    size_height=1,
+    rotate=0,
+    color="black",
+    outline=0,
+    color_outline="black",
+    background="white",
+    alpha=1,
+    blur=0,
+    antialias=True,
+    adjust_width=False,
+    adjust_height=False,
+    image=None,
+    **kwargs
+):
     """
     Parameters
     ----------
@@ -19,28 +38,37 @@ def image_rectangle(width=800, height=600, x=0, y=0, size_width=1, size_height=1
     """
     # Get image
     if image is None:
-        image  = PIL.Image.new('RGBA', (width, height), color = background)
+        image = PIL.Image.new("RGBA", (width, height), color=background)
     else:
         image = image.convert("RGBA")
     width, height = image.size
 
-    # Adjust size for ratio
+    # Adjust size for screen ratio
     if adjust_width is True:
         size_width = size_width * (height / width)
+    if adjust_height is True:
+        size_height = size_height * (width / height)
 
     # Upsample
     if antialias is True:
         width, height = width * 3, height * 3
 
     # Create mask
-    mask = PIL.Image.new('RGBA', (width, height))
+    mask = PIL.Image.new("RGBA", (width, height))
     draw = PIL.ImageDraw.Draw(mask)
 
     # Get coordinates
-    coord = _coord_rectangle(mask, x=x, y=y, size_width=size_width, size_height=size_height)
+    coord = _coord_rectangle(
+        mask, x=x, y=y, size_width=size_width, size_height=size_height
+    )
 
     # Draw
-    draw.rectangle(coord, fill=_color(color, alpha=alpha, mode="RGBA"), width=outline, outline=color_outline)
+    draw.rectangle(
+        coord,
+        fill=_color(color, alpha=alpha, mode="RGBA"),
+        width=outline,
+        outline=color_outline,
+    )
 
     # Rotate
     if rotate != 0:
@@ -53,7 +81,6 @@ def image_rectangle(width=800, height=600, x=0, y=0, size_width=1, size_height=1
     # Blur the image a bit
     if blur > 0:
         mask = mask.filter(PIL.ImageFilter.GaussianBlur(blur * height))
-
 
     # Merge and return
     image = PIL.Image.alpha_composite(image, mask)
