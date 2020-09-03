@@ -41,7 +41,6 @@ setup(
     package_data = {
         "pyllusion.stimuli":["*.ai"],
         "pyllusion.stimuli":["*.png"]},
-    install_requires = dependencies,
     dependency_links=[],
     long_description = open('README.md', encoding='utf8').read(),
     keywords = "python pyllusion visual optical illusions",
