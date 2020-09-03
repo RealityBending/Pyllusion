@@ -98,7 +98,8 @@ def image_circle(
     >>> image = ill.image_circle(image=image, color="blue", x=-0.3, size=0.5, blur=0.05)
     >>> image = ill.image_circle(image=image, color="yellow", y=0.5, alpha=0.5)
     >>> image = ill.image_circle(image=image, color="white", size=0.3, y=-0.5, outline=1)
-    >>> image
+    >>> image  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     # Get image
     if image is None:

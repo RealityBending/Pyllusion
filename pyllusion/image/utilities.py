@@ -65,7 +65,7 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid"):
 
 
 def _coord_text(
-    image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid"
+    image, text="hello", size="auto", x=0, y=0, font="./arial.ttf", unit="grid"
 ):
     """Get text coordinates
 
