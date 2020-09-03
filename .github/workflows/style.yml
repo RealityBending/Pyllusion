@@ -41,13 +41,6 @@ jobs:
         # See https://github.com/myint/docformatter
         docformatter pyllusion --wrap-summaries 120 --wrap-descriptions 113 --blank --make-summary-multi-line --recursive
 
-    - name: Detect remaining style errors with flake8
-      run: |
-        pip install flake8
-        # The GitHub editor is 127 chars wide. See https://flake8.pycqa.org/en/latest/user/configuration.html
-        flake8 pyllusion --exclude pyllusion/__init__.py --max-line-length=127 --max-complexity=10 --ignore E303,C901,E203,W503
-
-
     - name: Commit changes
       uses: EndBug/add-and-commit@v4
       with:
