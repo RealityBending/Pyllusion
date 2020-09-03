@@ -1,5 +1,5 @@
 import numpy as np
-import PIL.ImageColor
+import PIL.ImageColor, PIL.ImageFont
 
 from .rescale import rescale
 
@@ -44,7 +44,8 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid"):
     >>> coord = _coord_circle(image, diameter=1, x=0, y=0)
     >>> draw.ellipse(coord, fill="red", width=0)
     >>> draw.ellipse(_coord_circle(image, diameter=1.5, x=0, y=0), outline="blue")
-    >>> image
+    >>> image  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     if unit == "grid":
         # Get coordinates in pixels
@@ -77,8 +78,9 @@ def _coord_text(
     >>> draw = PIL.ImageDraw.Draw(image, 'RGB')
     >>>
     >>> coord, font = _coord_text(image, size="auto", x=-0.5, y=0.5)
-    >>> draw.text(coord, text, fill="black", font=font)
-    >>> image
+    >>> draw.text(coord, text="hello", fill="black", font=font)
+    >>> image  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     if unit == "grid":
         # Get coordinates in pixels

@@ -13,9 +13,12 @@ def image_noise(width=500, height=500, red=np.random.uniform,
     ----------
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_noise()
-    >>> ill.image_noise(blackwhite=True)
-    >>> ill.image_noise(blur=0.005)
+    >>> ill.image_noise()  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
+    >>> ill.image_noise(blackwhite=True)  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
+    >>> ill.image_noise(blur=0.005)  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
     # Generate random colors
     r = red(size=(width, height), **kwargs)

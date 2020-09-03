@@ -11,6 +11,7 @@ dependencies = ["numpy", "pandas", "Pillow", "scipy"]
 setup_requirements = ["pytest-runner", "numpy"]
 test_requirements = dependencies + [
     "pytest",
+    "matplotlib",
     "coverage"
 ]
 
