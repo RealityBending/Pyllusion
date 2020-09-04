@@ -3,7 +3,9 @@
 ![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
 ![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
 ![](https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg)
-*A Parametric Framework to Generate Visual Illusions using Python*
+
+
+**A Parametric Framework to Generate Visual Illusions using Python**
 
 </h5>
 
