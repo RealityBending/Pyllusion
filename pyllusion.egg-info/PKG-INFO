@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyllusion
-Version: 0.0.5
+Version: 0.0.6
 Summary: A Parametric Framework to Generate Visual Illusions.
 Home-page: https://github.com/DominiqueMakowski/Pyllusion/
 Author: Dominique Makowski
@@ -10,14 +10,10 @@ Maintainer-email: dom.makowski@gmail.com
 License: Mozilla Public License Version 2.0
 Download-URL: https://github.com/DominiqueMakowski/Pyllusion/zipball/master
 Description: 
-        <p align="center">
-        
-        <img width="600" src="docs/img/logo.png">
-        
-        </p>
-        
-        <h5 align="center">
-        
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png)
+        ![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
+        ![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
+        ![](https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg)
         *A Parametric Framework to Generate Visual Illusions using Python*
         
         </h5>
@@ -80,7 +76,7 @@ Description:
         ill.delboeuf_image(parameters)
         ```
         
-        ![](docs/img/README_delboeuf1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_delboeuf1.png)
         
         ### Ebbinghaus Illusion
         
@@ -98,7 +94,7 @@ Description:
         ill.ebbinghaus_image(parameters)
         ```
         
-        ![](docs/img/README_ebbinghaus1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ebbinghaus1.png)
         
         ### Müller-Lyer illusion Illusion
         
@@ -114,7 +110,7 @@ Description:
         ill.mullerlyer_image(parameters)
         ```
         
-        ![](docs/img/README_mullerlyer1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_mullerlyer1.png)
         
         ### Ponzo Illusion
         
@@ -131,7 +127,7 @@ Description:
         ill.ponzo_image(parameters)
         ```
         
-        ![](docs/img/README_ponzo1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ponzo1.png)
         
         ### Vertical–horizontal Illusion
         
@@ -146,7 +142,7 @@ Description:
         ill.verticalhorizontal_image(parameters)
         ```
         
-        ![](docs/img/README_verticalhorizontal1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_verticalhorizontal1.png)
         
         ### Zöllner Illusion
         
@@ -161,7 +157,7 @@ Description:
         ill.zollner_image(parameters)
         ```
         
-        ![](docs/img/README_zollner1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_zollner1.png)
         
         ### Rod and Frame Illusion
         
@@ -175,7 +171,7 @@ Description:
         ill.rodframe_image(parameters)
         ```
         
-        ![](docs/img/README_rodframe1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_rodframe1.png)
         
         ### Poggendorff Illusion
         
@@ -193,7 +189,7 @@ Description:
         ill.poggendorff_image(parameters)
         ```
         
-        ![](docs/img/README_poggendorff1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_poggendorff1.png)
         
         ### Simultaneous Contrast illusion
         
@@ -213,7 +209,7 @@ Description:
         ill.contrast_image(parameters)
         ```
         
-        ![](docs/img/README_contrast1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_contrast1.png)
         
         ### White Illusion
         
@@ -226,7 +222,7 @@ Description:
         ill.white_image(parameters)
         ```
         
-        ![](docs/img/README_white1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_white1.png)
         
         <!-- ### Chubb illusion -->
         
@@ -268,7 +264,7 @@ Description:
         ill.autostereogram(stimulus="3D", width=1600, height=900)
         ```
         
-        ![](docs/img/README_autostereogram1.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram1.png)
         
         The function is highly customisable, and we can use a black and white
         image as a **depth mask** (in this case, the [picture of a
@@ -279,7 +275,7 @@ Description:
         the number of circles `n`, their size range and their transparency with
         `alpha`).
         
-        ![](docs/img/depthmask.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/depthmask.png)
         
         ``` python
         ill.autostereogram(stimulus="docs/img/depthmask.png",
@@ -291,7 +287,7 @@ Description:
                            n=1000)
         ```
         
-        ![](docs/img/README_autostereogram2.png)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram2.png)
         
         ### Transparency From Motion (TFM)
         
@@ -319,7 +315,7 @@ Description:
         ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])
         ```
         
-        ![](docs/img/README_TFM1.gif)
+        ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_TFM1.gif)
         
         <!-- ### Pattern Detection in Motion  -->
         
