@@ -1,7 +1,7 @@
 
 <p align="center">
 
-<img width="600" src="docs/img/logo.png">
+<img width="600" src="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png">
 
 </p>
 
@@ -69,7 +69,7 @@ parameters = ill.delboeuf_parameters(illusion_strength=3)
 ill.delboeuf_image(parameters)
 ```
 
-![](docs/img/README_delboeuf1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_delboeuf1.png)
 
 ### Ebbinghaus Illusion
 
@@ -87,7 +87,7 @@ parameters = ill.ebbinghaus_parameters(illusion_strength=2)
 ill.ebbinghaus_image(parameters)
 ```
 
-![](docs/img/README_ebbinghaus1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ebbinghaus1.png)
 
 ### Müller-Lyer illusion Illusion
 
@@ -103,7 +103,7 @@ parameters = ill.mullerlyer_parameters(illusion_strength=30)
 ill.mullerlyer_image(parameters)
 ```
 
-![](docs/img/README_mullerlyer1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_mullerlyer1.png)
 
 ### Ponzo Illusion
 
@@ -120,7 +120,7 @@ parameters = ill.ponzo_parameters(illusion_strength=20)
 ill.ponzo_image(parameters)
 ```
 
-![](docs/img/README_ponzo1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ponzo1.png)
 
 ### Vertical–horizontal Illusion
 
@@ -135,7 +135,7 @@ parameters = ill.verticalhorizontal_parameters(illusion_strength=90)
 ill.verticalhorizontal_image(parameters)
 ```
 
-![](docs/img/README_verticalhorizontal1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_verticalhorizontal1.png)
 
 ### Zöllner Illusion
 
@@ -150,7 +150,7 @@ parameters = ill.zollner_parameters(illusion_strength=75)
 ill.zollner_image(parameters)
 ```
 
-![](docs/img/README_zollner1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_zollner1.png)
 
 ### Rod and Frame Illusion
 
@@ -164,7 +164,7 @@ parameters = ill.rodframe_parameters(illusion_strength=11)
 ill.rodframe_image(parameters)
 ```
 
-![](docs/img/README_rodframe1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_rodframe1.png)
 
 ### Poggendorff Illusion
 
@@ -182,7 +182,7 @@ parameters = ill.poggendorff_parameters(illusion_strength=-50)
 ill.poggendorff_image(parameters)
 ```
 
-![](docs/img/README_poggendorff1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_poggendorff1.png)
 
 ### Simultaneous Contrast illusion
 
@@ -202,7 +202,7 @@ parameters = ill.contrast_parameters(illusion_strength=-50)
 ill.contrast_image(parameters)
 ```
 
-![](docs/img/README_contrast1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_contrast1.png)
 
 ### White Illusion
 
@@ -215,7 +215,7 @@ parameters = ill.white_parameters(illusion_strength=100)
 ill.white_image(parameters)
 ```
 
-![](docs/img/README_white1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_white1.png)
 
 <!-- ### Chubb illusion -->
 
@@ -257,7 +257,7 @@ it’s a mind-blowing experience 🤯
 ill.autostereogram(stimulus="3D", width=1600, height=900)
 ```
 
-![](docs/img/README_autostereogram1.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram1.png)
 
 The function is highly customisable, and we can use a black and white
 image as a **depth mask** (in this case, the [picture of a
@@ -268,7 +268,7 @@ function to which we can provide additional arguments like `blackwhite`,
 the number of circles `n`, their size range and their transparency with
 `alpha`).
 
-![](docs/img/depthmask.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/depthmask.png)
 
 ``` python
 ill.autostereogram(stimulus="docs/img/depthmask.png",
@@ -280,7 +280,7 @@ ill.autostereogram(stimulus="docs/img/depthmask.png",
                    n=1000)
 ```
 
-![](docs/img/README_autostereogram2.png)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram2.png)
 
 ### Transparency From Motion (TFM)
 
@@ -308,7 +308,7 @@ images = ill.motiontransparency_images(parameters)
 ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])
 ```
 
-![](docs/img/README_TFM1.gif)
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_TFM1.gif)
 
 <!-- ### Pattern Detection in Motion  -->
 
