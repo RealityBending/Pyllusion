@@ -1,0 +1,13 @@
+numpy
+pandas
+Pillow
+scipy
+
+[test]
+numpy
+pandas
+Pillow
+scipy
+pytest
+matplotlib
+coverage
