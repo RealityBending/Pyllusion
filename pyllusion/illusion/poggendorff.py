@@ -1,5 +1,10 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
+
 from ..image import image_line, image_rectangle
 from ..image.utilities import _coord_line, _coord_rectangle
 
@@ -7,7 +12,11 @@ from ..image.utilities import _coord_line, _coord_rectangle
 def poggendorff_image(
     parameters=None, width=800, height=600, background="white", **kwargs
 ):
-    """
+    """Create the Poggendorff illusion.
+    The Poggendorff illusion is an optical illusion that involves the misperception
+    of the position of one segment of a transverse line that has been interrupted
+    by the contour of an intervening structure.
+
     Examples
     ---------
     >>> import pyllusion as ill

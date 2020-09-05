@@ -6,8 +6,12 @@ from ..image.image_blobs import _image_blob
 
 
 def pareidolia(n_layers=3, sd=[8, 16, 32], width=500, height=500):
-    """
-    Create pure-noise images using bivariate Gaussian blobs with different standard deviations (SD).
+    """Create pure-noise images.
+
+    Pareidolia is the tendency to incorrectly perceive of a stimulus as an object
+    pattern or meaning known to the observer. To create stimuli for the observation
+    of such phenomenon, this function creates pure-noise images using bivariate
+    Gaussian blobs with different standard deviations (SD).
 
     Examples
     ---------
@@ -21,8 +25,8 @@ def pareidolia(n_layers=3, sd=[8, 16, 32], width=500, height=500):
     for layer in range(n_layers):
         array_layer = np.zeros((height, width))
         sd_layer = sd[layer]
-        n = int((width / (sd_layer**2 * .15))**2)  # square sd to decrease n
-        weight = 5**layer
+        n = int((width / (sd_layer ** 2 * 0.15)) ** 2)  # square sd to decrease n
+        weight = 5 ** layer
         for _ in range(n):
             x = np.random.randint(width)
             y = np.random.randint(height)

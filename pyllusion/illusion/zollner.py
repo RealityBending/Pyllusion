@@ -1,11 +1,19 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
+
 from ..image import image_line
 from ..image.utilities import _coord_line
 
 
 def zollner_image(parameters=None, width=800, height=600, background="white", **kwargs):
-    """
+    """Create the Zöllner illusion.
+    The Zöllner illusion is an optical illusion, where horizontal lines are perceived
+    as not parallel because of their background.
+
     Examples
     ---------
     >>> import pyllusion as ill

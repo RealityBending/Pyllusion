@@ -1,5 +1,10 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
+
 from ..image import image_line
 from ..image.utilities import _coord_line
 
@@ -7,7 +12,8 @@ from ..image.utilities import _coord_line
 def verticalhorizontal_image(
     parameters=None, width=800, height=600, background="white", **kwargs
 ):
-    """
+    """Create the vertical-horizontal illusion.
+    The vertical–horizontal illusion illustrates the tendency for observers to overestimate the length of a vertical line relative to a horizontal line of the same length
     Examples
     ---------
     >>> import pyllusion as ill

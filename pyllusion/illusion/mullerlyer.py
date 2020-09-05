@@ -1,12 +1,23 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
+
 from ..image import image_line
 from ..image.utilities import _coord_line
 from .ponzo import _ponzo_parameters_topbottom
 
 
-def mullerlyer_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
-    """
+def mullerlyer_image(
+    parameters=None, width=800, height=600, outline=20, background="white", **kwargs
+):
+    """Create the Müller-Lyer illusion.
+    The Müller-Lyer illusion is an optical illusion causing the participant to
+    perceive two segments as being of different length depending on the shape of
+    the arrows.
+
     Examples
     ---------
     >>> import pyllusion as ill
@@ -23,7 +34,7 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
         parameters = mullerlyer_parameters(**kwargs)
 
     # Background
-    image  = PIL.Image.new('RGB', (width, height), color=background)
+    image = PIL.Image.new("RGB", (width, height), color=background)
 
     # Distractors lines
     for which in ["TopLeft", "TopRight", "BottomLeft", "BottomRight"]:  #
@@ -35,26 +46,30 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
                 x2=parameters["Distractor_" + which + side + "_x2"],
                 y2=parameters["Distractor_" + which + side + "_y2"],
                 color="black",
-                size=outline)
+                size=outline,
+            )
 
     # Target lines (horizontal)
     for position in ["Bottom", "Top"]:
-        image = image_line(image=image,
-                   x1=parameters[position + "_x1"],
-                   y1=parameters[position + "_y1"],
-                   x2=parameters[position + "_x2"],
-                   y2=parameters[position + "_y2"],
-                   color="red",
-                   size=outline)
+        image = image_line(
+            image=image,
+            x1=parameters[position + "_x1"],
+            y1=parameters[position + "_y1"],
+            x2=parameters[position + "_x2"],
+            y2=parameters[position + "_y2"],
+            color="red",
+            size=outline,
+        )
 
     return image
 
 
-
 def mullerlyer_parameters(difficulty=0, size_min=0.5, illusion_strength=0, distance=1):
-    parameters = _ponzo_parameters_topbottom(difficulty=difficulty, size_min=size_min, distance=distance)
+    parameters = _ponzo_parameters_topbottom(
+        difficulty=difficulty, size_min=size_min, distance=distance
+    )
 
-    length = size_min/2
+    length = size_min / 2
 
     if difficulty >= 0:
         angle = {"Top": -illusion_strength, "Bottom": illusion_strength}
@@ -64,9 +79,19 @@ def mullerlyer_parameters(difficulty=0, size_min=0.5, illusion_strength=0, dista
     for which in ["Top", "Bottom"]:
         for side in ["Left", "Right"]:
             if side == "Left":
-                coord, _, _ = _coord_line(x1=parameters[which + "_x1"], y1=parameters[which + "_y1"], length=length, angle=angle[which])
+                coord, _, _ = _coord_line(
+                    x1=parameters[which + "_x1"],
+                    y1=parameters[which + "_y1"],
+                    length=length,
+                    angle=angle[which],
+                )
             else:
-                coord, _, _ = _coord_line(x1=parameters[which + "_x2"], y1=parameters[which + "_y2"], length=length, angle=-angle[which])
+                coord, _, _ = _coord_line(
+                    x1=parameters[which + "_x2"],
+                    y1=parameters[which + "_y2"],
+                    length=length,
+                    angle=-angle[which],
+                )
             x1, y1, x2, y2 = coord
 
             for c in ["1", "2"]:
@@ -76,11 +101,16 @@ def mullerlyer_parameters(difficulty=0, size_min=0.5, illusion_strength=0, dista
                 if c == "1":
                     parameters["Distractor_" + which + side + c + "_y2"] = y2
                 else:
-                    parameters["Distractor_" + which + side + c + "_y2"] = y2 - 2 * (y2 - y1)
+                    parameters["Distractor_" + which + side + c + "_y2"] = y2 - 2 * (
+                        y2 - y1
+                    )
 
-
-    parameters.update({"Illusion": "MullerLyer",
-                       "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
-                       "Distractor_Length": length})
+    parameters.update(
+        {
+            "Illusion": "MullerLyer",
+            "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
+            "Distractor_Length": length,
+        }
+    )
 
     return parameters
