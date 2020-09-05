@@ -226,7 +226,8 @@ ill.white_image(parameters)
 ### Kanizsa Square
 
 The **Kanizsa Square** is an [illusory
-contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion. See
+contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion.
+The Kanizsa square creates an illusion of depth, where the central figure i.e., the square appears to sit on a higher plane than the surrounding pacmen-like disc fragments. See
 [Keane et
 al., 2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
 
@@ -313,6 +314,8 @@ ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["F
 <!-- - **TO DO** *(consider helping!)* -->
 
 ### Pinna illusion
+
+The Pinna illusion is an illusion that evokes the perception of a rotating motion effect. Try moving closer towards the figure and you will notice the rotating effect; however, this direction of rotation is reversed when you move further away from the figure.
 
 See also [Zeljic et
 al., 2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717).
