@@ -1,12 +1,36 @@
 import numpy as np
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
 import scipy.signal
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from .utilities import _coord_circle
+
 from .rescale import rescale
+from .utilities import _coord_circle
+
 
 def image_blobs(width=500, height=500, n=100, sd=8):
     """Return an image with blobs of the same standard deviations (SD).
 
+    Parameters
+    ----------
+    width : int
+        Width of the returned image.
+    height : int
+        Height of the returned image.
+    n : int
+        Number of gaussian blobs drawn in the returned image.
+    sd : int
+        The standard deviation of the gaussian blob. Unit in pixel.
+
+    Returns
+    -------
+    Image
+        Image of blob(s).
+
+    Examples
+    --------
     >>> import pyllusion as ill
     >>>
     >>> ill.image_blobs(n=500)  #doctest: +ELLIPSIS
@@ -52,7 +76,7 @@ def _image_blob(x=450, y=100, width=800, height=600, sd=3):
     parent_blob = np.outer(gkern1d, gkern1d)
 
     w = int(parent_width / 2)
-    blob = parent_blob[w - y: (w - y) + height, w - x: (w - x) + width]
+    blob = parent_blob[w - y : (w - y) + height, w - x : (w - x) + width]
     return blob
 
 
@@ -67,10 +91,9 @@ def _draw_blob(width, height=None, size=0.1, blur=0, color="black"):
     blob = PIL.Image.new("RGBA", (width, height))
 
     # Blob coordinates
-    coord = _coord_circle(blob,
-                            diameter=size,
-                            x=np.random.uniform(-1, 1),
-                            y=np.random.uniform(-1, 1))
+    coord = _coord_circle(
+        blob, diameter=size, x=np.random.uniform(-1, 1), y=np.random.uniform(-1, 1)
+    )
 
     # Draw blob
     draw = PIL.ImageDraw.Draw(blob)
