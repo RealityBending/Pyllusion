@@ -31,11 +31,12 @@ matplotlib$use("Agg", force = TRUE)
 
 
 
-<p align="center">
-  <img width="600" src="docs/img/logo.png">
-</p>
+**A Parametric Framework to Generate Visual Illusions using Python**
 
-<h5 align="center">*A Parametric Framework to Generate Visual Illusions using Python*</h5>
+![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png)
+![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
+![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
+![](https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg)
 
 # Overview
 
