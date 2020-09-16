@@ -14,3 +14,28 @@ from .contrast import contrast_parameters, contrast_image
 from .white import white_parameters, white_image
 from .autostereogram import autostereogram
 from .pareidolia import pareidolia
+
+__all__ = [
+    "delboeuf_parameters",
+    "delboeuf_image",
+    "ebbinghaus_parameters",
+    "ebbinghaus_image",
+    "ponzo_parameters",
+    "ponzo_image",
+    "rodframe_parameters",
+    "rodframe_image",
+    "mullerlyer_parameters",
+    "mullerlyer_image",
+    "verticalhorizontal_parameters",
+    "verticalhorizontal_image",
+    "zollner_parameters",
+    "zollner_image",
+    "poggendorff_parameters",
+    "poggendorff_image",
+    "contrast_parameters",
+    "contrast_image",
+    "white_parameters",
+    "white_image",
+    "autostereogram",
+    "pareidolia",
+]

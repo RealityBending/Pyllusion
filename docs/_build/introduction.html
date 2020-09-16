@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Pyllusion 0.0.8 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/example_gallery_styles.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.ai"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Pyllusion
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#module-pyllusion.illusion">Illusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#module-pyllusion.image">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#module-pyllusion.movement">Movement</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Pyllusion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p><strong>A Parametric Framework to Generate Visual Illusions using Python</strong></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png</a>)
+![](<a class="reference external" href="https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&amp;logoColor=FFE873">https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&amp;logoColor=FFE873</a>)
+![](<a class="reference external" href="https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&amp;logoColor=FFE873">https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&amp;logoColor=FFE873</a>)
+![](<a class="reference external" href="https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg">https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg</a>)</p>
+<p>&lt;/h5&gt;</p>
+<p># Overview</p>
+<p>Visual illusions are fascinating phenomena that have been used and
+studied by artists and scientists for centuries, leading to important
+discoveries about how conscious perception is generated by the brain.
+Instead of crafting them by hand, <strong>Pyllusion</strong> offers a framework to
+manipulate and generate illusions in a systematic way.</p>
+<p>The parametric approach implemented in this software proposes to
+<strong>describe illusions using a set of parameters</strong>, such as for instance
+the <em>difference</em> and <em>illusion strength</em>. These two parameters can be
+modulated to independently impact either the objective difference of the
+core components of the illusion (e.g., the difference between the two
+segments in the [Müller-Lyer](#müller-lyer-illusion-illusion) illusion)
+or the intensity of the illusion effect (e.g., the angle of the
+“distractors” arrows).</p>
+<p>Describing illusions using a set of parameters aims at fostering
+<strong>reproducible science</strong>, allowing neuroscientists to easily report,
+generate and manipulate similar stimuli regardless of the display format
+and software.</p>
+<p>## Installation</p>
+<blockquote>
+<div><p>pip install <a class="reference external" href="https://github.com/DominiqueMakowski/Pyllusion/zipball/master">https://github.com/DominiqueMakowski/Pyllusion/zipball/master</a></p>
+</div></blockquote>
+<p>## Contribution</p>
+<p>You have some ideas? Want to improve things, add new illusions, and help
+us shake people’s brain? Let us know, we would be very happy to have you
+on board :relaxed:.</p>
+<p>## Citation</p>
+<p>You can cite the package as follows:</p>
+<blockquote>
+<div><p>Makowski, D., Pham, T., Lau, Z. J. (2020). Pyllusion: A Parametric Framework to Generate Visual Illusions using Python. GitHub.
+Retrieved from <a class="reference external" href="https://github.com/DominiqueMakowski/Pyllusion">https://github.com/DominiqueMakowski/Pyllusion</a></p>
+</div></blockquote>
+<p>## Features</p>
+<p>### Delboeuf Illusion</p>
+<p>The [<strong>Delboeuf
+illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Delboeuf_illusion">https://en.wikipedia.org/wiki/Delboeuf_illusion</a>) is an
+optical illusion of relative size perception, where circles of identical
+size appear as different because of their surrounding context. The
+illusion was named for the Belgian philosopher, mathematician,
+experimental psychologist, hypnotist, and psychophysicist Joseph Remi
+Leopold Delboeuf (1831–1896), who created it in 1865.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>` python
+import pyllusion as ill</p>
+<p>parameters = ill.delboeuf_parameters(illusion_strength=3)
+ill.delboeuf_image(parameters)
+<a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_delboeuf1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_delboeuf1.png</a>)</p>
+<p>### Ebbinghaus Illusion</p>
+<p>The [<strong>Ebbinghaus
+illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Ebbinghaus_illusion">https://en.wikipedia.org/wiki/Ebbinghaus_illusion</a>) is an
+optical illusion of relative size perception, where circles of identical
+size appear as different because of their surrounding context (the right
+red circle appears as smaller). The illusion was named after its creator
+the German psychologist Hermann Ebbinghaus (1850–1909), though it got
+popularized by Edward B. Titchener in a 1901 textbook of experimental
+psychology.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.ebbinghaus_parameters(illusion_strength=2)</span>
+<span class="pre">ill.ebbinghaus_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ebbinghaus1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ebbinghaus1.png</a>)</p>
+<p>### Müller-Lyer illusion Illusion</p>
+<p>The [<strong>Müller-Lyer
+illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion">https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion</a>) is
+an optical illusion causing the participant to perceive two segments as
+being of different length depending on the shape of the arrows. The
+illusion was named after its creator the erman sociologist Franz Carl
+Müller-Lyer (1857–1916) in 1889.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.mullerlyer_parameters(illusion_strength=30)</span>
+<span class="pre">ill.mullerlyer_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_mullerlyer1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_mullerlyer1.png</a>)</p>
+<p>### Ponzo Illusion</p>
+<p>The [<strong>Ponzo illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Ponzo_illusion">https://en.wikipedia.org/wiki/Ponzo_illusion</a>)
+is an optical illusion of relative size perception, where horizontal
+lines of identical size appear as different because of their surrounding
+context (the top line appear as longer, as it is interepreted as being
+in the distance). The illusion was named after its creator the Italian
+psychologist Mario Ponzo (1882–1960) in 1911, who suggested that the
+human mind judges an object’s size based on its background.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.ponzo_parameters(illusion_strength=20)</span>
+<span class="pre">ill.ponzo_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ponzo1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ponzo1.png</a>)</p>
+<p>### Vertical–horizontal Illusion</p>
+<p>The [<strong>vertical–horizontal
+illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion">https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion</a>)
+illustrates the tendency for observers to overestimate the length of a
+vertical line relative to a horizontal line of the same length (Shipley
+et al., 1949).</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.verticalhorizontal_parameters(illusion_strength=90)</span>
+<span class="pre">ill.verticalhorizontal_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_verticalhorizontal1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_verticalhorizontal1.png</a>)</p>
+<p>### Zöllner Illusion</p>
+<p>The [<strong>Zöllner
+illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion">https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion</a>) is an
+optical illusion, where horizontal lines are perceived as not parallel
+because of their background. It is named after its discoverer, the
+German astrophysicist Johann Karl Friedrich Zöllner in 1860.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.zollner_parameters(illusion_strength=75)</span>
+<span class="pre">ill.zollner_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_zollner1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_zollner1.png</a>)</p>
+<p>### Rod and Frame Illusion</p>
+<p>The [<strong>Rod and frame
+illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion">https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion</a>)
+is an optical illusion causing the participant to perceive the rod to be
+oriented congruent with the orientation of the frame.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.rodframe_parameters(illusion_strength=11)</span>
+<span class="pre">ill.rodframe_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_rodframe1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_rodframe1.png</a>)</p>
+<p>### Poggendorff Illusion</p>
+<p>The [<strong>Poggendorff
+illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Poggendorff_illusion">https://en.wikipedia.org/wiki/Poggendorff_illusion</a>) is an
+optical illusion that involves the misperception of the position of one
+segment of a transverse line that has been interrupted by the contour of
+an intervening structure. It is named after Johann Christian Poggendorff
+who discovered in Zöllner’s illusion after 1860. The magnitude of the
+illusion depends on the properties of the obscuring pattern and the
+nature of its borders.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.poggendorff_parameters(illusion_strength=-50)</span>
+<span class="pre">ill.poggendorff_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_poggendorff1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_poggendorff1.png</a>)</p>
+<p>### Simultaneous Contrast illusion</p>
+<p>A neutral gray target will appear lighter or darker than it does in
+isolation when compared to, respectively, a dark gray or light gray
+target. [<strong>Simultaneous
+contrast</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Contrast_effect">https://en.wikipedia.org/wiki/Contrast_effect</a>), identified
+by Michel Eugène Chevreul, refers to the manner in which the colors of
+two different objects affect each other.</p>
+<p>In the image here, the two inner rectangles are exactly the same shade
+of grey, but the upper one appears to be a lighter grey than the lower
+one due to the background provided by the outer rectangles.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.contrast_parameters(illusion_strength=-50)</span>
+<span class="pre">ill.contrast_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_contrast1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_contrast1.png</a>)</p>
+<p>### White Illusion</p>
+<p>[<strong>White’s illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/White%27s_illusion">https://en.wikipedia.org/wiki/White%27s_illusion</a>)
+is a brightness illusion in which rectangles of the same grey color are
+perceived of different luminance depending on their background.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">ill.white_parameters(illusion_strength=100)</span>
+<span class="pre">ill.white_image(parameters)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_white1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_white1.png</a>)</p>
+<p>&lt;!– ### Chubb illusion –&gt;</p>
+<p>&lt;!– The [<strong>Chubb illusion</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Chubb_illusion">https://en.wikipedia.org/wiki/Chubb_illusion</a>) is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. –&gt;</p>
+<p>&lt;!– ![](<a class="reference external" href="https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif">https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif</a>) –&gt;</p>
+<p>&lt;!– - <strong>TO DO</strong> <em>(consider helping!)</em> –&gt;</p>
+<p>### Kanizsa Square</p>
+<p>The <strong>Kanizsa Square</strong> is an [illusory
+contour](<a class="reference external" href="https://en.wikipedia.org/wiki/Illusory_contours">https://en.wikipedia.org/wiki/Illusory_contours</a>) illusion.
+The Kanizsa square creates an illusion of depth, where the central figure i.e., the square appears to sit on a higher plane than the surrounding pacmen-like disc fragments. See
+[Keane et
+al., 2019](<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/</a>).</p>
+<p>![](<a class="reference external" href="https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534&#64;1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png">https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534&#64;1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png</a>)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>TO DO</strong> <em>(consider helping!)</em></p></li>
+</ul>
+</div></blockquote>
+<p>### Autostereograms</p>
+<p>[Autostereograms](<a class="reference external" href="https://en.wikipedia.org/wiki/Autostereogram">https://en.wikipedia.org/wiki/Autostereogram</a>) are
+images made of a pattern that is horizontally repeated (with slight
+variations) which, when watched with the appropriate focus, will
+generate an illusion of depth.</p>
+<p>For instance, in the image below, the <cite>autostereogram</cite> automatically
+adds a guide (you can disable it by setting <cite>guide=False</cite>), the two red
+dots. Look at them and relax your eyes until you see a new red dot
+between them two. Then, try focusing on this new red dot until it gets
+very sharp and until your eyes stabilize. You should then be able to
+perceive the letters <strong>3D</strong> as carved in the figure</p>
+<p>It can take a bit of time to “get there”, but once you are used to it,
+it’s a mind-blowing experience 🤯</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">python</span>
+<span class="pre">ill.autostereogram(stimulus=&quot;3D&quot;,</span> <span class="pre">width=1600,</span> <span class="pre">height=900)</span>
+<span class="pre">`</span></code></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram1.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram1.png</a>)</p>
+<p>The function is highly customisable, and we can use a black and white
+image as a <strong>depth mask</strong> (in this case, the [picture of a
+skull](<a class="reference external" href="https://github.com/DominiqueMakowski/Pyllusion/docs/img/depthmask.png">https://github.com/DominiqueMakowski/Pyllusion/docs/img/depthmask.png</a>)
+that you will see as emerging from the background), and customise the
+pattern used by providing another function (here, the <cite>image_circles()</cite>
+function to which we can provide additional arguments like <cite>blackwhite</cite>,
+the number of circles <cite>n</cite>, their size range and their transparency with
+<cite>alpha</cite>).</p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/depthmask.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/depthmask.png</a>)</p>
+<p><a href="#id7"><span class="problematic" id="id8">``</span></a>` python
+ill.autostereogram(stimulus=”docs/img/depthmask.png”,</p>
+<blockquote>
+<div><p>pattern=ill.image_circles,
+color=”blackwhite”,
+alpha=0.75,
+size_min=0.005,
+size_max=0.03,
+n=1000)</p>
+</div></blockquote>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram2.png">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram2.png</a>)</p>
+<p>### Transparency From Motion (TFM)</p>
+<p>In visual perception, the [<strong>kinetic depth
+effect</strong>](<a class="reference external" href="https://en.wikipedia.org/wiki/Kinetic_depth_effect">https://en.wikipedia.org/wiki/Kinetic_depth_effect</a>) refers to
+the phenomenon whereby the three-dimensional structural form of an
+object can be perceived when the object is moving (Wallach &amp; O’Connell,
+1953; [Mamassian &amp;
+Wallace, 2010](<a class="reference external" href="https://jov.arvojournals.org/article.aspx?articleid=2191769">https://jov.arvojournals.org/article.aspx?articleid=2191769</a>)).
+One of its derivative is the <strong>Transparency-From-Motion</strong> illusion,
+consisting in the superposition of two dot clouds moving in different
+directions that results in the perception of two transparent layers (See
+;
+[Schütz, 2014](<a class="reference external" href="https://jov.arvojournals.org/article.aspx?articleid=2193903">https://jov.arvojournals.org/article.aspx?articleid=2193903</a>);
+[Wexler et
+al., 2015](<a class="reference external" href="https://www.pnas.org/content/pnas/112/48/14990.full.pdf">https://www.pnas.org/content/pnas/112/48/14990.full.pdf</a>);
+[Schütz &amp;
+Mamassian, 2016](<a class="reference external" href="https://jov.arvojournals.org/article.aspx?articleid=2548036">https://jov.arvojournals.org/article.aspx?articleid=2548036</a>)
+and &lt;<a class="reference external" href="http://lab-perception.org/demo/p/tfm">http://lab-perception.org/demo/p/tfm</a>&gt; for a demo).</p>
+<p><a href="#id13"><span class="problematic" id="id14">``</span></a>` python
+parameters = ill.motiontransparency_parameters(angle=45)
+images = ill.motiontransparency_images(parameters)</p>
+<p>ill.images_to_gif(images, path=”Transparency_From_Motion.gif”, fps=parameters[“FPS”])
+<a href="#id15"><span class="problematic" id="id16">``</span></a><a href="#id17"><span class="problematic" id="id18">`</span></a></p>
+<p>![](<a class="reference external" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_TFM1.gif">https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_TFM1.gif</a>)</p>
+<p>&lt;!– ### Pattern Detection in Motion  –&gt;</p>
+<p>&lt;!– - <strong>TO DO</strong> <em>(consider helping!)</em> –&gt;</p>
+<p>### Pinna illusion</p>
+<p>The Pinna illusion is an illusion that evokes the perception of a rotating motion effect. Try moving closer towards the figure and you will notice the rotating effect; however, this direction of rotation is reversed when you move further away from the figure.</p>
+<p>See also [Zeljic et
+al., 2021](<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0278584620303717">https://www.sciencedirect.com/science/article/pii/S0278584620303717</a>).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>TO DO</strong> <em>(consider helping!)</em></p></li>
+</ul>
+</div></blockquote>
+<p>![](<a class="reference external" href="http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg">http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg</a>)</p>
+<p>## References</p>
+<p>Bertamini, M. (2017). [<em>Programming visual illusions for
+everyone</em>](<a class="reference external" href="https://www.programmingvisualillusionsforeveryone.online">https://www.programmingvisualillusionsforeveryone.online</a>).
+Springer.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Dominique Makowski
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyllusion.image.image_text &mdash; Pyllusion 0.0.8 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/example_gallery_styles.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Pyllusion
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.illusion">Illusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.image">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.movement">Movement</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Pyllusion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyllusion.image.image_text</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyllusion.image.image_text</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">PIL.Image</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageDraw</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageFilter</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageFont</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageOps</span>
+
+<span class="kn">from</span> <span class="nn">.utilities</span> <span class="k">import</span> <span class="n">_coord_text</span>
+
+
+<div class="viewcode-block" id="image_text"><a class="viewcode-back" href="../../../functions.html#pyllusion.image.image_text">[docs]</a><span class="k">def</span> <span class="nf">image_text</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">font</span><span class="o">=</span><span class="s2">&quot;arial.ttf&quot;</span><span class="p">,</span>
+    <span class="n">blur</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    text : str</span>
+<span class="sd">        The text displayed in the image returned.</span>
+<span class="sd">    width : int</span>
+<span class="sd">        Width of the returned image.</span>
+<span class="sd">    height : int</span>
+<span class="sd">        Height of the returned image.</span>
+<span class="sd">    x : int</span>
+<span class="sd">        x-coordinates of the center of the text display, from -1 to 1.</span>
+<span class="sd">    y : int</span>
+<span class="sd">        y-coordinates of the center of the text display, from -1 to 1.</span>
+<span class="sd">    size : int</span>
+<span class="sd">        Requested size, in points, for the text. If &quot;auto&quot;, the maximum size that</span>
+<span class="sd">        fits the image will be chosen.</span>
+<span class="sd">    color : str</span>
+<span class="sd">        Text color.</span>
+<span class="sd">    background : str</span>
+<span class="sd">        Background color.</span>
+<span class="sd">    font : str</span>
+<span class="sd">        The name of the font to be used. Note that the font is what controls features like</span>
+<span class="sd">        bold / italic. For instance, &#39;arialbd.ttf&#39;, &#39;ariblk.ttf&#39; or &#39;ariali.ttf&#39; can be</span>
+<span class="sd">        used for bold, black and italic, respectively.</span>
+<span class="sd">    blur : int</span>
+<span class="sd">        The degree of blur filter for the image returned.</span>
+<span class="sd">    image : Image</span>
+<span class="sd">        If None, an image will be created.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Image</span>
+<span class="sd">        Image of a text.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_text(text=&quot;Hello&quot;, size=40)  #doctest: +SKIP</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_text(image=image, size=30, y=0.5, text=&quot;I&#39;m Red&quot;, color=&quot;red&quot;)  #doctest: +SKIP</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_text(image=image, size=20, x=0.5, text=&quot;Bold and blurred&quot;, font=&quot;arialbd.ttf&quot;, blur=0.005)  #doctest: +SKIP</span>
+<span class="sd">    &gt;&gt;&gt; image  #doctest: +SKIP</span>
+<span class="sd">    &gt;&gt;&gt; ill.image_text(text=&quot;3D&quot;, width=1600, height=900, font=&quot;arial.ttf&quot;, blur=0.01)  #doctest: +SKIP</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get image</span>
+    <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">)</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
+
+    <span class="c1"># Create mask</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+    <span class="n">draw</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="c1"># Get coordinates</span>
+    <span class="n">coord</span><span class="p">,</span> <span class="n">font</span> <span class="o">=</span> <span class="n">_coord_text</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+    <span class="c1"># Draw</span>
+    <span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="c1"># Blur the image a bit</span>
+    <span class="k">if</span> <span class="n">blur</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">ImageFilter</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">blur</span> <span class="o">*</span> <span class="n">height</span><span class="p">))</span>
+
+    <span class="c1"># Merge and return</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">alpha_composite</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Dominique Makowski
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
