@@ -52,7 +52,7 @@ Describing illusions using a set of parameters aims at fostering **reproducible 
 ## Installation
 
 ```
-pip install https://github.com/DominiqueMakowski/Pyllusion/zipball/master
+pip install https://github.com/RealityBending/Pyllusion/zipball/master
 ```
 
 ## Contribution
