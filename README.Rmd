@@ -65,7 +65,7 @@ You can cite the package as follows:
 
 ```
 Makowski, D., Pham, T., Lau, Z. J. (2020). Pyllusion: A Parametric Framework to Generate Visual Illusions using Python. GitHub. 
-Retrieved from https://github.com/DominiqueMakowski/Pyllusion
+Retrieved from https://github.com/RealityBending/Pyllusion
 ```
 
 ## Features
