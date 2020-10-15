@@ -21,7 +21,7 @@
 import os
 import re
 import sys
-import mock
+#import mock
 from m2r import MdInclude
 from recommonmark.transform import AutoStructify
 from recommonmark.parser import CommonMarkParser
@@ -31,10 +31,10 @@ sys.path.insert(0, os.path.abspath('../'))
 
 
 # -- Mock modules ---------------------------------------------
-MOCK_MODULES = []
+#MOCK_MODULES = []
 
-for mod_name in MOCK_MODULES:
-    sys.modules[mod_name] = mock.Mock()
+#for mod_name in MOCK_MODULES:
+    #sys.modules[mod_name] = mock.Mock()
 
 
 
