@@ -5,3 +5,6 @@ nbsphinx
 matplotlib
 numpy
 pandas
+sphinx-rtd-theme
+sphinx-nbexamples
+sphinx-copybutton
