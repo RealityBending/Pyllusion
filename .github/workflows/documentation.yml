@@ -9,7 +9,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
- 
+
+    steps:
     - uses: actions/checkout@v1
     # Standard drop-in approach that should work for most people.
     - uses: ammaraskar/sphinx-action@master
