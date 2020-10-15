@@ -11,12 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    # Standard drop-in approach that should work for most people.
-    - uses: ammaraskar/sphinx-action@master
+   
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
-        docs-folder: "docs/"
-    # Great extra actions to compose with:
+        python-version: '3.x'
+    - uses: actions/checkout@v1
+    - name: Install dependencies and build docs
+      run: |
+        cd docs
+        python -m pip install -r requirements.txt
+        make html
+
     # Create an artifact of the html output.
     - uses: actions/upload-artifact@v1
       with:

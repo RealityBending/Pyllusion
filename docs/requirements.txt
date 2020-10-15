@@ -1,0 +1,7 @@
+m2r
+recommonmark
+sphinx
+nbsphinx
+matplotlib
+numpy
+pandas
