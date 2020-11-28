@@ -10,7 +10,7 @@ from .rescale import rescale
 from .utilities import _coord_circle
 
 
-def image_blobs(width=500, height=500, n=100, sd=8):
+def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
     """Return an image with blobs of the same standard deviations (SD).
 
     Parameters
@@ -23,6 +23,8 @@ def image_blobs(width=500, height=500, n=100, sd=8):
         Number of gaussian blobs drawn in the returned image.
     sd : int
         The standard deviation of the gaussian blob. Unit in pixel.
+    weight : int
+        A multiplication weight in case there are several layers of SDs.
 
     Returns
     -------
@@ -44,6 +46,8 @@ def image_blobs(width=500, height=500, n=100, sd=8):
         sd = [sd]
     if isinstance(n, (int, float)):
         n = [n]
+    if isinstance(weight, (int, float)):
+        weight = [weight]
     if len(n) != len(sd):
         raise TypeError("'n' must be of the same length as 'sd'.")
     if isinstance(width, tuple):
@@ -57,7 +61,7 @@ def image_blobs(width=500, height=500, n=100, sd=8):
             x = np.random.randint(width)
             y = np.random.randint(height)
             blob = _image_blob(x=x, y=y, width=width, height=height, sd=int(current_sd))
-            array += blob
+            array += (blob * weight[i])
 
     array = rescale(array, to=[0, 255])
     image = PIL.Image.fromarray(array.astype(np.uint8))
