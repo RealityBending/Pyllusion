@@ -40,9 +40,9 @@ def image_blobs(width=500, height=500, n=100, sd=8):
 
     """
     # Sanitize input
-    if isinstance(sd, int):
+    if isinstance(sd, (int, float)):
         sd = [sd]
-    if isinstance(n, int):
+    if isinstance(n, (int, float)):
         n = [n]
     if len(n) != len(sd):
         raise TypeError("'n' must be of the same length as 'sd'.")
