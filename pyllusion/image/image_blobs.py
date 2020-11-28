@@ -35,19 +35,35 @@ def image_blobs(width=500, height=500, n=100, sd=8):
     >>>
     >>> ill.image_blobs(n=500)  #doctest: +ELLIPSIS
      <PIL.Image.Image ...>
+    >>> ill.image_blobs(n=[5, 300, 1000], sd=[50, 10, 5])  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
 
     """
+    # Sanitize input
+    if isinstance(sd, int):
+        sd = [sd]
+    if isinstance(n, int):
+        n = [n]
+    if len(n) != len(sd):
+        raise TypeError("'n' must be of the same length as 'sd'.")
+    if isinstance(width, tuple):
+        height = width[1]
+        width = width[0]
 
+    # Add layers
     array = np.zeros((height, width))
-    for _ in range(n):
-        x = np.random.randint(width)
-        y = np.random.randint(height)
-        blob = _image_blob(x=x, y=y, width=width, height=height, sd=sd)
-        array += blob
+    for i, current_sd in enumerate(sd):
+        for _ in range(int(n[i])):
+            x = np.random.randint(width)
+            y = np.random.randint(height)
+            blob = _image_blob(x=x, y=y, width=width, height=height, sd=int(current_sd))
+            array += blob
 
     array = rescale(array, to=[0, 255])
     image = PIL.Image.fromarray(array.astype(np.uint8))
     return image
+
+
 
 
 def image_blob(x=450, y=100, width=800, height=600, sd=3):
@@ -57,6 +73,10 @@ def image_blob(x=450, y=100, width=800, height=600, sd=3):
     array = rescale(array, to=[0, 255])
     image = PIL.Image.fromarray(array.astype(np.uint8))
     return image
+
+
+
+
 
 
 def _image_blob(x=450, y=100, width=800, height=600, sd=3):
