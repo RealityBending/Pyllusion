@@ -37,7 +37,7 @@ def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
     >>>
     >>> ill.image_blobs(n=100)  #doctest: +ELLIPSIS
      <PIL.Image.Image ...>
-    >>> ill.image_blobs(n=[5, 300, 1000], sd=[50, 10, 5])  #doctest: +ELLIPSIS
+    >>> ill.image_blobs(n=[5, 300, 1000], sd=[50, 10, 5], weight=[1, 1.5, 2])  #doctest: +ELLIPSIS
      <PIL.Image.Image ...>
 
     """
@@ -50,33 +50,26 @@ def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
         weight = [weight]
     if len(n) != len(sd):
         raise TypeError("'n' must be of the same length as 'sd'.")
+    if len(n) != len(weight):
+        raise TypeError("'n' must be of the same length as 'weight'.")
     if isinstance(width, tuple):
         height = width[1]
         width = width[0]
 
     # Add layers
     array = np.zeros((height, width))
+    parent_width = 3 * np.max([width, height])
     for i, current_sd in enumerate(sd):
-        x = np.random.randint(width, size=n)
-        y = np.random.randint(height, size=n)
+        x = np.random.randint(width, size=n[i])
+        y = np.random.randint(height, size=n[i])
+        parent_blob = _image_blob_parent(sd=int(current_sd), parent_width=parent_width)
         for j in range(int(n[i])):
-            parent_blob = _image_blob_parent(x=x[j], y=y[j], width=width, height=height, sd=int(current_sd))
             blob = _image_blob_crop(parent_blob, x=x[j], y=y[j], width=width, height=height)
             array += (blob * weight[i])
 
     array = rescale(array, to=[0, 255])
     image = PIL.Image.fromarray(array.astype(np.uint8))
     return image
-
-
-
-
-
-
-
-
-
-
 
 
 def image_blob(x=450, y=100, width=800, height=600, sd=3):
@@ -90,7 +83,9 @@ def image_blob(x=450, y=100, width=800, height=600, sd=3):
 
 
 
-
+# =============================================================================
+# Internal
+# =============================================================================
 
 
 def _image_blob_crop(parent_blob, x=400, y=300, width=800, height=600):
@@ -106,13 +101,14 @@ def _image_blob_crop(parent_blob, x=400, y=300, width=800, height=600):
     return parent_blob[w - y : (w - y) + height, w - x : (w - x) + width]
 
 
-def _image_blob_parent(x=400, y=300, width=800, height=600, sd=30):
+def _image_blob_parent(x=400, y=300, width=800, height=600, sd=30, parent_width=None):
     """
     >>> import matplotlib.pyplot as plt
     >>> plt.imshow(_image_blob_parent(sd=30))  #doctest: +ELLIPSIS
      <...>
     """
-    parent_width = 3 * (np.max([x, y,  height - x, width - y]))
+    if parent_width is None:
+        parent_width = 3 * (np.max([x, y,  height - x, width - y]))
     gkern1d = scipy.signal.gaussian(parent_width, std=sd).reshape(parent_width, 1)
     return np.outer(gkern1d, gkern1d)
 
