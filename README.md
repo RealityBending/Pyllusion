@@ -1,12 +1,10 @@
+
 **A Parametric Framework to Generate Visual Illusions using Python**
 
 ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png)
 ![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
 ![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
 ![](https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg)
-
-
-</h5>
 
 # Overview
 
@@ -32,7 +30,7 @@ and software.
 
 ## Installation
 
-    pip install https://github.com/DominiqueMakowski/Pyllusion/zipball/master
+    pip install https://github.com/RealityBending/Pyllusion/zipball/master
 
 ## Contribution
 
@@ -45,7 +43,7 @@ on board :relaxed:.
 You can cite the package as follows:
 
     Makowski, D., Pham, T., Lau, Z. J. (2020). Pyllusion: A Parametric Framework to Generate Visual Illusions using Python. GitHub. 
-    Retrieved from https://github.com/DominiqueMakowski/Pyllusion
+    Retrieved from https://github.com/RealityBending/Pyllusion
 
 ## Features
 
@@ -66,7 +64,7 @@ parameters = ill.delboeuf_parameters(illusion_strength=3)
 ill.delboeuf_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_delboeuf1.png)
+![](docs/img/README_delboeuf1.png)
 
 ### Ebbinghaus Illusion
 
@@ -84,7 +82,7 @@ parameters = ill.ebbinghaus_parameters(illusion_strength=2)
 ill.ebbinghaus_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ebbinghaus1.png)
+![](docs/img/README_ebbinghaus1.png)
 
 ### Müller-Lyer illusion Illusion
 
@@ -100,7 +98,7 @@ parameters = ill.mullerlyer_parameters(illusion_strength=30)
 ill.mullerlyer_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_mullerlyer1.png)
+![](docs/img/README_mullerlyer1.png)
 
 ### Ponzo Illusion
 
@@ -117,7 +115,7 @@ parameters = ill.ponzo_parameters(illusion_strength=20)
 ill.ponzo_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_ponzo1.png)
+![](docs/img/README_ponzo1.png)
 
 ### Vertical–horizontal Illusion
 
@@ -132,7 +130,7 @@ parameters = ill.verticalhorizontal_parameters(illusion_strength=90)
 ill.verticalhorizontal_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_verticalhorizontal1.png)
+![](docs/img/README_verticalhorizontal1.png)
 
 ### Zöllner Illusion
 
@@ -147,7 +145,7 @@ parameters = ill.zollner_parameters(illusion_strength=75)
 ill.zollner_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_zollner1.png)
+![](docs/img/README_zollner1.png)
 
 ### Rod and Frame Illusion
 
@@ -161,7 +159,7 @@ parameters = ill.rodframe_parameters(illusion_strength=11)
 ill.rodframe_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_rodframe1.png)
+![](docs/img/README_rodframe1.png)
 
 ### Poggendorff Illusion
 
@@ -179,7 +177,7 @@ parameters = ill.poggendorff_parameters(illusion_strength=-50)
 ill.poggendorff_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_poggendorff1.png)
+![](docs/img/README_poggendorff1.png)
 
 ### Simultaneous Contrast illusion
 
@@ -199,7 +197,7 @@ parameters = ill.contrast_parameters(illusion_strength=-50)
 ill.contrast_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_contrast1.png)
+![](docs/img/README_contrast1.png)
 
 ### White Illusion
 
@@ -212,27 +210,23 @@ parameters = ill.white_parameters(illusion_strength=100)
 ill.white_image(parameters)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_white1.png)
+![](docs/img/README_white1.png)
 
 <!-- ### Chubb illusion -->
-
 <!-- The [**Chubb illusion**](https://en.wikipedia.org/wiki/Chubb_illusion) is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. -->
-
 <!-- ![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif) -->
-
 <!-- - **TO DO** *(consider helping!)* -->
 
 ### Kanizsa Square
 
 The **Kanizsa Square** is an [illusory
-contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion.
-The Kanizsa square creates an illusion of depth, where the central figure i.e., the square appears to sit on a higher plane than the surrounding pacmen-like disc fragments. See
-[Keane et
-al., 2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
+contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion. See
+[Keane et al.,
+2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
 
 ![](https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534@1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png)
 
-  - **TO DO** *(consider helping\!)*
+-   **TO DO** *(consider helping!)*
 
 ### Autostereograms
 
@@ -255,7 +249,7 @@ it’s a mind-blowing experience 🤯
 ill.autostereogram(stimulus="3D", width=1600, height=900)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram1.png)
+![](docs/img/README_autostereogram1.png)
 
 The function is highly customisable, and we can use a black and white
 image as a **depth mask** (in this case, the [picture of a
@@ -266,7 +260,7 @@ function to which we can provide additional arguments like `blackwhite`,
 the number of circles `n`, their size range and their transparency with
 `alpha`).
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/depthmask.png)
+![](docs/img/depthmask.png)
 
 ``` python
 ill.autostereogram(stimulus="docs/img/depthmask.png",
@@ -278,7 +272,27 @@ ill.autostereogram(stimulus="docs/img/depthmask.png",
                    n=1000)
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_autostereogram2.png)
+![](docs/img/README_autostereogram2.png) \#\#\# Pareidolia
+
+Pareidolia is the tendency to incorrectly perceive of a stimulus as an
+object pattern or meaning known to the observer. [Liu et
+al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3980010/?mod=article_inline),
+in their study *“Seeing Jesus in toast”*, famously (the study got
+awarded an Ignobel prize) investigated the correlates of face pareidolia
+by blending images of faces with noise-like images.
+
+Blending of images can be achieved:
+
+``` python
+ill.pareidolia(pattern="docs/img/snake.png", 
+               n=[20, 300, 4000], 
+               sd=[4, 2, 1], 
+               weight=[3, 2, 1],
+               alpha=80,
+               blur=0.5)
+```
+
+![](docs/img/README_pareidolia.png)
 
 ### Transparency From Motion (TFM)
 
@@ -286,18 +300,18 @@ In visual perception, the [**kinetic depth
 effect**](https://en.wikipedia.org/wiki/Kinetic_depth_effect) refers to
 the phenomenon whereby the three-dimensional structural form of an
 object can be perceived when the object is moving (Wallach & O’Connell,
-1953; [Mamassian &
-Wallace, 2010](https://jov.arvojournals.org/article.aspx?articleid=2191769)).
-One of its derivative is the **Transparency-From-Motion** illusion,
+1953; [Mamassian & Wallace,
+2010](https://jov.arvojournals.org/article.aspx?articleid=2191769)). One
+of its derivative is the **Transparency-From-Motion** illusion,
 consisting in the superposition of two dot clouds moving in different
 directions that results in the perception of two transparent layers (See
-;
-[Schütz, 2014](https://jov.arvojournals.org/article.aspx?articleid=2193903);
-[Wexler et
-al., 2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf);
-[Schütz &
-Mamassian, 2016](https://jov.arvojournals.org/article.aspx?articleid=2548036)
-and <http://lab-perception.org/demo/p/tfm> for a demo).
+; [Schütz,
+2014](https://jov.arvojournals.org/article.aspx?articleid=2193903);
+[Wexler et al.,
+2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf); [Schütz
+& Mamassian,
+2016](https://jov.arvojournals.org/article.aspx?articleid=2548036) and
+<http://lab-perception.org/demo/p/tfm> for a demo).
 
 ``` python
 parameters = ill.motiontransparency_parameters(angle=45)
@@ -306,20 +320,17 @@ images = ill.motiontransparency_images(parameters)
 ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])
 ```
 
-![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/README_TFM1.gif)
+![](docs/img/README_TFM1.gif)
 
 <!-- ### Pattern Detection in Motion  -->
-
 <!-- - **TO DO** *(consider helping!)* -->
 
 ### Pinna illusion
 
-The Pinna illusion is an illusion that evokes the perception of a rotating motion effect. Try moving closer towards the figure and you will notice the rotating effect; however, this direction of rotation is reversed when you move further away from the figure.
+See also [Zeljic et al.,
+2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717).
 
-See also [Zeljic et
-al., 2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717).
-
-  - **TO DO** *(consider helping\!)*
+-   **TO DO** *(consider helping!)*
 
 ![](http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg)
 

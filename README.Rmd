@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 # Setup python - you need to change the path to your python distribution
 library(reticulate)
-reticulate::use_python("D:/Downloads/WPy64-3810/python-3.8.1.amd64/")
+reticulate::use_python("D:/Downloads/WPy64-3902/python-3.9.0.amd64/")
 matplotlib <- import("matplotlib")
 matplotlib$use("Agg", force = TRUE)
 ```
@@ -301,6 +301,30 @@ img.save("docs/img/README_autostereogram2.png")
 ```
 
 ![](docs/img/README_autostereogram2.png)
+### Pareidolia
+
+Pareidolia is the tendency to incorrectly perceive of a stimulus as an object pattern or meaning known to the observer. [Liu et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3980010/?mod=article_inline), in their study *"Seeing Jesus in toast"*, famously (the study got awarded an Ignobel prize) investigated the correlates of face pareidolia by blending images of faces with noise-like images.
+
+Blending of images can be achieved:
+
+```{python, warning=FALSE, message=FALSE, eval=FALSE}
+ill.pareidolia(pattern="docs/img/snake.png", 
+               n=[20, 300, 4000], 
+               sd=[4, 2, 1], 
+               weight=[3, 2, 1],
+               alpha=80,
+               blur=0.5)
+```
+```{python message=FALSE, warning=FALSE, echo=FALSE}
+img = ill.pareidolia(pattern="docs/img/snake.png",
+                     n=[20, 300, 4000],
+                     sd=[4, 2, 1],
+                     weight=[3, 2, 1],
+                     alpha=80,
+                     blur=0.5)
+img.save("docs/img/README_pareidolia.png")
+```
+![](docs/img/README_pareidolia.png)
 
 ### Transparency From Motion (TFM)
 
