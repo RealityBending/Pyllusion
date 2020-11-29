@@ -63,20 +63,25 @@ def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
         x = np.random.randint(width, size=n[i])
         y = np.random.randint(height, size=n[i])
         parent_blob = _image_blob_parent(sd=int(current_sd), parent_width=parent_width)
+        w = np.int(len(parent_blob) / 2)
         for j in range(int(n[i])):
-            blob = _image_blob_crop(parent_blob, x=x[j], y=y[j], width=width, height=height)
-            array += (blob * weight[i])
+            # Crop the blob and multiply by weight
+            array += (parent_blob[w - y[j] : (w - y[j]) + height, w - x[j] : (w - x[j]) + width] * weight[i])
 
-    array = rescale(array, to=[0, 255])
+    array = (array - np.min(array)) / np.max(array) * 255
     image = PIL.Image.fromarray(array.astype(np.uint8))
     return image
 
 
-def image_blob(x=450, y=100, width=800, height=600, sd=3):
+def image_blob(x=450, y=100, width=800, height=600, sd=30):
     """Return an image of blob
+
+    >>> import pyllusion as ill
+    >>>
+    >>> ill.image_blob()  #doctest: +ELLIPSIS
+     <PIL.Image.Image ...>
     """
-    parent_blob = _image_blob_parent(x=x, y=y, width=width, height=height, sd=sd)
-    blob = _image_blob_crop(parent_blob, x=x, y=y, width=width, height=height)
+    blob = _image_blob(x=x, y=y, width=width, height=height)
     blob = rescale(blob, to=[0, 255])
     image = PIL.Image.fromarray(blob.astype(np.uint8))
     return image
@@ -88,7 +93,7 @@ def image_blob(x=450, y=100, width=800, height=600, sd=3):
 # =============================================================================
 
 
-def _image_blob_crop(parent_blob, x=400, y=300, width=800, height=600):
+def _image_blob(x=400, y=300, width=800, height=600, sd=30):
     """Returns a 2D Gaussian kernel.
 
     >>> import matplotlib.pyplot as plt
@@ -97,6 +102,7 @@ def _image_blob_crop(parent_blob, x=400, y=300, width=800, height=600):
     >>> plt.imshow(blob)  #doctest: +ELLIPSIS
      <...>
     """
+    parent_blob = _image_blob_parent(x=x, y=y, width=width, height=height, sd=sd)
     w = np.int(len(parent_blob) / 2)
     return parent_blob[w - y : (w - y) + height, w - x : (w - x) + width]
 
