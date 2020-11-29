@@ -83,25 +83,23 @@ def image_blob(x=450, y=100, width=800, height=600, sd=3):
 
 
 
-def _image_blob(x=450, y=100, width=800, height=600, sd=3):
+def _image_blob(x=400, y=300, width=800, height=600, sd=30):
     """Returns a 2D Gaussian kernel.
 
     >>> import pyllusion as ill
     >>> import matplotlib.pyplot as plt
-    >>> array = _image_blob(sd=8)
+    >>> array = _image_blob(sd=30)
     >>> plt.imshow(array)  #doctest: +ELLIPSIS
      <...>
     """
-
-    _x = height - x
-    _y = width - y
-    parent_width = 3 * (np.max([x, y, _x, _y]))
+    parent_width = 3 * (np.max([x, y,  height - x, width - y]))
     gkern1d = scipy.signal.gaussian(parent_width, std=sd).reshape(parent_width, 1)
     parent_blob = np.outer(gkern1d, gkern1d)
 
-    w = int(parent_width / 2)
-    blob = parent_blob[w - y : (w - y) + height, w - x : (w - x) + width]
-    return blob
+    w = np.int(parent_width / 2)
+    return parent_blob[w - y : (w - y) + height, w - x : (w - x) + width]
+
+
 
 
 def _draw_blob(width, height=None, size=0.1, blur=0, color="black"):
