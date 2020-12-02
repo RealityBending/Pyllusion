@@ -301,11 +301,12 @@ img.save("docs/img/README_autostereogram2.png")
 ```
 
 ![](docs/img/README_autostereogram2.png)
+
 ### Pareidolia
 
 Pareidolia is the tendency to incorrectly perceive of a stimulus as an object pattern or meaning known to the observer. [Liu et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3980010/?mod=article_inline), in their study *"Seeing Jesus in toast"*, famously (the study got awarded an Ignobel prize) investigated the correlates of face pareidolia by blending images of faces with noise-like images.
 
-Blending of images can be achieved:
+Blending of images can be achieved: as followed
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 ill.pareidolia(pattern="docs/img/snake.png", 

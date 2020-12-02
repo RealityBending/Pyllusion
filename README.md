@@ -272,7 +272,9 @@ ill.autostereogram(stimulus="docs/img/depthmask.png",
                    n=1000)
 ```
 
-![](docs/img/README_autostereogram2.png) \#\#\# Pareidolia
+![](docs/img/README_autostereogram2.png)
+
+### Pareidolia
 
 Pareidolia is the tendency to incorrectly perceive of a stimulus as an
 object pattern or meaning known to the observer. [Liu et
