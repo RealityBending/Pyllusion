@@ -10,7 +10,7 @@ from .illusion import *
 # Import first submodule
 from .image import *
 from .movement import *
-from .psychopy import *
+from .psychopy_draw import *
 
 
 # Get path of stimuli images
