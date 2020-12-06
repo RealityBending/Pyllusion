@@ -7,7 +7,7 @@ def find_version():
     return result.group(1)
 # ------------------
 
-dependencies = ["numpy", "pandas", "Pillow", "scipy"]
+dependencies = ["numpy", "pandas", "Pillow", "scipy", "psychopy"]
 setup_requirements = ["pytest-runner", "numpy"]
 test_requirements = dependencies + [
     "pytest",
