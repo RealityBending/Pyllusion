@@ -34,7 +34,7 @@ def psychopy_rectangle(
     >>> window = ill.psychopy_rectangle(x=0, y=0, color='white', color_outline='black', outline=3, rotate=1)
     >>> window = ill.psychopy_rectangle(x=0.5, size_width=0.5, rotate=45, color="red")
     >>> window = ill.psychopy_rectangle(y=0.25, size_height=0.2, color="yellow", alpha=0.5)
-    >>> window = ill.psychopy_rectangle(size_width=0.5, size_height=0.5, blur=0.01, color="green", adjust_width=True)
+    >>> window = ill.psychopy_rectangle(size_width=0.5, size_height=0.5, alpha=0.5, color="green", adjust_width=True)
     """
     # Draw window
     win = visual.Window(size=[width, height], fullscr=full_screen,
@@ -50,7 +50,7 @@ def psychopy_rectangle(
         size_height = size_height * (width / height)
     
     # Get coordinates
-    x1, y1, x2, y2 = _coord_rectangle(image=win, x=x, y=y, size_width=size_width, size_height=size_height)
+    x1, y1, x2, y2 = _coord_rectangle(image=win, x=x, y=y, size_width=size_width, size_height=size_height, method="psychopy")
     
     # Rectangle parameters
     rect = visual.Rect(
@@ -69,7 +69,7 @@ def psychopy_rectangle(
     # Outline
     if outline != 0:
         if color_outline == "copy":
-            rect.lineColor = color # border outline to be same as fill color
+            rect.lineColor = color  # border outline to be same as fill color
         else:
             rect.lineColor = color_outline
 
@@ -78,7 +78,7 @@ def psychopy_rectangle(
         rect.opacity = alpha
     
     # Orientation
-    if rotate > 0:
+    if rotate != 0:
         rect.ori = rotate
     
     # Display
