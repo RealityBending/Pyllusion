@@ -1,5 +1,6 @@
 from ..image.utilities import _coord_circle
-from psychopy import visual, event, core
+from psychopy import visual, event, core, filters
+import numpy as np
 
 
 def psychopy_circle(
@@ -11,7 +12,7 @@ def psychopy_circle(
     color="black",
     outline=1,
     color_outline="copy",
-    blur=0,
+    alpha=0,
     antialias=True,
     window=None,
     background="white",
@@ -24,8 +25,8 @@ def psychopy_circle(
     >>>
     >>> window = ill.psychopy_circle()
     >>> window = ill.psychopy_circle(color="red", color_outline="yellow", x=0.5, size=0.5)
-    >>> window = ill.psychopy_circle(color="blue", x=-0.3, size=0.5, blur=0.05)
-    >>> window = ill.psychopy_circle(color="yellow", y=0.5, blur=0.5)
+    >>> window = ill.psychopy_circle(color="blue", x=-0.3, size=0.5, alpha=0.2)
+    >>> window = ill.psychopy_circle(color="yellow", y=0.5)
 
     """
 
@@ -39,21 +40,21 @@ def psychopy_circle(
     # Get coordinates
     radius, x, y = _coord_circle(image=win, diameter=size, x=x, y=y, method="psychopy")
     
+    
+    # Circle parameters
+    circle = visual.Circle(win=win, radius=radius,
+                           units="pix", fillColor=color, lineWidth=outline,
+                           edges=radius*2, interpolate=antialias)
+    circle.pos = [x-width/2, y-height/2]
     # Border outline to be same as fill outline colour
     if outline != 0:
         if color_outline == "copy":
             color_outline = color
-
-    # Circle parameters
-    circle = visual.Circle(win=win, radius=radius,
-                           units="pix", fillColor=color, lineWidth=outline,
-                           lineColor=color_outline, edges=radius*2, interpolate=antialias)
-    circle.pos = [x-width/2, y-height/2]
+            circle.lineColor = color_outline
     
-    
-    # blur
-    if blur > 0:
-        circle.opacity = blur
+    # alpha
+    if alpha > 0:
+        circle.opacity = alpha
     
     # Display
     while True:
