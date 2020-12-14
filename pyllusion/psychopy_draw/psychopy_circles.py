@@ -1,5 +1,5 @@
 from ..image.utilities import _coord_circle
-from psychopy import visual, event, core, filters
+from psychopy import visual, event, core
 import numpy as np
 
 
