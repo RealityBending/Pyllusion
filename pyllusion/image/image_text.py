@@ -31,7 +31,7 @@ def image_text(text="Hello", width=500, height=500, x=0, y=0, size="auto", color
     draw = PIL.ImageDraw.Draw(mask)
 
     # Get coordinates
-    coord, font = _coord_text(mask, text=text, size=size, x=x, y=y, font=font)
+    coord, font, _, _ = _coord_text(mask, text=text, size=size, x=x, y=y, font=font)
 
     # Draw
     draw.text(coord, text, font=font, fill=color)

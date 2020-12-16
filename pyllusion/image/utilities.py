@@ -71,7 +71,8 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid", method="pil"):
 
 
 def _coord_text(
-    image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid"
+    image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid",
+    method="pil"
 ):
     """Get text coordinates
 
@@ -91,7 +92,10 @@ def _coord_text(
         # Get coordinates in pixels
         width, height = image.size
         x = np.int(rescale(x, to=[0, width], scale=[-1, 1]))
-        y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+        if method == "pil":
+            y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+        elif method == "psychopy":
+            y = np.int(rescale(y, to=[0, height], scale=[-1, 1]))
 
     if size == "auto":
         # Initialize values
@@ -118,7 +122,7 @@ def _coord_text(
 
     coord = top_left_x, top_left_y
 
-    return coord, loaded_font
+    return coord, loaded_font, x, y
 
 
 def _coord_line(
