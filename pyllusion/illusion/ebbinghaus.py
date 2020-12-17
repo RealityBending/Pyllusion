@@ -1,38 +1,90 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from psychopy import visual, event, core
 from .delboeuf import _delboeuf_parameters_sizeinner, _delboeuf_parameters_sizeouter
 from ..image import image_circle
+from ..image.utilities import _coord_circle
 
 
-def ebbinghaus_image(parameters=None, width=800, height=600, background="white", **kwargs):
+def ebbinghaus_image(parameters=None, width=800, height=600, background="white",
+                     method="pil", full_screen=False, **kwargs):
     """
     Examples
     ---------
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.ebbinghaus_parameters(difficulty=2, illusion_strength=1)
-    >>> ill.ebbinghaus_image(parameters)  #doctest: +ELLIPSIS
+    >>> ill.ebbinghaus_image(parameters, method="pil")  #doctest: +ELLIPSIS
     <PIL.Image.Image ...>
+    >>> ill.ebbinghaus_image(parameters, method="psychopy")  #doctest: +SKIP
     """
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = ebbinghaus_parameters(**kwargs)
 
-    # Background
-    image  = PIL.Image.new('RGB', (width, height), color=background)
+    # PIL Image
+    if method == "pil":
+        # Background
+        image  = PIL.Image.new('RGB', (width, height), color=background)
+    
+        # Outer circles
+        for side in ["Left", "Right"]:
+            image = _ebbinghaus_image_draw(image,
+                                           parameters,
+                                           side=side,
+                                           color_inner="red",
+                                           color_outer="black")
 
-    # Outer circles
-    for side in ["Left", "Right"]:
-        image = _ebbinghaus_image_draw(image,
-                                    parameters,
-                                    side=side,
-                                    color_inner="red",
-                                    color_outer="black")
+        return image
 
-    return image
+    # PsychoPy
+    elif method == "psychopy":
+        win = visual.Window(size=[width, height], fullscr=full_screen,
+                            screen=0, winType='pyglet', allowGUI=False,
+                            allowStencil=False,
+                            monitor='testMonitor', color=background, colorSpace='rgb',
+                            blendMode='avg', units='pix')
+        for side in ["Left", "Right"]:
+            _ebbinghaus_psychopy_draw(win, parameters, side=side, color_inner="red", color_outer="black")
+
+        # Display    
+        win.flip()
+        event.waitKeys()
+        win.close()
 
 
 
+
+
+def _ebbinghaus_psychopy_draw(window, p, side="Left", color_inner="red", color_outer="black"):
+
+    # Draw inner circle
+    size_inner = p["Size_Inner_" + side]
+    radius_inner, x_inner, y_inner = _coord_circle(image=window, diameter=size_inner,
+                                     x=p["Position_" + side],
+                                     y=0, method="psychopy")
+
+    circle_inner = visual.Circle(win=window, units="pix", fillColor=color_inner,
+                                 lineColor=color_inner, edges=128,
+                                 radius=radius_inner, lineWidth=0.5)
+    circle_inner.pos = [x_inner-window.size[0]/2, y_inner-window.size[1]/2]
+    circle_inner.draw()
+
+    # outer circle
+    ratio = window.size[0] / window.size[1]  # Get width/height ratio to have equidistant circles
+    size_outer = p["Size_Outer_" + side]  
+    x_outer = p["Position_Outer_x_" + side] / ratio # Adjust for non-squared screen
+    x_outer = x_outer + (p["Position_" + side] - np.mean(x_outer))
+    for i in range(len(p["Position_Outer_x_" + side])):
+        radius_outer, x_out, y_out = _coord_circle(image=window, diameter=size_outer,
+                                                   x=x_outer[i],
+                                                   y=p["Position_Outer_y_" + side][i],
+                                                   method="psychopy")
+        circle_outer = visual.Circle(win=window, units="pix",
+                                     fillColor=color_outer, lineColor=color_outer,
+                                     edges=128, radius=radius_outer, lineWidth=0.5)
+        circle_outer.pos = [x_out-window.size[0]/2, y_out-window.size[1]/2]
+        circle_outer.draw()
 
 
 
