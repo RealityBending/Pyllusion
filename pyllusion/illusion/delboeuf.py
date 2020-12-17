@@ -4,87 +4,100 @@ from psychopy import visual, event
 from ..image import image_circle
 from ..image.utilities import _coord_circle
 
-def delboeuf_image(parameters=None, width=800, height=600, outline=10,
-                   background="white", method="pil", full_screen=False, **kwargs):
+
+def delboeuf_psychopy(parameters=None, width=800, height=600,
+                      background="white", method="pil", full_screen=False, **kwargs):
     """
     Examples
     ---------
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.delboeuf_parameters(difficulty=2, illusion_strength=1)
-    >>> ill.delboeuf_image(parameters, method="pil")  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
-    >>> ill.delboeuf_image(parameters, method="psychopy")  #doctest: +SKIP
+    >>> ill.delboeuf_psychopy(parameters)  #doctest: +SKIP
+    """
+
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = delboeuf_parameters(**kwargs)
+
+    # Initiate window
+    window = visual.Window(size=[width, height], fullscr=full_screen,
+                           screen=0, winType='pyglet', allowGUI=False,
+                           allowStencil=False,
+                           monitor='testMonitor', color=background, colorSpace='rgb',
+                           blendMode='avg', units='pix')
+
+    # Loop circles 
+    for side in ["Left", "Right"]:
+        # Draw outer circle
+        radius_outer, x_outer, y_outer = _coord_circle(image=window,
+                                                       diameter=parameters["Size_Outer_" + side],
+                                                       x=parameters["Position_" + side],
+                                                       y=0, method="psychopy")
+        circle_outer = visual.Circle(win=window, units="pix", fillColor="white",
+                                     lineColor="black", edges=128,
+                                     radius=radius_outer, lineWidth=3)  # linewidth fixed
+        circle_outer.pos = [x_outer-window.size[0]/2, y_outer-window.size[1]/2]
+        circle_outer.draw()
+        
+        # Draw inner circle
+        radius_inner, x_inner, y_inner = _coord_circle(image=window,
+                                                       diameter=parameters["Size_Inner_" + side],
+                                                       x=parameters["Position_" + side],
+                                                       y=0, method="psychopy")
+        circle_inner = visual.Circle(win=window, units="pix", fillColor="red",
+                                     lineColor="red", edges=128,
+                                     radius=radius_inner, lineWidth=0.5)
+        circle_inner.pos = [x_inner-window.size[0]/2, y_inner-window.size[1]/2]
+        circle_inner.draw()
+        
+
+    # Display    
+    window.flip()
+    event.waitKeys()
+    window.close()
+
+
+def delboeuf_image(parameters=None, width=800, height=600, outline=10,
+                   background="white", **kwargs):
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>>
+    >>> parameters = ill.delboeuf_parameters(difficulty=2, illusion_strength=1)
+    >>> ill.delboeuf_image(parameters)  #doctest: +ELLIPSIS
     """
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = delboeuf_parameters(**kwargs)
 
-    # PIL Image
-    if method == "pil":
+    # Background
+    image  = PIL.Image.new('RGB', (width, height), color=background)
 
-        # Background
-        image  = PIL.Image.new('RGB', (width, height), color=background)
+    # Outer circles (outlines)
+    image = image_circle(image=image,
+                         x=parameters["Position_Left"],
+                         size=parameters["Size_Outer_Left"],
+                         color=(0, 0, 0, 0),
+                         outline=outline)
+    image = image_circle(image=image,
+                         x=parameters["Position_Right"],
+                         size=parameters["Size_Outer_Right"],
+                         color=(0, 0, 0, 0),
+                         outline=outline)
+
+    # Inner circles
+    image = image_circle(image=image,
+                         x=parameters["Position_Left"],
+                         size=parameters["Size_Inner_Left"],
+                         color="red")
+    image = image_circle(image=image,
+                         x=parameters["Position_Right"],
+                         size=parameters["Size_Inner_Right"],
+                         color="red")
     
-        # Outer circles (outlines)
-        image = image_circle(image=image,
-                             x=parameters["Position_Left"],
-                             size=parameters["Size_Outer_Left"],
-                             color=(0, 0, 0, 0),
-                             outline=outline)
-        image = image_circle(image=image,
-                             x=parameters["Position_Right"],
-                             size=parameters["Size_Outer_Right"],
-                             color=(0, 0, 0, 0),
-                             outline=outline)
-    
-        # Inner circles
-        image = image_circle(image=image,
-                             x=parameters["Position_Left"],
-                             size=parameters["Size_Inner_Left"],
-                             color="red")
-        image = image_circle(image=image,
-                             x=parameters["Position_Right"],
-                             size=parameters["Size_Inner_Right"],
-                             color="red")
-        
-        return image
-
-    # PsychoPy
-    elif method == "psychopy":
-        win = visual.Window(size=[width, height], fullscr=full_screen,
-                            screen=0, winType='pyglet', allowGUI=False,
-                            allowStencil=False,
-                            monitor='testMonitor', color=background, colorSpace='rgb',
-                            blendMode='avg', units='pix')
-        for side in ["Left", "Right"]:
-            # Draw outer circle
-            radius_outer, x_outer, y_outer = _coord_circle(image=win,
-                                                           diameter=parameters["Size_Outer_" + side],
-                                                           x=parameters["Position_" + side],
-                                                           y=0, method="psychopy")
-            circle_outer = visual.Circle(win=win, units="pix", fillColor="white",
-                                         lineColor="black", edges=128,
-                                         radius=radius_outer, lineWidth=3)  # linewidth fixed
-            circle_outer.pos = [x_outer-win.size[0]/2, y_outer-win.size[1]/2]
-            circle_outer.draw()
-            
-            # Draw inner circle
-            radius_inner, x_inner, y_inner = _coord_circle(image=win,
-                                                           diameter=parameters["Size_Inner_" + side],
-                                                           x=parameters["Position_" + side],
-                                                           y=0, method="psychopy")
-            circle_inner = visual.Circle(win=win, units="pix", fillColor="red",
-                                         lineColor="red", edges=128,
-                                         radius=radius_inner, lineWidth=0.5)
-            circle_inner.pos = [x_inner-win.size[0]/2, y_inner-win.size[1]/2]
-            circle_inner.draw()
-            
-
-        # Display    
-        win.flip()
-        event.waitKeys()
-        win.close()
+    return image
 
 
 
