@@ -1,6 +1,6 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual, event, core
+from psychopy import visual, event
 from .delboeuf import _delboeuf_parameters_sizeinner, _delboeuf_parameters_sizeouter
 from ..image import image_circle
 from ..image.utilities import _coord_circle
