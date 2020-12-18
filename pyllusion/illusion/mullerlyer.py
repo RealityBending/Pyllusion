@@ -1,8 +1,67 @@
-import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from psychopy import visual, event
 from ..image import image_line
 from ..image.utilities import _coord_line
 from .ponzo import _ponzo_parameters_topbottom
+
+
+def mullerlyer_psychopy(parameters=None, width=800, height=600, outline=5,
+                        background="white", full_screen=False, **kwargs):
+
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>>
+    >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=30)
+    >>> ill.mullerlyer_psychopy(parameters)  #doctest: +SKIP
+    """    
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = mullerlyer_parameters(**kwargs)
+
+    # Initiate window
+    window = visual.Window(size=[width, height], fullscr=full_screen,
+                           screen=0, winType='pyglet', allowGUI=False,
+                           allowStencil=False,
+                           monitor='testMonitor', color=background, colorSpace='rgb',
+                           blendMode='avg', units='pix')
+
+    # Loop lines
+    for which in ["TopLeft", "TopRight", "BottomLeft", "BottomRight"]:
+        # Draw distractor lines
+        for side in ["1", "2"]:
+            coord, _, _ = _coord_line(image=None,
+                                      x1=parameters["Distractor_" + which + side + "_x1"],
+                                      y1=parameters["Distractor_" + which + side + "_y1"],
+                                      x2=parameters["Distractor_" + which + side + "_x2"],
+                                      y2=parameters["Distractor_" + which + side + "_y2"])
+            # line parameters
+            line_distractor = visual.Line(win=window, units='norm',
+                                          lineColor="black", lineWidth=outline)
+            line_distractor.start = [coord[0], coord[1]]
+            line_distractor.end = [coord[2], coord[3]]
+            line_distractor.draw()
+    
+    for position in ["Bottom", "Top"]:
+        # Draw target lines
+        coord, _, _ = _coord_line(image=None,
+                                  x1=parameters[position + "_x1"],
+                                  y1=parameters[position + "_y1"],
+                                  x2=parameters[position + "_x2"],
+                                  y2=parameters[position + "_y2"])
+        # Line parameters
+        line_target = visual.Line(win=window, units='norm',
+                                  lineColor="red", lineWidth=outline)
+        line_target.start = [coord[0], coord[1]]
+        line_target.end = [coord[2], coord[3]]
+        line_target.draw()
+    
+    # Display    
+    window.flip()
+    event.waitKeys()
+    window.close()
+
 
 
 def mullerlyer_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
