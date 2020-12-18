@@ -137,6 +137,7 @@ def _coord_line(
     angle=None,
     adjust_width=False,
     adjust_height=False,
+    method="pil",
 ):
     """
     """
@@ -169,9 +170,13 @@ def _coord_line(
             y1, y2 = y1 * (width / height), y2 * (width / height)
 
         x1 = np.int(rescale(x1, to=[0, width], scale=[-1, 1]))
-        y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
         x2 = np.int(rescale(x2, to=[0, width], scale=[-1, 1]))
-        y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+        if method == "pil":
+            y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
+            y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+        elif method == "psychopy":
+            y1 = np.int(rescale(y1, to=[0, height], scale=[-1, 1]))
+            y2 = np.int(rescale(y2, to=[0, height], scale=[-1, 1]))
         length = np.int(rescale(length, to=[0, height], scale=[0, 2]))
     return (x1, y1, x2, y2), length, angle
 

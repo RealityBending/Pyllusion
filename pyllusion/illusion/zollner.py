@@ -1,9 +1,74 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from psychopy import visual, event
 from ..image import image_line
 from ..image.utilities import _coord_line
 
 
+def zollner_psychopy(parameters=None, width=800, height=600, outline=5,
+                     background="white", full_screen=False, **kwargs):
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>>
+    >>> parameters = ill.zollner_parameters(illusion_strength=75)
+    >>> ill.zollner_psychopy(parameters)  #doctest: +SKIP
+    """
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = zollner_parameters(**kwargs)
+
+    # Initiate window
+    window = visual.Window(size=[width, height], fullscr=full_screen,
+                           screen=0, winType='pyglet', allowGUI=False,
+                           allowStencil=False,
+                           monitor='testMonitor', color=background, colorSpace='rgb',
+                           blendMode='avg', units='pix')
+
+    # Loop lines
+    for i in range(parameters["Distractors_n"]):
+        # Draw distractor lines
+        for pos in ["_Top_", "_Bottom_"]:
+            coord, _, _ = _coord_line(image=None,
+                                      x1=parameters["Distractors" + pos + "x1"][i],
+                                      y1=parameters["Distractors" + pos + "y1"][i],
+                                      x2=parameters["Distractors" + pos + "x2"][i],
+                                      y2=parameters["Distractors" + pos + "y2"][i],
+                                      adjust_height=True,
+                                      method="psychopy")
+
+            # line parameters
+            line_distractor = visual.Line(win=window, units='norm',
+                                          lineColor="black", lineWidth=outline)
+            line_distractor.start = [coord[0], coord[1]]
+            line_distractor.end = [coord[2], coord[3]]
+            line_distractor.draw()
+    
+    for pos in ["Bottom", "Top"]:
+        # Draw target lines
+        coord, _, _ = _coord_line(image=None,
+                                  x1=parameters[pos + "_x1"],
+                                  y1=parameters[pos + "_y1"],
+                                  x2=parameters[pos + "_x2"],
+                                  y2=parameters[pos + "_y2"],
+                                  adjust_height=True,
+                                  method="psychopy")
+        # Line parameters
+        line_target = visual.Line(win=window, units='norm',
+                                  lineColor="red", lineWidth=outline)
+        line_target.start = [coord[0], coord[1]]
+        line_target.end = [coord[2], coord[3]]
+        line_target.draw()
+    
+    # Display    
+    window.flip()
+    event.waitKeys()
+    window.close()
+
+
+    
+    
 def zollner_image(parameters=None, width=800, height=600, background="white", **kwargs):
     """
     Examples

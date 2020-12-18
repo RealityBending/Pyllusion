@@ -35,7 +35,8 @@ def mullerlyer_psychopy(parameters=None, width=800, height=600, outline=5,
                                       x1=parameters["Distractor_" + which + side + "_x1"],
                                       y1=parameters["Distractor_" + which + side + "_y1"],
                                       x2=parameters["Distractor_" + which + side + "_x2"],
-                                      y2=parameters["Distractor_" + which + side + "_y2"])
+                                      y2=parameters["Distractor_" + which + side + "_y2"],
+                                      method="psychopy")
             # line parameters
             line_distractor = visual.Line(win=window, units='norm',
                                           lineColor="black", lineWidth=outline)
@@ -49,7 +50,8 @@ def mullerlyer_psychopy(parameters=None, width=800, height=600, outline=5,
                                   x1=parameters[position + "_x1"],
                                   y1=parameters[position + "_y1"],
                                   x2=parameters[position + "_x2"],
-                                  y2=parameters[position + "_y2"])
+                                  y2=parameters[position + "_y2"],
+                                  method="psychopy")
         # Line parameters
         line_target = visual.Line(win=window, units='norm',
                                   lineColor="red", lineWidth=outline)

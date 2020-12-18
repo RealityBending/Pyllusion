@@ -34,7 +34,8 @@ def ponzo_psychopy(parameters=None, width=800, height=600, background="white",
                                   x1=parameters[side + "_x1"],
                                   y1=parameters[side + "_y1"],
                                   x2=parameters[side + "_x2"],
-                                  y2=parameters[side + "_y2"])
+                                  y2=parameters[side + "_y2"],
+                                  method="psychopy")
 
         # Line parameters
         line_distractor = visual.Line(win=window, units='norm',
@@ -49,10 +50,11 @@ def ponzo_psychopy(parameters=None, width=800, height=600, background="white",
                                   x1=parameters[position + "_x1"],
                                   y1=parameters[position + "_y1"],
                                   x2=parameters[position + "_x2"],
-                                  y2=parameters[position + "_y2"])
+                                  y2=parameters[position + "_y2"],
+                                  method="psychopy")
         # Line parameters
         line_target = visual.Line(win=window, units='norm',
-                                      lineColor="red", lineWidth=outline)
+                                  lineColor="red", lineWidth=outline)
         line_target.start = [coord[0], coord[1]]
         line_target.end = [coord[2], coord[3]]
         line_target.draw()
