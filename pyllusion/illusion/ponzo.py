@@ -1,8 +1,68 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from psychopy import visual, event
 from ..image import image_line
 from ..image.utilities import _coord_line
 
+
+
+def ponzo_psychopy(parameters=None, width=800, height=600, background="white",
+                   outline=5, full_screen=False, **kwargs):
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>>
+    >>> parameters = ill.ponzo_parameters(difficulty=0, illusion_strength=20)
+    >>> ill.ponzo_psychopy(parameters)  #doctest: +SKIP
+    """    
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = ponzo_parameters(**kwargs)
+
+    # Initiate window
+    window = visual.Window(size=[width, height], fullscr=full_screen,
+                           screen=0, winType='pyglet', allowGUI=False,
+                           allowStencil=False,
+                           monitor='testMonitor', color=background, colorSpace='rgb',
+                           blendMode='avg', units='pix')
+
+    # Loop lines
+    for side in ["Left", "Right"]:
+        # Draw distractor lines
+        coord, _, _ = _coord_line(image=None,
+                                  x1=parameters[side + "_x1"],
+                                  y1=parameters[side + "_y1"],
+                                  x2=parameters[side + "_x2"],
+                                  y2=parameters[side + "_y2"])
+
+        # Line parameters
+        line_distractor = visual.Line(win=window, units='norm',
+                                      lineColor="black", lineWidth=outline)
+        line_distractor.start = [coord[0], coord[1]]
+        line_distractor.end = [coord[2], coord[3]]
+        line_distractor.draw()
+
+    for position in ["Bottom", "Top"]:
+        # Draw target lines
+        coord, _, _ = _coord_line(image=None,
+                                  x1=parameters[position + "_x1"],
+                                  y1=parameters[position + "_y1"],
+                                  x2=parameters[position + "_x2"],
+                                  y2=parameters[position + "_y2"])
+        # Line parameters
+        line_target = visual.Line(win=window, units='norm',
+                                      lineColor="red", lineWidth=outline)
+        line_target.start = [coord[0], coord[1]]
+        line_target.end = [coord[2], coord[3]]
+        line_target.draw()
+    
+    # Display    
+    window.flip()
+    event.waitKeys()
+    window.close()
+
+    
 def ponzo_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
     """
     Examples
