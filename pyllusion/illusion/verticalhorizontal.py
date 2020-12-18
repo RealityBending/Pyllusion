@@ -1,8 +1,60 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from psychopy import visual, event
 from ..image import image_line
 from ..image.utilities import _coord_line
 
+
+def verticalhorizontal_psychopy(parameters=None, width=800, height=600, outline=5,
+                                background="white", full_screen=False, **kwargs):
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>>
+    >>> parameters = ill.verticalhorizontal_parameters(difficulty=0, illusion_strength=90)
+    >>> ill.verticalhorizontal_psychopy(parameters)  #doctest: +SKIP
+    """
+    
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = verticalhorizontal_parameters(**kwargs)
+
+    # Initiate window
+    window = visual.Window(size=[width, height], fullscr=full_screen,
+                           screen=0, winType='pyglet', allowGUI=False,
+                           allowStencil=False,
+                           monitor='testMonitor', color=background, colorSpace='rgb',
+                           blendMode='avg', units='pix')
+
+    # Loop lines
+    for side in ["Left", "Right"]:
+        coord, _, _ = _coord_line(image=None,
+                                  x1=parameters[side + "_x1"],
+                                  y1=parameters[side + "_y1"],
+                                  x2=parameters[side + "_x2"],
+                                  y2=parameters[side + "_y2"],
+                                  adjust_width=True,
+                                  length=None,
+                                  angle=None,
+                                  method="psychopy")
+
+        # line parameters
+        line = visual.Line(win=window, units='norm',
+                           lineColor="red", lineWidth=outline)
+        line.start = [coord[0], coord[1]]
+        line.end = [coord[2], coord[3]]
+        line.draw()
+    
+    
+    # Display    
+    window.flip()
+    event.waitKeys()
+    window.close()
+
+
+
+    
 
 def verticalhorizontal_image(
     parameters=None, width=800, height=600, background="white", **kwargs
