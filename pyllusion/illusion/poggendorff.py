@@ -1,7 +1,60 @@
-import numpy as np
+from psychopy import visual, event
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from ..image import image_line, image_rectangle
 from ..image.utilities import _coord_line, _coord_rectangle
+
+
+def poggendorff_psychopy(parameters=None, width=800, height=600, outline=5, background="white",
+                      full_screen=False, **kwargs):
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>>
+    >>> parameters = ill.poggendorff_parameters(difference=0, illusion_strength=-55)
+    >>> ill.poggendorff_psychopy(parameters)  #doctest: +SKIP
+    """
+    
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = poggendorff_parameters(**kwargs)
+
+    # Initiate window
+    window = visual.Window(size=[width, height], fullscr=full_screen,
+                           screen=0, winType='pyglet', allowGUI=False,
+                           allowStencil=False,
+                           monitor='testMonitor', color=background, colorSpace='rgb',
+                           blendMode='avg', units='pix')
+    
+
+    # Draw lines
+    for pos in ["Left_", "Right_"]:
+        coord, _, _ = _coord_line(image=None,
+                                  x1=parameters[pos + "x1"],
+                                  y1=parameters[pos + "y1"],
+                                  x2=parameters[pos + "x2"],
+                                  y2=parameters[pos + "y2"],
+                                  method="psychopy",
+                                  adjust_height=True)
+        # line parameters
+        line = visual.Line(win=window, units='norm',
+                           lineColor="red", lineWidth=outline)
+        line.start = [coord[0], coord[1]]
+        line.end = [coord[2], coord[3]]
+        line.draw()
+    
+    # Draw shaded rectangle
+    x1, y1, x2, y2 = _coord_rectangle(image=window, x=0, y=parameters["Rectangle_y"],
+                                      size_width=parameters["Rectangle_Width"], size_height=parameters["Rectangle_Height"],
+                                      method="psychopy")
+
+    rect = visual.Rect(win=window, units='pix', width=x2-x1, height=y2-y1, fillColor="grey")
+    rect.draw()
+    
+    # Display    
+    window.flip()
+    event.waitKeys()
+    window.close()
 
 
 def poggendorff_image(
