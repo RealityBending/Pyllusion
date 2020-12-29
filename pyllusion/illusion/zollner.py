@@ -5,26 +5,33 @@ from ..image import image_line
 from ..image.utilities import _coord_line
 
 
-def zollner_psychopy(parameters=None, width=800, height=600, outline=5,
-                     background="white", full_screen=False, **kwargs):
+def zollner_psychopy(window, parameters=None, outline=5, **kwargs):
     """
     Examples
     ---------
     >>> import pyllusion as ill
-    >>>
+    >>> from psychopy import visual, event
+
     >>> parameters = ill.zollner_parameters(illusion_strength=75)
-    >>> ill.zollner_psychopy(parameters)  #doctest: +SKIP
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.zollner_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
+
     """
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = zollner_parameters(**kwargs)
-
-    # Initiate window
-    window = visual.Window(size=[width, height], fullscr=full_screen,
-                           screen=0, winType='pyglet', allowGUI=False,
-                           allowStencil=False,
-                           monitor='testMonitor', color=background, colorSpace='rgb',
-                           blendMode='avg', units='pix')
 
     # Loop lines
     for i in range(parameters["Distractors_n"]):
@@ -61,10 +68,6 @@ def zollner_psychopy(parameters=None, width=800, height=600, outline=5,
         line_target.end = [coord[2], coord[3]]
         line_target.draw()
     
-    # Display    
-    window.flip()
-    event.waitKeys()
-    window.close()
 
 
     

@@ -1,31 +1,36 @@
-from psychopy import visual, event
+from psychopy import visual
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from ..image import image_line, image_rectangle
 from ..image.utilities import _coord_line, _coord_rectangle
 
 
-def poggendorff_psychopy(parameters=None, width=800, height=600, outline=5, background="white",
-                      full_screen=False, **kwargs):
+def poggendorff_psychopy(window, parameters=None, outline=5, **kwargs):
     """
     Examples
-    ---------
+    ---------    
     >>> import pyllusion as ill
-    >>>
+    >>> from psychopy import visual, event
+    
     >>> parameters = ill.poggendorff_parameters(difference=0, illusion_strength=-55)
-    >>> ill.poggendorff_psychopy(parameters)  #doctest: +SKIP
+    
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.poggendorff_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
     """
     
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = poggendorff_parameters(**kwargs)
-
-    # Initiate window
-    window = visual.Window(size=[width, height], fullscr=full_screen,
-                           screen=0, winType='pyglet', allowGUI=False,
-                           allowStencil=False,
-                           monitor='testMonitor', color=background, colorSpace='rgb',
-                           blendMode='avg', units='pix')
-    
 
     # Draw lines
     for pos in ["Left_", "Right_"]:
@@ -50,11 +55,6 @@ def poggendorff_psychopy(parameters=None, width=800, height=600, outline=5, back
 
     rect = visual.Rect(win=window, units='pix', width=x2-x1, height=y2-y1, fillColor="grey")
     rect.draw()
-    
-    # Display    
-    window.flip()
-    event.waitKeys()
-    window.close()
 
 
 def poggendorff_image(

@@ -1,31 +1,39 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual, event
+from psychopy import visual
 from ..image import image_line
 from ..image.utilities import _coord_line
 
 
 
-def ponzo_psychopy(parameters=None, width=800, height=600, background="white",
+def ponzo_psychopy(window, parameters=None, width=800, height=600, background="white",
                    outline=5, full_screen=False, **kwargs):
     """
     Examples
     ---------
     >>> import pyllusion as ill
-    >>>
-    >>> parameters = ill.ponzo_parameters(difficulty=0, illusion_strength=20)
-    >>> ill.ponzo_psychopy(parameters)  #doctest: +SKIP
+    >>> from psychopy import visual, event
+
+    >>> parameters = ill.ponzo_parameters(difficulty=0, illusion_strength=30)
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.ponzo_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
+
     """    
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = ponzo_parameters(**kwargs)
-
-    # Initiate window
-    window = visual.Window(size=[width, height], fullscr=full_screen,
-                           screen=0, winType='pyglet', allowGUI=False,
-                           allowStencil=False,
-                           monitor='testMonitor', color=background, colorSpace='rgb',
-                           blendMode='avg', units='pix')
 
     # Loop lines
     for side in ["Left", "Right"]:
@@ -59,11 +67,6 @@ def ponzo_psychopy(parameters=None, width=800, height=600, background="white",
         line_target.end = [coord[2], coord[3]]
         line_target.draw()
     
-    # Display    
-    window.flip()
-    event.waitKeys()
-    window.close()
-
     
 def ponzo_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
     """

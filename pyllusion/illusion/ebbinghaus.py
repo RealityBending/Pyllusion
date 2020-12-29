@@ -1,6 +1,6 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual, event
+from psychopy import visual
 from .delboeuf import _delboeuf_parameters_sizeinner, _delboeuf_parameters_sizeouter
 from ..image import image_circle
 from ..image.utilities import _coord_circle
@@ -8,27 +8,33 @@ from ..image.utilities import _coord_circle
 
 
 
-def ebbinghaus_psychopy(parameters=None, width=800, height=600, background="white",
-                        full_screen=False, **kwargs):
+def ebbinghaus_psychopy(window, parameters=None, **kwargs):
     """
     Examples
     ---------
     >>> import pyllusion as ill
-    >>>
+    >>> from psychopy import visual, event
+
     >>> parameters = ill.ebbinghaus_parameters(difficulty=2, illusion_strength=1)
-    >>> ill.ebbinghaus_psychopy(parameters)  #doctest: +SKIP
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.ebbinghaus_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
     """
 
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = ebbinghaus_parameters(**kwargs)
-
-    # Initiate window
-    window = visual.Window(size=[width, height], fullscr=full_screen,
-                    screen=0, winType='pyglet', allowGUI=False,
-                    allowStencil=False,
-                    monitor='testMonitor', color=background, colorSpace='rgb',
-                    blendMode='avg', units='pix')
 
     # Loop circles
     for side in ["Left", "Right"]:
@@ -60,11 +66,6 @@ def ebbinghaus_psychopy(parameters=None, width=800, height=600, background="whit
             circle_outer.pos = [x_out-window.size[0]/2, y_out-window.size[1]/2]
             circle_outer.draw()
     
-    # Display    
-    window.flip()
-    event.waitKeys()
-    window.close()
-
 
     
 def ebbinghaus_image(parameters=None, width=800, height=600, background="white",

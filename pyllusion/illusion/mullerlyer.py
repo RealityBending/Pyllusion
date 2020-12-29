@@ -1,31 +1,38 @@
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual, event
+from psychopy import visual
 from ..image import image_line
 from ..image.utilities import _coord_line
 from .ponzo import _ponzo_parameters_topbottom
 
 
-def mullerlyer_psychopy(parameters=None, width=800, height=600, outline=5,
-                        background="white", full_screen=False, **kwargs):
+def mullerlyer_psychopy(window, parameters=None, outline=5, **kwargs):
 
     """
     Examples
     ---------
     >>> import pyllusion as ill
-    >>>
+    >>> from psychopy import visual, event
+
     >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=30)
-    >>> ill.mullerlyer_psychopy(parameters)  #doctest: +SKIP
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.mullerlyer_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
+
     """    
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = mullerlyer_parameters(**kwargs)
-
-    # Initiate window
-    window = visual.Window(size=[width, height], fullscr=full_screen,
-                           screen=0, winType='pyglet', allowGUI=False,
-                           allowStencil=False,
-                           monitor='testMonitor', color=background, colorSpace='rgb',
-                           blendMode='avg', units='pix')
 
     # Loop lines
     for which in ["TopLeft", "TopRight", "BottomLeft", "BottomRight"]:
@@ -58,11 +65,7 @@ def mullerlyer_psychopy(parameters=None, width=800, height=600, outline=5,
         line_target.start = [coord[0], coord[1]]
         line_target.end = [coord[2], coord[3]]
         line_target.draw()
-    
-    # Display    
-    window.flip()
-    event.waitKeys()
-    window.close()
+
 
 
 

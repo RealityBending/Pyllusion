@@ -1,31 +1,37 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual, event
+from psychopy import visual
 from ..image import image_line
 from ..image.utilities import _coord_line
 
 
-def verticalhorizontal_psychopy(parameters=None, width=800, height=600, outline=5,
-                                background="white", full_screen=False, **kwargs):
+def verticalhorizontal_psychopy(window, parameters=None, outline=5, **kwargs):
     """
     Examples
     ---------
     >>> import pyllusion as ill
-    >>>
+    >>> from psychopy import visual, event
+
     >>> parameters = ill.verticalhorizontal_parameters(difficulty=0, illusion_strength=90)
-    >>> ill.verticalhorizontal_psychopy(parameters)  #doctest: +SKIP
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.verticalhorizontal_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
     """
     
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = verticalhorizontal_parameters(**kwargs)
-
-    # Initiate window
-    window = visual.Window(size=[width, height], fullscr=full_screen,
-                           screen=0, winType='pyglet', allowGUI=False,
-                           allowStencil=False,
-                           monitor='testMonitor', color=background, colorSpace='rgb',
-                           blendMode='avg', units='pix')
 
     # Loop lines
     for side in ["Left", "Right"]:
@@ -45,13 +51,6 @@ def verticalhorizontal_psychopy(parameters=None, width=800, height=600, outline=
         line.start = [coord[0], coord[1]]
         line.end = [coord[2], coord[3]]
         line.draw()
-    
-    
-    # Display    
-    window.flip()
-    event.waitKeys()
-    window.close()
-
 
 
     

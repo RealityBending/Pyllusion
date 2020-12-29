@@ -1,31 +1,37 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual, event
+from psychopy import visual
 from ..image import image_circle
 from ..image.utilities import _coord_circle
 
 
-def delboeuf_psychopy(parameters=None, width=800, height=600,
-                      background="white", method="pil", full_screen=False, **kwargs):
+def delboeuf_psychopy(window, parameters=None, **kwargs):
     """
     Examples
     ---------
     >>> import pyllusion as ill
-    >>>
+    >>> from psychopy import visual, event
+    
     >>> parameters = ill.delboeuf_parameters(difficulty=2, illusion_strength=1)
-    >>> ill.delboeuf_psychopy(parameters)  #doctest: +SKIP
+    
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.delboeuf_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
     """
 
     # Create white canvas and get drawing context
     if parameters is None:
         parameters = delboeuf_parameters(**kwargs)
-
-    # Initiate window
-    window = visual.Window(size=[width, height], fullscr=full_screen,
-                           screen=0, winType='pyglet', allowGUI=False,
-                           allowStencil=False,
-                           monitor='testMonitor', color=background, colorSpace='rgb',
-                           blendMode='avg', units='pix')
 
     # Loop circles 
     for side in ["Left", "Right"]:
@@ -51,11 +57,6 @@ def delboeuf_psychopy(parameters=None, width=800, height=600,
         circle_inner.pos = [x_inner-window.size[0]/2, y_inner-window.size[1]/2]
         circle_inner.draw()
         
-
-    # Display    
-    window.flip()
-    event.waitKeys()
-    window.close()
 
 
 def delboeuf_image(parameters=None, width=800, height=600, outline=10,
