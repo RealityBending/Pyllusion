@@ -21,7 +21,7 @@ def verticalhorizontal_psychopy(window, parameters=None, outline=5, **kwargs):
                                blendMode='avg', units='pix')
     
     >>> # Display illusion
-    >>> ill.verticalhorizontal_psychopy(window=window, parameters=parameters)
+    >>> coord = ill.verticalhorizontal_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -35,25 +35,25 @@ def verticalhorizontal_psychopy(window, parameters=None, outline=5, **kwargs):
 
     # Loop lines
     for side in ["Left", "Right"]:
-        coord, _, _ = _coord_line(image=None,
+        coord, _, _ = _coord_line(image=window,
                                   x1=parameters[side + "_x1"],
                                   y1=parameters[side + "_y1"],
                                   x2=parameters[side + "_x2"],
                                   y2=parameters[side + "_y2"],
-                                  adjust_width=True,
                                   length=None,
                                   angle=None,
+                                  adjust_width=True,
                                   method="psychopy")
 
         # line parameters
-        line = visual.Line(win=window, units='norm',
+        line = visual.Line(win=window, units='pix',
                            lineColor="red", lineWidth=outline)
-        line.start = [coord[0], coord[1]]
-        line.end = [coord[2], coord[3]]
+        line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+        line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
         line.draw()
 
+    return coord
 
-    
 
 def verticalhorizontal_image(
     parameters=None, width=800, height=600, background="white", **kwargs

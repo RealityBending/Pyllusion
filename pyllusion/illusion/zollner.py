@@ -37,7 +37,7 @@ def zollner_psychopy(window, parameters=None, outline=5, **kwargs):
     for i in range(parameters["Distractors_n"]):
         # Draw distractor lines
         for pos in ["_Top_", "_Bottom_"]:
-            coord, _, _ = _coord_line(image=None,
+            coord, _, _ = _coord_line(image=window,
                                       x1=parameters["Distractors" + pos + "x1"][i],
                                       y1=parameters["Distractors" + pos + "y1"][i],
                                       x2=parameters["Distractors" + pos + "x2"][i],
@@ -46,15 +46,15 @@ def zollner_psychopy(window, parameters=None, outline=5, **kwargs):
                                       method="psychopy")
 
             # line parameters
-            line_distractor = visual.Line(win=window, units='norm',
+            line_distractor = visual.Line(win=window, units='pix',
                                           lineColor="black", lineWidth=outline)
-            line_distractor.start = [coord[0], coord[1]]
-            line_distractor.end = [coord[2], coord[3]]
+            line_distractor.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+            line_distractor.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
             line_distractor.draw()
     
     for pos in ["Bottom", "Top"]:
         # Draw target lines
-        coord, _, _ = _coord_line(image=None,
+        coord, _, _ = _coord_line(image=window,
                                   x1=parameters[pos + "_x1"],
                                   y1=parameters[pos + "_y1"],
                                   x2=parameters[pos + "_x2"],
@@ -62,10 +62,10 @@ def zollner_psychopy(window, parameters=None, outline=5, **kwargs):
                                   adjust_height=True,
                                   method="psychopy")
         # Line parameters
-        line_target = visual.Line(win=window, units='norm',
+        line_target = visual.Line(win=window, units='pix',
                                   lineColor="red", lineWidth=outline)
-        line_target.start = [coord[0], coord[1]]
-        line_target.end = [coord[2], coord[3]]
+        line_target.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+        line_target.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
         line_target.draw()
     
 

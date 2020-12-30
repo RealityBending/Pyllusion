@@ -38,7 +38,7 @@ def ponzo_psychopy(window, parameters=None, width=800, height=600, background="w
     # Loop lines
     for side in ["Left", "Right"]:
         # Draw distractor lines
-        coord, _, _ = _coord_line(image=None,
+        coord, _, _ = _coord_line(image=window,
                                   x1=parameters[side + "_x1"],
                                   y1=parameters[side + "_y1"],
                                   x2=parameters[side + "_x2"],
@@ -46,25 +46,25 @@ def ponzo_psychopy(window, parameters=None, width=800, height=600, background="w
                                   method="psychopy")
 
         # Line parameters
-        line_distractor = visual.Line(win=window, units='norm',
+        line_distractor = visual.Line(win=window, units='pix',
                                       lineColor="black", lineWidth=outline)
-        line_distractor.start = [coord[0], coord[1]]
-        line_distractor.end = [coord[2], coord[3]]
+        line_distractor.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+        line_distractor.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
         line_distractor.draw()
 
     for position in ["Bottom", "Top"]:
         # Draw target lines
-        coord, _, _ = _coord_line(image=None,
+        coord, _, _ = _coord_line(image=window,
                                   x1=parameters[position + "_x1"],
                                   y1=parameters[position + "_y1"],
                                   x2=parameters[position + "_x2"],
                                   y2=parameters[position + "_y2"],
                                   method="psychopy")
         # Line parameters
-        line_target = visual.Line(win=window, units='norm',
+        line_target = visual.Line(win=window, units='pix',
                                   lineColor="red", lineWidth=outline)
-        line_target.start = [coord[0], coord[1]]
-        line_target.end = [coord[2], coord[3]]
+        line_target.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+        line_target.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
         line_target.draw()
     
     

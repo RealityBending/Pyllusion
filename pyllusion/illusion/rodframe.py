@@ -44,10 +44,10 @@ def rodframe_psychopy(window, parameters=None, outline=5, **kwargs):
     rect.draw()
     
     # Draw line
-    coord, _, _ = _coord_line(x=0, y=0, length=0.8, angle=parameters["Rod_Angle"], adjust_width=True)
-    line = visual.Line(win=window, units='norm', lineColor="red", lineWidth=outline)
-    line.start = [coord[0], coord[1]]
-    line.end = [coord[2], coord[3]]
+    coord, _, _ = _coord_line(image=window, x=0, y=0, length=0.8, angle=parameters["Rod_Angle"], adjust_width=True)
+    line = visual.Line(win=window, units='pix', lineColor="red", lineWidth=outline)
+    line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+    line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
     line.draw()
 
 

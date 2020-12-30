@@ -34,7 +34,7 @@ def poggendorff_psychopy(window, parameters=None, outline=5, **kwargs):
 
     # Draw lines
     for pos in ["Left_", "Right_"]:
-        coord, _, _ = _coord_line(image=None,
+        coord, _, _ = _coord_line(image=window,
                                   x1=parameters[pos + "x1"],
                                   y1=parameters[pos + "y1"],
                                   x2=parameters[pos + "x2"],
@@ -42,10 +42,10 @@ def poggendorff_psychopy(window, parameters=None, outline=5, **kwargs):
                                   method="psychopy",
                                   adjust_height=True)
         # line parameters
-        line = visual.Line(win=window, units='norm',
+        line = visual.Line(win=window, units='pix',
                            lineColor="red", lineWidth=outline)
-        line.start = [coord[0], coord[1]]
-        line.end = [coord[2], coord[3]]
+        line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+        line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
         line.draw()
     
     # Draw shaded rectangle
