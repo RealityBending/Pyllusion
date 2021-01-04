@@ -70,7 +70,11 @@ matplotlib$use("Agg", force = TRUE)
 
 # Visual Illusions
 
+<!-- Intro about illusions -->
 
+<!-- Example of psychological research using illusion -->
+
+<!-- Aim of the software -->
 
 <!-- From NEUROPSYDIA -->
 <!-- Neuropsychology encompasses two intimately related aspects: experimental research and
