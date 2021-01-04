@@ -6,8 +6,7 @@ from ..image.utilities import _coord_line
 
 
 
-def ponzo_psychopy(window, parameters=None, width=800, height=600, background="white",
-                   outline=5, full_screen=False, **kwargs):
+def ponzo_psychopy(window, parameters=None, outline=5, **kwargs):
     """
     Examples
     ---------
