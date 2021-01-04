@@ -73,7 +73,10 @@ def zollner_psychopy(window, parameters=None, outline=5, **kwargs):
     
     
 def zollner_image(parameters=None, width=800, height=600, background="white", **kwargs):
-    """
+    """Create the Zöllner illusion.
+    The Zöllner illusion is an optical illusion, where horizontal lines are perceived
+    as not parallel because of their background.
+
     Examples
     ---------
     >>> import pyllusion as ill

@@ -1,7 +1,7 @@
 """
 The Pyllusion module.
 """
-__version__ = "0.0.5"
+__version__ = "0.0.8"
 
 
 # Import rest of submodules
@@ -12,6 +12,10 @@ from .image import *
 from .movement import *
 from .psychopy_draw import *
 
+
+# Maintainer info
+__author__ = "The Reality Beding League"
+__email__ = "dom.makowski@gmail.com"
 
 # Get path of stimuli images
 # import inspect

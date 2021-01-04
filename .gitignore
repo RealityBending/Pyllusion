@@ -2,5 +2,6 @@
 Programming Visual Illusions for Everyone by Marco Bertamini.pdf
 *.pyc
 pyllusion\__pycache__\
+pyllusion.egg
 try_stuff.py
 .Rhistory
