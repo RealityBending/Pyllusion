@@ -38,10 +38,10 @@ def image_blob(x=450, y=100, width=800, height=600, sd=3):
 def _image_blob(x=450, y=100, width=800, height=600, sd=3):
     """Returns a 2D Gaussian kernel.
 
-    >>> import pyllusion as ill
-    >>> import matplotlib.pyplot as plt
-    >>> array = _image_blob(sd=8)
-    >>> plt.imshow(array)  #doctest: +ELLIPSIS
+    # >>> import pyllusion as ill
+    # >>> import matplotlib.pyplot as plt
+    # >>> array = _image_blob(sd=8)
+    # >>> plt.imshow(array)  #doctest: +ELLIPSIS
      <...>
     """
 
