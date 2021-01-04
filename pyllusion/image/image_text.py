@@ -77,7 +77,7 @@ def image_text(
     draw = PIL.ImageDraw.Draw(mask)
 
     # Get coordinates
-    coord, font = _coord_text(mask, text=text, size=size, x=x, y=y, font=font)
+    coord, font, _, _ = _coord_text(mask, text=text, size=size, x=x, y=y, font=font)
 
     # Draw
     draw.text(coord, text, font=font, fill=color)

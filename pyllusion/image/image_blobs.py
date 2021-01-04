@@ -96,10 +96,10 @@ def image_blob(x=450, y=100, width=800, height=600, sd=30):
 def _image_blob(x=400, y=300, width=800, height=600, sd=30):
     """Returns a 2D Gaussian kernel.
 
-    >>> import matplotlib.pyplot as plt
-    >>> parent_blob = _image_blob_parent(x=400, y=500, width=800, height=600, sd=30)
-    >>> blob = _image_blob_crop(parent_blob, x=400, y=500, width=800, height=600)
-    >>> plt.imshow(blob)  #doctest: +ELLIPSIS
+    # >>> import pyllusion as ill
+    # >>> import matplotlib.pyplot as plt
+    # >>> array = _image_blob(sd=8)
+    # >>> plt.imshow(array)  #doctest: +ELLIPSIS
      <...>
     """
     parent_blob = _image_blob_parent(x=x, y=y, width=width, height=height, sd=sd)

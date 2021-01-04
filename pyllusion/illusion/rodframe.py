@@ -1,11 +1,56 @@
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
-
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from psychopy import visual
 from ..image import image_line, image_rectangle
-from ..image.utilities import _coord_line
+from ..image.utilities import _coord_line, _coord_rectangle
+
+
+def rodframe_psychopy(window, parameters=None, outline=5, **kwargs):
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>> from psychopy import visual, event
+
+    >>> parameters = ill.rodframe_parameters(difficulty=0, illusion_strength=11)
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.rodframe_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
+    """
+    
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = rodframe_parameters(**kwargs)
+
+    # Adjust size for screen ratio
+    size_width = 1
+    size_width = size_width * (window.size[1] / window.size[0])
+
+    # Draw frame
+    x1, y1, x2, y2 = _coord_rectangle(image=window, x=0, y=0, size_width=size_width, size_height=1, method="psychopy")
+    rect = visual.Rect(win=window, units='pix', width=x2-x1, height=y2-y1,
+                       fillColor="white", lineColor="black", lineWidth=outline)
+    rect.ori = parameters["Frame_Angle"]
+    rect.draw()
+    
+    # Draw line
+    coord, _, _ = _coord_line(image=window, x=0, y=0, length=0.8, angle=parameters["Rod_Angle"], adjust_width=True)
+    line = visual.Line(win=window, units='pix', lineColor="red", lineWidth=outline)
+    line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+    line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
+    line.draw()
+
+
 
 
 def rodframe_image(

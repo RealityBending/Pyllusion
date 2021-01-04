@@ -28,6 +28,13 @@ Describing illusions using a set of parameters aims at fostering
 generate and manipulate similar stimuli regardless of the display format
 and software.
 
+## PsychoPy Integration
+
+Pyllusion can be easily integrated into [PsychoPy](https://www.psychopy.org/) for running experiments as well!
+
+![](docs/img/psychopy_example.gif)
+
+
 ## Installation
 
     pip install https://github.com/RealityBending/Pyllusion/zipball/master

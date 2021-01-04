@@ -30,7 +30,7 @@ def _color(color="black", alpha=1, mode="RGB"):
     return color
 
 
-def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid"):
+def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid", method="pil"):
     """Get circle coordinates
 
     Examples
@@ -51,21 +51,28 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid"):
         # Get coordinates in pixels
         width, height = image.size
         x = np.int(rescale(x, to=[0, width], scale=[-1, 1]))
-        y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+        if method == "pil":
+            y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+        elif method == "psychopy":
+            y = np.int(rescale(y, to=[0, height], scale=[-1, 1]))
 
         # Convert diameter based on height
         diameter = np.int(rescale(diameter, to=[0, height], scale=[0, 2]))
         diameter = 2 if diameter < 2 else diameter
-
+        
     radius = diameter / 2
     # Choose diameter and centre
     coord = [(x - radius, y - radius), (x + radius, y + radius)]
 
-    return coord
+    if method == "pil":
+        return coord
+    elif method == "psychopy":
+        return radius, x, y
 
 
 def _coord_text(
-    image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid"
+    image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid",
+    method="pil"
 ):
     """Get text coordinates
 
@@ -85,7 +92,10 @@ def _coord_text(
         # Get coordinates in pixels
         width, height = image.size
         x = np.int(rescale(x, to=[0, width], scale=[-1, 1]))
-        y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+        if method == "pil":
+            y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+        elif method == "psychopy":
+            y = np.int(rescale(y, to=[0, height], scale=[-1, 1]))
 
     if size == "auto":
         # Initialize values
@@ -112,7 +122,7 @@ def _coord_text(
 
     coord = top_left_x, top_left_y
 
-    return coord, loaded_font
+    return coord, loaded_font, x, y
 
 
 def _coord_line(
@@ -127,6 +137,7 @@ def _coord_line(
     angle=None,
     adjust_width=False,
     adjust_height=False,
+    method="pil",
 ):
     """
     """
@@ -159,9 +170,13 @@ def _coord_line(
             y1, y2 = y1 * (width / height), y2 * (width / height)
 
         x1 = np.int(rescale(x1, to=[0, width], scale=[-1, 1]))
-        y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
         x2 = np.int(rescale(x2, to=[0, width], scale=[-1, 1]))
-        y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+        if method == "pil":
+            y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
+            y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+        elif method == "psychopy":
+            y1 = np.int(rescale(y1, to=[0, height], scale=[-1, 1]))
+            y2 = np.int(rescale(y2, to=[0, height], scale=[-1, 1]))
         length = np.int(rescale(length, to=[0, height], scale=[0, 2]))
     return (x1, y1, x2, y2), length, angle
 
@@ -178,7 +193,7 @@ def _coord_line_lengthangle(x1=None, y1=None, x2=None, y2=None):
     return length, angle
 
 
-def _coord_rectangle(image=None, x=0, y=0, size_width=1, size_height=1):
+def _coord_rectangle(image=None, x=0, y=0, size_width=1, size_height=1, method="pil"):
     """
     """
     x1 = x - (size_width / 2)
@@ -190,7 +205,11 @@ def _coord_rectangle(image=None, x=0, y=0, size_width=1, size_height=1):
     if image is not None:
         width, height = image.size
         x1 = np.int(rescale(x1, to=[0, width], scale=[-1, 1]))
-        y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
         x2 = np.int(rescale(x2, to=[0, width], scale=[-1, 1]))
-        y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+        if method == "pil":
+            y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
+            y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+        elif method == "psychopy":
+            y1 = np.int(rescale(y1, to=[0, height], scale=[-1, 1]))
+            y2 = np.int(rescale(y2, to=[0, height], scale=[-1, 1]))
     return (x1, y1, x2, y2)

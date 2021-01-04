@@ -1,14 +1,77 @@
 import numpy as np
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
-
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from psychopy import visual, event
 from ..image import image_line
 from ..image.utilities import _coord_line
 
 
+def zollner_psychopy(window, parameters=None, outline=5, **kwargs):
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>> from psychopy import visual, event
+
+    >>> parameters = ill.zollner_parameters(illusion_strength=75)
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.zollner_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
+
+    """
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = zollner_parameters(**kwargs)
+
+    # Loop lines
+    for i in range(parameters["Distractors_n"]):
+        # Draw distractor lines
+        for pos in ["_Top_", "_Bottom_"]:
+            coord, _, _ = _coord_line(image=window,
+                                      x1=parameters["Distractors" + pos + "x1"][i],
+                                      y1=parameters["Distractors" + pos + "y1"][i],
+                                      x2=parameters["Distractors" + pos + "x2"][i],
+                                      y2=parameters["Distractors" + pos + "y2"][i],
+                                      adjust_height=True,
+                                      method="psychopy")
+
+            # line parameters
+            line_distractor = visual.Line(win=window, units='pix',
+                                          lineColor="black", lineWidth=outline)
+            line_distractor.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+            line_distractor.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
+            line_distractor.draw()
+    
+    for pos in ["Bottom", "Top"]:
+        # Draw target lines
+        coord, _, _ = _coord_line(image=window,
+                                  x1=parameters[pos + "_x1"],
+                                  y1=parameters[pos + "_y1"],
+                                  x2=parameters[pos + "_x2"],
+                                  y2=parameters[pos + "_y2"],
+                                  adjust_height=True,
+                                  method="psychopy")
+        # Line parameters
+        line_target = visual.Line(win=window, units='pix',
+                                  lineColor="red", lineWidth=outline)
+        line_target.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+        line_target.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
+        line_target.draw()
+    
+
+
+    
+    
 def zollner_image(parameters=None, width=800, height=600, background="white", **kwargs):
     """Create the Zöllner illusion.
     The Zöllner illusion is an optical illusion, where horizontal lines are perceived

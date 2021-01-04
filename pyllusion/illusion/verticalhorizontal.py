@@ -1,12 +1,58 @@
 import numpy as np
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
-
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+from psychopy import visual
 from ..image import image_line
 from ..image.utilities import _coord_line
+
+
+def verticalhorizontal_psychopy(window, parameters=None, outline=5, **kwargs):
+    """
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>> from psychopy import visual, event
+
+    >>> parameters = ill.verticalhorizontal_parameters(difficulty=0, illusion_strength=90)
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pyglet', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> coord = ill.verticalhorizontal_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
+    """
+    
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = verticalhorizontal_parameters(**kwargs)
+
+    # Loop lines
+    for side in ["Left", "Right"]:
+        coord, _, _ = _coord_line(image=window,
+                                  x1=parameters[side + "_x1"],
+                                  y1=parameters[side + "_y1"],
+                                  x2=parameters[side + "_x2"],
+                                  y2=parameters[side + "_y2"],
+                                  length=None,
+                                  angle=None,
+                                  adjust_width=True,
+                                  method="psychopy")
+
+        # line parameters
+        line = visual.Line(win=window, units='pix',
+                           lineColor="red", lineWidth=outline)
+        line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+        line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
+        line.draw()
+
+    return coord
 
 
 def verticalhorizontal_image(
