@@ -6,13 +6,13 @@ authors:
   orcid: 0000-0001-5375-9967
 - affiliation: 1
   name: Tam Pham
-  orcid: 0000-0002-4287-4801
+  orcid: 0000-0002-6392-6703
 - affiliation: 1
   name: Zen J. Lau
-  orcid: 0000-0002-8895-3206
+  orcid: 0000-0003-4429-4082
 - affiliation: 2, 3
   name: S.H. Annabel Chen
-  orcid: 0000-0002-8895-3206
+  orcid: 0000-0002-1540-5516
 
 date: "04 Jan 2021"
 output: pdf_document
