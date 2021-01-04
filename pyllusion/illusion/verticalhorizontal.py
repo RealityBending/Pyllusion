@@ -58,7 +58,8 @@ def verticalhorizontal_psychopy(window, parameters=None, outline=5, **kwargs):
 def verticalhorizontal_image(
     parameters=None, width=800, height=600, background="white", **kwargs
 ):
-    """
+    """Create the vertical-horizontal illusion.
+    The vertical–horizontal illusion illustrates the tendency for observers to overestimate the length of a vertical line relative to a horizontal line of the same length
     Examples
     ---------
     >>> import pyllusion as ill

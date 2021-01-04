@@ -1,7 +1,12 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from .utilities import _color, _rgb, _coord_circle
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
+
 from .rescale import rescale
+from .utilities import _color, _coord_circle, _rgb
 
 
 def image_circles(
@@ -21,6 +26,40 @@ def image_circles(
     background="white",
 ):
     """
+    Parameters
+    ----------
+    width : int
+        Width of the returned image.
+    height : int
+        Height of the returned image.
+    n : int
+        Number of circles drawn in the returned image.
+    x : Union[list, np.array, pd.Series]
+        x-coordinates of all circles from -1 to 1.
+    y : Union[list, np.array, pd.Series]
+        y-coordinates of all circles from -1 to 1.
+    size_min : int
+        The minimum diameter of the circles drawn.
+    size_max : int
+        The maximum diameter of the circles drawn.
+    alpha : int
+        Transparency of the circles drawn, 0 (transparent) to 1 (opaque).
+    blur : int
+        Degree of blur filter for the image returned.
+    antialias : bool
+        If true, resize the image using a high-quality downsampling filter.
+    image : Image
+        If None, an image will be created.
+    background : str
+        Color of the background.
+
+    Returns
+    -------
+    Image
+        Image of circle(s).
+
+    Examples
+    ---------
     >>> import pyllusion as ill
     >>>
     >>> ill.image_circles()  #doctest: +ELLIPSIS

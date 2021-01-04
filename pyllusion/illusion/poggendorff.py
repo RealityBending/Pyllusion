@@ -60,7 +60,11 @@ def poggendorff_psychopy(window, parameters=None, outline=5, **kwargs):
 def poggendorff_image(
     parameters=None, width=800, height=600, background="white", **kwargs
 ):
-    """
+    """Create the Poggendorff illusion.
+    The Poggendorff illusion is an optical illusion that involves the misperception
+    of the position of one segment of a transverse line that has been interrupted
+    by the contour of an intervening structure.
+
     Examples
     ---------
     >>> import pyllusion as ill

@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyllusion.illusion.white &mdash; Pyllusion 0.0.8 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/example_gallery_styles.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Pyllusion
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.illusion">Illusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.image">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.movement">Movement</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Pyllusion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyllusion.illusion.white</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyllusion.illusion.white</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">PIL.Image</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageDraw</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageFilter</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageFont</span>
+<span class="kn">import</span> <span class="nn">PIL.ImageOps</span>
+
+<span class="kn">from</span> <span class="nn">..image</span> <span class="k">import</span> <span class="n">image_rectangle</span><span class="p">,</span> <span class="n">rescale</span>
+<span class="kn">from</span> <span class="nn">.contrast</span> <span class="k">import</span> <span class="n">_contrast_parameters</span>
+
+
+<div class="viewcode-block" id="white_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.illusion.white_image">[docs]</a><span class="k">def</span> <span class="nf">white_image</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create the white&#39;s illusion.</span>
+<span class="sd">    White’s illusion is a brightness illusion in which rectangles of the same grey</span>
+<span class="sd">    color are perceived of different luminance depending on their background.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; parameters = ill.white_parameters(difference=0, illusion_strength=100)</span>
+<span class="sd">    &gt;&gt;&gt; ill.white_image(parameters)  #doctest: +ELLIPSIS</span>
+<span class="sd">    &lt;PIL.Image.Image ...&gt;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create white canvas and get drawing context</span>
+    <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="n">white_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Background1</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Background1_RGB&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Target 1</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Target1_y&quot;</span><span class="p">]:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image_rectangle</span><span class="p">(</span>
+            <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">size_height</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Target_Height&quot;</span><span class="p">],</span>
+            <span class="n">size_width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Target1_RGB&quot;</span><span class="p">],</span>
+            <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Background2 and Target2</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Target2_y&quot;</span><span class="p">]:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image_rectangle</span><span class="p">(</span>
+            <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">size_height</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Target_Height&quot;</span><span class="p">],</span>
+            <span class="n">size_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Background2_RGB&quot;</span><span class="p">],</span>
+            <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image_rectangle</span><span class="p">(</span>
+            <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">size_height</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Target_Height&quot;</span><span class="p">],</span>
+            <span class="n">size_width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Target2_RGB&quot;</span><span class="p">],</span>
+            <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span></div>
+
+
+<span class="k">def</span> <span class="nf">white_parameters</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">strips_n</span><span class="o">=</span><span class="mi">9</span><span class="p">):</span>
+
+    <span class="n">colors</span><span class="p">,</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">_contrast_parameters</span><span class="p">(</span>
+        <span class="n">difference</span><span class="o">=</span><span class="n">difference</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span>
+    <span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">strips_n</span><span class="p">)</span>  <span class="c1"># All strips&#39; top y</span>
+    <span class="n">strip_height</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">strips_n</span><span class="p">)</span>  <span class="c1"># With of one strip</span>
+    <span class="n">target2_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">strip_height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">target1_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">strip_height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Illusion&quot;</span><span class="p">:</span> <span class="s2">&quot;Contrast&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Illusion_Strength&quot;</span><span class="p">:</span> <span class="n">illusion_strength</span><span class="p">,</span>
+        <span class="s2">&quot;Difference&quot;</span><span class="p">:</span> <span class="n">difference</span><span class="p">,</span>
+        <span class="s2">&quot;Illusion_Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Congruent&quot;</span> <span class="k">if</span> <span class="n">illusion_strength</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Incongruent&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Target1&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s2">&quot;Target2&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s2">&quot;Background1&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="s2">&quot;Background2&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+        <span class="s2">&quot;Target1_RGB&quot;</span><span class="p">:</span> <span class="n">rgb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s2">&quot;Target2_RGB&quot;</span><span class="p">:</span> <span class="n">rgb</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s2">&quot;Background1_RGB&quot;</span><span class="p">:</span> <span class="n">rgb</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="s2">&quot;Background2_RGB&quot;</span><span class="p">:</span> <span class="n">rgb</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+        <span class="s2">&quot;Target1_y&quot;</span><span class="p">:</span> <span class="n">target1_y</span><span class="p">,</span>
+        <span class="s2">&quot;Target2_y&quot;</span><span class="p">:</span> <span class="n">target2_y</span><span class="p">,</span>
+        <span class="s2">&quot;Target_Height&quot;</span><span class="p">:</span> <span class="n">strip_height</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">parameters</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Dominique Makowski
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

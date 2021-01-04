@@ -71,6 +71,11 @@ def mullerlyer_psychopy(window, parameters=None, outline=5, **kwargs):
 
 def mullerlyer_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
     """
+    Create the Müller-Lyer illusion.
+    The Müller-Lyer illusion is an optical illusion causing the participant to
+    perceive two segments as being of different length depending on the shape of
+    the arrows.
+    
     Examples
     ---------
     >>> import pyllusion as ill
@@ -148,3 +153,4 @@ def mullerlyer_parameters(difficulty=0, size_min=0.5, illusion_strength=0, dista
                        "Distractor_Length": length})
 
     return parameters
+  

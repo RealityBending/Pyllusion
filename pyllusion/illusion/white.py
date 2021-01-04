@@ -1,11 +1,19 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
+
 from ..image import image_rectangle, rescale
 from .contrast import _contrast_parameters
 
 
 def white_image(parameters=None, width=800, height=600, **kwargs):
-    """
+    """Create the white's illusion.
+    White’s illusion is a brightness illusion in which rectangles of the same grey
+    color are perceived of different luminance depending on their background.
+
     Examples
     ---------
     >>> import pyllusion as ill

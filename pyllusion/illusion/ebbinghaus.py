@@ -65,12 +65,16 @@ def ebbinghaus_psychopy(window, parameters=None, **kwargs):
                                          edges=128, radius=radius_outer, lineWidth=0.5)
             circle_outer.pos = [x_out-window.size[0]/2, y_out-window.size[1]/2]
             circle_outer.draw()
-    
+   
 
-    
-def ebbinghaus_image(parameters=None, width=800, height=600, background="white",
-                     full_screen=False, **kwargs):
-    """
+def ebbinghaus_image(
+    parameters=None, width=800, height=600, background="white", **kwargs
+):
+    """Create the Ebbinghaus illusion.
+    The Ebbinghaus illusion is an optical illusion of relative size perception,
+    where circles of identical size appear as different because of their
+    surrounding context.
+
     Examples
     ---------
     >>> import pyllusion as ill
@@ -84,7 +88,7 @@ def ebbinghaus_image(parameters=None, width=800, height=600, background="white",
         parameters = ebbinghaus_parameters(**kwargs)
 
     # Background
-    image  = PIL.Image.new('RGB', (width, height), color=background)
+    image = PIL.Image.new("RGB", (width, height), color=background)
 
     # Outer circles
     for side in ["Left", "Right"]:
@@ -95,7 +99,6 @@ def ebbinghaus_image(parameters=None, width=800, height=600, background="white",
                                        color_outer="black")
 
     return image
-
 
 
 

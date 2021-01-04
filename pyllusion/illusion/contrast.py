@@ -1,10 +1,18 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
+
 from ..image import image_rectangle, rescale
 
 
 def contrast_image(parameters=None, width=800, height=600, **kwargs):
-    """
+    """Simultaneous Contrast illusion.
+    Simultaneous contrast, identified by Michel Eugène Chevreul, refers to the
+    manner in which the colors of two different objects affect each other.
+
     Examples
     ---------
     >>> import pyllusion as ill

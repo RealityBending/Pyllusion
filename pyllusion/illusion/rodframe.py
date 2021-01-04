@@ -52,8 +52,14 @@ def rodframe_psychopy(window, parameters=None, outline=5, **kwargs):
 
 
 
-def rodframe_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
-    """
+
+def rodframe_image(
+    parameters=None, width=800, height=600, outline=20, background="white", **kwargs
+):
+    """Create the Rod and frame illusion.
+    The Rod and frame illusion is an optical illusion causing the participant to
+    perceive the rod to be oriented congruent with the orientation of the frame.
+
     Examples
     ---------
     >>> import pyllusion as ill
@@ -70,7 +76,7 @@ def rodframe_image(parameters=None, width=800, height=600, outline=20, backgroun
         parameters = rodframe_parameters(**kwargs)
 
     # Background
-    image  = PIL.Image.new('RGB', (width, height), color=background)
+    image = PIL.Image.new("RGB", (width, height), color=background)
 
     # Frame
     image = image_rectangle(
@@ -80,7 +86,8 @@ def rodframe_image(parameters=None, width=800, height=600, outline=20, backgroun
         rotate=parameters["Frame_Angle"],
         color=(0, 0, 0, 0),
         outline=20,
-        adjust_width=True)
+        adjust_width=True,
+    )
 
     # Rod
     coord, _, _ = _coord_line(x=0, y=0, length=0.8, angle=parameters["Rod_Angle"])
@@ -96,10 +103,10 @@ def rodframe_image(parameters=None, width=800, height=600, outline=20, backgroun
         rotate=None,
         color="red",
         size=20,
-        adjust_width=True)
+        adjust_width=True,
+    )
 
     return image
-
 
 
 def rodframe_parameters(difficulty=0, illusion_strength=0):
@@ -120,14 +127,14 @@ def rodframe_parameters(difficulty=0, illusion_strength=0):
     else:
         frame_angle = -1 * illusion_strength
 
-
-    parameters = {"Illusion": "RodFrame",
-                  "Frame_Angle": frame_angle,
-                  "Rod_Angle": rod_angle,
-                  "Angle_Difference": rod_angle - frame_angle,
-                  "Difficulty": difficulty,
-                  "Illusion_Strength": illusion_strength,
-                  "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent"
-                  }
+    parameters = {
+        "Illusion": "RodFrame",
+        "Frame_Angle": frame_angle,
+        "Rod_Angle": rod_angle,
+        "Angle_Difference": rod_angle - frame_angle,
+        "Difficulty": difficulty,
+        "Illusion_Strength": illusion_strength,
+        "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
+    }
 
     return parameters
