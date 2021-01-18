@@ -1,22 +1,23 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual
 from ..image import image_line
 from ..image.utilities import _coord_line
+from ..psychopy import psychopy_line
 
 
-def verticalhorizontal_psychopy(window, parameters=None, outline=5, **kwargs):
+def verticalhorizontal_psychopy(window, parameters=None, **kwargs):
     """
     Examples
     ---------
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
 
+    >>> # Create parameters
     >>> parameters = ill.verticalhorizontal_parameters(difficulty=0, illusion_strength=90)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,
-                               screen=0, winType='pyglet', monitor='testMonitor',
+                               screen=0, winType='pygame', monitor='testMonitor',
                                allowGUI=False, color="white",
                                blendMode='avg', units='pix')
     
@@ -35,25 +36,14 @@ def verticalhorizontal_psychopy(window, parameters=None, outline=5, **kwargs):
 
     # Loop lines
     for side in ["Left", "Right"]:
-        coord, _, _ = _coord_line(image=window,
-                                  x1=parameters[side + "_x1"],
-                                  y1=parameters[side + "_y1"],
-                                  x2=parameters[side + "_x2"],
-                                  y2=parameters[side + "_y2"],
-                                  length=None,
-                                  angle=None,
-                                  adjust_width=True,
-                                  method="psychopy")
-
-        # line parameters
-        line = visual.Line(win=window, units='pix',
-                           lineColor="red", lineWidth=outline)
-        line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
-        line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
-        line.draw()
-
-    return coord
-
+        psychopy_line(window,
+                      x1=parameters[side + "_x1"],
+                      y1=parameters[side + "_y1"],
+                      x2=parameters[side + "_x2"],
+                      y2=parameters[side + "_y2"],
+                      length=None, rotate=None, adjust_width=True,
+                      color="red", size=5)
+        
 
 def verticalhorizontal_image(
     parameters=None, width=800, height=600, background="white", **kwargs

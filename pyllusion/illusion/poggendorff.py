@@ -1,27 +1,27 @@
-from psychopy import visual
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from ..image import image_line, image_rectangle
-from ..image.utilities import _coord_line, _coord_rectangle
+from ..image.utilities import _coord_line
+from ..psychopy import psychopy_line, psychopy_rectangle
 
 
-def poggendorff_psychopy(window, parameters=None, outline=5, **kwargs):
+def poggendorff_psychopy(window, parameters=None, **kwargs):
     """
     Examples
     ---------    
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
     
-    >>> parameters = ill.poggendorff_parameters(difference=0, illusion_strength=-55)
+    >>> parameters = ill.poggendorff_parameters(difference=0, illusion_strength=-50)
     
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,
-                               screen=0, winType='pyglet', monitor='testMonitor',
+                               screen=0, winType='pygame', monitor='testMonitor',
                                allowGUI=False, color="white",
                                blendMode='avg', units='pix')
     
     >>> # Display illusion
     >>> ill.poggendorff_psychopy(window=window, parameters=parameters)
-    
+
     >>> # Refresh and close window    
     >>> window.flip()
     >>> event.waitKeys()  # Press any key to close
@@ -34,27 +34,18 @@ def poggendorff_psychopy(window, parameters=None, outline=5, **kwargs):
 
     # Draw lines
     for pos in ["Left_", "Right_"]:
-        coord, _, _ = _coord_line(image=window,
-                                  x1=parameters[pos + "x1"],
-                                  y1=parameters[pos + "y1"],
-                                  x2=parameters[pos + "x2"],
-                                  y2=parameters[pos + "y2"],
-                                  method="psychopy",
-                                  adjust_height=True)
-        # line parameters
-        line = visual.Line(win=window, units='pix',
-                           lineColor="red", lineWidth=outline)
-        line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
-        line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
-        line.draw()
+        psychopy_line(window,
+                      x1=parameters[pos + "x1"],
+                      y1=parameters[pos + "y1"],
+                      x2=parameters[pos + "x2"],
+                      y2=parameters[pos + "y2"],
+                      adjust_height=True, color="red", size=5)
     
     # Draw shaded rectangle
-    x1, y1, x2, y2 = _coord_rectangle(image=window, x=0, y=parameters["Rectangle_y"],
-                                      size_width=parameters["Rectangle_Width"], size_height=parameters["Rectangle_Height"],
-                                      method="psychopy")
-
-    rect = visual.Rect(win=window, units='pix', width=x2-x1, height=y2-y1, fillColor="grey")
-    rect.draw()
+    psychopy_rectangle(window, x=0, y=parameters["Rectangle_y"],
+                       size_width=parameters["Rectangle_Width"],
+                       size_height=parameters["Rectangle_Height"], color="grey",
+                       outline_color="grey")
 
 
 def poggendorff_image(

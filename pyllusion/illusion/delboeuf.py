@@ -11,7 +11,7 @@ def delboeuf_psychopy(window, parameters=None, **kwargs):
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
     
-    >>> parameters = ill.delboeuf_parameters(difficulty=2, illusion_strength=1)
+    >>> parameters = ill.delboeuf_parameters(illusion_strength=3)
     
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,

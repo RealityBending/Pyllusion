@@ -1,10 +1,10 @@
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual
 from ..image import image_line, image_rectangle
-from ..image.utilities import _coord_line, _coord_rectangle
+from ..image.utilities import _coord_line
+from ..psychopy import psychopy_line, psychopy_rectangle
 
 
-def rodframe_psychopy(window, parameters=None, outline=5, **kwargs):
+def rodframe_psychopy(window, parameters=None, **kwargs):
     """
     Examples
     ---------
@@ -15,7 +15,7 @@ def rodframe_psychopy(window, parameters=None, outline=5, **kwargs):
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,
-                               screen=0, winType='pyglet', monitor='testMonitor',
+                               screen=0, winType='pygame', monitor='testMonitor',
                                allowGUI=False, color="white",
                                blendMode='avg', units='pix')
     
@@ -37,21 +37,14 @@ def rodframe_psychopy(window, parameters=None, outline=5, **kwargs):
     size_width = size_width * (window.size[1] / window.size[0])
 
     # Draw frame
-    x1, y1, x2, y2 = _coord_rectangle(image=window, x=0, y=0, size_width=size_width, size_height=1, method="psychopy")
-    rect = visual.Rect(win=window, units='pix', width=x2-x1, height=y2-y1,
-                       fillColor="white", lineColor="black", lineWidth=outline)
-    rect.ori = parameters["Frame_Angle"]
-    rect.draw()
-    
+    psychopy_rectangle(window, x=0, y=0, size_width=size_width, size_height=1,
+                       color="white", outline_color="black", outline=5,
+                       rotate=parameters["Frame_Angle"])
+
     # Draw line
-    coord, _, _ = _coord_line(image=window, x=0, y=0, length=0.8, angle=parameters["Rod_Angle"], adjust_width=True)
-    line = visual.Line(win=window, units='pix', lineColor="red", lineWidth=outline)
-    line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
-    line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
-    line.draw()
-
-
-
+    psychopy_line(window, x=0, y=0, length=0.8, rotate=parameters["Rod_Angle"],
+                  adjust_width=True, color="red", size=5)
+                 
 
 def rodframe_image(
     parameters=None, width=800, height=600, outline=20, background="white", **kwargs

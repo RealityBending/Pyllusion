@@ -1,12 +1,11 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual
 from ..image import image_line
 from ..image.utilities import _coord_line
+from ..psychopy import psychopy_line
 
 
-
-def ponzo_psychopy(window, parameters=None, outline=5, **kwargs):
+def ponzo_psychopy(window, parameters=None, **kwargs):
 
     """
     Examples
@@ -14,11 +13,11 @@ def ponzo_psychopy(window, parameters=None, outline=5, **kwargs):
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
 
-    >>> parameters = ill.ponzo_parameters(difficulty=0, illusion_strength=30)
+    >>> parameters = ill.ponzo_parameters(difficulty=0, illusion_strength=20)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,
-                               screen=0, winType='pyglet', monitor='testMonitor',
+                               screen=0, winType='pygame', monitor='testMonitor',
                                allowGUI=False, color="white",
                                blendMode='avg', units='pix')
     
@@ -38,35 +37,22 @@ def ponzo_psychopy(window, parameters=None, outline=5, **kwargs):
     # Loop lines
     for side in ["Left", "Right"]:
         # Draw distractor lines
-        coord, _, _ = _coord_line(image=window,
-                                  x1=parameters[side + "_x1"],
-                                  y1=parameters[side + "_y1"],
-                                  x2=parameters[side + "_x2"],
-                                  y2=parameters[side + "_y2"],
-                                  method="psychopy")
-
-        # Line parameters
-        line_distractor = visual.Line(win=window, units='pix',
-                                      lineColor="black", lineWidth=outline)
-        line_distractor.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
-        line_distractor.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
-        line_distractor.draw()
+        psychopy_line(window,
+                      x1=parameters[side + "_x1"],
+                      y1=parameters[side + "_y1"],
+                      x2=parameters[side + "_x2"],
+                      y2=parameters[side + "_y2"],
+                      color="black", size=5)
 
     for position in ["Bottom", "Top"]:
         # Draw target lines
-        coord, _, _ = _coord_line(image=window,
-                                  x1=parameters[position + "_x1"],
-                                  y1=parameters[position + "_y1"],
-                                  x2=parameters[position + "_x2"],
-                                  y2=parameters[position + "_y2"],
-                                  method="psychopy")
-        # Line parameters
-        line_target = visual.Line(win=window, units='pix',
-                                  lineColor="red", lineWidth=outline)
-        line_target.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
-        line_target.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
-        line_target.draw()
-    
+        psychopy_line(window,
+                      x1=parameters[position + "_x1"],
+                      y1=parameters[position + "_y1"],
+                      x2=parameters[position + "_x2"],
+                      y2=parameters[position + "_y2"],
+                      color="red", size=5)
+
     
 def ponzo_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
     """Create the Ponzo illusion.

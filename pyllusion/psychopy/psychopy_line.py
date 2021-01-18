@@ -36,15 +36,16 @@ def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1
         )
 
     # Get coordinates
-    coord, leng, angle = _coord_line(image=None, x=x, y=y, x1=x1, y1=y1, x2=x2, y2=y2,
+    coord, leng, angle = _coord_line(image=window, x=x, y=y, x1=x1, y1=y1, x2=x2, y2=y2,
                                      length=length, angle=rotate,
-                                     adjust_width=adjust_width, adjust_height=adjust_height)
+                                     adjust_width=adjust_width, adjust_height=adjust_height,
+                                     method="psychopy")
 
     # Line parameters
-    line = visual.Line(win=window, units='norm', lineColor=color, lineWidth=size)
-    line.start = [coord[0], coord[1]]
-    line.end = [coord[2], coord[3]]
-    
+    line = visual.Line(win=window, units='pix', lineColor=color, lineWidth=size)
+    line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
+    line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
+
     # blur
     if blur > 0:
         line.opacity = blur

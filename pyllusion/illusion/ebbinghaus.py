@@ -14,7 +14,7 @@ def ebbinghaus_psychopy(window, parameters=None, **kwargs):
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.ebbinghaus_parameters(difficulty=2, illusion_strength=1)
+    >>> parameters = ill.ebbinghaus_parameters(illusion_strength=2)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,
