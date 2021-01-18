@@ -30,17 +30,13 @@ def psychopy_rectangle(
                                blendMode='avg', units='pix')
 
     >>> # Draw rectangle
-    >>> ill.psychopy_rectangle(window, x=0.5, size_width=0.5, rotate=45, color="red")
+    >>> ill.psychopy_rectangle(window, x=0, y=0, color='white',
+                               outline_color='black', outline=3, rotate=1)
     
     >>> # Refresh and close window    
     >>> window.flip()
     >>> event.waitKeys()  # Press any key to close
     >>> window.close()
-
-    # >>> window = ill.psychopy_rectangle(x=0, y=0, color='white', color_outline='black', outline=3, rotate=1)
-    # >>> window = ill.psychopy_rectangle(x=0.5, size_width=0.5, rotate=45, color="red")
-    # >>> window = ill.psychopy_rectangle(y=0.25, size_height=0.2, color="yellow", alpha=0.5)
-    # >>> window = ill.psychopy_rectangle(size_width=0.5, size_height=0.5, alpha=0.5, color="green", adjust_width=True)
     """
     # Try loading psychopy
     try:
