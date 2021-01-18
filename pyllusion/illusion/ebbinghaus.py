@@ -1,10 +1,8 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual
 from .delboeuf import _delboeuf_parameters_sizeinner, _delboeuf_parameters_sizeouter
 from ..image import image_circle
-from ..image.utilities import _coord_circle
-
+from ..psychopy.psychopy_circles import psychopy_circle
 
 
 
@@ -15,11 +13,12 @@ def ebbinghaus_psychopy(window, parameters=None, **kwargs):
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
 
+    >>> # Create parameters
     >>> parameters = ill.ebbinghaus_parameters(difficulty=2, illusion_strength=1)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,
-                               screen=0, winType='pyglet', monitor='testMonitor',
+                               screen=0, winType='pygame', monitor='testMonitor',
                                allowGUI=False, color="white",
                                blendMode='avg', units='pix')
     
@@ -40,15 +39,8 @@ def ebbinghaus_psychopy(window, parameters=None, **kwargs):
     for side in ["Left", "Right"]:
         # Draw inner circle
         size_inner = parameters["Size_Inner_" + side]
-        radius_inner, x_inner, y_inner = _coord_circle(image=window, diameter=size_inner,
-                                         x=parameters["Position_" + side],
-                                         y=0, method="psychopy")
-    
-        circle_inner = visual.Circle(win=window, units="pix", fillColor="red",
-                                     lineColor="red", edges=128,
-                                     radius=radius_inner, lineWidth=0.5)
-        circle_inner.pos = [x_inner-window.size[0]/2, y_inner-window.size[1]/2]
-        circle_inner.draw()
+        psychopy_circle(window, x=parameters["Position_" + side], y=0, size=size_inner,
+                        color="red", outline_color="red", outline=0.5)
     
         # outer circle
         ratio = window.size[0] / window.size[1]  # Get width/height ratio to have equidistant circles
@@ -56,16 +48,10 @@ def ebbinghaus_psychopy(window, parameters=None, **kwargs):
         x_outer = parameters["Position_Outer_x_" + side] / ratio # Adjust for non-squared screen
         x_outer = x_outer + (parameters["Position_" + side] - np.mean(x_outer))
         for i in range(len(parameters["Position_Outer_x_" + side])):
-            radius_outer, x_out, y_out = _coord_circle(image=window, diameter=size_outer,
-                                                       x=x_outer[i],
-                                                       y=parameters["Position_Outer_y_" + side][i],
-                                                       method="psychopy")
-            circle_outer = visual.Circle(win=window, units="pix",
-                                         fillColor="black", lineColor="black",
-                                         edges=128, radius=radius_outer, lineWidth=0.5)
-            circle_outer.pos = [x_out-window.size[0]/2, y_out-window.size[1]/2]
-            circle_outer.draw()
-   
+            psychopy_circle(window, x=x_outer[i], y=parameters["Position_Outer_y_" + side][i],
+                            size=size_outer, color="black", outline_color="black", outline=0.5)
+
+    
 
 def ebbinghaus_image(
     parameters=None, width=800, height=600, background="white", **kwargs
