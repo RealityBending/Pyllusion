@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 from ..image.utilities import _coord_rectangle
-from psychopy import visual, event, core
 
 
 def psychopy_rectangle(
-    width=800,
-    height=600,
+    window,
     x=0,
     y=0,
     size_width=1,
@@ -13,66 +11,70 @@ def psychopy_rectangle(
     rotate=0,
     color="black",
     outline=0,
-    color_outline="copy",
+    outline_color="black",
     alpha=1,
     blur=0,
-    antialias=True,
-    window=None,
-    background="white",
     adjust_width=False,
     adjust_height=False,
-    full_screen=False
 ):
     """
-    Parameters
-    ----------
-
     Examples
     --------
     >>> import pyllusion as ill
-    >>>
-    >>> window = ill.psychopy_rectangle(x=0, y=0, color='white', color_outline='black', outline=3, rotate=1)
-    >>> window = ill.psychopy_rectangle(x=0.5, size_width=0.5, rotate=45, color="red")
-    >>> window = ill.psychopy_rectangle(y=0.25, size_height=0.2, color="yellow", alpha=0.5)
-    >>> window = ill.psychopy_rectangle(size_width=0.5, size_height=0.5, alpha=0.5, color="green", adjust_width=True)
+    >>> from psychopy import visual, event
+    
+    >>> # Initiate window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pygame', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
+
+    >>> # Draw rectangle
+    >>> ill.psychopy_rectangle(window, x=0.5, size_width=0.5, rotate=45, color="red")
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
+
+    # >>> window = ill.psychopy_rectangle(x=0, y=0, color='white', color_outline='black', outline=3, rotate=1)
+    # >>> window = ill.psychopy_rectangle(x=0.5, size_width=0.5, rotate=45, color="red")
+    # >>> window = ill.psychopy_rectangle(y=0.25, size_height=0.2, color="yellow", alpha=0.5)
+    # >>> window = ill.psychopy_rectangle(size_width=0.5, size_height=0.5, alpha=0.5, color="green", adjust_width=True)
     """
-    # Draw window
-    win = visual.Window(size=[width, height], fullscr=full_screen,
-                    screen=0, winType='pyglet', allowGUI=False,
-                    allowStencil=False,
-                    monitor='testMonitor', color=background, colorSpace='rgb',
-                    blendMode='avg', units='pix')
+    # Try loading psychopy
+    try:
+        from psychopy import visual
+    except ImportError:
+        raise ImportError(
+            "The 'psychopy' module is required for this function to run. ",
+            "Please install it first (`pip install PsychoPy`).",
+        )
 
     # Adjust size for screen ratio
     if adjust_width is True:
-        size_width = size_width * (height / width)
+        size_width = size_width * (window.size[1] / window.size[0])
     if adjust_height is True:
-        size_height = size_height * (width / height)
+        size_height = size_height * (window.size[0] / window.size[1])
     
     # Get coordinates
-    x1, y1, x2, y2 = _coord_rectangle(image=win, x=x, y=y, size_width=size_width, size_height=size_height, method="psychopy")
+    x1, y1, x2, y2 = _coord_rectangle(image=window, x=x, y=y, size_width=size_width,
+                                      size_height=size_height, method="psychopy")
     
     # Rectangle parameters
     rect = visual.Rect(
-        win=win,
+        win=window,
         units='pix',
         width=x2-x1,
         height=y2-y1,
         fillColor=color,
         lineWidth=outline,
-        interpolate=antialias,
     )
     x = (x1 + x2)/2
     y = (y1 + y2)/2
-    rect.pos = [x-width/2, y-height/2]
+    rect.pos = [x-window.size[0]/2, y-window.size[1]/2]
+    rect.lineColor = outline_color
     
-    # Outline
-    if outline != 0:
-        if color_outline == "copy":
-            rect.lineColor = color  # border outline to be same as fill color
-        else:
-            rect.lineColor = color_outline
-
     # Alpha
     if alpha > 0:
         rect.opacity = alpha
@@ -82,10 +84,4 @@ def psychopy_rectangle(
         rect.ori = rotate
     
     # Display
-    while True:
-        rect.draw()
-        win.flip()
-        
-        if 'escape' in event.getKeys():
-            win.close()
-            core.quit()
+    rect.draw()
