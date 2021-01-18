@@ -1,8 +1,7 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-from psychopy import visual
 from ..image import image_circle
-from ..image.utilities import _coord_circle
+from ..psychopy.psychopy_circles import psychopy_circle
 
 
 def delboeuf_psychopy(window, parameters=None, **kwargs):
@@ -16,7 +15,7 @@ def delboeuf_psychopy(window, parameters=None, **kwargs):
     
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,
-                               screen=0, winType='pyglet', monitor='testMonitor',
+                               screen=0, winType='pygame', monitor='testMonitor',
                                allowGUI=False, color="white",
                                blendMode='avg', units='pix')
     
@@ -36,29 +35,16 @@ def delboeuf_psychopy(window, parameters=None, **kwargs):
     # Loop circles 
     for side in ["Left", "Right"]:
         # Draw outer circle
-        radius_outer, x_outer, y_outer = _coord_circle(image=window,
-                                                       diameter=parameters["Size_Outer_" + side],
-                                                       x=parameters["Position_" + side],
-                                                       y=0, method="psychopy")
-        circle_outer = visual.Circle(win=window, units="pix", fillColor="white",
-                                     lineColor="black", edges=128,
-                                     radius=radius_outer, lineWidth=3)  # linewidth fixed
-        circle_outer.pos = [x_outer-window.size[0]/2, y_outer-window.size[1]/2]
-        circle_outer.draw()
+        size_outer = parameters["Size_Outer_" + side]
+        psychopy_circle(window, x=parameters["Position_" + side], y=0, size=size_outer,
+                        color="white", outline_color="black", outline=3)
         
         # Draw inner circle
-        radius_inner, x_inner, y_inner = _coord_circle(image=window,
-                                                       diameter=parameters["Size_Inner_" + side],
-                                                       x=parameters["Position_" + side],
-                                                       y=0, method="psychopy")
-        circle_inner = visual.Circle(win=window, units="pix", fillColor="red",
-                                     lineColor="red", edges=128,
-                                     radius=radius_inner, lineWidth=0.5)
-        circle_inner.pos = [x_inner-window.size[0]/2, y_inner-window.size[1]/2]
-        circle_inner.draw()
+        size_inner = parameters["Size_Inner_" + side]
+        psychopy_circle(window, x=parameters["Position_" + side], y=0, size=size_inner,
+                        color="red", outline_color="red", outline=0.5)
+
         
-
-
 def delboeuf_image(parameters=None, width=800, height=600, outline=10,
                    background="white", **kwargs):
     """Create the Delboeuf illusion.
