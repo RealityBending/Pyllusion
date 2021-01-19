@@ -5,7 +5,7 @@ from ..image.utilities import _coord_line
 from ..psychopy import psychopy_line
 
 
-def zollner_psychopy(window, parameters=None, outline=5, **kwargs):
+def zollner_psychopy(window, parameters=None, **kwargs):
     """
     Examples
     ---------

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from ..image.utilities import _coord_line
 
 

@@ -9,22 +9,22 @@ def delboeuf_psychopy(window, parameters=None, **kwargs):
     Examples
     ---------
     >>> import pyllusion as ill
-    >>> from psychopy import visual, event
+    >>> import psychopy.visual, psychopy.event
     
     >>> parameters = ill.delboeuf_parameters(illusion_strength=3)
     
     >>> # Initiate Window
-    >>> window = visual.Window(size=[800, 600], fullscr=False,
-                               screen=0, winType='pygame', monitor='testMonitor',
-                               allowGUI=False, color="white",
-                               blendMode='avg', units='pix')
+    >>> window = psychopy.visual.Window(size=[800, 600], fullscr=False,
+                                        screen=0, winType='pygame', monitor='testMonitor',
+                                        allowGUI=False, color="white",
+                                        blendMode='avg', units='pix')
     
     >>> # Display illusion
     >>> ill.delboeuf_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
-    >>> event.waitKeys()  # Press any key to close
+    >>> psychopy.event.waitKeys()  # Press any key to close
     >>> window.close()
     """
 
