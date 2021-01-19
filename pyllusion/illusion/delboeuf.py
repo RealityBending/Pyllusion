@@ -56,6 +56,7 @@ def delboeuf_image(parameters=None, width=800, height=600, outline=10,
     >>>
     >>> parameters = ill.delboeuf_parameters(difficulty=2, illusion_strength=1)
     >>> ill.delboeuf_image(parameters)  #doctest: +ELLIPSIS
+    <PIL.Image.Image ...>
     """
     # Create white canvas and get drawing context
     if parameters is None:
