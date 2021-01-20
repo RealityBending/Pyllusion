@@ -5,12 +5,19 @@ from ..psychopy import psychopy_line, psychopy_rectangle
 
 
 def poggendorff_psychopy(window, parameters=None, **kwargs):
-    """
+    """Create a PsychoPy stimulus of the Poggendorff illusion.
+    
+    
+    The Poggendorff illusion is an optical illusion that involves the misperception
+    of the position of one segment of a transverse line that has been interrupted
+    by the contour of an intervening structure.
+    
     Examples
     ---------    
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
     
+    >>> # Create parameters
     >>> parameters = ill.poggendorff_parameters(difference=0, illusion_strength=-50)
     
     >>> # Initiate Window
@@ -51,7 +58,9 @@ def poggendorff_psychopy(window, parameters=None, **kwargs):
 def poggendorff_image(
     parameters=None, width=800, height=600, background="white", **kwargs
 ):
-    """Create the Poggendorff illusion.
+    """Create a PIL image of the Poggendorff illusion.
+    
+    
     The Poggendorff illusion is an optical illusion that involves the misperception
     of the position of one segment of a transverse line that has been interrupted
     by the contour of an intervening structure.
@@ -61,9 +70,7 @@ def poggendorff_image(
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.poggendorff_parameters(difference=0, illusion_strength=-55)
-    >>> ill.poggendorff_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
-
+    >>> ill.poggendorff_image(parameters) 
 
     """
     # Create white canvas and get drawing context

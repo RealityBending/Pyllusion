@@ -6,8 +6,14 @@ from .ponzo import _ponzo_parameters_topbottom
 
 
 def mullerlyer_psychopy(window, parameters=None, **kwargs):
-
     """
+    Create a PsychoPy stimulus of the Müller-Lyer illusion.
+
+
+    The Müller-Lyer illusion is an optical illusion causing the participant to
+    perceive two segments as being of different length depending on the shape of
+    the arrows.
+
     Examples
     ---------
     >>> import pyllusion as ill
@@ -57,7 +63,9 @@ def mullerlyer_psychopy(window, parameters=None, **kwargs):
 
 def mullerlyer_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
     """
-    Create the Müller-Lyer illusion.
+    Create a PIL image of the Müller-Lyer illusion.
+    
+    
     The Müller-Lyer illusion is an optical illusion causing the participant to
     perceive two segments as being of different length depending on the shape of
     the arrows.
@@ -67,11 +75,10 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=3)
-    >>> ill.mullerlyer_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.mullerlyer_image(parameters)
+
     >>> parameters = ill.mullerlyer_parameters(difficulty=0, illusion_strength=30)
-    >>> ill.mullerlyer_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.mullerlyer_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:
@@ -95,12 +102,12 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
     # Target lines (horizontal)
     for position in ["Bottom", "Top"]:
         image = image_line(image=image,
-                   x1=parameters[position + "_x1"],
-                   y1=parameters[position + "_y1"],
-                   x2=parameters[position + "_x2"],
-                   y2=parameters[position + "_y2"],
-                   color="red",
-                   size=outline)
+                           x1=parameters[position + "_x1"],
+                           y1=parameters[position + "_y1"],
+                           x2=parameters[position + "_x2"],
+                           y2=parameters[position + "_y2"],
+                           color="red",
+                           size=outline)
 
     return image
 

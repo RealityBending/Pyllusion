@@ -7,14 +7,20 @@ from ..psychopy.psychopy_circles import psychopy_circle
 
 
 def ebbinghaus_psychopy(window, parameters=None, **kwargs):
-    """
+    """Create a PsychoPy stimulus of the Ebbinghaus illusion.
+    
+    
+    The Ebbinghaus illusion is an optical illusion of relative size perception,
+    where circles of identical size appear as different because of their
+    surrounding context.
+
     Examples
     ---------
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.ebbinghaus_parameters(illusion_strength=2)
+    >>> parameters = ill.ebbinghaus_parameters(difficulty=2, illusion_strength=1)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], fullscr=False,
@@ -37,26 +43,19 @@ def ebbinghaus_psychopy(window, parameters=None, **kwargs):
 
     # Loop circles
     for side in ["Left", "Right"]:
-        # Draw inner circle
-        size_inner = parameters["Size_Inner_" + side]
-        psychopy_circle(window, x=parameters["Position_" + side], y=0, size=size_inner,
-                        color="red", outline_color="red", outline=0.5)
-    
-        # outer circle
-        ratio = window.size[0] / window.size[1]  # Get width/height ratio to have equidistant circles
-        size_outer = parameters["Size_Outer_" + side]  
-        x_outer = parameters["Position_Outer_x_" + side] / ratio # Adjust for non-squared screen
-        x_outer = x_outer + (parameters["Position_" + side] - np.mean(x_outer))
-        for i in range(len(parameters["Position_Outer_x_" + side])):
-            psychopy_circle(window, x=x_outer[i], y=parameters["Position_Outer_y_" + side][i],
-                            size=size_outer, color="black", outline_color="black", outline=0.5)
-
+        _ebbinghaus_psychopy_draw(window,
+                                  parameters,
+                                  side=side,
+                                  color_inner="red",
+                                  color_outer="black")
     
 
 def ebbinghaus_image(
     parameters=None, width=800, height=600, background="white", **kwargs
 ):
-    """Create the Ebbinghaus illusion.
+    """Create a PIL image of the Ebbinghaus illusion.
+
+
     The Ebbinghaus illusion is an optical illusion of relative size perception,
     where circles of identical size appear as different because of their
     surrounding context.
@@ -66,8 +65,7 @@ def ebbinghaus_image(
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.ebbinghaus_parameters(difficulty=2, illusion_strength=1)
-    >>> ill.ebbinghaus_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.ebbinghaus_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:
@@ -87,7 +85,26 @@ def ebbinghaus_image(
     return image
 
 
+def _ebbinghaus_psychopy_draw(window, p, side="Left", color_inner="red", color_outer="black"):
 
+    # Draw inner circle
+    psychopy_circle(window, size=p["Size_Inner_" + side], x=p["Position_" + side], y=0,
+                    color=color_inner, outline_color=color_inner, outline=0.5)
+
+    # Get width/height ratio to have equidistant circles
+    ratio = window.size[0] / window.size[1]
+
+    # Adjust for non-squared screen
+    x = p["Position_Outer_x_" + side] / ratio 
+    x = x + (p["Position_" + side] - np.mean(x))
+    
+    # Plot each outer circles
+    for i in range(len(p["Position_Outer_x_" + side])):
+        psychopy_circle(window, size=p["Size_Outer_" + side],
+                        x=x[i], y=p["Position_Outer_y_" + side][i],
+                        color=color_outer, outline_color=color_outer, outline=0.5)
+        
+        
 def _ebbinghaus_image_draw(image, p, side="Left", color_inner="red", color_outer="black"):
 
     # Draw inner circle

@@ -6,7 +6,11 @@ from ..psychopy import psychopy_line
 
 
 def verticalhorizontal_psychopy(window, parameters=None, **kwargs):
-    """
+    """Create a PsychoPy stimulus of the vertical-horizontal illusion.
+
+
+    The vertical–horizontal illusion illustrates the tendency for observers to overestimate the length of a vertical line relative to a horizontal line of the same length
+
     Examples
     ---------
     >>> import pyllusion as ill
@@ -48,15 +52,17 @@ def verticalhorizontal_psychopy(window, parameters=None, **kwargs):
 def verticalhorizontal_image(
     parameters=None, width=800, height=600, background="white", **kwargs
 ):
-    """Create the vertical-horizontal illusion.
+    """Create a PIL image of the vertical-horizontal illusion.
+
+
     The vertical–horizontal illusion illustrates the tendency for observers to overestimate the length of a vertical line relative to a horizontal line of the same length
+
     Examples
     ---------
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.verticalhorizontal_parameters(difficulty=0, illusion_strength=90)
-    >>> ill.verticalhorizontal_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.verticalhorizontal_image(parameters) 
     """
     # Create white canvas and get drawing context
     if parameters is None:

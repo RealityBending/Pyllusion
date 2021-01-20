@@ -5,26 +5,32 @@ from ..psychopy.psychopy_circles import psychopy_circle
 
 
 def delboeuf_psychopy(window, parameters=None, **kwargs):
-    """
+    """Create a PsychoPy stimulus of the Delboeuf illusion.
+    
+    
+    The Delboeuf illusion is an optical illusion of relative size perception,
+    where circles of identical size appear as different because of their surrounding context.
+    
     Examples
     ---------
     >>> import pyllusion as ill
-    >>> import psychopy.visual, psychopy.event
-    
-    >>> parameters = ill.delboeuf_parameters(illusion_strength=3)
+    >>> from psychopy import visual, event
+   
+    >>> # Create parameters
+    >>> parameters = ill.delboeuf_parameters(difficulty=2, illusion_strength=1)
     
     >>> # Initiate Window
-    >>> window = psychopy.visual.Window(size=[800, 600], fullscr=False,
-                                        screen=0, winType='pygame', monitor='testMonitor',
-                                        allowGUI=False, color="white",
-                                        blendMode='avg', units='pix')
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pygame', monitor='testMonitor',
+                               allowGUI=False, color="white",
+                               blendMode='avg', units='pix')
     
     >>> # Display illusion
     >>> ill.delboeuf_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
-    >>> psychopy.event.waitKeys()  # Press any key to close
+    >>> event.waitKeys()  # Press any key to close
     >>> window.close()
     """
 
@@ -43,20 +49,22 @@ def delboeuf_psychopy(window, parameters=None, **kwargs):
         size_inner = parameters["Size_Inner_" + side]
         psychopy_circle(window, x=parameters["Position_" + side], y=0, size=size_inner,
                         color="red", outline_color="red", outline=0.5)
-
         
+    
 def delboeuf_image(parameters=None, width=800, height=600, outline=10,
                    background="white", **kwargs):
-    """Create the Delboeuf illusion.
-    The Delboeuf illusion is an optical illusion of relative size perception, where circles of identical size appear as different because of their surrounding context.
+    """Create a PIL image of the Delboeuf illusion.
+    
+    
+    The Delboeuf illusion is an optical illusion of relative size perception,
+    where circles of identical size appear as different because of their surrounding context.
 
     Examples
     ---------
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.delboeuf_parameters(difficulty=2, illusion_strength=1)
-    >>> ill.delboeuf_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.delboeuf_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:
@@ -65,27 +73,21 @@ def delboeuf_image(parameters=None, width=800, height=600, outline=10,
     # Background
     image  = PIL.Image.new('RGB', (width, height), color=background)
 
-    # Outer circles (outlines)
-    image = image_circle(image=image,
-                         x=parameters["Position_Left"],
-                         size=parameters["Size_Outer_Left"],
-                         color=(0, 0, 0, 0),
-                         outline=outline)
-    image = image_circle(image=image,
-                         x=parameters["Position_Right"],
-                         size=parameters["Size_Outer_Right"],
-                         color=(0, 0, 0, 0),
-                         outline=outline)
-
-    # Inner circles
-    image = image_circle(image=image,
-                         x=parameters["Position_Left"],
-                         size=parameters["Size_Inner_Left"],
-                         color="red")
-    image = image_circle(image=image,
-                         x=parameters["Position_Right"],
-                         size=parameters["Size_Inner_Right"],
-                         color="red")
+    # Loop circles
+    for side in ["Left", "Right"]:
+        # Draw outer circle
+        size_outer = parameters["Size_Outer_" + side]
+        image = image_circle(image=image,
+                             x=parameters["Position_" + side], y=0,
+                             size=size_outer,
+                             color=(0, 0, 0, 0), outline=outline)
+        
+        # Draw inner circle
+        size_inner = parameters["Size_Inner_" + side]
+        image = image_circle(image=image,
+                             x=parameters["Position_" + side], y=0,
+                             size=size_inner,
+                             color="red")
     
     return image
   

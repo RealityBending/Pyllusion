@@ -5,12 +5,18 @@ from ..psychopy import psychopy_line, psychopy_rectangle
 
 
 def rodframe_psychopy(window, parameters=None, **kwargs):
-    """
+    """Create a PsychoPy stimulus of the Rod and frame illusion.
+    
+    
+    The Rod and frame illusion is an optical illusion causing the participant to
+    perceive the rod to be oriented congruent with the orientation of the frame.
+
     Examples
     ---------
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
 
+    >>> # Create parameters
     >>> parameters = ill.rodframe_parameters(difficulty=0, illusion_strength=11)
 
     >>> # Initiate Window
@@ -32,16 +38,13 @@ def rodframe_psychopy(window, parameters=None, **kwargs):
     if parameters is None:
         parameters = rodframe_parameters(**kwargs)
 
-    # Adjust size for screen ratio
-    size_width = 1
-    size_width = size_width * (window.size[1] / window.size[0])
-
-    # Draw frame
-    psychopy_rectangle(window, x=0, y=0, size_width=size_width, size_height=1,
+    # Frame
+    psychopy_rectangle(window, x=0, y=0,
+                       size_width=1, size_height=1,
                        color="white", outline_color="black", outline=5,
-                       rotate=parameters["Frame_Angle"])
+                       rotate=parameters["Frame_Angle"], adjust_width=True)
 
-    # Draw line
+    # Rod
     psychopy_line(window, x=0, y=0, length=0.8, rotate=parameters["Rod_Angle"],
                   adjust_width=True, color="red", size=5)
                  
@@ -49,7 +52,9 @@ def rodframe_psychopy(window, parameters=None, **kwargs):
 def rodframe_image(
     parameters=None, width=800, height=600, outline=20, background="white", **kwargs
 ):
-    """Create the Rod and frame illusion.
+    """Create a PIL image of the Rod and frame illusion.
+    
+    
     The Rod and frame illusion is an optical illusion causing the participant to
     perceive the rod to be oriented congruent with the orientation of the frame.
 
@@ -58,11 +63,10 @@ def rodframe_image(
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.rodframe_parameters(difficulty=0, illusion_strength=11)
-    >>> ill.rodframe_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.rodframe_image(parameters)
+    
     >>> parameters = ill.rodframe_parameters(difficulty=20, illusion_strength=20)
-    >>> ill.rodframe_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.rodframe_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:

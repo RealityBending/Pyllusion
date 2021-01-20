@@ -6,13 +6,18 @@ from ..psychopy import psychopy_line
 
 
 def ponzo_psychopy(window, parameters=None, **kwargs):
-
-    """
+    """Create a PsychoPy stimulus of the Ponzo illusion.
+    
+    
+    The Ponzo illusion is an optical illusion of relative size perception, where
+    horizontal lines of identical size appear as different because of their surrounding context.
+    
     Examples
     ---------
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
 
+    >>> # Create parameters
     >>> parameters = ill.ponzo_parameters(difficulty=0, illusion_strength=20)
 
     >>> # Initiate Window
@@ -55,7 +60,9 @@ def ponzo_psychopy(window, parameters=None, **kwargs):
 
     
 def ponzo_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
-    """Create the Ponzo illusion.
+    """Create a PIL image of the Ponzo illusion.
+    
+    
     The Ponzo illusion is an optical illusion of relative size perception, where
     horizontal lines of identical size appear as different because of their surrounding context.
 

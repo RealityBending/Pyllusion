@@ -6,7 +6,12 @@ from ..psychopy import psychopy_line
 
 
 def zollner_psychopy(window, parameters=None, **kwargs):
-    """
+    """Create a PsychoPy stimulus of the Zöllner illusion.
+    
+    
+    The Zöllner illusion is an optical illusion, where horizontal lines are perceived
+    as not parallel because of their background.
+
     Examples
     ---------
     >>> import pyllusion as ill
@@ -58,7 +63,9 @@ def zollner_psychopy(window, parameters=None, **kwargs):
         
 
 def zollner_image(parameters=None, width=800, height=600, background="white", **kwargs):
-    """Create the Zöllner illusion.
+    """Create a PIL image of the Zöllner illusion.
+    
+    
     The Zöllner illusion is an optical illusion, where horizontal lines are perceived
     as not parallel because of their background.
 
@@ -67,8 +74,7 @@ def zollner_image(parameters=None, width=800, height=600, background="white", **
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.zollner_parameters(illusion_strength=75)
-    >>> ill.zollner_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.zollner_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:
