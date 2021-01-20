@@ -37,7 +37,8 @@ affiliations:
 
 
 
-One paragraph of intro and abstract (at the same time)
+Visual illusions are fascinating phenomena that have been used and studied by artists and scientists for centuries, leading to important discoveries about the neurocognitive underpinnings of perception and consciousness. Surprisingly, despite their strong historical importance as psychological stimuli, there is no dedicated software, nor consistent approach, to generate illusions and describe them. Instead, scientists have to craft them by hand in an idiosyncratic fashion, or use pre-made images not tailored for the specific needs of their studies. This, in turns, hinders the reproducibility of illusion-based research and narrows its possibilities and applications. With the aim of addressing that gap, ***Pyllusion*** offers a framework to manipulate and generate illusions in a systematic way, compatible with different output formats such as image files (.png, .jpg, .tiff, etc.) or *PsychoPy* [@peirce2007psychopy] stimuli.
+
 
 # Introduction
 
@@ -57,7 +58,7 @@ One paragraph for existing Issues in the field and then Statement of need
 
 <!-- One paragraph about software stuff -->
 <!-- where to find documentation, CI, link of repo etc. -->
-*Pyllusion* is a Python module providing a parametric framework for generating visual illusions in computerized neuropsychology and neuroscience experiments. It is designed for specific integration within the *psychopy* [@peirce2007psychopy] package for PsychoPy experiment creation.
+*Pyllusion* is a Python module providing a parametric framework for generating visual illusions in computerized neuropsychology and neuroscience experiments. 
 *Pyllusion* encompasses several different illusions, including the Delboeuf illusion, Ebbinghaus illusion, Müller-Lyer illusion, Ponzo illusion, Vertical–horizontal illusion, Zöllner illusion, Rod and Frame illusion and Poggendorff illusion.
 
 *Pyllusion* is available on PyPI, a repository of software for the Python programming language and can be installed using pip.
@@ -109,6 +110,8 @@ ill.delboeuf_image(parameters)
 
 ### PsychoPy
 
+It is designed for specific integration within the *psychopy* [@peirce2007psychopy] package for PsychoPy experiment creation.
+
 
 ```python
 # Load packages
@@ -134,7 +137,7 @@ window.close()
 ```
 
 
-# Future Plans and Developpments
+# Future Plans and Developments
 
 *Pyllusion*'s source code and issue tracker are available at its GitHub repository (https://github.com/RealityBending/Pyllusion) and the package is licensed under the MIT License.
 It aims to be a project for facilitating the running of experiments in PsychoPy and is open for further collaboration in view of improvements in features and bug fixes.
