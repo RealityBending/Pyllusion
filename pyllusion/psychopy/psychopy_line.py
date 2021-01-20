@@ -3,7 +3,7 @@ from ..image.utilities import _coord_line
 
 def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1,
                   rotate=0, size=1, color="black", blur=0,
-                  adjust_width=False, adjust_height=False):
+                  adjust_width=False, adjust_height=False, **kwargs):
     """
     Examples
     --------
@@ -41,7 +41,7 @@ def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1
                                      method="psychopy")
 
     # Line parameters
-    line = visual.Line(win=window, units='pix', lineColor=color, lineWidth=size)
+    line = visual.Line(win=window, units='pix', lineColor=color, lineWidth=size, **kwargs)
     line.start = [coord[0]-window.size[0]/2, coord[1]-window.size[1]/2]
     line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
 

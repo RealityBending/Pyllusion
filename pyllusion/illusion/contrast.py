@@ -1,15 +1,62 @@
 import numpy as np
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
-
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 from ..image import image_rectangle, rescale
+from ..psychopy import psychopy_rectangle
+
+
+def contrast_psychopy(window, parameters=None, **kwargs):
+    """Create a PsychoPy stimulus of the Simultaneous Contrast illusion.
+    
+    
+    Simultaneous contrast, identified by Michel Eugène Chevreul, refers to the
+    manner in which the colors of two different objects affect each other.
+
+    Examples
+    ---------
+    >>> import pyllusion as ill
+    >>> from psychopy import visual, event
+
+    >>> # Create parameters
+    >>> parameters = ill.contrast_parameters(difference=0, illusion_strength=-50)
+
+    >>> # Initiate Window
+    >>> window = visual.Window(size=[800, 600], fullscr=False,
+                               screen=0, winType='pygame', monitor='testMonitor',
+                               allowGUI=False, color=parameters["Background_Top_RGB"],
+                               colorSpace='rgb255',
+                               blendMode='avg', units='pix')
+    
+    >>> # Display illusion
+    >>> ill.contrast_psychopy(window=window, parameters=parameters)
+    
+    >>> # Refresh and close window    
+    >>> window.flip()
+    >>> event.waitKeys()  # Press any key to close
+    >>> window.close()
+
+    """
+    # Create white canvas and get drawing context
+    if parameters is None:
+        parameters = contrast_parameters(**kwargs)
+
+    # Background lower
+    psychopy_rectangle(window, x=0, y=-0.5, size_height=1, size_width=2, color=parameters["Background_Bottom_RGB"],
+                       outline_color=parameters["Background_Bottom_RGB"],
+                       fillColorSpace='rgb255', lineColorSpace='rgb255')
+
+    psychopy_rectangle(window, x=0, y=0.5, size_height=0.5, size_width=1, color=parameters["Rectangle_Top_RGB"],
+                       outline_color=parameters["Rectangle_Top_RGB"],
+                       fillColorSpace='rgb255', lineColorSpace='rgb255')
+
+    psychopy_rectangle(window, x=0, y=-0.5, size_height=0.5, size_width=1, color=parameters["Rectangle_Bottom_RGB"],
+                       outline_color=parameters["Rectangle_Bottom_RGB"],
+                       fillColorSpace='rgb255', lineColorSpace='rgb255')
 
 
 def contrast_image(parameters=None, width=800, height=600, **kwargs):
-    """Simultaneous Contrast illusion.
+    """Create a PIL image of the Simultaneous Contrast illusion.
+    
+    
     Simultaneous contrast, identified by Michel Eugène Chevreul, refers to the
     manner in which the colors of two different objects affect each other.
 
@@ -18,8 +65,7 @@ def contrast_image(parameters=None, width=800, height=600, **kwargs):
     >>> import pyllusion as ill
     >>>
     >>> parameters = ill.contrast_parameters(difference=0, illusion_strength=-50)
-    >>> ill.contrast_image(parameters)  #doctest: +ELLIPSIS
-    <PIL.Image.Image ...>
+    >>> ill.contrast_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:

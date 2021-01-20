@@ -16,6 +16,7 @@ def psychopy_rectangle(
     blur=0,
     adjust_width=False,
     adjust_height=False,
+    **kwargs,
 ):
     """
     Examples
@@ -65,6 +66,7 @@ def psychopy_rectangle(
         height=y2-y1,
         fillColor=color,
         lineWidth=outline,
+        **kwargs,
     )
     x = (x1 + x2)/2
     y = (y1 + y2)/2

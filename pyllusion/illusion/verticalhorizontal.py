@@ -26,7 +26,7 @@ def verticalhorizontal_psychopy(window, parameters=None, **kwargs):
                                blendMode='avg', units='pix')
     
     >>> # Display illusion
-    >>> coord = ill.verticalhorizontal_psychopy(window=window, parameters=parameters)
+    >>> ill.verticalhorizontal_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()

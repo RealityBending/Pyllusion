@@ -12,6 +12,7 @@ def psychopy_circle(
     outline_color="black",
     blur=0,
     alpha=0,
+    **kwargs,
     ):
     """
     Examples
@@ -52,7 +53,7 @@ def psychopy_circle(
     if blur == 0:
         circle = visual.Circle(win=window, units="pix", fillColor=color,
                                lineColor=outline_color, edges=128,
-                               radius=radius, lineWidth=outline)
+                               radius=radius, lineWidth=outline, **kwargs)
         circle.pos = [x-window.size[0]/2, y-window.size[1]/2]
 
         if alpha > 0:
@@ -68,7 +69,7 @@ def psychopy_circle(
                                      units="pix",
                                      size=[radius*2, radius*2],
                                      mask='raisedCos',
-                                     color=color)
+                                     color=color, **kwargs)
         grating.maskParams = {'fringeWidth': blur}
         # grating.pos = [x-width/2, y-height/2]
         grating.pos = [x-window.size[0]/2, y-window.size[1]/2]
