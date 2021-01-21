@@ -33,7 +33,7 @@ def ebbinghaus_psychopy(window, parameters=None, **kwargs):
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.ebbinghaus_parameters(difference=2, illusion_strength=1)
+    >>> parameters = ill.ebbinghaus_parameters(illusion_strength=1, difference=2)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
@@ -92,7 +92,7 @@ def ebbinghaus_image(
     ---------
     >>> import pyllusion as ill
     >>>
-    >>> parameters = ill.ebbinghaus_parameters(difference=2, illusion_strength=0)
+    >>> parameters = ill.ebbinghaus_parameters(illusion_strength=1, difference=2)
     >>> ill.ebbinghaus_image(parameters)
     """
     # Create white canvas and get drawing context
@@ -163,16 +163,18 @@ def ebbinghaus_parameters(illusion_strength=0, difference=0, size_min=0.25, dist
     Parameters
     ----------
     illusion_strength : float
-        Size of right outer circles relative to the left (in percentage, e.g, if ``difference=1``,
+        The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
+        Specifically, the size of right outer circles relative to the left (in percentage, e.g, if ``difference=1``,
         it means that the right outer circles will be 100% bigger, i.e., 2 times bigger than the left
         outer circles). A negative sign reflects the size difference of the left outer circles relative
-        to the right, i.e., ``difference=1`` means the left outer circles will be 100% bigger than the
+        to the right, i.e., ``difference=-1`` means the left outer circles will be 100% bigger than the
         right outer circles.
     difference : float
-        Size of left inner circle relative to the right (in percentage, e.g., if ``difference=1``,
+        The objective size difference of the inner circles.
+        Specifically, the size of left inner circle relative to the right (in percentage, e.g., if ``difference=1``,
         it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
          A negative sign reflects the size difference of the right inner circle relative to the left, i.e.,
-         ``difference=1`` means the right inner circle will be 100% bigger than the left inner circle.
+         ``difference=-1`` means the right inner circle will be 100% bigger than the left inner circle.
     size_min : float
         Size of smaller inner circle.
     distance : float
