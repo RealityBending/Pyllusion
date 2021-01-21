@@ -45,12 +45,27 @@ Visual illusions are fascinating phenomena that have been used and studied by ar
 
 Visual illusions have been observed for hundreds of years [@LuckieshVisualIllusions1965], many of which were described in print by Helmholtz (1856) in 1856 [@robinson1972psychology]. In general terms, a visual illusion can be thought of as the inaccurate perception of a visual stimulus or a given attribute, be it geometrical (size, shape, or angle), or another property such as colour [@muller1896lehre, @howe2005muller, @delboeuf1893nouvelle, @ebbinghaus1902grundzuge, @roberts2005roles, @adelson200024]. Often an illusory perception resists 'correction' in perception even after an observer has been made aware of the misperception. Novel illusions are still observed and have even cropped up on social media platforms, a famous example being 'The Dress Illusion' as discussed by Schlaffke et al. (2015). See Ninio (2014), Luckiesh (1965), and Robinson (1972) for extensive collections of visual illusions.
 
+**FIX CITATIONS HERE** 
+
 Entertainment value aside, illusions can serve a more practical utility. Visual illusions have helped scientists understand the architecture of the eye and its relationship with processes and structures involved further up stream in the brain, the dynamic interaction of these processes, and visual coding in the brain in general [@carbon2014understanding, @forte2005inter, @clifford2002perceptual]. Illusions such as the blind-spot or those associated with colour perception, orientation perception, and motion perception, have all been informative of neuronal activity/processes both at the level of the eye and the brain via the measurement of associated illusions  [@durgin1995filling, @webster1996human, @witkin1948studies, @mackay1957moving, @Holland1965, @curran2009hierarchy]. Indeed, visual illusions also have the potential as clinical tools, such as being markers of, or being used to investigate typical integration processes through the lens of, schizophrenia [@clifford2014tilt, @thakkar2020stronger, @palmer2018perceptual] and have been used to demonstrate vestibular and contextual influences on visual perception [@corbett2006observer, @chen2015contextual, @roberts2005roles]. Visual illusions, and perceptual illusions more generally, are a powerful tool in human perception and brain research, which in turn can inform artificial cognitive systems design considerations [@carbon2014understanding, @boyce2020optimality].
+
+
 
 
 One paragraph for existing Issues in the field and then Statement of need
 
-<!-- No parametric generation of VIs -->
+
+# A Parametric Framework for Visual Illusion Research
+<!-- Statement of Need -->
+As mentioned above, the field of visual illusions lacks a dedicated software to generate and describe the stimuli, so that they can be reproduced and re-used by other researchers. ***Pyllusion*** aims at addressing this gap by providing a parametric framework for visual illusions generation. Essentially, the core idea is to dissociate the "parameters" of a given illusion. 
+
+
+
+
+
+<!-- Dom: conceptual idea of pyllusion i.e. to separate idea of illusions as images themselves from their parametric representation -->
+<!-- example, delboeuf parameters, show output of dictionary parameters. pass dict values into another function to generate either image or psychopy object -->
+
 
 
 # Pyllusion
@@ -73,22 +88,15 @@ And loaded with a Python script with:
 import pyllusion as ill
 ```
 
-# Parametric Framework for Visual Illusions Research
-
-
-*Pyllusion* encompasses a function-oriented philosophy based on the *psychopy* package. Each function is illusion-specific and hence, uniform function names (in the form `illusiontype_functiongoal()`) are used in the process of creating the illusion.
-While the functions can be incorporated within a PsychoPy builder, it can also be used without a GUI - the following example demonstrates the latter in generating a Delboeuf illusion.
-Parameters specifying the illusion difficulty and strength are generated using `*_parameters()` before executing the display via `*_psychopy()`.
-
-
-<!-- Dom: conceptual idea of pyllusion i.e. to separate idea of illusions as images themselves from their parametric representation -->
-<!-- example, delboeuf parameters, show output of dictionary parameters. pass dict values into another function to generate either image or psychopy object -->
-
 
 ## Output
 
 <!-- pass parameters into an output generator (as images or psychopy objects, psychopy being the most common experimentation software in psychology) -->
 <!-- two engines available in pyllusion as of now -->
+
+*Pyllusion* encompasses a function-oriented philosophy based on the *psychopy* package. Each function is illusion-specific and hence, uniform function names (in the form `illusiontype_functiongoal()`) are used in the process of creating the illusion.
+While the functions can be incorporated within a PsychoPy builder, it can also be used without a GUI - the following example demonstrates the latter in generating a Delboeuf illusion.
+Parameters specifying the illusion difficulty and strength are generated using `*_parameters()` before executing the display via `*_psychopy()`.
 
 
 ### Images
@@ -143,6 +151,9 @@ window.close()
 It aims to be a project for facilitating the running of experiments in PsychoPy and is open for further collaboration in view of improvements in features and bug fixes.
 <!--talk more about open science. plan to add more illusions and support to more output engines eg., neuropsydia, opensesame -->
 
+
+
+While illusions are of number (there are even machine learning algorithms generating visual illusions [REF]), a subset of them is commonly used (for historical reasons mainly, as well as for their relative simplicity). This set of classical, well-described, illusions, such as the Delboeuf, the Ponzo [ETC], is the primary focus of ***Pyllusion***. That said, due to the open and collaborative nature of the software, new illusions can always be added depending on the needs of the community.
 
 
 
