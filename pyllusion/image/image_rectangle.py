@@ -1,8 +1,4 @@
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 
 from .utilities import _color, _coord_rectangle
 
@@ -25,25 +21,27 @@ def image_rectangle(
     adjust_width=False,
     adjust_height=False,
     image=None,
-    **kwargs
 ):
     """
+    Creates a PIL image of a rectangle.
+
     Parameters
     ----------
     width : int
         Width of the returned image.
     height : int
         Height of the returned image.
-    x : ndarray
-        x-coordinate of the rectangle, from -1 to 1.
-    y : ndarray
-        y-coordinate of the rectangle, from -1 to 1.
+    x : Union[list, np.array, pd.Series]
+        x-coordinates of the rectangle from -1 to 1.
+    y : Union[list, np.array, pd.Series]
+        y-coordinates of the rectangle from -1 to 1.
     size_width : int
         Width of the rectangle drawn.
     size_height : int
         Height of the rectangle drawn.
     rotate : int
-        Rotation angle in degrees and the direction of rotation is clockwise.
+        The orientation of the rectangle in degrees, 0 being vertical and
+        positive values rotating clockwise.
     color : str
         Color of the line returned.
     outline : int
@@ -65,7 +63,7 @@ def image_rectangle(
         If set to True, the size_height can be adjusted to the height and width of the
         image.
     image : Image
-        If None, an image will be created.
+        If None, an image will be created.    
 
     Returns
     -------
@@ -80,8 +78,7 @@ def image_rectangle(
     >>> image = ill.image_rectangle(image=image, x=0.5, size_width=0.5, rotate=45, color="red")
     >>> image = ill.image_rectangle(image=image, y=0.25, size_height=0.2,  color="yellow", alpha=0.5)
     >>> image = ill.image_rectangle(image=image, size_width=0.5, size_height=0.5, blur=0.01, color="green", adjust_width=True)
-    >>> image  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> image
     """
     # Get image
     if image is None:

@@ -19,9 +19,11 @@ def image_text(
     font="arial.ttf",
     blur=0,
     image=None,
-    **kwargs
 ):
     """
+    Creates a PIL image of text.
+
+
     Parameters
     ----------
     text : str
@@ -59,11 +61,12 @@ def image_text(
     --------
     >>> import pyllusion as ill
     >>>
-    >>> image = ill.image_text(text="Hello", size=40)  #doctest: +SKIP
-    >>> image = ill.image_text(image=image, size=30, y=0.5, text="I'm Red", color="red")  #doctest: +SKIP
-    >>> image = ill.image_text(image=image, size=20, x=0.5, text="Bold and blurred", font="arialbd.ttf", blur=0.005)  #doctest: +SKIP
-    >>> image  #doctest: +SKIP
-    >>> ill.image_text(text="3D", width=1600, height=900, font="arial.ttf", blur=0.01)  #doctest: +SKIP
+    >>> image = ill.image_text(text="Hello", size=40)
+    >>> image = ill.image_text(image=image, size=30, y=0.5, text="I'm Red", color="red")
+    >>> image = ill.image_text(image=image, size=20, x=0.5, text="Bold and blurred", font="arialbd.ttf", blur=0.005)
+    >>> image
+    >>> ill.image_text(text="3D", width=1600, height=900, font="arial.ttf", blur=0.01)
+    >>> image
     """
     # Get image
     if image is None:

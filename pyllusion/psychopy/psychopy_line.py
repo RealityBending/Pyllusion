@@ -2,20 +2,56 @@ from ..image.utilities import _coord_line
 
 
 def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1,
-                  rotate=0, size=1, color="black", blur=0,
+                  size=1, rotate=0, color="black", alpha=0,
                   adjust_width=False, adjust_height=False, **kwargs):
     """
+    Creates a PsychoPy stimulus of a line.
+    
+    Parameters
+    ----------
+    window: object
+        A PsychoPy window for displaying one or more stimuli.
+    x : int
+        x-coordinates of the center of the line, from -1 to 1.
+    y : int
+        y-coordinates of the center of the line, from -1 to 1.
+    x1, x2 : int
+        x-coordinates of the ends of the line, from -1 to 1. If not None, x is set to None.
+    y1, y2 : int
+        y-coordinates of the ends of the line, from -1 to 1. If not None, y is set to None.
+    length : int
+        Length of the line returned.
+    size : int
+        Width of the line returned.
+    rotate : float
+        The orientation of the line in degrees, 0 being vertical and
+        positive values rotating clockwise.
+    color : Union[list, str]
+        The color of the line as single string value or [r, g, b] list, in which 
+        colorSpace='rgb255' argument has to be added.
+    alpha : float
+        The opacity of the line relative to the background, from 1.0 (opaque) to
+        0.0 (transparent).
+    adjust_width : bool
+        If set to True, the x-coordinates of the line can be adjusted
+        to the height and width of the window. Defaults to False.
+    adjust_height : bool
+        If set to True, the y-coordinates of the line can be adjusted
+        to the height and width of the window. Defaults to False.
+    **kwargs
+        Additional arguments passed into `psychopy.visual.Line()`
+
+    Returns
+    -------
+    In-place modification of the PsychoPy window (No explicit return).
+
     Examples
     --------
     >>> import pyllusion as ill
     >>> from psychopy import visual, event
     
     >>> # Initiate window
-    >>> window = visual.Window(size=[800, 600], fullscr=False,
-                               screen=0, winType='pygame', monitor='testMonitor',
-                               allowGUI=False, allowStencil=False, 
-                               color="white", colorSpace='rgb',
-                               blendMode='avg', useFBO=True, units='norm')
+    >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
 
     >>> # Draw line
     >>> ill.psychopy_line(window, x=0, y=0, length=1)
@@ -46,8 +82,8 @@ def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1
     line.end = [coord[2]-window.size[0]/2, coord[3]-window.size[1]/2]
 
     # blur
-    if blur > 0:
-        line.opacity = blur
+    if alpha > 0:
+        line.opacity = alpha
     
     # Display
     line.draw()

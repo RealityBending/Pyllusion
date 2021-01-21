@@ -1,13 +1,7 @@
 import numpy as np
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 
-from .rescale import rescale
-from .utilities import _color, _coord_circle, _rgb
-
+from .utilities import _color, _coord_circle
 
 def image_circles(
     width=500,
@@ -26,6 +20,8 @@ def image_circles(
     background="white",
 ):
     """
+    Creates a PIL image of circles.
+
     Parameters
     ----------
     width : int
@@ -38,10 +34,13 @@ def image_circles(
         x-coordinates of all circles from -1 to 1.
     y : Union[list, np.array, pd.Series]
         y-coordinates of all circles from -1 to 1.
-    size_min : int
-        The minimum diameter of the circles drawn.
-    size_max : int
-        The maximum diameter of the circles drawn.
+    size_min, size_max : int
+        The minimum and maximum diameter of the circles drawn. Used only if size is None.
+        If used, circles of random diameters from size_min to size_max are displayed.
+    size : int
+        The diameters of the circles drawn. Defaults to None.
+    color : str
+        Color of the circles returned.
     alpha : int
         Transparency of the circles drawn, 0 (transparent) to 1 (opaque).
     blur : int
@@ -62,12 +61,10 @@ def image_circles(
     ---------
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_circles()  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
-    >>> ill.image_circles(color="bw", blur=0.01)  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
-    >>> ill.image_circles(n=250, size_min=0.1, size_max=0.6, alpha=0.5)  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> image = ill.image_circles()
+    >>> image = ill.image_circles(color="bw", blur=0.01)
+    >>> image = ill.image_circles(n=250, size_min=0.1, size_max=0.6, alpha=0.5)
+    >>> image
     """
     # Sanity checks
     if size_max <= size_min:
@@ -130,6 +127,44 @@ def image_circle(
     background="white",
 ):
     """
+    Creates a PIL image of a circle.
+
+    Parameters
+    ----------
+    width : int
+        Width of the returned image.
+    height : int
+        Height of the returned image.
+    x : Union[list, np.array, pd.Series]
+        x-coordinates of the circle from -1 to 1.
+    y : Union[list, np.array, pd.Series]
+        y-coordinates of the circle from -1 to 1.
+    size : int
+        The diameter of the circle drawn.
+    color : str
+        Color of the circle returned.
+    outline : float
+        The width of the outline of the circle.
+    color_outline : str
+        Outline of the circle outline returned.
+    alpha : int
+        Transparency of the circle drawn, 0 (transparent) to 1 (opaque).
+    blur : int
+        Degree of blur filter for the image returned.
+    antialias : bool
+        If true, resize the image using a high-quality downsampling filter.
+    image : Image
+        If None, an image will be created.
+    background : str
+        Color of the background.
+
+    Returns
+    -------
+    Image
+        Image of circle.
+
+    Examples
+    --------
     >>> import pyllusion as ill
     >>>
     >>> image = ill.image_circle()
@@ -137,8 +172,7 @@ def image_circle(
     >>> image = ill.image_circle(image=image, color="blue", x=-0.3, size=0.5, blur=0.05)
     >>> image = ill.image_circle(image=image, color="yellow", y=0.5, alpha=0.5)
     >>> image = ill.image_circle(image=image, color="white", size=0.3, y=-0.5, outline=1)
-    >>> image  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> image
     """
     # Get image
     if image is None:

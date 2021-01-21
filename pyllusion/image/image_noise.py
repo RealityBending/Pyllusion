@@ -1,9 +1,5 @@
 import numpy as np
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 
 from .utilities import _rgb
 
@@ -19,7 +15,8 @@ def image_noise(
     **kwargs
 ):
     """
-    Generate an RGB Image of specific dimensions made of random dots.
+    Creates a PIL RGB image of specific dimensions made of random dots.
+
 
     Parameters
     ----------
@@ -33,6 +30,8 @@ def image_noise(
         If True, image is converted to black and white.
     blur : int
         The degree of blur filter for the image returned.
+    **kwargs
+        Additional arguments passed into `_rgb()`.
 
     Returns
     -------
@@ -43,12 +42,9 @@ def image_noise(
     ----------
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_noise()  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
-    >>> ill.image_noise(blackwhite=True)  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
-    >>> ill.image_noise(blur=0.005)  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> ill.image_noise()
+    >>> ill.image_noise(blackwhite=True)
+    >>> ill.image_noise(blur=0.005)
     """
     # Generate random colors
     r = red(size=(width, height), **kwargs)
