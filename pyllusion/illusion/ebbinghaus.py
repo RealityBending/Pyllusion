@@ -234,7 +234,7 @@ def ebbinghaus_parameters(illusion_strength=0, difference=0, size_min=0.25, dist
         position_left, position_right = -(distance_centers / 2), (distance_centers / 2)
 
     parameters.update({
-        "Illusion": "Ebbinhaus",
+        "Illusion": "Ebbinghaus",
         "Illusion_Strength": illusion_strength,
         "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
 
