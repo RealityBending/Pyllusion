@@ -196,6 +196,7 @@ def mullerlyer_parameters(illusion_strength=0, difference=0, size_min=0.5, dista
 
 
     parameters.update({"Illusion": "MullerLyer",
+                       "Illusion_Strength": illusion_strength,
                        "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
                        "Distractor_Length": length})
 
