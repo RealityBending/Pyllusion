@@ -21,22 +21,20 @@
 import os
 import re
 import sys
-#import mock
-from m2r import MdInclude
-from recommonmark.transform import AutoStructify
-from recommonmark.parser import CommonMarkParser
 
+import mock
+from m2r import MdInclude
+from recommonmark.parser import CommonMarkParser
+from recommonmark.transform import AutoStructify
 
 sys.path.insert(0, os.path.abspath('../'))
 
 
 # -- Mock modules ---------------------------------------------
-#MOCK_MODULES = []
+MOCK_MODULES = ['PIL.Image', 'PIL.ImageDraw', 'PIL.ImageFilter', 'PIL.ImageFont', 'PIL.ImageOps']
 
-#for mod_name in MOCK_MODULES:
-    #sys.modules[mod_name] = mock.Mock()
-
-
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = mock.Mock()
 
 
 # -- General configuration ---------------------------------------------
