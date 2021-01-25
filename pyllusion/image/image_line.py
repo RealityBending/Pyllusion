@@ -1,9 +1,4 @@
-import numpy as np
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 
 from .utilities import _coord_line
 
@@ -30,6 +25,8 @@ def image_line(
     **kwargs
 ):
     """
+    Creates a PIL image of a line.
+
     Parameters
     ----------
     width : int
@@ -46,6 +43,9 @@ def image_line(
         y-coordinates of the ends of the line, from -1 to 1. If not None, y is set to None.
     length : int
         Length of the line returned.
+    rotate : float
+        The orientation of the line in degrees, 0 being vertical and
+        positive values rotating clockwise. Beyond 360 and below zero values wrap appropriately.
     size : int
         Width of the line returned.
     color : str
@@ -69,6 +69,7 @@ def image_line(
     -------
     Image
         Image of a line.
+
     Examples
     --------
     >>> import pyllusion as ill
@@ -80,8 +81,7 @@ def image_line(
     >>> image = ill.image_line(image=image, length=1, rotate=20, color="red")
     >>> image = ill.image_line(image=image, x1=0, y1=0, length=0.5, rotate=-90, size=3)
     >>> image = ill.image_line(image=image, x1=-1, y1=-1, length=1, rotate=45, size=5, blur=0.005)
-    >>> image  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> image
     """
     # Get image
     if image is None:

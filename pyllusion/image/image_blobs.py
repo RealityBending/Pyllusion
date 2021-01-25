@@ -1,9 +1,5 @@
 import numpy as np
-import PIL.Image
-import PIL.ImageDraw
-import PIL.ImageFilter
-import PIL.ImageFont
-import PIL.ImageOps
+import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
 import scipy.signal
 
 from .rescale import rescale
@@ -11,7 +7,7 @@ from .utilities import _coord_circle
 
 
 def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
-    """Return an image with blobs of the same standard deviations (SD).
+    """Returns a PIL image with blobs of the same standard deviations (SD).
 
     Parameters
     ----------
@@ -35,11 +31,8 @@ def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
     --------
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_blobs(n=100)  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
-    >>> ill.image_blobs(n=[5, 300, 1000], sd=[50, 10, 5], weight=[1, 1.5, 2])  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
-
+    >>> ill.image_blobs(n=100)
+    >>> ill.image_blobs(n=[5, 300, 1000], sd=[50, 10, 5], weight=[1, 1.5, 2])
     """
     # Sanitize input
     if isinstance(sd, (int, float)):
@@ -74,12 +67,29 @@ def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
 
 
 def image_blob(x=450, y=100, width=800, height=600, sd=30):
-    """Return an image of blob
+    """Returns a PIL image of a blob.
+
+    Parameters
+    ----------
+    x : int
+        x-coordinate of the center of the blob. Unit in pixel.
+    y : int
+        y-coordinate of the center of the blob. Unit in pixel.
+    width : int
+        Width of the returned image.
+    height : int
+        Height of the returned image.
+    sd : int
+        The standard deviation of the gaussian blob. Unit in pixel.
+
+    Returns
+    -------
+    Image
+        Image of blob.
 
     >>> import pyllusion as ill
     >>>
-    >>> ill.image_blob()  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> ill.image_blob()
     """
     blob = _image_blob(x=x, y=y, width=width, height=height)
     blob = rescale(blob, to=[0, 255])
@@ -96,11 +106,10 @@ def image_blob(x=450, y=100, width=800, height=600, sd=30):
 def _image_blob(x=400, y=300, width=800, height=600, sd=30):
     """Returns a 2D Gaussian kernel.
 
-    # >>> import pyllusion as ill
-    # >>> import matplotlib.pyplot as plt
-    # >>> array = _image_blob(sd=8)
-    # >>> plt.imshow(array)  #doctest: +ELLIPSIS
-     <...>
+    >>> import pyllusion as ill
+    >>> import matplotlib.pyplot as plt
+    >>> array = _image_blob(sd=8)
+    >>> plt.imshow(array)  #doctest: +ELLIPSIS
     """
     parent_blob = _image_blob_parent(x=x, y=y, width=width, height=height, sd=sd)
     w = np.int(len(parent_blob) / 2)
@@ -108,10 +117,10 @@ def _image_blob(x=400, y=300, width=800, height=600, sd=30):
 
 
 def _image_blob_parent(x=400, y=300, width=800, height=600, sd=30, parent_width=None):
+
     """
     >>> import matplotlib.pyplot as plt
-    >>> plt.imshow(_image_blob_parent(sd=30))  #doctest: +ELLIPSIS
-     <...>
+    >>> plt.imshow(_image_blob_parent(sd=30))
     """
     if parent_width is None:
         parent_width = 3 * (np.max([x, y,  height - x, width - y]))
