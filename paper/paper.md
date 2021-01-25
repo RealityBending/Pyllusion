@@ -90,7 +90,7 @@ Interestingly, in most of the visual illusions, the strength of the illusion can
 # Pyllusion
 
 
-It is not the first time that Python, illusions and cognitive science are brought together. In his book, *"Programming visual illusions for everyone"*, @bertamini2017programming indeed describes how to use *PsychoPy* to generate famous illusions. That said, it is rather presented as an fun introduction to programming and to Python, rather than a dedicated software for illusions *per se*.
+It is not the first time that Python, illusions and cognitive science are brought together. In his book, *"Programming visual illusions for everyone"*, @bertamini2017programming indeed describes how to use *PsychoPy* to generate famous illusions. That said, although being a fantastic tool and resource for researchers and anybody interested in illusions, it is rather presented as an fun introduction to programming and to Python, rather than a dedicated software for illusions *per se*.
 
 **Pyllusion** is an open-source package to programmatically generate illusions written in Python 3 [@python3], which means that its users benefit from an large number of learning resources and a vibrant community. However, although being a programming-based tool, users not familiar with Python or other languages can easily use it as well, as it requires minimal programming skills (one can essentially copy the few necessary lines from the documentation and tweak the explicitly-named parameters). This makes it a very flexible tool; advanced users can incorporate **Pyllusion** in their scripts or experiments (for instance, to generate illusions "on the fly" based on the input of the user), whereas novice users can simply copy the minimal code to pre-generate and save the illusions as images.
 
@@ -184,7 +184,7 @@ Validation to see how the illusion strength values affect the perception. Standa
 
 
 
-# Acknowledgements
+# Acknowledgments
 
 We would like to thank Prof. Mahamaya for her insights regarding illusions.
 
