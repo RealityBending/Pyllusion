@@ -84,52 +84,32 @@ Interestingly, in most of the visual illusions, the strength of the illusion can
 
 
 <!-- parametric representation -->
-
-
 <!-- example, delboeuf parameters, show output of dictionary parameters. pass dict values into another function to generate either image or psychopy object -->
 
 
-
 # Pyllusion
-<!-- One paragraph about software stuff: where to find documentation, CI, link of repo etc. -->
 
-**Pyllusion** is an open-source package in Python to programmatically generate illusions.
-
-
-Although being a programming-based tool, users not familiar with Python or other languages can easily use it, as it requires minimal programming skills (one can essentially copy the few necessary lines from the documentation and tweak the explicitly-named parameters).
-
-
-<!-- Accessibility and documentation -->
-The package is implemented in Python 3 [@python3], which means that its users benefit from an large number of learning resources and a vibrant community.
-The source code is available under the MIT license on GitHub (*https://github.com/RealityBending/Pyllusion/*). Its documentation (*https://neurokit2.readthedocs.io/*) is automatically built and rendered from the code and includes guides for installation and contribution, a description of the package's functions, as well as several "hands-on" examples and tutorials (e.g., how to extract and visualize individual heartbeats, how to analyze event-related data etc.). Importantly, users can add new examples by simply submitting a Jupyter notebook [@kluyver2016jupyter] to the GitHub repository. The notebook will automatically be displayed on the website, ensuring easily accessible and evolving documentation. Moreover, users can try out the example notebooks directly in their browser via a cloud-based *Binder* environment [@Jupyter2018]. Finally, the issue tracker on GitHub offers a convenient and public forum that allows users to report bugs, get help and gain insight into the development of the package. Our active collaborators range from academics, professionals and practitioners in the life sciences and engineering fields (See the “authors” section on the package’s documentation). Based on community feedback that we received (social networks, GitHub issues), *NeuroKit2* has attracted users of different profiles, ranging from those who are new to signal processing and programming to more experienced users.
-
-<!-- Reliability and Evolution -->
-*NeuroKit2* aims at being reliable and trustworthy, including implementations of processing pipelines that have been described in peer-reviewed publications. Details and references regarding those pipelines are available in the package's documentation. Many pipelines have been tested against established software such as *BioSPPy* [@biosppy], *hrv* [@HRV], *PySiology* [@PySiology], *HeartPy* [@HeartPy], *systole* [@Systole] or *nolds* [@nolds]. Additionally, the repository leverages a comprehensive test suite (using *pytest*) and continuous integration (using Travis-CI and GitHub actions) to ensure software stability and quality. The test coverage and build status can transparently be tracked via the GitHub repository. Thanks to its collaborative and open development, *NeuroKit2* can remain cutting-edge and continuously evolve, adapt, and integrate new methods as they are emerging.
-
-
-providing a parametric framework for generating visual illusions in computerized neuropsychology and neuroscience experiments.
-
-
-*Pyllusion* encompasses several different illusions, including the Delboeuf illusion, Ebbinghaus illusion, Müller-Lyer illusion, Ponzo illusion, Vertical–horizontal illusion, Zöllner illusion, Rod and Frame illusion and Poggendorff illusion.
-
-*Pyllusion* is available on PyPI, a repository of software for the Python programming language and can be installed using pip.
 
 It is not the first time that Python, illusions and cognitive science are brought together. In his book, *"Programming visual illusions for everyone"*, @bertamini2017programming indeed describes how to use *PsychoPy* to generate famous illusions. That said, it is rather presented as an fun introduction to programming and to Python, rather than a dedicated software for illusions *per se*.
 
+**Pyllusion** is an open-source package to programmatically generate illusions written in Python 3 [@python3], which means that its users benefit from an large number of learning resources and a vibrant community. However, although being a programming-based tool, users not familiar with Python or other languages can easily use it as well, as it requires minimal programming skills (one can essentially copy the few necessary lines from the documentation and tweak the explicitly-named parameters). This makes it a very flexible tool; advanced users can incorporate **Pyllusion** in their scripts or experiments (for instance, to generate illusions "on the fly" based on the input of the user), whereas novice users can simply copy the minimal code to pre-generate and save the illusions as images.
 
-```
-pip install pyllusion
-```
 
-And loaded with a Python script with:
+The source code is available under the MIT license on GitHub (*https://github.com/RealityBending/Pyllusion/*). Its documentation (*https://realitybending.github.io/Pyllusion/*) is automatically built and rendered from the code and includes guides for installation, a description of the package's functions, with examples of use. Finally, the issue tracker on GitHub offers a convenient and public forum that allows users to report bugs, get help and gain insight into the development of the package. Additionally, the repository leverages a comprehensive test suite (using *pytest*) and continuous integration (using Travis-CI and GitHub actions) to ensure software stability and quality. The test coverage and build status can transparently be tracked via the GitHub repository. Thanks to its collaborative and open development, *Pyllusion* can continuously evolve, adapt, and integrate new functionalities to meet the needs of the community.
 
-```python
-import pyllusion as ill
-```
+<!-- Installation -->
+**Pyllusion** is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install Pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`.
+
+
 
 
 ## Step 1: Parameters
 
+
+
+Currently, *Pyllusion* encompasses several different illusions, including the Delboeuf illusion, Ebbinghaus illusion, Müller-Lyer illusion, Ponzo illusion, Vertical–horizontal illusion, Zöllner illusion, Rod and Frame illusion and Poggendorff illusion.
+
+Note the two main parameters, *illusion_strength*, and *difference*, have abstract names despite relative meaning depending on the illusion. For instance, in the Ponzo illusion, *illusion_strength* currently refers to the angle of the non-horizontal lines, whereas the same argument modulates the area of the outer circles in the Delboeuf illusion. This decision of unifying the "illusion strength" parameter under the same name was motivated by the aim of having a consistent naming scheme for the API. This means that users can experiment with new illusions by modulating the illusion strength, without the need of learning what is the actual physical parameter (e.g., "angle of the distractor lines") driving the illusion.
 
 
 ## Step 2: Rendering
@@ -145,7 +125,6 @@ Parameters specifying the illusion difficulty and strength are generated using `
 ### Images
 
 ```python
-
 # Load package
 import pyllusion as ill
 
@@ -190,20 +169,24 @@ window.close()
 
 # Future Plans and Developments
 
-*Pyllusion*'s source code and issue tracker are available at its GitHub repository (https://github.com/RealityBending/Pyllusion) and the package is licensed under the MIT License.
-It aims to be a project for facilitating the running of experiments in PsychoPy and is open for further collaboration in view of improvements in features and bug fixes.
-<!--talk more about open science. plan to add more illusions and support to more output engines eg., neuropsydia, opensesame -->
+Being an open-source software, **Pyllusion** will continue to grow and evolve based on the community's input. While the direction and state of the package in the long term can be hard to predict, several short term goals can be mentioned.
+<!-- Add more illusions -->
+While illusions are of number (there are even machine learning algorithms generating visual illusions [REF]), a subset of them is commonly used (for historical reasons mainly, as well as for their relative simplicity). This set of classical, well-described, illusions, such as the Delboeuf, the Ponzo [ETC], is the primary focus of ***Pyllusion***. That said, due to the open and collaborative nature of the software, new illusions can always be added depending on the needs of the community. 
+Movements based (that could be saved as GIFs).
+
+<!-- Add more illusions -->
+Add support to more output engines eg., neuropsydia, opensesame
+
+<!-- Experiments & validation -->
+Validation to see how the illusion strength values affect the perception. Standardize the values.
 
 
-Validation to see how the illusion strength values affect the perception.
-
-While illusions are of number (there are even machine learning algorithms generating visual illusions [REF]), a subset of them is commonly used (for historical reasons mainly, as well as for their relative simplicity). This set of classical, well-described, illusions, such as the Delboeuf, the Ponzo [ETC], is the primary focus of ***Pyllusion***. That said, due to the open and collaborative nature of the software, new illusions can always be added depending on the needs of the community.
 
 
 
 # Acknowledgements
 
-We would like to thank ...
+We would like to thank Prof. Mahamaya for her insights regarding illusions.
 
 # References
 
