@@ -16,11 +16,6 @@ help:
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-html:
-  @$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(0)
 
-latexpdf:
-  @$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(0)
-
-latex:
-  @pandoc --toc --latex-engine=pdflatex -V fontfamily="cmbright" -V geometry=margin=0.5in -V documentclass="book" -o /build/<output>.pdf -s <input_1>.md <input_N>.md <copyright>.md
+%: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
