@@ -24,8 +24,14 @@ import sys
 
 import mock
 from m2r import MdInclude
+import recommonmark
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
+# The suffix(es) of source filenames.
+# You can specify multiple suffix as a list of string:
+source_parsers = {
+    '.md': CommonMarkParser
+}
 
 sys.path.insert(0, os.path.abspath('../'))
 
@@ -88,13 +94,11 @@ napoleon_use_rtype = False
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-# The suffix(es) of source filenames.
-# You can specify multiple suffix as a list of string:
-source_parsers = {
-    '.md': CommonMarkParser,
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
 }
-
-source_suffix = ['.rst', '.md']
 
 
 # The master toctree document.
