@@ -35,6 +35,23 @@ source_parsers = {
 
 sys.path.insert(0, os.path.abspath('../'))
 
+# -- Parse README.md ------------------------------------------------
+# To debug or modify how the README.md file in the project root is being
+# incorporated into the sphinx documentation.  Below, the README.md
+# file is read and parsed. We then look for all image links with the
+# following syntax "![](docs/abc.xyz.png)" and translate that to
+# "![](abc.xyz.png)". Finally, the processed README.md file is written
+# to the docs folder.
+
+with open("../README.md", "r") as f:
+    README_content = f.read()
+links = set(re.compile("\!\[\]\(docs.*\)").findall(README_content))
+for link in links:
+    link_new = link.replace("docs/", "")
+    README_content = README_content.replace(link, link_new)
+with open("README.build.md", "w") as f:
+    f.write(README_content)
+ 
 
 # -- Mock modules ---------------------------------------------
 MOCK_MODULES = ['PIL.Image', 'PIL.ImageDraw', 'PIL.ImageFilter', 'PIL.ImageFont', 'PIL.ImageOps']
