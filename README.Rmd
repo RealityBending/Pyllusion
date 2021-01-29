@@ -100,7 +100,10 @@ img.save("docs/img/README_delboeuf1.png")
 
 ### Ebbinghaus Illusion
 
-The [**Ebbinghaus illusion**](https://en.wikipedia.org/wiki/Ebbinghaus_illusion) is an optical illusion of relative size perception, where circles of identical size appear as different because of their surrounding context (the right red circle appears as smaller). The illusion was named after its creator the German psychologist Hermann Ebbinghaus (1850–1909), though it got popularized by Edward B. Titchener in a 1901 textbook of experimental psychology.
+The [**Ebbinghaus illusion**](https://en.wikipedia.org/wiki/Ebbinghaus_illusion) is an optical illusion of relative size perception, where circles of identical size appear as different because of their surrounding context (the right red circle appears as smaller because its surrounding circle is larger). The illusion was named after its creator the German psychologist Hermann Ebbinghaus (1850–1909), though it got popularized by Edward B. Titchener in a 1901 textbook of experimental psychology.
+
+The Ebbinghaus illusion is considered a high-level integration illusion (King et al., 2017) which has been considered relatively unaffected amongst schizophrenics (as compared to healthy controls), who have problems in contextual processing of visual stimuli. Specifically, greater disorganized schizophrenia symptoms are related to a higher resistance towards the Ebbinghaus illusion (Uhlhaas et al., 2006).  Reduced sensitivity of schizophrenics to this illusion has been used to reflect how prior knowledge influences perceptual organization to a lesser extent, i.e., reduced top-down influence, in schizophrenia (Silverstein & Keane, 2011).
+
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 parameters = ill.ebbinghaus_parameters(illusion_strength=2)
@@ -115,9 +118,11 @@ img.save("docs/img/README_ebbinghaus1.png")
 
 
 
-### Müller-Lyer illusion Illusion
+### Müller-Lyer Illusion
 
 The [**Müller-Lyer illusion**](https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion) is an optical illusion causing the participant to perceive two segments as being of different length depending on the shape of the arrows. The illusion was named after its creator the erman sociologist Franz Carl Müller-Lyer (1857–1916) in 1889.
+
+The Müller-Lyer illusion is a high-level integration illusion requiring contextual processing by the brain (King et al., 2017). The effect of this illusion in schizophrenics appears to be more mixed, with some studies finding greater resistance to it (e.g., Parnas et al., 2001) and others showing increased susceptibility (e.g., Kantrowitz et al., 2009). There is some evidence that susceptibility to the Müller-Lyer illusion is negatively correlated with autistic traits in the typical population (but not with the Ebbinghaus nor the Ponzo illusion) (Chouinard et al., 2013).
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 parameters = ill.mullerlyer_parameters(illusion_strength=30)
@@ -134,6 +139,8 @@ img.save("docs/img/README_mullerlyer1.png")
 ### Ponzo Illusion
 
 The [**Ponzo illusion**](https://en.wikipedia.org/wiki/Ponzo_illusion) is an optical illusion of relative size perception, where horizontal lines of identical size appear as different because of their surrounding context (the top line appear as longer, as it is interepreted as being in the distance). The illusion was named after its creator the Italian psychologist Mario Ponzo (1882–1960) in 1911, who suggested that the human mind judges an object's size based on its background.
+
+Ponzo illusion is considered a high-level integration illusion as it is cognitively demanding in the sense that depth cues have to be correctly interpreted to signal changes in visual distance (King et al., 2017), requiring higher-level cortical processes (Song et al., 2011). Similar to the Ebbinghaus illusion, it is also shown to have less effect in biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 parameters = ill.ponzo_parameters(illusion_strength=20)
@@ -257,7 +264,10 @@ img.save("docs/img/README_white1.png")
 
 ### Kanizsa Square
 
-The **Kanizsa Square** is an [illusory contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion. See [Keane et al., 2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
+The **Kanizsa Square** is an [illusory contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion. See [Keane et al., 2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/). 
+
+Some studies have tested the effect of the Kanizsa Square in individuals with schizophrenia, but the finding of greater resistance to the illusion is not robust (King et al., 2017).
+
 
 ![](https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534@1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png)
 
@@ -385,4 +395,22 @@ See also [this tweet](https://twitter.com/AkiyoshiKitaoka/status/135186788549321
 
 ## References
 
+
 Bertamini, M. (2017). [*Programming visual illusions for everyone*](https://www.programmingvisualillusionsforeveryone.online). Springer.
+
+Chouinard, P. A., Noulty, W. A., Sperandio, I., & Landry, O. (2013). Global processing during the Müller-Lyer illusion is distinctively affected by the degree of autistic traits in the typical population. Experimental Brain Research, 230(2), 219–231. 
+
+Kantrowitz, J. T., Butler, P. D., Schecter, I., Silipo, G., & Javitt, D. C. (2009). Seeing the world dimly: The impact of early visual deficits on visual experience in schizophrenia. Schizophrenia Bulletin, 35(6), 1085–1094. doi:10.1093/schbul/sbp100
+
+King, D. J., Hodgekins, J., Chouinard, P. A., Chouinard, V. A., & Sperandio, I. (2017). A review of abnormalities in the perception of visual illusions in schizophrenia. Psychonomic bulletin & review, 24(3), 734-751.
+
+Parnas, J., Vianin, P., Saebye, D., Jansson, L., Volmer-Larsen, a, & Bovet, P. (2001). Visual binding abilities in the initial and advanced stages of schizophrenia. Acta Psychiatrica Scandinavica, 103(3), 171–180. doi:10.1034/j.1600-0447.2001.00160.x
+
+
+Silverstein, S. M., & Keane, B. P. (2011). Perceptual organization impairment in schizophrenia and associated brain mechanisms: Review of research from 2005 to 2010. Schizophrenia Bulletin, 37(4), 690–699. doi:10.1093/schbul/sbr052
+
+Song, C., Schwarzkopf, D. S., & Rees, G. (2011). Interocular induction of illusory size perception. BMC Neuroscience 27, 12(1).
+
+
+Uhlhaas, P. J., Phillips, W. A., Schenkel, L. S., & Silverstein, S. M. (2006b). Theory of mind and perceptual context‐processing in schizophrenia. Cognitive Neuropsychiatry, 11(4), 416–436.
+
