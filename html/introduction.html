@@ -108,7 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#features">Features</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#delboeuf-illusion">Delboeuf Illusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ebbinghaus-illusion">Ebbinghaus Illusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#muller-lyer-illusion-illusion">Müller-Lyer illusion Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#muller-lyer-illusion">Müller-Lyer Illusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ponzo-illusion">Ponzo Illusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#verticalhorizontal-illusion">Vertical–horizontal Illusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#zollner-illusion">Zöllner Illusion</a></li>
@@ -121,6 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#pareidolia">Pareidolia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#transparency-from-motion-tfm">Transparency From Motion (TFM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pinna-illusion">Pinna illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exctinction-illusion">Exctinction illusion</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
@@ -226,11 +227,12 @@
 </style>
 <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p><strong>A Parametric Framework to Generate Visual Illusions using Python</strong></p>
 <a class="reference external image-reference" href="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png"><img alt="" src="https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png" /></a>
 <a class="reference external image-reference" href="https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&amp;logoColor=FFE873"><img alt="" src="https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&amp;logoColor=FFE873" /></a>
 <a class="reference external image-reference" href="https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&amp;logoColor=FFE873"><img alt="" src="https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&amp;logoColor=FFE873" /></a>
+<a class="reference external image-reference" href="https://github.com/RealityBending/Pyllusion/workflows/%F0%9F%93%8A%20Tests/badge.svg"><img alt="Tests" src="https://github.com/RealityBending/Pyllusion/workflows/%F0%9F%93%8A%20Tests/badge.svg" /></a>
 <a class="reference external image-reference" href="https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg"><img alt="" src="https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg" /></a>
+<p><strong>A Parametric Framework to Generate Visual Illusions using Python</strong></p>
 </div>
 <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
@@ -253,7 +255,8 @@ generate and manipulate similar stimuli regardless of the display format
 and software.</p>
 <div class="section" id="psychopy-integration">
 <h2>PsychoPy Integration<a class="headerlink" href="#psychopy-integration" title="Permalink to this headline">¶</a></h2>
-<p>Pyllusion can be easily integrated into <a class="reference external" href="https://www.psychopy.org/">PsychoPy</a> for running experiments as well!</p>
+<p>Pyllusion can be easily integrated into
+<a class="reference external" href="https://www.psychopy.org/">PsychoPy</a> for running experiments as well!</p>
 <a class="reference external image-reference" href="img/psychopy_example.gif"><img alt="" src="_images/psychopy_example.gif" /></a>
 </div>
 <div class="section" id="installation">
@@ -301,24 +304,43 @@ Leopold Delboeuf (1831–1896), who created it in 1865.</p>
 illusion**</a> is an
 optical illusion of relative size perception, where circles of identical
 size appear as different because of their surrounding context (the right
-red circle appears as smaller). The illusion was named after its creator
-the German psychologist Hermann Ebbinghaus (1850–1909), though it got
-popularized by Edward B. Titchener in a 1901 textbook of experimental
-psychology.</p>
+red circle appears as smaller because its surrounding circle is larger).
+The illusion was named after its creator the German psychologist Hermann
+Ebbinghaus (1850–1909), though it got popularized by Edward B. Titchener
+in a 1901 textbook of experimental psychology.</p>
+<p>The Ebbinghaus illusion is considered a high-level integration illusion
+(King et al., 2017) which has been considered relatively unaffected
+amongst schizophrenics (as compared to healthy controls), who have
+problems in contextual processing of visual stimuli. Specifically,
+greater disorganized schizophrenia symptoms are related to a higher
+resistance towards the Ebbinghaus illusion (Uhlhaas et al., 2006).
+Reduced sensitivity of schizophrenics to this illusion has been used to
+reflect how prior knowledge influences perceptual organization to a
+lesser extent, i.e., reduced top-down influence, in schizophrenia
+(Silverstein &amp; Keane, 2011).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">ebbinghaus_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">ebbinghaus_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_ebbinghaus1.png"><img alt="" src="_images/README_ebbinghaus1.png" /></a>
 </div>
-<div class="section" id="muller-lyer-illusion-illusion">
-<h3>Müller-Lyer illusion Illusion<a class="headerlink" href="#muller-lyer-illusion-illusion" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="muller-lyer-illusion">
+<h3>Müller-Lyer Illusion<a class="headerlink" href="#muller-lyer-illusion" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion">**Müller-Lyer
 illusion**</a> is
 an optical illusion causing the participant to perceive two segments as
 being of different length depending on the shape of the arrows. The
 illusion was named after its creator the erman sociologist Franz Carl
 Müller-Lyer (1857–1916) in 1889.</p>
+<p>The Müller-Lyer illusion is a high-level integration illusion requiring
+contextual processing by the brain (King et al., 2017). The effect of
+this illusion in schizophrenics appears to be more mixed, with some
+studies finding greater resistance to it (e.g., Parnas et al., 2001) and
+others showing increased susceptibility (e.g., Kantrowitz et al., 2009).
+There is some evidence that susceptibility to the Müller-Lyer illusion
+is negatively correlated with autistic traits in the typical population
+(but not with the Ebbinghaus nor the Ponzo illusion) (Chouinard et al.,
+2013).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">mullerlyer_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">mullerlyer_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
@@ -334,6 +356,12 @@ context (the top line appear as longer, as it is interepreted as being
 in the distance). The illusion was named after its creator the Italian
 psychologist Mario Ponzo (1882–1960) in 1911, who suggested that the
 human mind judges an object’s size based on its background.</p>
+<p>Ponzo illusion is considered a high-level integration illusion as it is
+cognitively demanding in the sense that depth cues have to be correctly
+interpreted to signal changes in visual distance (King et al., 2017),
+requiring higher-level cortical processes (Song et al., 2011). Similar
+to the Ebbinghaus illusion, it is also shown to have less effect in
+biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">ponzo_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">ponzo_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
@@ -431,6 +459,9 @@ perceived of different luminance depending on their background.</p>
 contour</a> illusion. See
 <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/">Keane et al.,
 2019</a>.</p>
+<p>Some studies have tested the effect of the Kanizsa Square in individuals
+with schizophrenia, but the finding of greater resistance to the
+illusion is not robust (King et al., 2017).</p>
 <a class="reference external image-reference" href="https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534&#64;1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png"><img alt="" src="https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534&#64;1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png" /></a>
 <ul class="simple">
 <li><p><strong>TO DO</strong> <em>(consider helping!)</em></p></li>
@@ -482,7 +513,7 @@ al. (2014)</a>,
 in their study <em>“Seeing Jesus in toast”</em>, famously (the study got
 awarded an Ignobel prize) investigated the correlates of face pareidolia
 by blending images of faces with noise-like images.</p>
-<p>Blending of images can be achieved:</p>
+<p>Blending of images can be achieved: as followed</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ill</span><span class="o">.</span><span class="n">pareidolia</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;docs/img/snake.png&quot;</span><span class="p">,</span>
                <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">4000</span><span class="p">],</span>
                <span class="n">sd</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
@@ -529,12 +560,46 @@ directions that results in the perception of two transparent layers (See
 </ul>
 <a class="reference external image-reference" href="http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg"><img alt="" src="http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg" /></a>
 </div>
+<div class="section" id="exctinction-illusion">
+<h3>Exctinction illusion<a class="headerlink" href="#exctinction-illusion" title="Permalink to this headline">¶</a></h3>
+<p>See also <a class="reference external" href="https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1%20by%20Akiyoshi%20Kitaoka">this
+tweet</a>.</p>
+<ul class="simple">
+<li><p><strong>TO DO</strong> <em>(consider helping!)</em></p></li>
+</ul>
+<a class="reference external image-reference" href="img/extinction_illusion.png"><img alt="" src="_images/extinction_illusion.png" /></a>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>Bertamini, M. (2017). <a class="reference external" href="https://www.programmingvisualillusionsforeveryone.online">*Programming visual illusions for
 everyone*</a>.
 Springer.</p>
+<p>Chouinard, P. A., Noulty, W. A., Sperandio, I., &amp; Landry, O. (2013).
+Global processing during the Müller-Lyer illusion is distinctively
+affected by the degree of autistic traits in the typical population.
+Experimental Brain Research, 230(2), 219–231.</p>
+<p>Kantrowitz, J. T., Butler, P. D., Schecter, I., Silipo, G., &amp; Javitt, D.
+C. (2009). Seeing the world dimly: The impact of early visual deficits
+on visual experience in schizophrenia. Schizophrenia Bulletin, 35(6),
+1085–1094. doi:10.1093/schbul/sbp100</p>
+<p>King, D. J., Hodgekins, J., Chouinard, P. A., Chouinard, V. A., &amp;
+Sperandio, I. (2017). A review of abnormalities in the perception of
+visual illusions in schizophrenia. Psychonomic bulletin &amp; review, 24(3),
+734-751.</p>
+<p>Parnas, J., Vianin, P., Saebye, D., Jansson, L., Volmer-Larsen, a, &amp;
+Bovet, P. (2001). Visual binding abilities in the initial and advanced
+stages of schizophrenia. Acta Psychiatrica Scandinavica, 103(3),
+171–180. doi:10.1034/j.1600-0447.2001.00160.x</p>
+<p>Silverstein, S. M., &amp; Keane, B. P. (2011). Perceptual organization
+impairment in schizophrenia and associated brain mechanisms: Review of
+research from 2005 to 2010. Schizophrenia Bulletin, 37(4), 690–699.</p>
+<p>doi:10.1093/schbul/sbr052</p>
+<p>Song, C., Schwarzkopf, D. S., &amp; Rees, G. (2011). Interocular induction
+of illusory size perception. BMC Neuroscience 27, 12(1).</p>
+<p>Uhlhaas, P. J., Phillips, W. A., Schenkel, L. S., &amp; Silverstein, S. M.
+(2006b). Theory of mind and perceptual context‐processing in
+schizophrenia. Cognitive Neuropsychiatry, 11(4), 416–436.</p>
 </div>
 </div>
 

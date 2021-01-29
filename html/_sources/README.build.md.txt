@@ -1,12 +1,14 @@
 
-**A Parametric Framework to Generate Visual Illusions using Python**
-
 ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png)
 ![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
 ![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
+![Tests](https://github.com/RealityBending/Pyllusion/workflows/%F0%9F%93%8A%20Tests/badge.svg)
 ![](https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg)
 
-# Overview
+**A Parametric Framework to Generate Visual Illusions using Python**
+
+Overview
+========
 
 Visual illusions are fascinating phenomena that have been used and
 studied by artists and scientists for centuries, leading to important
@@ -28,31 +30,36 @@ Describing illusions using a set of parameters aims at fostering
 generate and manipulate similar stimuli regardless of the display format
 and software.
 
-## PsychoPy Integration
+PsychoPy Integration
+--------------------
 
-Pyllusion can be easily integrated into [PsychoPy](https://www.psychopy.org/) for running experiments as well!
+Pyllusion can be easily integrated into
+[PsychoPy](https://www.psychopy.org/) for running experiments as well!
 
 ![](img/psychopy_example.gif)
 
-
-## Installation
+Installation
+------------
 
     pip install https://github.com/RealityBending/Pyllusion/zipball/master
 
-## Contribution
+Contribution
+------------
 
 You have some ideas? Want to improve things, add new illusions, and help
 us shake people’s brain? Let us know, we would be very happy to have you
 on board :relaxed:.
 
-## Citation
+Citation
+--------
 
 You can cite the package as follows:
 
     Makowski, D., Pham, T., Lau, Z. J. (2020). Pyllusion: A Parametric Framework to Generate Visual Illusions using Python. GitHub. 
     Retrieved from https://github.com/RealityBending/Pyllusion
 
-## Features
+Features
+--------
 
 ### Delboeuf Illusion
 
@@ -79,10 +86,21 @@ The [**Ebbinghaus
 illusion**](https://en.wikipedia.org/wiki/Ebbinghaus_illusion) is an
 optical illusion of relative size perception, where circles of identical
 size appear as different because of their surrounding context (the right
-red circle appears as smaller). The illusion was named after its creator
-the German psychologist Hermann Ebbinghaus (1850–1909), though it got
-popularized by Edward B. Titchener in a 1901 textbook of experimental
-psychology.
+red circle appears as smaller because its surrounding circle is larger).
+The illusion was named after its creator the German psychologist Hermann
+Ebbinghaus (1850–1909), though it got popularized by Edward B. Titchener
+in a 1901 textbook of experimental psychology.
+
+The Ebbinghaus illusion is considered a high-level integration illusion
+(King et al., 2017) which has been considered relatively unaffected
+amongst schizophrenics (as compared to healthy controls), who have
+problems in contextual processing of visual stimuli. Specifically,
+greater disorganized schizophrenia symptoms are related to a higher
+resistance towards the Ebbinghaus illusion (Uhlhaas et al., 2006).
+Reduced sensitivity of schizophrenics to this illusion has been used to
+reflect how prior knowledge influences perceptual organization to a
+lesser extent, i.e., reduced top-down influence, in schizophrenia
+(Silverstein & Keane, 2011).
 
 ``` python
 parameters = ill.ebbinghaus_parameters(illusion_strength=2)
@@ -91,7 +109,7 @@ ill.ebbinghaus_image(parameters)
 
 ![](img/README_ebbinghaus1.png)
 
-### Müller-Lyer illusion Illusion
+### Müller-Lyer Illusion
 
 The [**Müller-Lyer
 illusion**](https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion) is
@@ -99,6 +117,16 @@ an optical illusion causing the participant to perceive two segments as
 being of different length depending on the shape of the arrows. The
 illusion was named after its creator the erman sociologist Franz Carl
 Müller-Lyer (1857–1916) in 1889.
+
+The Müller-Lyer illusion is a high-level integration illusion requiring
+contextual processing by the brain (King et al., 2017). The effect of
+this illusion in schizophrenics appears to be more mixed, with some
+studies finding greater resistance to it (e.g., Parnas et al., 2001) and
+others showing increased susceptibility (e.g., Kantrowitz et al., 2009).
+There is some evidence that susceptibility to the Müller-Lyer illusion
+is negatively correlated with autistic traits in the typical population
+(but not with the Ebbinghaus nor the Ponzo illusion) (Chouinard et al.,
+2013).
 
 ``` python
 parameters = ill.mullerlyer_parameters(illusion_strength=30)
@@ -116,6 +144,13 @@ context (the top line appear as longer, as it is interepreted as being
 in the distance). The illusion was named after its creator the Italian
 psychologist Mario Ponzo (1882–1960) in 1911, who suggested that the
 human mind judges an object’s size based on its background.
+
+Ponzo illusion is considered a high-level integration illusion as it is
+cognitively demanding in the sense that depth cues have to be correctly
+interpreted to signal changes in visual distance (King et al., 2017),
+requiring higher-level cortical processes (Song et al., 2011). Similar
+to the Ebbinghaus illusion, it is also shown to have less effect in
+biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).
 
 ``` python
 parameters = ill.ponzo_parameters(illusion_strength=20)
@@ -231,6 +266,10 @@ contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion. See
 [Keane et al.,
 2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
 
+Some studies have tested the effect of the Kanizsa Square in individuals
+with schizophrenia, but the finding of greater resistance to the
+illusion is not robust (King et al., 2017).
+
 ![](https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534@1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png)
 
 -   **TO DO** *(consider helping!)*
@@ -290,7 +329,7 @@ in their study *“Seeing Jesus in toast”*, famously (the study got
 awarded an Ignobel prize) investigated the correlates of face pareidolia
 by blending images of faces with noise-like images.
 
-Blending of images can be achieved:
+Blending of images can be achieved: as followed
 
 ``` python
 ill.pareidolia(pattern="docs/img/snake.png", 
@@ -343,8 +382,50 @@ See also [Zeljic et al.,
 
 ![](http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg)
 
-## References
+### Exctinction illusion
+
+See also [this
+tweet](https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1%20by%20Akiyoshi%20Kitaoka).
+
+-   **TO DO** *(consider helping!)*
+
+![](img/extinction_illusion.png)
+
+References
+----------
 
 Bertamini, M. (2017). [*Programming visual illusions for
 everyone*](https://www.programmingvisualillusionsforeveryone.online).
 Springer.
+
+Chouinard, P. A., Noulty, W. A., Sperandio, I., & Landry, O. (2013).
+Global processing during the Müller-Lyer illusion is distinctively
+affected by the degree of autistic traits in the typical population.
+Experimental Brain Research, 230(2), 219–231.
+
+Kantrowitz, J. T., Butler, P. D., Schecter, I., Silipo, G., & Javitt, D.
+C. (2009). Seeing the world dimly: The impact of early visual deficits
+on visual experience in schizophrenia. Schizophrenia Bulletin, 35(6),
+1085–1094. <doi:10.1093/schbul/sbp100>
+
+King, D. J., Hodgekins, J., Chouinard, P. A., Chouinard, V. A., &
+Sperandio, I. (2017). A review of abnormalities in the perception of
+visual illusions in schizophrenia. Psychonomic bulletin & review, 24(3),
+734-751.
+
+Parnas, J., Vianin, P., Saebye, D., Jansson, L., Volmer-Larsen, a, &
+Bovet, P. (2001). Visual binding abilities in the initial and advanced
+stages of schizophrenia. Acta Psychiatrica Scandinavica, 103(3),
+171–180. <doi:10.1034/j.1600-0447.2001.00160.x>
+
+Silverstein, S. M., & Keane, B. P. (2011). Perceptual organization
+impairment in schizophrenia and associated brain mechanisms: Review of
+research from 2005 to 2010. Schizophrenia Bulletin, 37(4), 690–699.
+<doi:10.1093/schbul/sbr052>
+
+Song, C., Schwarzkopf, D. S., & Rees, G. (2011). Interocular induction
+of illusory size perception. BMC Neuroscience 27, 12(1).
+
+Uhlhaas, P. J., Phillips, W. A., Schenkel, L. S., & Silverstein, S. M.
+(2006b). Theory of mind and perceptual context‐processing in
+schizophrenia. Cognitive Neuropsychiatry, 11(4), 416–436.
