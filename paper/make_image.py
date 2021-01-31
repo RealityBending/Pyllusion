@@ -11,7 +11,7 @@ img
 img.save("ponzo_for_ppt.png")
 
 
-# MOSAIC
+# MOSAIC DELBOEUF
 imgs = []
 for strength in [-2, -1, 0, 1, 2]:
     for diff in [-2, -1, 0, 1, 2]:
@@ -20,19 +20,13 @@ for strength in [-2, -1, 0, 1, 2]:
         PIL.ImageDraw.Draw(stim).text((20, 0),
                                     f"Strength = {strength}, Difference = {diff}",
                                     (0, 0, 0),
-                                    font = PIL.ImageFont.truetype("arial.ttf", 40))
+                                    font = PIL.ImageFont.truetype("arial.ttf", 50))
 
         imgs.append(stim)
 
-nrows, ncols = int(np.sqrt(len(imgs))), int(np.sqrt(len(imgs)))
-new = PIL.Image.new('RGB', (imgs[0].width * nrows, imgs[0].height * ncols))
-i = 0
-for row in range(nrows):
-    for col in range(ncols):
-        new.paste(imgs[i], (imgs[i].width * row, imgs[i].height * col))
-        i += 1
-
+new = ill.image_mosaic(imgs)
 final = new.copy()
+
 # Vertical lines
 for val in [-0.6, -0.2, 0.2, 0.6]:
     if(np.abs(val) == 0.2):
@@ -44,3 +38,4 @@ for val in [-0.6, -0.2, 0.2, 0.6]:
 
 final
 final.save("figure4.png")
+
