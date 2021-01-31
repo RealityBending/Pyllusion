@@ -85,7 +85,7 @@ This essentially allows researchers to describe, manipulate, process and share t
 
 Moreover, this parametric approach is scalable and works well with different kinds of illusions, as demonstrated in the software. Indeed, many visual illusions (especially the classical one) appears to have relatively similar parameters (such as a feature - like the angle or the size of some shapes - related to the strength of the illusion, or the color of the "target" objects), which in turn allows for a consistent programming interface (API).
 
-Interestingly, in most of the visual illusions, the strength of the illusion can be dissociated from the actual "difference" (which is impacted by the illusion). For instance, in the Müller-Lyer illusion (see **FIG ???**), the difference between the two horizontal segments can be modulated orthogonally from the angle of the "distractors" arrows. Allowing researchers to easily manipulate these parameters opens the door for potentially interesting paradigms and experiments. In the following section, we will describe with concrete examples how we operationalized such a parametric approach in the **Pyllusion** software.
+Interestingly, in most of the visual illusions, the strength of the illusion can be dissociated from the actual "difference" (which is impacted by the illusion). For instance, in the Müller-Lyer illusion (see **Fig. 2**), the difference between the two horizontal segments can be modulated orthogonally from the angle of the "distractors" arrows. Allowing researchers to easily manipulate these parameters opens the door for potentially interesting paradigms and experiments. In the following section, we will describe with concrete examples how we operationalized such a parametric approach in the **Pyllusion** software.
 
 
 
@@ -106,8 +106,10 @@ The source code is available under the MIT license on GitHub (*https://github.co
 <!-- Installation -->
 **Pyllusion** is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install Pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. Once the package is loaded, two steps are further required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
 
-We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to other the other illusions supported by ***Pyllusion***, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Pöggendorff illusion and more (see the full list with examples on the [**readme**](https://github.com/RealityBending/Pyllusion) page of the repository).
+We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to other the other illusions supported by ***Pyllusion***, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Poggendorff illusion and more (see **Fig. 3**, as well as the full list with examples on the [**readme**](https://github.com/RealityBending/Pyllusion) page of the repository).
 
+
+![Different historical visual illusions currently supported by ***Pyllusion***. These can all be generated using the parametric approach described in this paper, allowing for fully reproducible studies.](figure3.png)
 
 ## Step 1: Parameters
 
@@ -180,7 +182,7 @@ image = ill.delboeuf_image(parameters, height=600, width=800)
 image.save("my_illusion.png")
 ```
 
-Images can be easily post-processed using the the PIL library. For instance, with just a few lines, one can loop through different combinations of parameters, generate illusions, add text on them, and collate together in a mosaic, as can be seen in **Figure 3**.
+Images can be easily post-processed using the the PIL library. For instance, with just a few lines, one can loop through different combinations of parameters, generate illusions, add text on them, and collate together in a mosaic, as can be seen in **Fig. 4**.
 
 
 ![Different combinations of illusion strength and objective difference between the two target stimuli (the area of the red circles) for the Delboeuf illusion. The vertical central column shows different magnitudes of difference in both directions with no illusion, whereas the horizontal central row shows different magnitudes of illusion strength when the targets are of identical sizes. By using negative or positive values for the illusion strength, one can generate congruent or incongruent illusions (that reinforce or attenuate the actual difference).](figure4.png)
@@ -190,13 +192,9 @@ Images can be easily post-processed using the the PIL library. For instance, wit
 
 ### PsychoPy
 
-It is designed for specific integration within the *psychopy* [@peirce2007psychopy] package for PsychoPy experiment creation.
+Illusions being heavily used in experimental psychology, we designed ***Pyllusion*** so that it is directly usable within *PsychoPy* [@peirce2007psychopy] experiments. *PsychoPy* is an open-source, free and Python-based package for experiments creation, recognized for its timing accuracy [@bridges2020timing] and its GUI (the "builder"), which allows people non-familiar with code to easily build experiments.
 
-*Pyllusion* encompasses a function-oriented philosophy based on the *psychopy* package.
-
-
-
-While the functions can be incorporated within a PsychoPy builder, it can also be used without a GUI - the following example demonstrates the latter in generating a Delboeuf illusion.
+The *PsychoPy* "builder" interface allows to insert lines of code, which makes it easy to add the few lines necessary for displaying illusions. However, using the programming interface of *PsychoPy* (which underlies the graphical interface) reveals how seamless the integration with ***Pyllusion*** can be. The following code is a minimal example demonstrating how to use a Delboeuf illusion within a *PsychoPy* workflow. Running it opens a new window, displays the illusion in it, and then close it once an input (a key press) is detected.
 
 ```python
 # Load packages
@@ -218,16 +216,20 @@ event.waitKeys()  # Press any key to close
 window.close()
 ```
 
+This native integration with *PsychoPy* could appear as somewhat redundant and unnecessary, as one could pre-generate all the illusions as images, and simply load them in *PsychoPy* as images, instead of generating them from scratches using *PsychoPy*'s drawing functionalities. However, this direct integration in experiment building software has multiple benefits, such as avoiding the storage of heavy images (resulting in lighter experiments that can be uploaded and stored online), avoiding issues of image scaling and resolution on different screens, and allowing "on-the-fly" generation of stimuli, which opens the doors for novel adaptive paradigms where the modulation of illusions depends of the participant's input.
 
 # Future Plans and Developments
 
+<!-- Open source -->
 Being an open-source software, **Pyllusion** will continue to grow and evolve based on the community's input. While the direction and state of the package in the long term can be hard to predict, several short term goals can be mentioned.
 
 <!-- Add more illusions -->
-While illusions are of number (there are even machine learning algorithms generating visual illusions [REF]), a subset of them is commonly used (for historical reasons mainly, as well as for their relative simplicity). This set of classical, well-described, illusions, such as the Delboeuf, the Ponzo [ETC], is the primary focus of ***Pyllusion***. That said, due to the open and collaborative nature of the software, new illusions can always be added depending on the needs of the community.
+The initial release of ***Pyllusion*** focuses on a set of classical, well-described, visual illusions, as they are the most commonly used (for historical reasons mainly, as well as for their relative simplicity). That said, the number of existing illusions is virtually infinite [and great advances are made to generate new ones using machine learning; @watanabe2018illusory]. Thus, new illusions, as well as new illusion types (e.g., movement-based using GIF or video formats, or auditory illusions using sounds and music) could be added in the future. Due to the open and collaborative nature of the software, these evolution will be driven by the needs of the community, ensuring that ***Pyllusion*** remains cutting-edge, adaptable and useful to address future issues.
+
+While illusions are of number (there are even machine learning algorithms generating visual illusions [REF]).
 Movements based (that could be saved as GIFs).
 
-<!-- Add more illusions -->
+<!-- Add more engines -->
 Add support to more output engines eg., neuropsydia, opensesame
 
 <!-- Experiments & validation -->
