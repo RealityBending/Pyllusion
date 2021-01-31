@@ -104,35 +104,67 @@ It is not the first time that Python, illusions and cognitive science are brough
 The source code is available under the MIT license on GitHub (*https://github.com/RealityBending/Pyllusion/*). Its documentation (*https://realitybending.github.io/Pyllusion/*) is automatically built and rendered from the code and includes guides for installation, a description of the package's functions, with examples of use. Finally, the issue tracker on GitHub offers a convenient and public forum that allows users to report bugs, get help and gain insight into the development of the package. Additionally, the repository leverages a comprehensive test suite (using *pytest*) and continuous integration (using Travis-CI and GitHub actions) to ensure software stability and quality. The test coverage and build status can transparently be tracked via the GitHub repository. Thanks to its collaborative and open development, *Pyllusion* can continuously evolve, adapt, and integrate new functionalities to meet the needs of the community.
 
 <!-- Installation -->
-**Pyllusion** is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install Pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`.
+**Pyllusion** is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install Pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. Once the package is loaded, two steps are further required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
 
-
+We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to other the other illusions supported by ***Pyllusion***, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Pöggendorff illusion and more (see the full list with examples on the [**readme**](https://github.com/RealityBending/Pyllusion) page of the repository).
 
 
 ## Step 1: Parameters
 
+The parameters for each illusions can be generated using the `IllusionName_parameters()` function. Many optional argument are available to tweak, which list, description and default values can be find in the API documentation (https://realitybending.github.io/Pyllusion/functions.html). In the example below, we specify the `illusion_strength` argument, and the function will compute all of the remaining parameters accordingly.
+
+```python
+# Load package
+import pyllusion
+
+# Create parameters
+parameters = pyllusion.delboeuf_parameters(illusion_strength=2)
+
+# Visualize parameters
+print(parameters)
+```
+```
+{'Difference': 0,
+ 'Size_Inner_Left': 0.25,
+ 'Size_Inner_Right': 0.25,
+ 'Size_Inner_Difference': 0.0,
+ 'Illusion_Strength': 2,u
+ 'Size_Outer_Left': 0.3,
+ 'Size_Outer_Right': 0.52,
+ 'Distance_Centers': 1,
+ 'Distance_Edges_Outer': 0.59,
+ 'Position_Left': -0.5,
+ 'Position_Right': 0.5,
+ ...}
+```
+
+As one can see, the output of this function is a basic Python dictionary (as denoted by the curly brackets), which makes it easy to further process, modify, share, store or investigate. This "container" object stores the values for a large number of parameters, such as the size of each (inner and outer) circles, the distance between the centers and edges of the circles, their position, etc.), and is passed to a "rendering" function which converts this set of parameters into the final output.
 
 
-Currently, *Pyllusion* encompasses several different illusions, including the Delboeuf illusion, Ebbinghaus illusion, Müller-Lyer illusion, Ponzo illusion, Vertical–horizontal illusion, Zöllner illusion, Rod and Frame illusion and Poggendorff illusion.
+Note the two main parameters, `illusion_strength`, and `difference`, have fairly generic names. For instance, in the Ponzo illusion, a less abstract names for these arguments could have been `difference_size_outer_circles` and `difference_size_inner_circles`). Indeed, the meaning of these parameters depends on the nature of the illusion. For instance, while `illusion_strength` currently refers to the  the area of the outer circles in the Delboeuf illusion, it refers to the angle of the non-horizontal lines in the Ponzo illusion.
 
-Note the two main parameters, *illusion_strength*, and *difference*, have abstract names although their relative meanings crucially depend on the nature of the illusion. For instance, in the Ponzo illusion, *illusion_strength* currently refers to the angle of the non-horizontal lines, whereas the same argument modulates the area of the outer circles in the Delboeuf illusion. Conceptually, this term represents the strength of the surrounding context in achieving a biased illusory perception of the relative target features (see **Fig. 3**).
+Conceptually, this term represents the strength of the surrounding context in achieving a biased illusory perception of the relative target features (see **Fig. 3**). The decision of unifying the "illusion strength" parameter under the same name was further motivated by the aim of having a consistent naming scheme for the API. This means that users can experiment with new illusions by modulating the illusion strength, without the need of learning what is the actual physical parameter (e.g., "angle of the distractor lines") driving the illusion.
 
-This decision of unifying the "illusion strength" parameter under the same name was motivated by the aim of having a consistent naming scheme for the API. This means that users can experiment with new illusions by modulating the illusion strength, without the need of learning what is the actual physical parameter (e.g., "angle of the distractor lines") driving the illusion.
-
-![The modulation of illusion strength and the achieved illusory perception for the respective illusions, Delboeuf illusion and Ponzo illusion.](figure3.png)
+<!-- ![Meaning and illusory perception effect of 'illusion strength' for the Delboeuf illusion and the Ponzo illusion.](figure3.png) -->
 
 
 ## Step 2: Rendering
 
+This dictionary, containing the parameters of the illusion, can then be passed to a "rendering" function, which actually draws (or displays) the illusion according to the specifications. Render-specific arguments are available at this stage, such as the dimensions of the image. Two output-engines are currently supported, images [in any format thanks to the PIL Python library for image processing; @clark2015pillow], or as *PsychoPy* stimuli [@peirce2007psychopy], one of the most popular psychological experiments software.
+
+
 <!-- pass parameters into an output generator (as images or psychopy objects, psychopy being the most common experimentation software in psychology) -->
 <!-- two engines available in pyllusion as of now -->
 
-*Pyllusion* encompasses a function-oriented philosophy based on the *psychopy* package. Each function is illusion-specific and hence, uniform function names (in the form `illusiontype_functiongoal()`) are used in the process of creating the illusion.
-While the functions can be incorporated within a PsychoPy builder, it can also be used without a GUI - the following example demonstrates the latter in generating a Delboeuf illusion.
-Parameters specifying the illusion difficulty and strength are generated using `*_parameters()` before executing the display via `*_psychopy()`.
 
 
 ### Images
+
+Each function is illusion-specific and hence, uniform function names (in the form `IllusionName_FunctionGoal()`) are used in the process of creating the illusion. Parameters are computed using `*_parameters()` (the asterisk representing the illusion name), and images can be generated via `*_image()` (or similarly, `*_psychopy()`, as we will see later).
+
+
+The following Python code shows the full and reproducible code to generate a PNG image with a Delboeuf illusion. However, note that the parameters generation and the rendering have been dissociated for didactic reasons. In practice, the arguments related to the parameters of the illusion can be passed directly to the rendering function, which will automatically compute the parameters if no dictionary is passed. Similarly, the saving step can be done directly by adding `.save()` at the end of the the `*_image()` function, which reduces the amount of Python lines to one.
+
 
 ```python
 # Load package
@@ -142,15 +174,29 @@ import pyllusion as ill
 parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
 
 # Generate image from parameters
-ill.delboeuf_image(parameters)
+image = ill.delboeuf_image(parameters, height=600, width=800)
+
+# Save it
+image.save("my_illusion.png")
 ```
 
-![Delboeuf Illusion generated by Pyllusion using `difficulty=2` and `illusion_strength=1` in `delboeuf_parameters()`](figures/example_delboeuf.PNG)
+Images can be easily post-processed using the the PIL library. For instance, with just a few lines, one can loop through different combinations of parameters, generate illusions, add text on them, and collate together in a mosaic, as can be seen in **Figure 3**.
+
+
+![Different combinations of illusion strength and objective difference between the two target stimuli (the area of the red circles) for the Delboeuf illusion. The vertical central column shows different magnitudes of difference in both directions with no illusion, whereas the horizontal central row shows different magnitudes of illusion strength when the targets are of identical sizes. By using negative or positive values for the illusion strength, one can generate congruent or incongruent illusions (that reinforce or attenuate the actual difference).](figure4.png)
+
+<!-- ![Delboeuf Illusion generated by Pyllusion using `difficulty=2` and `illusion_strength=1` in `delboeuf_parameters()`.](figures/example_delboeuf.PNG) -->
 
 
 ### PsychoPy
 
 It is designed for specific integration within the *psychopy* [@peirce2007psychopy] package for PsychoPy experiment creation.
+
+*Pyllusion* encompasses a function-oriented philosophy based on the *psychopy* package.
+
+
+
+While the functions can be incorporated within a PsychoPy builder, it can also be used without a GUI - the following example demonstrates the latter in generating a Delboeuf illusion.
 
 ```python
 # Load packages
