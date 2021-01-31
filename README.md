@@ -7,8 +7,7 @@
 
 **A Parametric Framework to Generate Visual Illusions using Python**
 
-Overview
-========
+# Overview
 
 Visual illusions are fascinating phenomena that have been used and
 studied by artists and scientists for centuries, leading to important
@@ -30,36 +29,31 @@ Describing illusions using a set of parameters aims at fostering
 generate and manipulate similar stimuli regardless of the display format
 and software.
 
-PsychoPy Integration
---------------------
+## PsychoPy Integration
 
 Pyllusion can be easily integrated into
 [PsychoPy](https://www.psychopy.org/) for running experiments as well!
 
 ![](docs/img/psychopy_example.gif)
 
-Installation
-------------
+## Installation
 
     pip install https://github.com/RealityBending/Pyllusion/zipball/master
 
-Contribution
-------------
+## Contribution
 
 You have some ideas? Want to improve things, add new illusions, and help
 us shake people’s brain? Let us know, we would be very happy to have you
 on board :relaxed:.
 
-Citation
---------
+## Citation
 
 You can cite the package as follows:
 
     Makowski, D., Pham, T., Lau, Z. J. (2020). Pyllusion: A Parametric Framework to Generate Visual Illusions using Python. GitHub. 
     Retrieved from https://github.com/RealityBending/Pyllusion
 
-Features
---------
+## Features
 
 ### Delboeuf Illusion
 
@@ -288,7 +282,7 @@ between them two. Then, try focusing on this new red dot until it gets
 very sharp and until your eyes stabilize. You should then be able to
 perceive the letters **3D** as carved in the figure
 
-It can take a bit of time to “get there”, but once you are used to it,
+It can take a bit of time to “get there,” but once you are used to it,
 it’s a mind-blowing experience 🤯
 
 ``` python
@@ -391,8 +385,7 @@ tweet](https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1%20
 
 ![](docs/img/extinction_illusion.png)
 
-References
-----------
+## References
 
 Bertamini, M. (2017). [*Programming visual illusions for
 everyone*](https://www.programmingvisualillusionsforeveryone.online).
