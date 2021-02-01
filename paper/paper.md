@@ -226,17 +226,11 @@ Being an open-source software, **Pyllusion** will continue to grow and evolve ba
 <!-- Add more illusions -->
 The initial release of ***Pyllusion*** focuses on a set of classical, well-described, visual illusions, as they are the most commonly used (for historical reasons mainly, as well as for their relative simplicity). That said, the number of existing illusions is virtually infinite [and great advances are made to generate new ones using machine learning; @watanabe2018illusory]. Thus, new illusions, as well as new illusion types (e.g., movement-based using GIF or video formats, or auditory illusions using sounds and music) could be added in the future. Due to the open and collaborative nature of the software, these evolution will be driven by the needs of the community, ensuring that ***Pyllusion*** remains cutting-edge, adaptable and useful to address future issues.
 
-While illusions are of number (there are even machine learning algorithms generating visual illusions [REF]).
-Movements based (that could be saved as GIFs).
-
 <!-- Add more engines -->
-Add support to more output engines eg., neuropsydia, opensesame
+Adding new illusions refers mostly to implementing an algorithm to conceptualise and essentialize them as sets of parameters, which is by design independent from their rendering. However, more rendering engines could be added down the road. For instance, one of the first milestone could take the form of an integration with other Python-based experiment building software, such as *OpenSesame* [@mathot2012opensesame] or *Neuropsydia* [@makowski2017neuropsydia]. Additionnaly, a conversion to other languages could also be an interesting feature, especially *JavaScript*, as this would allow a closer integration with web browser apps [and online experiments software, such as *jsPsych*; @de2016psychophysics; or *lab.js* ; @henninger2020labjs].
 
 <!-- Experiments & validation -->
-Validation to see how the illusion strength values affect the perception. Standardize the values.
-
-
-
+Finally, we look forward the creation of studies that would investigate how, for each illusion, the modulation of the parameters affect behaviour, conscious perception of neural processing. This would in turn allow for a better understanding of the commonalities and differences between these fascinating stimuli. As such, we hope that our tool contributes to the developpment of a strong axis that will unite the community working with illusions to push the field forward.
 
 
 # Acknowledgments
