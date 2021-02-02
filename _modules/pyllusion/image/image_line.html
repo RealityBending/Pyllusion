@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pyllusion.image.image_line &mdash; Pyllusion 0.0.10 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/example_gallery_styles.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Pyllusion
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#contribution">Contribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#citation">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#delboeuf-illusion">Delboeuf Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#ebbinghaus-illusion">Ebbinghaus Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#muller-lyer-illusion">Müller-Lyer Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#ponzo-illusion">Ponzo Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#verticalhorizontal-illusion">Vertical–horizontal Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#zollner-illusion">Zöllner Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#rod-and-frame-illusion">Rod and Frame Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#poggendorff-illusion">Poggendorff Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#simultaneous-contrast-illusion">Simultaneous Contrast illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#white-illusion">White Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#kanizsa-square">Kanizsa Square</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#autostereograms">Autostereograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#pareidolia">Pareidolia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#transparency-from-motion-tfm">Transparency From Motion (TFM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#pinna-illusion">Pinna illusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#psychopy-integration">PsychoPy Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.illusion">Illusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.image">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.movement">Movement</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Pyllusion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyllusion.image.image_line</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyllusion.image.image_line</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">PIL.Image</span><span class="o">,</span> <span class="nn">PIL.ImageDraw</span><span class="o">,</span> <span class="nn">PIL.ImageFilter</span><span class="o">,</span> <span class="nn">PIL.ImageFont</span><span class="o">,</span> <span class="nn">PIL.ImageOps</span>
+
+<span class="kn">from</span> <span class="nn">.utilities</span> <span class="kn">import</span> <span class="n">_coord_line</span>
+
+
+<div class="viewcode-block" id="image_line"><a class="viewcode-back" href="../../../functions.html#pyllusion.image.image_line">[docs]</a><span class="k">def</span> <span class="nf">image_line</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">x1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">y1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">x2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">rotate</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">blur</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">antialias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">adjust_width</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">adjust_height</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a PIL image of a line.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    width : int</span>
+<span class="sd">        Width of the returned image.</span>
+<span class="sd">    height : int</span>
+<span class="sd">        Height of the returned image.</span>
+<span class="sd">    x : int</span>
+<span class="sd">        x-coordinates of the center of the line, from -1 to 1.</span>
+<span class="sd">    y : int</span>
+<span class="sd">        y-coordinates of the center of the line, from -1 to 1.</span>
+<span class="sd">    x1, x2 : int</span>
+<span class="sd">        x-coordinates of the ends of the line, from -1 to 1. If not None, x is set to None.</span>
+<span class="sd">    y1, y2 : int</span>
+<span class="sd">        y-coordinates of the ends of the line, from -1 to 1. If not None, y is set to None.</span>
+<span class="sd">    length : int</span>
+<span class="sd">        Length of the line returned.</span>
+<span class="sd">    rotate : float</span>
+<span class="sd">        The orientation of the line in degrees, 0 being vertical and</span>
+<span class="sd">        positive values rotating clockwise. Beyond 360 and below zero values wrap appropriately.</span>
+<span class="sd">    size : int</span>
+<span class="sd">        Width of the line returned.</span>
+<span class="sd">    color : str</span>
+<span class="sd">        Color of the line returned.</span>
+<span class="sd">    background : str</span>
+<span class="sd">        Background color.</span>
+<span class="sd">    blur : int</span>
+<span class="sd">        The degree of blur filter for the image returned.</span>
+<span class="sd">    antialias : bool</span>
+<span class="sd">        If true, resize the image using a high-quality downsampling filter.</span>
+<span class="sd">    image : Image</span>
+<span class="sd">        If None, an image will be created.</span>
+<span class="sd">    adjust_width : bool</span>
+<span class="sd">        If set to True and image is not None, the x-coordinates of the line can be adjusted</span>
+<span class="sd">        to the height and width of the input image.</span>
+<span class="sd">    adjust_height : bool</span>
+<span class="sd">        If set to True and image is not None, the y-coordinates of the line can be adjusted</span>
+<span class="sd">        to the height and width of the input image.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Image</span>
+<span class="sd">        Image of a line.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_line(x=0, y=0, length=1)</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_line(image=image, x1=0, y1=0, length=0.5, rotate=90, color=&quot;green&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_line(image=image, x1=0, y1=0, length=0.5, rotate=45)</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_line(image=image, x=0, y=0, length=1, rotate=135, color=&quot;blue&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_line(image=image, length=1, rotate=20, color=&quot;red&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_line(image=image, x1=0, y1=0, length=0.5, rotate=-90, size=3)</span>
+<span class="sd">    &gt;&gt;&gt; image = ill.image_line(image=image, x1=-1, y1=-1, length=1, rotate=45, size=5, blur=0.005)</span>
+<span class="sd">    &gt;&gt;&gt; image</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get image</span>
+    <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">)</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
+
+    <span class="c1"># Upsample</span>
+    <span class="k">if</span> <span class="n">antialias</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mi">3</span>
+
+    <span class="c1"># Create mask</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+    <span class="n">draw</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="c1"># Get coordinates</span>
+    <span class="n">coord</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="n">_coord_line</span><span class="p">(</span>
+        <span class="n">mask</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+        <span class="n">x1</span><span class="o">=</span><span class="n">x1</span><span class="p">,</span>
+        <span class="n">y1</span><span class="o">=</span><span class="n">y1</span><span class="p">,</span>
+        <span class="n">x2</span><span class="o">=</span><span class="n">x2</span><span class="p">,</span>
+        <span class="n">y2</span><span class="o">=</span><span class="n">y2</span><span class="p">,</span>
+        <span class="n">length</span><span class="o">=</span><span class="n">length</span><span class="p">,</span>
+        <span class="n">angle</span><span class="o">=</span><span class="n">rotate</span><span class="p">,</span>
+        <span class="n">adjust_width</span><span class="o">=</span><span class="n">adjust_width</span><span class="p">,</span>
+        <span class="n">adjust_height</span><span class="o">=</span><span class="n">adjust_height</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Draw</span>
+    <span class="n">draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+
+    <span class="c1"># resize with antialiasing</span>
+    <span class="k">if</span> <span class="n">antialias</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
+
+    <span class="c1"># Blur the image a bit</span>
+    <span class="k">if</span> <span class="n">blur</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">ImageFilter</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">blur</span> <span class="o">*</span> <span class="n">height</span><span class="p">))</span>
+
+    <span class="c1"># Merge and return</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">alpha_composite</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Dominique Makowski.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

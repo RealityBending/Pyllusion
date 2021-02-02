@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pyllusion.illusion.ebbinghaus &mdash; Pyllusion 0.0.10 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/example_gallery_styles.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Pyllusion
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#contribution">Contribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#citation">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#delboeuf-illusion">Delboeuf Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#ebbinghaus-illusion">Ebbinghaus Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#muller-lyer-illusion">Müller-Lyer Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#ponzo-illusion">Ponzo Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#verticalhorizontal-illusion">Vertical–horizontal Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#zollner-illusion">Zöllner Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#rod-and-frame-illusion">Rod and Frame Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#poggendorff-illusion">Poggendorff Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#simultaneous-contrast-illusion">Simultaneous Contrast illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#white-illusion">White Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#kanizsa-square">Kanizsa Square</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#autostereograms">Autostereograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#pareidolia">Pareidolia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#transparency-from-motion-tfm">Transparency From Motion (TFM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#pinna-illusion">Pinna illusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#psychopy-integration">PsychoPy Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.illusion">Illusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.image">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.movement">Movement</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Pyllusion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyllusion.illusion.ebbinghaus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyllusion.illusion.ebbinghaus</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">PIL.Image</span><span class="o">,</span> <span class="nn">PIL.ImageDraw</span><span class="o">,</span> <span class="nn">PIL.ImageFilter</span><span class="o">,</span> <span class="nn">PIL.ImageFont</span><span class="o">,</span> <span class="nn">PIL.ImageOps</span>
+<span class="kn">from</span> <span class="nn">.delboeuf</span> <span class="kn">import</span> <span class="n">_delboeuf_parameters_sizeinner</span><span class="p">,</span> <span class="n">_delboeuf_parameters_sizeouter</span>
+<span class="kn">from</span> <span class="nn">..image</span> <span class="kn">import</span> <span class="n">image_circle</span>
+<span class="kn">from</span> <span class="nn">..psychopy.psychopy_circles</span> <span class="kn">import</span> <span class="n">psychopy_circle</span>
+
+
+
+<div class="viewcode-block" id="ebbinghaus_psychopy"><a class="viewcode-back" href="../../../functions.html#pyllusion.illusion.ebbinghaus_psychopy">[docs]</a><span class="k">def</span> <span class="nf">ebbinghaus_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a PsychoPy stimulus of the Ebbinghaus illusion.</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    The Ebbinghaus illusion is an optical illusion of relative size perception,</span>
+<span class="sd">    where circles of identical size appear as different because of their</span>
+<span class="sd">    surrounding context.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    window : object</span>
+<span class="sd">        The window object in which the stimulus will be rendered.</span>
+<span class="sd">    parameters : dict</span>
+<span class="sd">        Parameters of the Ebbinghaus illusion generated by `ebbinghaus_parameters()`.</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Additional arguments passed into `ebbinghaus_parameters()`.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    In-place modification of the PsychoPy window (No explicit return).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; from psychopy import visual, event</span>
+
+<span class="sd">    &gt;&gt;&gt; # Create parameters</span>
+<span class="sd">    &gt;&gt;&gt; parameters = ill.ebbinghaus_parameters(illusion_strength=1, difference=2)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Initiate Window</span>
+<span class="sd">    &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&quot;white&quot;)</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; # Display illusion</span>
+<span class="sd">    &gt;&gt;&gt; ill.ebbinghaus_psychopy(window=window, parameters=parameters)</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; # Refresh and close window    </span>
+<span class="sd">    &gt;&gt;&gt; window.flip()</span>
+<span class="sd">    &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
+<span class="sd">    &gt;&gt;&gt; window.close()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Create white canvas and get drawing context</span>
+    <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="n">ebbinghaus_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Loop circles</span>
+    <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Left&quot;</span><span class="p">,</span> <span class="s2">&quot;Right&quot;</span><span class="p">]:</span>
+        <span class="n">_ebbinghaus_psychopy_draw</span><span class="p">(</span><span class="n">window</span><span class="p">,</span>
+                                  <span class="n">parameters</span><span class="p">,</span>
+                                  <span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">,</span>
+                                  <span class="n">color_inner</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+                                  <span class="n">color_outer</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span></div>
+    
+
+<div class="viewcode-block" id="ebbinghaus_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.illusion.ebbinghaus_image">[docs]</a><span class="k">def</span> <span class="nf">ebbinghaus_image</span><span class="p">(</span>
+    <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a PIL image of the Ebbinghaus illusion.</span>
+
+
+<span class="sd">    The Ebbinghaus illusion is an optical illusion of relative size perception,</span>
+<span class="sd">    where circles of identical size appear as different because of their</span>
+<span class="sd">    surrounding context.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parameters : dict</span>
+<span class="sd">        Parameters of the Ebbinghaus illusion generated by `ebbinghaus_parameters()`.</span>
+<span class="sd">    width : int</span>
+<span class="sd">        Width of the returned image.</span>
+<span class="sd">    height : int</span>
+<span class="sd">        Height of the returned image.</span>
+<span class="sd">    background : str</span>
+<span class="sd">        Color of the background.</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Additional arguments passed into `ebbinghaus_parameters()`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Image</span>
+<span class="sd">        Image of the Ebbinghaus illusion.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; parameters = ill.ebbinghaus_parameters(illusion_strength=1, difference=2)</span>
+<span class="sd">    &gt;&gt;&gt; ill.ebbinghaus_image(parameters)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create white canvas and get drawing context</span>
+    <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="n">ebbinghaus_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Background</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
+
+    <span class="c1"># Outer circles</span>
+    <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Left&quot;</span><span class="p">,</span> <span class="s2">&quot;Right&quot;</span><span class="p">]:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">_ebbinghaus_image_draw</span><span class="p">(</span><span class="n">image</span><span class="p">,</span>
+                                       <span class="n">parameters</span><span class="p">,</span>
+                                       <span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">,</span>
+                                       <span class="n">color_inner</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+                                       <span class="n">color_outer</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span></div>
+
+
+<span class="k">def</span> <span class="nf">_ebbinghaus_psychopy_draw</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;Left&quot;</span><span class="p">,</span> <span class="n">color_inner</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">color_outer</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">):</span>
+
+    <span class="c1"># Draw inner circle</span>
+    <span class="n">psychopy_circle</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Size_Inner_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">color_inner</span><span class="p">,</span> <span class="n">outline_color</span><span class="o">=</span><span class="n">color_inner</span><span class="p">,</span> <span class="n">outline</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># Get width/height ratio to have equidistant circles</span>
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Adjust for non-squared screen</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_Outer_x_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">]</span> <span class="o">/</span> <span class="n">ratio</span> 
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    
+    <span class="c1"># Plot each outer circles</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_Outer_x_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">])):</span>
+        <span class="n">psychopy_circle</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Size_Outer_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span>
+                        <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_Outer_y_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+                        <span class="n">color</span><span class="o">=</span><span class="n">color_outer</span><span class="p">,</span> <span class="n">outline_color</span><span class="o">=</span><span class="n">color_outer</span><span class="p">,</span> <span class="n">outline</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        
+        
+<span class="k">def</span> <span class="nf">_ebbinghaus_image_draw</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;Left&quot;</span><span class="p">,</span> <span class="n">color_inner</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">color_outer</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">):</span>
+
+    <span class="c1"># Draw inner circle</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">image_circle</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Size_Inner_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_inner</span><span class="p">)</span>
+
+    <span class="c1"># Get width/height ratio to have equidistant circles</span>
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Adjust for non-squared screen</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_Outer_x_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">]</span> <span class="o">/</span> <span class="n">ratio</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+    <span class="c1"># Plot each outer circles</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_Outer_x_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">])):</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image_circle</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Size_Outer_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;Position_Outer_y_&quot;</span> <span class="o">+</span> <span class="n">side</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color_outer</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span>
+
+
+
+<span class="c1"># ------------------------------------------</span>
+<span class="c1"># Parameters</span>
+<span class="c1"># ------------------------------------------</span>
+
+<div class="viewcode-block" id="ebbinghaus_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.illusion.ebbinghaus_parameters">[docs]</a><span class="k">def</span> <span class="nf">ebbinghaus_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_min</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">distance_auto</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute Parameters for Ebbinghaus Illusion.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    illusion_strength : float</span>
+<span class="sd">        The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.</span>
+<span class="sd">        Specifically, the size of right outer circles relative to the left (in percentage, e.g, if ``difference=1``,</span>
+<span class="sd">        it means that the right outer circles will be 100% bigger, i.e., 2 times bigger than the left</span>
+<span class="sd">        outer circles). A negative sign reflects the size difference of the left outer circles relative</span>
+<span class="sd">        to the right, i.e., ``difference=-1`` means the left outer circles will be 100% bigger than the</span>
+<span class="sd">        right outer circles.</span>
+<span class="sd">    difference : float</span>
+<span class="sd">        The objective size difference of the inner circles.</span>
+<span class="sd">        Specifically, the size of left inner circle relative to the right (in percentage, e.g., if ``difference=1``,</span>
+<span class="sd">        it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).</span>
+<span class="sd">         A negative sign reflects the size difference of the right inner circle relative to the left, i.e.,</span>
+<span class="sd">         ``difference=-1`` means the right inner circle will be 100% bigger than the left inner circle.</span>
+<span class="sd">    size_min : float</span>
+<span class="sd">        Size of smaller inner circle.</span>
+<span class="sd">    distance : float</span>
+<span class="sd">        Distance between circles.</span>
+<span class="sd">    distance_auto : bool</span>
+<span class="sd">        If true, distance is between edges (fixed spacing), if false, between centers (fixed location).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Dictionary of parameters of the Ebbinghaus illusion.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Size inner circles</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="n">_delboeuf_parameters_sizeinner</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="n">difference</span><span class="p">,</span> <span class="n">size_min</span><span class="o">=</span><span class="n">size_min</span><span class="p">)</span>
+    <span class="n">inner_size_left</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Size_Inner_Left&quot;</span><span class="p">]</span>
+    <span class="n">inner_size_right</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Size_Inner_Right&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Position</span>
+    <span class="n">position_left</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+    <span class="n">position_right</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+    <span class="c1"># Base size outer circles</span>
+    <span class="n">outer_size_left</span> <span class="o">=</span> <span class="n">size_min</span>
+    <span class="n">outer_size_right</span> <span class="o">=</span> <span class="n">size_min</span>
+
+    <span class="c1"># Actual outer size based on illusion</span>
+    <span class="n">outer_size_left</span><span class="p">,</span> <span class="n">outer_size_right</span> <span class="o">=</span> <span class="n">_delboeuf_parameters_sizeouter</span><span class="p">(</span><span class="n">outer_size_left</span><span class="p">,</span>
+                                                                       <span class="n">outer_size_right</span><span class="p">,</span>
+                                                                       <span class="n">difference</span><span class="o">=</span><span class="n">difference</span><span class="p">,</span>
+                                                                       <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span><span class="p">,</span>
+                                                                       <span class="n">both_sizes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Location outer circles</span>
+    <span class="n">l_outer_x</span><span class="p">,</span> <span class="n">l_outer_y</span><span class="p">,</span> <span class="n">l_distance_edges</span> <span class="o">=</span> <span class="n">_ebbinghaus_parameters_outercircles</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">position_left</span><span class="p">,</span>
+                                                            <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                            <span class="n">size_inner</span><span class="o">=</span><span class="n">inner_size_left</span><span class="p">,</span>
+                                                            <span class="n">size_outer</span><span class="o">=</span><span class="n">outer_size_left</span><span class="p">,</span>
+                                                            <span class="n">n</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+    <span class="n">r_outer_x</span><span class="p">,</span> <span class="n">r_outer_y</span><span class="p">,</span> <span class="n">r_distance_edges</span> <span class="o">=</span> <span class="n">_ebbinghaus_parameters_outercircles</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">position_right</span><span class="p">,</span>
+                                                            <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                            <span class="n">size_inner</span><span class="o">=</span><span class="n">inner_size_right</span><span class="p">,</span>
+                                                            <span class="n">size_outer</span><span class="o">=</span><span class="n">outer_size_right</span><span class="p">,</span>
+                                                            <span class="n">n</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Get location and distances</span>
+    <span class="k">if</span> <span class="n">distance_auto</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="n">distance_centers</span> <span class="o">=</span> <span class="n">distance</span>
+        <span class="n">position_left</span><span class="p">,</span> <span class="n">position_right</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">distance_centers</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">distance_centers</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">distance_edges_inner</span> <span class="o">=</span> <span class="n">distance_centers</span> <span class="o">-</span> <span class="p">(</span><span class="n">inner_size_left</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">inner_size_right</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">distance_edges_outer</span> <span class="o">=</span> <span class="n">distance_centers</span> <span class="o">-</span> <span class="n">l_distance_edges</span> <span class="o">-</span> <span class="p">(</span><span class="n">outer_size_left</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">r_distance_edges</span> <span class="o">-</span> <span class="p">(</span><span class="n">outer_size_right</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">distance_edges_outer</span> <span class="o">=</span> <span class="n">distance</span>
+        <span class="n">distance_centers</span> <span class="o">=</span> <span class="n">distance_edges_outer</span> <span class="o">+</span> <span class="n">l_distance_edges</span> <span class="o">+</span> <span class="p">(</span><span class="n">outer_size_left</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">r_distance_edges</span> <span class="o">+</span> <span class="p">(</span><span class="n">outer_size_right</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">distance_edges_inner</span> <span class="o">=</span> <span class="n">distance_centers</span> <span class="o">-</span> <span class="p">(</span><span class="n">outer_size_left</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">outer_size_right</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">position_left</span><span class="p">,</span> <span class="n">position_right</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">distance_centers</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">distance_centers</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">parameters</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="s2">&quot;Illusion&quot;</span><span class="p">:</span> <span class="s2">&quot;Ebbinghaus&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Illusion_Strength&quot;</span><span class="p">:</span> <span class="n">illusion_strength</span><span class="p">,</span>
+        <span class="s2">&quot;Illusion_Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Congruent&quot;</span> <span class="k">if</span> <span class="n">illusion_strength</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Incongruent&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;Size_Outer_Left&quot;</span><span class="p">:</span> <span class="n">outer_size_left</span><span class="p">,</span>
+        <span class="s2">&quot;Size_Outer_Right&quot;</span><span class="p">:</span> <span class="n">outer_size_right</span><span class="p">,</span>
+
+        <span class="s2">&quot;Distance_Centers&quot;</span><span class="p">:</span> <span class="n">distance_centers</span><span class="p">,</span>
+        <span class="s2">&quot;Distance_Edges_Inner&quot;</span><span class="p">:</span> <span class="n">distance_edges_inner</span><span class="p">,</span>
+        <span class="s2">&quot;Distance_Edges_Outer&quot;</span><span class="p">:</span> <span class="n">distance_edges_outer</span><span class="p">,</span>
+
+        <span class="s2">&quot;Size_Inner_Smaller&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">inner_size_left</span><span class="p">,</span> <span class="n">inner_size_right</span><span class="p">]),</span>
+        <span class="s2">&quot;Size_Inner_Larger&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">inner_size_left</span><span class="p">,</span> <span class="n">inner_size_right</span><span class="p">]),</span>
+        <span class="s2">&quot;Size_Outer_Smaller&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">outer_size_left</span><span class="p">,</span> <span class="n">outer_size_right</span><span class="p">]),</span>
+        <span class="s2">&quot;Size_Outer_Larger&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">outer_size_left</span><span class="p">,</span> <span class="n">outer_size_right</span><span class="p">]),</span>
+
+        <span class="s2">&quot;Position_Outer_x_Left&quot;</span><span class="p">:</span> <span class="n">l_outer_x</span><span class="p">,</span>
+        <span class="s2">&quot;Position_Outer_y_Left&quot;</span><span class="p">:</span> <span class="n">l_outer_y</span><span class="p">,</span>
+        <span class="s2">&quot;Position_Outer_x_Right&quot;</span><span class="p">:</span> <span class="n">r_outer_x</span><span class="p">,</span>
+        <span class="s2">&quot;Position_Outer_y_Right&quot;</span><span class="p">:</span> <span class="n">r_outer_y</span><span class="p">,</span>
+
+        <span class="s2">&quot;Position_Left&quot;</span><span class="p">:</span> <span class="n">position_left</span><span class="p">,</span>
+        <span class="s2">&quot;Position_Right&quot;</span><span class="p">:</span> <span class="n">position_right</span>
+        <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">parameters</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">_ebbinghaus_parameters_outercircles</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_inner</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">size_outer</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">):</span>
+    <span class="c1"># Find distance between center of inner circle and centers of outer circles</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">size_inner</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">size_outer</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span>
+
+    <span class="c1"># Find n</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+        <span class="n">perimeter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">distance</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="n">perimeter</span> <span class="o">/</span> <span class="n">size_outer</span><span class="p">)</span>
+
+    <span class="c1"># Get position of outer circles</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">circle_x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">distance</span><span class="p">)</span>
+    <span class="n">circle_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">*</span> <span class="n">distance</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">circle_x</span><span class="p">,</span> <span class="n">circle_y</span><span class="p">,</span> <span class="n">distance</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Dominique Makowski.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

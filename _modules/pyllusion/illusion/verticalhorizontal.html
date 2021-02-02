@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pyllusion.illusion.verticalhorizontal &mdash; Pyllusion 0.0.10 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/example_gallery_styles.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Pyllusion
+          
+
+          
+            
+            <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#contribution">Contribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#citation">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#delboeuf-illusion">Delboeuf Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#ebbinghaus-illusion">Ebbinghaus Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#muller-lyer-illusion">Müller-Lyer Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#ponzo-illusion">Ponzo Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#verticalhorizontal-illusion">Vertical–horizontal Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#zollner-illusion">Zöllner Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#rod-and-frame-illusion">Rod and Frame Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#poggendorff-illusion">Poggendorff Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#simultaneous-contrast-illusion">Simultaneous Contrast illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#white-illusion">White Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#kanizsa-square">Kanizsa Square</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#autostereograms">Autostereograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#pareidolia">Pareidolia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#transparency-from-motion-tfm">Transparency From Motion (TFM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#pinna-illusion">Pinna illusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#psychopy-integration">PsychoPy Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.illusion">Illusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.image">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../functions.html#module-pyllusion.movement">Movement</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Pyllusion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyllusion.illusion.verticalhorizontal</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyllusion.illusion.verticalhorizontal</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">PIL.Image</span><span class="o">,</span> <span class="nn">PIL.ImageDraw</span><span class="o">,</span> <span class="nn">PIL.ImageFilter</span><span class="o">,</span> <span class="nn">PIL.ImageFont</span><span class="o">,</span> <span class="nn">PIL.ImageOps</span>
+<span class="kn">from</span> <span class="nn">..image</span> <span class="kn">import</span> <span class="n">image_line</span>
+<span class="kn">from</span> <span class="nn">..image.utilities</span> <span class="kn">import</span> <span class="n">_coord_line</span>
+<span class="kn">from</span> <span class="nn">..psychopy</span> <span class="kn">import</span> <span class="n">psychopy_line</span>
+
+
+<div class="viewcode-block" id="verticalhorizontal_psychopy"><a class="viewcode-back" href="../../../functions.html#pyllusion.illusion.verticalhorizontal_psychopy">[docs]</a><span class="k">def</span> <span class="nf">verticalhorizontal_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a PsychoPy stimulus of the vertical-horizontal illusion.</span>
+
+
+<span class="sd">    The vertical–horizontal illusion illustrates the tendency for observers to overestimate</span>
+<span class="sd">    the length of a vertical line relative to a horizontal line of the same length.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    window : object</span>
+<span class="sd">        The window object in which the stimulus will be rendered.</span>
+<span class="sd">    parameters : dict</span>
+<span class="sd">        Parameters of the vertical-horizontal illusion generated by `verticalhorizontal_parameters()`.</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Additional arguments passed into `verticalhorizontal_parameters()`.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    In-place modification of the PsychoPy window (No explicit return).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; from psychopy import visual, event</span>
+
+<span class="sd">    &gt;&gt;&gt; # Create parameters</span>
+<span class="sd">    &gt;&gt;&gt; parameters = ill.verticalhorizontal_parameters(illusion_strength=90)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Initiate Window</span>
+<span class="sd">    &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&#39;white&#39;)</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; # Display illusion</span>
+<span class="sd">    &gt;&gt;&gt; ill.verticalhorizontal_psychopy(window=window, parameters=parameters)</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; # Refresh and close window    </span>
+<span class="sd">    &gt;&gt;&gt; window.flip()</span>
+<span class="sd">    &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
+<span class="sd">    &gt;&gt;&gt; window.close()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Create white canvas and get drawing context</span>
+    <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="n">verticalhorizontal_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Loop lines</span>
+    <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Left&quot;</span><span class="p">,</span> <span class="s2">&quot;Right&quot;</span><span class="p">]:</span>
+        <span class="n">psychopy_line</span><span class="p">(</span><span class="n">window</span><span class="p">,</span>
+                      <span class="n">x1</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="n">side</span> <span class="o">+</span> <span class="s2">&quot;_x1&quot;</span><span class="p">],</span>
+                      <span class="n">y1</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="n">side</span> <span class="o">+</span> <span class="s2">&quot;_y1&quot;</span><span class="p">],</span>
+                      <span class="n">x2</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="n">side</span> <span class="o">+</span> <span class="s2">&quot;_x2&quot;</span><span class="p">],</span>
+                      <span class="n">y2</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="n">side</span> <span class="o">+</span> <span class="s2">&quot;_y2&quot;</span><span class="p">],</span>
+                      <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">adjust_width</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></div>
+        
+
+<div class="viewcode-block" id="verticalhorizontal_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.illusion.verticalhorizontal_image">[docs]</a><span class="k">def</span> <span class="nf">verticalhorizontal_image</span><span class="p">(</span>
+    <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a PIL image of the vertical-horizontal illusion.</span>
+
+
+<span class="sd">    The vertical–horizontal illusion illustrates the tendency for observers to overestimate</span>
+<span class="sd">    the length of a vertical line relative to a horizontal line of the same length.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parameters : dict</span>
+<span class="sd">        Parameters of the vertical-horizontal illusion generated by `verticalhorizontal_parameters()`.</span>
+<span class="sd">    width : int</span>
+<span class="sd">        Width of the returned image.</span>
+<span class="sd">    height : int</span>
+<span class="sd">        Height of the returned image.</span>
+<span class="sd">    background : str</span>
+<span class="sd">        Color of the background.</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Additional arguments passed into `verticalhorizontal_parameters()`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Image</span>
+<span class="sd">        Image of the vertical-horizontal illusion.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; parameters = ill.verticalhorizontal_parameters(illusion_strength=90)</span>
+<span class="sd">    &gt;&gt;&gt; ill.verticalhorizontal_image(parameters) </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create white canvas and get drawing context</span>
+    <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="n">verticalhorizontal_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Background</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
+
+    <span class="c1"># Lines</span>
+    <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Left&quot;</span><span class="p">,</span> <span class="s2">&quot;Right&quot;</span><span class="p">]:</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image_line</span><span class="p">(</span>
+            <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+            <span class="n">x1</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="n">side</span> <span class="o">+</span> <span class="s2">&quot;_x1&quot;</span><span class="p">],</span>
+            <span class="n">y1</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="n">side</span> <span class="o">+</span> <span class="s2">&quot;_y1&quot;</span><span class="p">],</span>
+            <span class="n">x2</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="n">side</span> <span class="o">+</span> <span class="s2">&quot;_x2&quot;</span><span class="p">],</span>
+            <span class="n">y2</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="n">side</span> <span class="o">+</span> <span class="s2">&quot;_y2&quot;</span><span class="p">],</span>
+            <span class="n">length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rotate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+            <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+            <span class="n">adjust_width</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span></div>
+
+
+<div class="viewcode-block" id="verticalhorizontal_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.illusion.verticalhorizontal_parameters">[docs]</a><span class="k">def</span> <span class="nf">verticalhorizontal_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute Parameters for vertical-horizontal illusion.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    illusion_strength : float</span>
+<span class="sd">        The strength of the tilted vertical line in biasing the overestimation of its length relative to the horizontal line. </span>
+<span class="sd">        Specifically, the orientation of the left line in degrees, 0 being vertical and</span>
+<span class="sd">        positive values rotating anticlockwise. A negative sign conversely represents the</span>
+<span class="sd">        orientation of the right line in degrees, with negative values rotating clockwise.</span>
+<span class="sd">    difference : float</span>
+<span class="sd">        The objective length difference of the vertical and horizontal lines.</span>
+<span class="sd">        Specifically, the real difference of left line relative to the right line. E.g.,</span>
+<span class="sd">        if ``difference=1``, the left line will be 100% longer, i.e., 2 times longer than</span>
+<span class="sd">        the right line. A negative sign reflects the converse, where ``difference=-1``</span>
+<span class="sd">        will result in the right line being 100% longer than the left line.</span>
+<span class="sd">    size_min : float</span>
+<span class="sd">        Length of the two lines.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Dictionary of parameters of the vertical-horizontal illusion.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">difference</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># if right is smaller</span>
+        <span class="n">right_length</span> <span class="o">=</span> <span class="n">size_min</span>
+        <span class="n">left_length</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">difference</span><span class="p">))</span> <span class="o">*</span> <span class="n">size_min</span>
+        <span class="k">if</span> <span class="n">illusion_strength</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">left_angle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">90</span> <span class="o">+</span> <span class="n">illusion_strength</span>
+            <span class="n">right_angle</span> <span class="o">=</span> <span class="mi">90</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">left_angle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">90</span>
+            <span class="n">right_angle</span> <span class="o">=</span> <span class="mi">90</span> <span class="o">+</span> <span class="n">illusion_strength</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">left_length</span> <span class="o">=</span> <span class="n">size_min</span>
+        <span class="n">right_length</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">difference</span><span class="p">))</span> <span class="o">*</span> <span class="n">size_min</span>
+        <span class="k">if</span> <span class="n">illusion_strength</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">left_angle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">90</span>
+            <span class="n">right_angle</span> <span class="o">=</span> <span class="mi">90</span> <span class="o">-</span> <span class="n">illusion_strength</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">left_angle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">90</span> <span class="o">-</span> <span class="n">illusion_strength</span>
+            <span class="n">right_angle</span> <span class="o">=</span> <span class="mi">90</span>
+
+    <span class="n">left_coord</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_coord_line</span><span class="p">(</span><span class="n">x1</span><span class="o">=-</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">left_length</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">left_angle</span><span class="p">)</span>
+    <span class="n">left_x1</span><span class="p">,</span> <span class="n">left_y1</span><span class="p">,</span> <span class="n">left_x2</span><span class="p">,</span> <span class="n">left_y2</span> <span class="o">=</span> <span class="n">left_coord</span>
+    <span class="n">right_coord</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_coord_line</span><span class="p">(</span>
+        <span class="n">x1</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">y1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">right_length</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">right_angle</span>
+    <span class="p">)</span>
+    <span class="n">right_x1</span><span class="p">,</span> <span class="n">right_y1</span><span class="p">,</span> <span class="n">right_x2</span><span class="p">,</span> <span class="n">right_y2</span> <span class="o">=</span> <span class="n">right_coord</span>
+
+    <span class="c1"># Center y</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">left_y1</span><span class="p">,</span> <span class="n">left_y2</span><span class="p">,</span> <span class="n">right_y1</span><span class="p">,</span> <span class="n">right_y2</span><span class="p">])</span>
+    <span class="n">left_y1</span><span class="p">,</span> <span class="n">left_y2</span><span class="p">,</span> <span class="n">right_y1</span><span class="p">,</span> <span class="n">right_y2</span> <span class="o">=</span> <span class="n">ys</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Center x</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">left_x1</span><span class="p">,</span> <span class="n">left_x2</span><span class="p">,</span> <span class="n">right_x1</span><span class="p">,</span> <span class="n">right_x2</span><span class="p">])</span>
+    <span class="n">centre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">xs</span><span class="p">)])</span>
+    <span class="n">left_x1</span><span class="p">,</span> <span class="n">left_x2</span><span class="p">,</span> <span class="n">right_x1</span><span class="p">,</span> <span class="n">right_x2</span> <span class="o">=</span> <span class="n">xs</span> <span class="o">-</span> <span class="n">centre</span>
+
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Illusion&quot;</span><span class="p">:</span> <span class="s2">&quot;VerticalHorizontal&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Size_Left&quot;</span><span class="p">:</span> <span class="n">left_length</span><span class="p">,</span>
+        <span class="s2">&quot;Size_Right&quot;</span><span class="p">:</span> <span class="n">right_length</span><span class="p">,</span>
+        <span class="s2">&quot;Difference&quot;</span><span class="p">:</span> <span class="n">difference</span><span class="p">,</span>
+        <span class="s2">&quot;Illusion_Strength&quot;</span><span class="p">:</span> <span class="n">illusion_strength</span><span class="p">,</span>
+        <span class="s2">&quot;Illusion_Type&quot;</span><span class="p">:</span> <span class="s2">&quot;Congruent&quot;</span> <span class="k">if</span> <span class="n">illusion_strength</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Incongruent&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Left_x1&quot;</span><span class="p">:</span> <span class="n">left_x1</span><span class="p">,</span>
+        <span class="s2">&quot;Left_y1&quot;</span><span class="p">:</span> <span class="n">left_y1</span><span class="p">,</span>
+        <span class="s2">&quot;Left_x2&quot;</span><span class="p">:</span> <span class="n">left_x2</span><span class="p">,</span>
+        <span class="s2">&quot;Left_y2&quot;</span><span class="p">:</span> <span class="n">left_y2</span><span class="p">,</span>
+        <span class="s2">&quot;Left_Angle&quot;</span><span class="p">:</span> <span class="n">left_angle</span><span class="p">,</span>
+        <span class="s2">&quot;Right_x1&quot;</span><span class="p">:</span> <span class="n">right_x1</span><span class="p">,</span>
+        <span class="s2">&quot;Right_y1&quot;</span><span class="p">:</span> <span class="n">right_y1</span><span class="p">,</span>
+        <span class="s2">&quot;Right_x2&quot;</span><span class="p">:</span> <span class="n">right_x2</span><span class="p">,</span>
+        <span class="s2">&quot;Right_y2&quot;</span><span class="p">:</span> <span class="n">right_y2</span><span class="p">,</span>
+        <span class="s2">&quot;Right_Angle&quot;</span><span class="p">:</span> <span class="n">right_angle</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">parameters</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Dominique Makowski.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

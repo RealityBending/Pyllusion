@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Overview: module code &mdash; Pyllusion 0.0.10 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/example_gallery_styles.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/logo.ai"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Pyllusion
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html#overview">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#contribution">Contribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#citation">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#delboeuf-illusion">Delboeuf Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#ebbinghaus-illusion">Ebbinghaus Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#muller-lyer-illusion">Müller-Lyer Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#ponzo-illusion">Ponzo Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#verticalhorizontal-illusion">Vertical–horizontal Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#zollner-illusion">Zöllner Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#rod-and-frame-illusion">Rod and Frame Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#poggendorff-illusion">Poggendorff Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#simultaneous-contrast-illusion">Simultaneous Contrast illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#white-illusion">White Illusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#kanizsa-square">Kanizsa Square</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#autostereograms">Autostereograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#pareidolia">Pareidolia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#transparency-from-motion-tfm">Transparency From Motion (TFM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#pinna-illusion">Pinna illusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#psychopy-integration">PsychoPy Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions.html#module-pyllusion.illusion">Illusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions.html#module-pyllusion.image">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions.html#module-pyllusion.movement">Movement</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Pyllusion</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Overview: module code</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="pyllusion/illusion/autostereogram.html">pyllusion.illusion.autostereogram</a></li>
+<li><a href="pyllusion/illusion/contrast.html">pyllusion.illusion.contrast</a></li>
+<li><a href="pyllusion/illusion/delboeuf.html">pyllusion.illusion.delboeuf</a></li>
+<li><a href="pyllusion/illusion/ebbinghaus.html">pyllusion.illusion.ebbinghaus</a></li>
+<li><a href="pyllusion/illusion/mullerlyer.html">pyllusion.illusion.mullerlyer</a></li>
+<li><a href="pyllusion/illusion/pareidolia.html">pyllusion.illusion.pareidolia</a></li>
+<li><a href="pyllusion/illusion/poggendorff.html">pyllusion.illusion.poggendorff</a></li>
+<li><a href="pyllusion/illusion/ponzo.html">pyllusion.illusion.ponzo</a></li>
+<li><a href="pyllusion/illusion/rodframe.html">pyllusion.illusion.rodframe</a></li>
+<li><a href="pyllusion/illusion/verticalhorizontal.html">pyllusion.illusion.verticalhorizontal</a></li>
+<li><a href="pyllusion/illusion/white.html">pyllusion.illusion.white</a></li>
+<li><a href="pyllusion/illusion/zollner.html">pyllusion.illusion.zollner</a></li>
+<li><a href="pyllusion/image/image_blobs.html">pyllusion.image.image_blobs</a></li>
+<li><a href="pyllusion/image/image_circles.html">pyllusion.image.image_circles</a></li>
+<li><a href="pyllusion/image/image_line.html">pyllusion.image.image_line</a></li>
+<li><a href="pyllusion/image/image_mosaic.html">pyllusion.image.image_mosaic</a></li>
+<li><a href="pyllusion/image/image_noise.html">pyllusion.image.image_noise</a></li>
+<li><a href="pyllusion/image/image_rectangle.html">pyllusion.image.image_rectangle</a></li>
+<li><a href="pyllusion/image/image_text.html">pyllusion.image.image_text</a></li>
+<li><a href="pyllusion/image/rescale.html">pyllusion.image.rescale</a></li>
+<li><a href="pyllusion/movement/motiontransparency.html">pyllusion.movement.motiontransparency</a></li>
+<li><a href="pyllusion/movement/movement_circles.html">pyllusion.movement.movement_circles</a></li>
+<li><a href="pyllusion/movement/movement_matrix.html">pyllusion.movement.movement_matrix</a></li>
+<li><a href="pyllusion/movement/utilities.html">pyllusion.movement.utilities</a></li>
+</ul>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Dominique Makowski.
+
+    </p>
+  </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
