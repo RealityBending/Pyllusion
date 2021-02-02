@@ -24,7 +24,7 @@ affiliation:
   - id            : "1"
     institution   : "School of Social Sciences, Nanyang Technological University, Singapore"
   - id            : "2"
-    institution   : "School of Psychology, University of New South Wales"
+    institution   : "School of Psychology, University of New South Wales, Australia"
   - id            : "3"
     institution   : "Centre for Research and Development in Learning, Nanyang Technological University, Singapore"
   - id            : "4"
@@ -83,12 +83,11 @@ library("papaja")
 
 
 
-# Introduction
 
 
 Visual illusions have been observed for hundreds of years [@LuckieshVisualIllusions1965], many of which were described in print by @helmholtz1856handbuch in 1856 [@helmholtz1856handbuch]. In general terms, a visual illusion can be thought of as the inaccurate perception of a visual stimulus or a given attribute, be it geometrical (size, shape, or angle), or another property such as colour [@muller1896lehre; @howe2005muller; @delboeuf1893nouvelle; @ebbinghaus1902grundzuge; @roberts2005roles; @adelson200024]. Often, an illusory perception resists 'correction' in perception even after an observer has been made aware of the misperception. Novel examples of illusions are still observed and have even cropped up on social media platforms, a famous example being 'The Dress Illusion' (see **Fig. 1**) as discussed by @schlaffke2015brain. See @ninio2014geometrical, @LuckieshVisualIllusions1965, and @robinson1972psychology for extensive collections of visual illusions.
 
-```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="The internet-famous 'Dress illusion' image (on the left), which some people perceive as white and yellow *vs.* black and blue. It is thought to illustrate how perceptual priors (i.e., expectations regarding the lighting conditions) can bias our conscious representation of an object (see visual explanation - from Wikipedia - on the right)."}
+```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="The internet-famous 'Dress illusion' image (on the left), which some people perceive as white and yellow \\textit{vs.} black and blue. It is thought to illustrate how perceptual priors (i.e., expectations regarding the lighting conditions) can bias our conscious representation of an object (see visual explanation - from Wikipedia - on the right)."}
 knitr::include_graphics("figure1.png")
 ```
 
@@ -107,15 +106,11 @@ In summary, these studies suggest that illusions, rather than being mere percept
 
 Despite the relevance of visual illusions in psychology and neuroscience, the field of illusion research lacks a dedicated software to generate and report the stimuli, in order for them to be reproduced and re-used by other researchers and studies. As several reviews have highlighted [e.g., @gori2016visual], the lack of a validated paradigm and the improper measurement of visual illusion sensitivity (especially amongst individuals with communication problems) may be preventing progress in understanding the distinct mechanisms that underlie psychopathology and other fields alike. This is particularly problematic in the context of the replicability and reproducibility issues recently outlined in psychological science [@topalidou2015long; @open2015estimating; @milkowski2018replicability; @maizey2019barriers]. Our software, **Pyllusion**, aims at addressing this gap by proposing and implementing a parametric framework for illusions generation.
 
-
 # A Parametric Framework for Illusion Research
-
 
 The core idea of the "parametric" approach proposed here and implemented in **Pyllusion** is to dissociate the parameters of an illusion from its rendered output. For instance, the Ponzo illusion (see **Fig. 2**) can be described in terms of properties of the "distractor" lines (which create the illusion), such as the angle (related to the illusion strength), the color, width, etc. and properties of the "target" lines (which are affected by the illusion), such as the size of the smallest line, the objective difference of the ratio of their lengths, or their color, width, etc. This set of parameters can then be rendered in different formats with further format-specific characteristics (in the case of images, the image size, ratio, resolution, compression, etc.).
 
-
-
-```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="The parametric framework for illusions originally implemented in **Pyllusion** aims at dissociating the *parametric* representation of an illusion (on the left) from its *rendered* representation, in this case as an image of the Ponzo illusion (on the right). In technical terms, an *illusion strength* of -15 represents a 15 degree tilt of the vertical lines (black distractor lines); an objective *difference* of 0.3 represents a 30% length difference of the upper and lower horizontal lines (red target lines) where the *size* of the shorter horizontal line is 0.5."}
+```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="The parametric framework for illusions originally implemented in \\textit{Pyllusion} aims at dissociating the \\textit{parametric} representation of an illusion (on the left) from its \\textit{rendered} representation, in this case as an image of the Ponzo illusion (on the right). In technical terms, an \\textit{illusion strength} of -15 represents a 15 degree tilt of the vertical lines (black distractor lines); an objective \\textit{difference} of 0.3 represents a 30\\% length difference of the upper and lower horizontal lines (red target lines) where the \\textit{size} of the shorter horizontal line is 0.5."}
 knitr::include_graphics("figure2.png")
 ```
 
@@ -145,9 +140,9 @@ The source code is available under the MIT license on GitHub (*https://github.co
 <!-- Installation -->
 **Pyllusion** is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install Pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. Once the package is loaded, two steps are further required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
 
-We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to other the other illusions supported by ***Pyllusion***, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Poggendorff illusion and more (see **Fig. 3**, as well as the full list with examples on the [**readme**](https://github.com/RealityBending/Pyllusion) page of the repository).
+We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to other the other illusions supported by ***Pyllusion***, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Poggendorff illusion and more (see **Fig. 3**, as well as the full list with examples on the **[readme](https://github.com/RealityBending/Pyllusion)**.
 
-```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="Different historical visual illusions currently supported by ***Pyllusion***. These can all be generated using the parametric approach described in this paper, allowing for fully reproducible studies."}
+```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="95%", fig.align='center', fig.cap="Different historical visual illusions currently supported by \\textit{Pyllusion}. These can all be generated using the parametric approach described in this paper, allowing for fully reproducible studies."}
 knitr::include_graphics("figure3.png")
 ```
 
@@ -155,7 +150,7 @@ knitr::include_graphics("figure3.png")
 
 ## Step 1: Parameters
 
-The parameters for each illusion can be generated using the `IllusionName_parameters()` function. Many optional arguments are available for modifying, of which the description and default values can be find in the API documentation (https://realitybending.github.io/Pyllusion/functions.html). In the example below, we specify the `illusion_strength` argument, and the function will compute all of the remaining parameters accordingly.
+The parameters for each illusion can be generated using the `IllusionName_parameters()` function. Many optional arguments are available for modifying, of which the description and default values can be find in the API documentation (*https://realitybending.github.io/Pyllusion/functions.html*). In the example below, we specify the `illusion_strength` argument, and the function will compute all of the remaining parameters accordingly.
 
 
 ```python
