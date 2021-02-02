@@ -1,4 +1,4 @@
 Introduction
 ================
 
-.. include:: ../README.md
+.. mdinclude:: README.build.md
