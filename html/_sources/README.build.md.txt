@@ -29,13 +29,6 @@ Describing illusions using a set of parameters aims at fostering
 generate and manipulate similar stimuli regardless of the display format
 and software.
 
-## PsychoPy Integration
-
-Pyllusion can be easily integrated into
-[PsychoPy](https://www.psychopy.org/) for running experiments as well!
-
-![](img/psychopy_example.gif)
-
 ## Installation
 
     pip install https://github.com/RealityBending/Pyllusion/zipball/master
@@ -282,7 +275,7 @@ between them two. Then, try focusing on this new red dot until it gets
 very sharp and until your eyes stabilize. You should then be able to
 perceive the letters **3D** as carved in the figure
 
-It can take a bit of time to “get there,” but once you are used to it,
+It can take a bit of time to “get there”, but once you are used to it,
 it’s a mind-blowing experience 🤯
 
 ``` python
@@ -376,14 +369,37 @@ See also [Zeljic et al.,
 
 ![](http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg)
 
-### Exctinction illusion
+<!-- ### Exctinction illusion -->
+<!-- See also [this tweet](https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1 by Akiyoshi Kitaoka). -->
+<!-- - **TO DO** *(consider helping!)* -->
+<!-- ![](img/extinction_illusion.png) -->
 
-See also [this
-tweet](https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1%20by%20Akiyoshi%20Kitaoka).
+## PsychoPy Integration
 
--   **TO DO** *(consider helping!)*
+Pyllusion can be easily integrated into
+[PsychoPy](https://www.psychopy.org/) for running experiments as well!
 
-![](img/extinction_illusion.png)
+``` python
+# Load packages
+import pyllusion as ill
+from psychopy import visual, event
+
+# Create parameters
+parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
+
+# Initiate Window
+window = visual.Window(size=[1820, 980], winType='pygame', color='white', fullscr=False)
+
+# Display illusion
+ill.delboeuf_psychopy(window=window, parameters=parameters)
+
+# Refresh and close window
+window.flip()
+event.waitKeys()  # Press any key to close
+window.close()
+```
+
+![](img/image_example.gif)
 
 ## References
 

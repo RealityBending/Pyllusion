@@ -101,7 +101,6 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#overview">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#psychopy-integration">PsychoPy Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#contribution">Contribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#citation">Citation</a></li>
@@ -121,9 +120,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#pareidolia">Pareidolia</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#transparency-from-motion-tfm">Transparency From Motion (TFM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pinna-illusion">Pinna illusion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#exctinction-illusion">Exctinction illusion</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#psychopy-integration">PsychoPy Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -253,12 +252,6 @@ or the intensity of the illusion effect (e.g., the angle of the
 <strong>reproducible science</strong>, allowing neuroscientists to easily report,
 generate and manipulate similar stimuli regardless of the display format
 and software.</p>
-<div class="section" id="psychopy-integration">
-<h2>PsychoPy Integration<a class="headerlink" href="#psychopy-integration" title="Permalink to this headline">¶</a></h2>
-<p>Pyllusion can be easily integrated into
-<a class="reference external" href="https://www.psychopy.org/">PsychoPy</a> for running experiments as well!</p>
-<a class="reference external image-reference" href="img/psychopy_example.gif"><img alt="" src="_images/psychopy_example.gif" /></a>
-</div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">RealityBending</span><span class="o">/</span><span class="n">Pyllusion</span><span class="o">/</span><span class="n">zipball</span><span class="o">/</span><span class="n">master</span>
@@ -479,7 +472,7 @@ dots. Look at them and relax your eyes until you see a new red dot
 between them two. Then, try focusing on this new red dot until it gets
 very sharp and until your eyes stabilize. You should then be able to
 perceive the letters <strong>3D</strong> as carved in the figure</p>
-<p>It can take a bit of time to “get there,” but once you are used to it,
+<p>It can take a bit of time to “get there”, but once you are used to it,
 it’s a mind-blowing experience 🤯</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ill</span><span class="o">.</span><span class="n">autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
 </pre></div>
@@ -559,16 +552,35 @@ directions that results in the perception of two transparent layers (See
 <li><p><strong>TO DO</strong> <em>(consider helping!)</em></p></li>
 </ul>
 <a class="reference external image-reference" href="http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg"><img alt="" src="http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg" /></a>
+<!-- ### Exctinction illusion -->
+<!-- See also [this tweet](https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1 by Akiyoshi Kitaoka). -->
+<!-- - **TO DO** *(consider helping!)* -->
+<!-- ![](img/extinction_illusion.png) --></div>
 </div>
-<div class="section" id="exctinction-illusion">
-<h3>Exctinction illusion<a class="headerlink" href="#exctinction-illusion" title="Permalink to this headline">¶</a></h3>
-<p>See also <a class="reference external" href="https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1%20by%20Akiyoshi%20Kitaoka">this
-tweet</a>.</p>
-<ul class="simple">
-<li><p><strong>TO DO</strong> <em>(consider helping!)</em></p></li>
-</ul>
-<a class="reference external image-reference" href="img/extinction_illusion.png"><img alt="" src="_images/extinction_illusion.png" /></a>
+<div class="section" id="psychopy-integration">
+<h2>PsychoPy Integration<a class="headerlink" href="#psychopy-integration" title="Permalink to this headline">¶</a></h2>
+<p>Pyllusion can be easily integrated into
+<a class="reference external" href="https://www.psychopy.org/">PsychoPy</a> for running experiments as well!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load packages</span>
+<span class="kn">import</span> <span class="nn">pyllusion</span> <span class="k">as</span> <span class="nn">ill</span>
+<span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+
+<span class="c1"># Create parameters</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">delboeuf_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Initiate Window</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">1820</span><span class="p">,</span> <span class="mi">980</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fullscr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Display illusion</span>
+<span class="n">ill</span><span class="o">.</span><span class="n">delboeuf_psychopy</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+
+<span class="c1"># Refresh and close window</span>
+<span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
 </div>
+<a class="reference external image-reference" href="img/image_example.gif"><img alt="" src="_images/image_example.gif" /></a>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
