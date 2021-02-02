@@ -23,10 +23,11 @@ import re
 import sys
 
 import mock
-from m2r import MdInclude
 import recommonmark
+from m2r import MdInclude
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
+
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 source_parsers = {
@@ -51,10 +52,10 @@ for link in links:
     README_content = README_content.replace(link, link_new)
 with open("README.build.md", "w") as f:
     f.write(README_content)
- 
+
 
 # -- Mock modules ---------------------------------------------
-MOCK_MODULES = ['PIL.Image', 'PIL.ImageDraw', 'PIL.ImageFilter', 'PIL.ImageFont', 'PIL.ImageOps']
+MOCK_MODULES = ['PIL.Image', 'PIL.ImageDraw', 'PIL.ImageFilter', 'PIL.ImageFont', 'PIL.ImageOps', 'PIL.ImageColor', 'visual', 'event']
 
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
