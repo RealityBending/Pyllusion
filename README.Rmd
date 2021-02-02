@@ -24,7 +24,8 @@ knitr::opts_chunk$set(
 
 # Setup python - you need to change the path to your python distribution
 library(reticulate)
-reticulate::use_python("D:/Downloads/WPy64-3902/python-3.9.0.amd64/")
+# reticulate::use_python("D:/Downloads/WPy64-3902/python-3.9.0.amd64/")
+reticulate::use_python("C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd64")
 matplotlib <- import("matplotlib")
 matplotlib$use("Agg", force = TRUE)
 ```
@@ -47,13 +48,6 @@ Visual illusions are fascinating phenomena that have been used and studied by ar
 The parametric approach implemented in this software proposes to **describe illusions using a set of parameters**, such as for instance the *difference* and *illusion strength*. These two parameters can be modulated to independently impact either the objective difference of the core components of the illusion (e.g., the difference between the two segments in the [Müller-Lyer](#müller-lyer-illusion-illusion) illusion) or the intensity of the illusion effect (e.g., the angle of the "distractors" arrows). 
 
 Describing illusions using a set of parameters aims at fostering **reproducible science**, allowing neuroscientists to easily report, generate and manipulate similar stimuli regardless of the display format and software.
-
-
-## PsychoPy Integration
-
-Pyllusion can be easily integrated into [PsychoPy](https://www.psychopy.org/) for running experiments as well!
-
-![](docs/img/psychopy_example.gif)
 
 
 ## Installation
@@ -88,6 +82,7 @@ import pyllusion as ill
 parameters = ill.delboeuf_parameters(illusion_strength=3)
 ill.delboeuf_image(parameters)
 ```
+
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
 import pyllusion as ill
 
@@ -382,14 +377,41 @@ See also [Zeljic et al., 2021](https://www.sciencedirect.com/science/article/pii
 
 
 
-### Exctinction illusion
+<!-- ### Exctinction illusion -->
 
-See also [this tweet](https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1 by Akiyoshi Kitaoka).
+<!-- See also [this tweet](https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1 by Akiyoshi Kitaoka). -->
 
-- **TO DO** *(consider helping!)*
+<!-- - **TO DO** *(consider helping!)* -->
 
-![](docs/img/extinction_illusion.png)
+<!-- ![](docs/img/extinction_illusion.png) -->
 
+
+## PsychoPy Integration
+
+Pyllusion can be easily integrated into [PsychoPy](https://www.psychopy.org/) for running experiments as well!
+
+
+```{python, warning=FALSE, message=FALSE, eval=FALSE}
+# Load packages
+import pyllusion as ill
+from psychopy import visual, event
+
+# Create parameters
+parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
+
+# Initiate Window
+window = visual.Window(size=[1820, 980], winType='pygame', color='white', fullscr=False)
+
+# Display illusion
+ill.delboeuf_psychopy(window=window, parameters=parameters)
+
+# Refresh and close window
+window.flip()
+event.waitKeys()  # Press any key to close
+window.close()
+```
+
+![](docs/img/image_example.gif)
 
 
 
