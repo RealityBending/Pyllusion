@@ -27,6 +27,7 @@ import recommonmark
 from m2r import MdInclude
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
+import sphinx_bootstrap_theme
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -177,6 +178,7 @@ html_theme = 'bootstrap'
 html_favicon = "img/logo.ai"
 html_logo = "img/logo.png"
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+html_static_path = ["_static"]
 
 # Theme options are theme-specific and customize the look and feel of a theme further.
 # html_theme_options = {
