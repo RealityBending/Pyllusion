@@ -27,7 +27,6 @@ import recommonmark
 from m2r import MdInclude
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
-import sphinx_bootstrap_theme
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
