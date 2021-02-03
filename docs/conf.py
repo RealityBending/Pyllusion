@@ -27,6 +27,7 @@ import recommonmark
 from m2r import MdInclude
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
+import sphinx_bootstrap_theme
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -79,7 +80,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
-    'sphinx_rtd_theme',
+    'sphinx-bootstrap-theme',
     'nbsphinx',
     'sphinx_nbexamples',
     'matplotlib.sphinxext.plot_directive',
@@ -169,31 +170,16 @@ todo_include_todos = False
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 html_show_sphinx = False
 
-# -- Options for HTML THEME: sphinx_rtd_theme -------------------------------------------
+# -- Options for HTML THEME: -------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for a list of builtin themes.
-html_theme = 'sphinx_rtd_theme'
+# Bootstrap theme
+html_theme = 'bootstrap'
 html_favicon = "img/logo.ai"
 html_logo = "img/logo.png"
-html_static_path = ['_static']  # Folder that contain custom static files (e.g., CSS files)
+html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # Theme options are theme-specific and customize the look and feel of a theme further.
-# For a list of options available for each theme, see https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
-html_theme_options = {
-    'collapse_navigation': False  # Expandables entries
-}
-
-
-
-# -- Options for HTMLHelp output ---------------------------------------
-
-# Output file base name for HTML help builder.
-htmlhelp_basename = 'pyllusiondoc'
-
-
-# Bootstrap theme
-# html_theme = 'bootstrap'
-# html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 # html_theme_options = {
 #     'source_link_position': "footer",
 #     'bootswatch_theme': "readable",
@@ -210,6 +196,16 @@ htmlhelp_basename = 'pyllusiondoc'
 #                      ],
 #
 #     }
+
+
+
+# -- Options for HTMLHelp output ---------------------------------------
+
+# Output file base name for HTML help builder.
+htmlhelp_basename = 'pyllusiondoc'
+
+
+
 
 
 # -- Options for LaTeX output ------------------------------------------
