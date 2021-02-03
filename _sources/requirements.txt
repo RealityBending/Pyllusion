@@ -1,3 +1,4 @@
+wheel
 mock
 m2r
 recommonmark
@@ -8,6 +9,6 @@ Pillow
 numpy
 pandas
 scipy
-sphinx-rtd-theme
+sphinx_bootstrap_theme
 sphinx-nbexamples
 sphinx-copybutton
