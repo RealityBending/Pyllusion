@@ -177,7 +177,7 @@ html_show_sphinx = False
 html_theme = 'bootstrap'
 html_favicon = "img/logo.ai"
 html_logo = "img/logo.png"
-html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
+#html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 html_static_path = ["_static"]
 
 # Theme options are theme-specific and customize the look and feel of a theme further.
