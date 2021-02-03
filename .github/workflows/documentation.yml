@@ -20,6 +20,7 @@ jobs:
     - name: Install dependencies and build docs
       run: |
         cd docs
+        python -m pip install --upgrade pip wheel sphinx_bootstrap_theme
         python -m pip install -r requirements.txt
         make html
 
