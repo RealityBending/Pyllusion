@@ -29,6 +29,7 @@ from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
 import sphinx_bootstrap_theme
 
+
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 source_parsers = {
@@ -80,7 +81,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
-    'sphinx-bootstrap-theme',
+    #'sphinx-bootstrap-theme',
     'nbsphinx',
     'sphinx_nbexamples',
     'matplotlib.sphinxext.plot_directive',
