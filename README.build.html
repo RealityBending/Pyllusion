@@ -188,14 +188,14 @@ on board :relaxed:.</p>
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="delboeuf-illusion">
 <h3>Delboeuf Illusion<a class="headerlink" href="#delboeuf-illusion" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Delboeuf_illusion"><strong>Delboeuf
-illusion</strong></a> is an
+<p>The <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Delboeuf_illusion">Delboeuf
+illusion</a></strong> is an
 optical illusion of relative size perception, where circles of identical
 size appear as different because of their surrounding context. The
 illusion was named for the Belgian philosopher, mathematician,
 experimental psychologist, hypnotist, and psychophysicist Joseph Remi
 Leopold Delboeuf (1831–1896), who created it in 1865.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyllusion</span> <span class="k">as</span> <span class="nn">ill</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyllusion</span> <span class="k">as</span> <span class="nn">ill</span>
 
 <span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">delboeuf_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">delboeuf_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
@@ -205,8 +205,8 @@ Leopold Delboeuf (1831–1896), who created it in 1865.</p>
 </div>
 <div class="section" id="ebbinghaus-illusion">
 <h3>Ebbinghaus Illusion<a class="headerlink" href="#ebbinghaus-illusion" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Ebbinghaus_illusion"><strong>Ebbinghaus
-illusion</strong></a> is an
+<p>The <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Ebbinghaus_illusion">Ebbinghaus
+illusion</a></strong> is an
 optical illusion of relative size perception, where circles of identical
 size appear as different because of their surrounding context (the right
 red circle appears as smaller because its surrounding circle is larger).
@@ -223,7 +223,7 @@ Reduced sensitivity of schizophrenics to this illusion has been used to
 reflect how prior knowledge influences perceptual organization to a
 lesser extent, i.e., reduced top-down influence, in schizophrenia
 (Silverstein &amp; Keane, 2011).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">ebbinghaus_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">ebbinghaus_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">ebbinghaus_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -231,8 +231,8 @@ lesser extent, i.e., reduced top-down influence, in schizophrenia
 </div>
 <div class="section" id="muller-lyer-illusion">
 <h3>Müller-Lyer Illusion<a class="headerlink" href="#muller-lyer-illusion" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion"><strong>Müller-Lyer
-illusion</strong></a> is
+<p>The <strong><a class="reference external" href="https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion">Müller-Lyer
+illusion</a></strong> is
 an optical illusion causing the participant to perceive two segments as
 being of different length depending on the shape of the arrows. The
 illusion was named after its creator the erman sociologist Franz Carl
@@ -246,7 +246,7 @@ There is some evidence that susceptibility to the Müller-Lyer illusion
 is negatively correlated with autistic traits in the typical population
 (but not with the Ebbinghaus nor the Ponzo illusion) (Chouinard et al.,
 2013).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">mullerlyer_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">mullerlyer_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">mullerlyer_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -254,7 +254,7 @@ is negatively correlated with autistic traits in the typical population
 </div>
 <div class="section" id="ponzo-illusion">
 <h3>Ponzo Illusion<a class="headerlink" href="#ponzo-illusion" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Ponzo_illusion"><strong>Ponzo illusion</strong></a>
+<p>The <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Ponzo_illusion">Ponzo illusion</a></strong>
 is an optical illusion of relative size perception, where horizontal
 lines of identical size appear as different because of their surrounding
 context (the top line appear as longer, as it is interepreted as being
@@ -267,7 +267,7 @@ interpreted to signal changes in visual distance (King et al., 2017),
 requiring higher-level cortical processes (Song et al., 2011). Similar
 to the Ebbinghaus illusion, it is also shown to have less effect in
 biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">ponzo_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">ponzo_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">ponzo_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -275,12 +275,12 @@ biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).</p>
 </div>
 <div class="section" id="verticalhorizontal-illusion">
 <h3>Vertical–horizontal Illusion<a class="headerlink" href="#verticalhorizontal-illusion" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion"><strong>vertical–horizontal
-illusion</strong></a>
+<p>The <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion">vertical–horizontal
+illusion</a></strong>
 illustrates the tendency for observers to overestimate the length of a
 vertical line relative to a horizontal line of the same length (Shipley
 et al., 1949).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">verticalhorizontal_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">verticalhorizontal_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">verticalhorizontal_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -288,12 +288,12 @@ et al., 1949).</p>
 </div>
 <div class="section" id="zollner-illusion">
 <h3>Zöllner Illusion<a class="headerlink" href="#zollner-illusion" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion"><strong>Zöllner
-illusion</strong></a> is an
+<p>The <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion">Zöllner
+illusion</a></strong> is an
 optical illusion, where horizontal lines are perceived as not parallel
 because of their background. It is named after its discoverer, the
 German astrophysicist Johann Karl Friedrich Zöllner in 1860.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">zollner_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">zollner_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">zollner_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -301,11 +301,11 @@ German astrophysicist Johann Karl Friedrich Zöllner in 1860.</p>
 </div>
 <div class="section" id="rod-and-frame-illusion">
 <h3>Rod and Frame Illusion<a class="headerlink" href="#rod-and-frame-illusion" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion"><strong>Rod and frame
-illusion</strong></a>
+<p>The <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion">Rod and frame
+illusion</a></strong>
 is an optical illusion causing the participant to perceive the rod to be
 oriented congruent with the orientation of the frame.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">rodframe_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">rodframe_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">rodframe_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -313,15 +313,15 @@ oriented congruent with the orientation of the frame.</p>
 </div>
 <div class="section" id="poggendorff-illusion">
 <h3>Poggendorff Illusion<a class="headerlink" href="#poggendorff-illusion" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Poggendorff_illusion"><strong>Poggendorff
-illusion</strong></a> is an
+<p>The <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Poggendorff_illusion">Poggendorff
+illusion</a></strong> is an
 optical illusion that involves the misperception of the position of one
 segment of a transverse line that has been interrupted by the contour of
 an intervening structure. It is named after Johann Christian Poggendorff
 who discovered in Zöllner’s illusion after 1860. The magnitude of the
 illusion depends on the properties of the obscuring pattern and the
 nature of its borders.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">poggendorff_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">poggendorff_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">poggendorff_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -331,14 +331,14 @@ nature of its borders.</p>
 <h3>Simultaneous Contrast illusion<a class="headerlink" href="#simultaneous-contrast-illusion" title="Permalink to this headline">¶</a></h3>
 <p>A neutral gray target will appear lighter or darker than it does in
 isolation when compared to, respectively, a dark gray or light gray
-target. <a class="reference external" href="https://en.wikipedia.org/wiki/Contrast_effect"><strong>Simultaneous
-contrast</strong></a>, identified
+target. <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Contrast_effect">Simultaneous
+contrast</a></strong>, identified
 by Michel Eugène Chevreul, refers to the manner in which the colors of
 two different objects affect each other.</p>
 <p>In the image here, the two inner rectangles are exactly the same shade
 of grey, but the upper one appears to be a lighter grey than the lower
 one due to the background provided by the outer rectangles.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">contrast_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">contrast_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">contrast_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -346,15 +346,15 @@ one due to the background provided by the outer rectangles.</p>
 </div>
 <div class="section" id="white-illusion">
 <h3>White Illusion<a class="headerlink" href="#white-illusion" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/White%27s_illusion"><strong>White’s illusion</strong></a>
+<p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/White%27s_illusion">White’s illusion</a></strong>
 is a brightness illusion in which rectangles of the same grey color are
 perceived of different luminance depending on their background.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">white_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">white_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">ill</span><span class="o">.</span><span class="n">white_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/README_white1.png" src="_images/README_white1.png" /></p>
-<!-- ### Chubb illusion --><!-- The [**Chubb illusion**](https://en.wikipedia.org/wiki/Chubb_illusion) is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. --><!-- ![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif) --><!-- - **TO DO** *(consider helping!)* --></div>
+<!-- ### Chubb illusion --><!-- The **[Chubb illusion](https://en.wikipedia.org/wiki/Chubb_illusion)** is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. --><!-- ![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif) --><!-- - **TO DO** *(consider helping!)* --></div>
 <div class="section" id="kanizsa-square">
 <h3>Kanizsa Square<a class="headerlink" href="#kanizsa-square" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>Kanizsa Square</strong> is an <a class="reference external" href="https://en.wikipedia.org/wiki/Illusory_contours">illusory
@@ -371,7 +371,7 @@ illusion is not robust (King et al., 2017).</p>
 </div>
 <div class="section" id="autostereograms">
 <h3>Autostereograms<a class="headerlink" href="#autostereograms" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Autostereogram">Autostereograms</a> are
+<p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Autostereogram">Autostereograms</a></strong> are
 images made of a pattern that is horizontally repeated (with slight
 variations) which, when watched with the appropriate focus, will
 generate an illusion of depth.</p>
@@ -383,7 +383,7 @@ very sharp and until your eyes stabilize. You should then be able to
 perceive the letters <strong>3D</strong> as carved in the figure</p>
 <p>It can take a bit of time to “get there”, but once you are used to it,
 it’s a mind-blowing experience 🤯</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ill</span><span class="o">.</span><span class="n">autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ill</span><span class="o">.</span><span class="n">autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/README_autostereogram1.png" src="_images/README_autostereogram1.png" /></p>
@@ -396,7 +396,7 @@ function to which we can provide additional arguments like <code class="docutils
 the number of circles <code class="docutils literal notranslate"><span class="pre">n</span></code>, their size range and their transparency with
 <code class="docutils literal notranslate"><span class="pre">alpha</span></code>).</p>
 <p><img alt="_images/depthmask.png" src="_images/depthmask.png" /></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ill</span><span class="o">.</span><span class="n">autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;docs/img/depthmask.png&quot;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ill</span><span class="o">.</span><span class="n">autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;docs/img/depthmask.png&quot;</span><span class="p">,</span>
                    <span class="n">pattern</span><span class="o">=</span><span class="n">ill</span><span class="o">.</span><span class="n">image_circles</span><span class="p">,</span>
                    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blackwhite&quot;</span><span class="p">,</span>
                    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
@@ -416,7 +416,7 @@ in their study <em>“Seeing Jesus in toast”</em>, famously (the study got
 awarded an Ignobel prize) investigated the correlates of face pareidolia
 by blending images of faces with noise-like images.</p>
 <p>Blending of images can be achieved: as followed</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ill</span><span class="o">.</span><span class="n">pareidolia</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;docs/img/snake.png&quot;</span><span class="p">,</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ill</span><span class="o">.</span><span class="n">pareidolia</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;docs/img/snake.png&quot;</span><span class="p">,</span> 
                <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">4000</span><span class="p">],</span> 
                <span class="n">sd</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
                <span class="n">weight</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
@@ -428,8 +428,8 @@ by blending images of faces with noise-like images.</p>
 </div>
 <div class="section" id="transparency-from-motion-tfm">
 <h3>Transparency From Motion (TFM)<a class="headerlink" href="#transparency-from-motion-tfm" title="Permalink to this headline">¶</a></h3>
-<p>In visual perception, the <a class="reference external" href="https://en.wikipedia.org/wiki/Kinetic_depth_effect"><strong>kinetic depth
-effect</strong></a> refers to
+<p>In visual perception, the <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Kinetic_depth_effect">kinetic depth
+effect</a></strong> refers to
 the phenomenon whereby the three-dimensional structural form of an
 object can be perceived when the object is moving (Wallach &amp; O’Connell,
 1953; <a class="reference external" href="https://jov.arvojournals.org/article.aspx?articleid=2191769">Mamassian &amp; Wallace,
@@ -443,8 +443,9 @@ directions that results in the perception of two transparent layers (See
 2015</a>; <a class="reference external" href="https://jov.arvojournals.org/article.aspx?articleid=2548036">Schütz
 &amp; Mamassian,
 2016</a> and
-<a class="reference external" href="http://lab-perception.org/demo/p/tfm">http://lab-perception.org/demo/p/tfm</a> for a demo).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">motiontransparency_parameters</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<a href="http://lab-perception.org/demo/p/tfm" class="uri">http://lab-perception.org/demo/p/tfm</a>
+for a demo).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">motiontransparency_parameters</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 <span class="n">images</span> <span class="o">=</span> <span class="n">ill</span><span class="o">.</span><span class="n">motiontransparency_images</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 
 <span class="n">ill</span><span class="o">.</span><span class="n">images_to_gif</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;Transparency_From_Motion.gif&quot;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;FPS&quot;</span><span class="p">])</span>
@@ -454,8 +455,8 @@ directions that results in the perception of two transparent layers (See
 <!-- ### Pattern Detection in Motion  --><!-- - **TO DO** *(consider helping!)* --></div>
 <div class="section" id="pinna-illusion">
 <h3>Pinna illusion<a class="headerlink" href="#pinna-illusion" title="Permalink to this headline">¶</a></h3>
-<p>See also <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0278584620303717">Zeljic et al.,
-2021</a>.</p>
+<p>See also <strong><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0278584620303717">Zeljic et al.,
+2021</a></strong>.</p>
 <ul class="simple">
 <li><p><strong>TO DO</strong> <em>(consider helping!)</em></p></li>
 </ul>
@@ -466,7 +467,7 @@ directions that results in the perception of two transparent layers (See
 <h2>PsychoPy Integration<a class="headerlink" href="#psychopy-integration" title="Permalink to this headline">¶</a></h2>
 <p>Pyllusion can be easily integrated into
 <a class="reference external" href="https://www.psychopy.org/">PsychoPy</a> for running experiments as well!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load packages</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load packages</span>
 <span class="kn">import</span> <span class="nn">pyllusion</span> <span class="k">as</span> <span class="nn">ill</span>
 <span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
 
@@ -489,8 +490,8 @@ directions that results in the perception of two transparent layers (See
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>Bertamini, M. (2017). <a class="reference external" href="https://www.programmingvisualillusionsforeveryone.online"><em>Programming visual illusions for
-everyone</em></a>.
+<p>Bertamini, M. (2017). <em><a class="reference external" href="https://www.programmingvisualillusionsforeveryone.online">Programming visual illusions for
+everyone</a></em>.
 Springer.</p>
 <p>Chouinard, P. A., Noulty, W. A., Sperandio, I., &amp; Landry, O. (2013).
 Global processing during the Müller-Lyer illusion is distinctively
@@ -499,7 +500,8 @@ Experimental Brain Research, 230(2), 219–231.</p>
 <p>Kantrowitz, J. T., Butler, P. D., Schecter, I., Silipo, G., &amp; Javitt, D.
 C. (2009). Seeing the world dimly: The impact of early visual deficits
 on visual experience in schizophrenia. Schizophrenia Bulletin, 35(6),
-1085–1094. <a class="reference external" href="doi:10.1093/schbul/sbp100">doi:10.1093/schbul/sbp100</a></p>
+1085–1094.
+<a href="doi:10.1093/schbul/sbp100" class="uri">doi:10.1093/schbul/sbp100</a></p>
 <p>King, D. J., Hodgekins, J., Chouinard, P. A., Chouinard, V. A., &amp;
 Sperandio, I. (2017). A review of abnormalities in the perception of
 visual illusions in schizophrenia. Psychonomic bulletin &amp; review, 24(3),
@@ -507,11 +509,12 @@ visual illusions in schizophrenia. Psychonomic bulletin &amp; review, 24(3),
 <p>Parnas, J., Vianin, P., Saebye, D., Jansson, L., Volmer-Larsen, a, &amp;
 Bovet, P. (2001). Visual binding abilities in the initial and advanced
 stages of schizophrenia. Acta Psychiatrica Scandinavica, 103(3),
-171–180. <a class="reference external" href="doi:10.1034/j.1600-0447.2001.00160.x">doi:10.1034/j.1600-0447.2001.00160.x</a></p>
+171–180.
+<a href="doi:10.1034/j.1600-0447.2001.00160.x" class="uri">doi:10.1034/j.1600-0447.2001.00160.x</a></p>
 <p>Silverstein, S. M., &amp; Keane, B. P. (2011). Perceptual organization
 impairment in schizophrenia and associated brain mechanisms: Review of
 research from 2005 to 2010. Schizophrenia Bulletin, 37(4), 690–699.
-<a class="reference external" href="doi:10.1093/schbul/sbr052">doi:10.1093/schbul/sbr052</a></p>
+<a href="doi:10.1093/schbul/sbr052" class="uri">doi:10.1093/schbul/sbr052</a></p>
 <p>Song, C., Schwarzkopf, D. S., &amp; Rees, G. (2011). Interocular induction
 of illusory size perception. BMC Neuroscience 27, 12(1).</p>
 <p>Uhlhaas, P. J., Phillips, W. A., Schenkel, L. S., &amp; Silverstein, S. M.

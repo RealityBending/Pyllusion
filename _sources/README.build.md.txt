@@ -50,27 +50,25 @@ You can cite the package as follows:
 
 ### Delboeuf Illusion
 
-The [**Delboeuf
-illusion**](https://en.wikipedia.org/wiki/Delboeuf_illusion) is an
+The **[Delboeuf
+illusion](https://en.wikipedia.org/wiki/Delboeuf_illusion)** is an
 optical illusion of relative size perception, where circles of identical
 size appear as different because of their surrounding context. The
 illusion was named for the Belgian philosopher, mathematician,
 experimental psychologist, hypnotist, and psychophysicist Joseph Remi
 Leopold Delboeuf (1831–1896), who created it in 1865.
 
-``` python
-import pyllusion as ill
+    import pyllusion as ill
 
-parameters = ill.delboeuf_parameters(illusion_strength=3)
-ill.delboeuf_image(parameters)
-```
+    parameters = ill.delboeuf_parameters(illusion_strength=3)
+    ill.delboeuf_image(parameters)
 
 ![](img/README_delboeuf1.png)
 
 ### Ebbinghaus Illusion
 
-The [**Ebbinghaus
-illusion**](https://en.wikipedia.org/wiki/Ebbinghaus_illusion) is an
+The **[Ebbinghaus
+illusion](https://en.wikipedia.org/wiki/Ebbinghaus_illusion)** is an
 optical illusion of relative size perception, where circles of identical
 size appear as different because of their surrounding context (the right
 red circle appears as smaller because its surrounding circle is larger).
@@ -89,17 +87,15 @@ reflect how prior knowledge influences perceptual organization to a
 lesser extent, i.e., reduced top-down influence, in schizophrenia
 (Silverstein & Keane, 2011).
 
-``` python
-parameters = ill.ebbinghaus_parameters(illusion_strength=2)
-ill.ebbinghaus_image(parameters)
-```
+    parameters = ill.ebbinghaus_parameters(illusion_strength=2)
+    ill.ebbinghaus_image(parameters)
 
 ![](img/README_ebbinghaus1.png)
 
 ### Müller-Lyer Illusion
 
-The [**Müller-Lyer
-illusion**](https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion) is
+The **[Müller-Lyer
+illusion](https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion)** is
 an optical illusion causing the participant to perceive two segments as
 being of different length depending on the shape of the arrows. The
 illusion was named after its creator the erman sociologist Franz Carl
@@ -115,16 +111,14 @@ is negatively correlated with autistic traits in the typical population
 (but not with the Ebbinghaus nor the Ponzo illusion) (Chouinard et al.,
 2013).
 
-``` python
-parameters = ill.mullerlyer_parameters(illusion_strength=30)
-ill.mullerlyer_image(parameters)
-```
+    parameters = ill.mullerlyer_parameters(illusion_strength=30)
+    ill.mullerlyer_image(parameters)
 
 ![](img/README_mullerlyer1.png)
 
 ### Ponzo Illusion
 
-The [**Ponzo illusion**](https://en.wikipedia.org/wiki/Ponzo_illusion)
+The **[Ponzo illusion](https://en.wikipedia.org/wiki/Ponzo_illusion)**
 is an optical illusion of relative size perception, where horizontal
 lines of identical size appear as different because of their surrounding
 context (the top line appear as longer, as it is interepreted as being
@@ -139,61 +133,53 @@ requiring higher-level cortical processes (Song et al., 2011). Similar
 to the Ebbinghaus illusion, it is also shown to have less effect in
 biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).
 
-``` python
-parameters = ill.ponzo_parameters(illusion_strength=20)
-ill.ponzo_image(parameters)
-```
+    parameters = ill.ponzo_parameters(illusion_strength=20)
+    ill.ponzo_image(parameters)
 
 ![](img/README_ponzo1.png)
 
 ### Vertical–horizontal Illusion
 
-The [**vertical–horizontal
-illusion**](https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion)
+The **[vertical–horizontal
+illusion](https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion)**
 illustrates the tendency for observers to overestimate the length of a
 vertical line relative to a horizontal line of the same length (Shipley
 et al., 1949).
 
-``` python
-parameters = ill.verticalhorizontal_parameters(illusion_strength=90)
-ill.verticalhorizontal_image(parameters)
-```
+    parameters = ill.verticalhorizontal_parameters(illusion_strength=90)
+    ill.verticalhorizontal_image(parameters)
 
 ![](img/README_verticalhorizontal1.png)
 
 ### Zöllner Illusion
 
-The [**Zöllner
-illusion**](https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion) is an
+The **[Zöllner
+illusion](https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion)** is an
 optical illusion, where horizontal lines are perceived as not parallel
 because of their background. It is named after its discoverer, the
 German astrophysicist Johann Karl Friedrich Zöllner in 1860.
 
-``` python
-parameters = ill.zollner_parameters(illusion_strength=75)
-ill.zollner_image(parameters)
-```
+    parameters = ill.zollner_parameters(illusion_strength=75)
+    ill.zollner_image(parameters)
 
 ![](img/README_zollner1.png)
 
 ### Rod and Frame Illusion
 
-The [**Rod and frame
-illusion**](https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion)
+The **[Rod and frame
+illusion](https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion)**
 is an optical illusion causing the participant to perceive the rod to be
 oriented congruent with the orientation of the frame.
 
-``` python
-parameters = ill.rodframe_parameters(illusion_strength=11)
-ill.rodframe_image(parameters)
-```
+    parameters = ill.rodframe_parameters(illusion_strength=11)
+    ill.rodframe_image(parameters)
 
 ![](img/README_rodframe1.png)
 
 ### Poggendorff Illusion
 
-The [**Poggendorff
-illusion**](https://en.wikipedia.org/wiki/Poggendorff_illusion) is an
+The **[Poggendorff
+illusion](https://en.wikipedia.org/wiki/Poggendorff_illusion)** is an
 optical illusion that involves the misperception of the position of one
 segment of a transverse line that has been interrupted by the contour of
 an intervening structure. It is named after Johann Christian Poggendorff
@@ -201,10 +187,8 @@ who discovered in Zöllner’s illusion after 1860. The magnitude of the
 illusion depends on the properties of the obscuring pattern and the
 nature of its borders.
 
-``` python
-parameters = ill.poggendorff_parameters(illusion_strength=-50)
-ill.poggendorff_image(parameters)
-```
+    parameters = ill.poggendorff_parameters(illusion_strength=-50)
+    ill.poggendorff_image(parameters)
 
 ![](img/README_poggendorff1.png)
 
@@ -212,8 +196,8 @@ ill.poggendorff_image(parameters)
 
 A neutral gray target will appear lighter or darker than it does in
 isolation when compared to, respectively, a dark gray or light gray
-target. [**Simultaneous
-contrast**](https://en.wikipedia.org/wiki/Contrast_effect), identified
+target. **[Simultaneous
+contrast](https://en.wikipedia.org/wiki/Contrast_effect)**, identified
 by Michel Eugène Chevreul, refers to the manner in which the colors of
 two different objects affect each other.
 
@@ -221,28 +205,24 @@ In the image here, the two inner rectangles are exactly the same shade
 of grey, but the upper one appears to be a lighter grey than the lower
 one due to the background provided by the outer rectangles.
 
-``` python
-parameters = ill.contrast_parameters(illusion_strength=-50)
-ill.contrast_image(parameters)
-```
+    parameters = ill.contrast_parameters(illusion_strength=-50)
+    ill.contrast_image(parameters)
 
 ![](img/README_contrast1.png)
 
 ### White Illusion
 
-[**White’s illusion**](https://en.wikipedia.org/wiki/White%27s_illusion)
+**[White’s illusion](https://en.wikipedia.org/wiki/White%27s_illusion)**
 is a brightness illusion in which rectangles of the same grey color are
 perceived of different luminance depending on their background.
 
-``` python
-parameters = ill.white_parameters(illusion_strength=100)
-ill.white_image(parameters)
-```
+    parameters = ill.white_parameters(illusion_strength=100)
+    ill.white_image(parameters)
 
 ![](img/README_white1.png)
 
 <!-- ### Chubb illusion -->
-<!-- The [**Chubb illusion**](https://en.wikipedia.org/wiki/Chubb_illusion) is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. -->
+<!-- The **[Chubb illusion](https://en.wikipedia.org/wiki/Chubb_illusion)** is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. -->
 <!-- ![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif) -->
 <!-- - **TO DO** *(consider helping!)* -->
 
@@ -263,7 +243,7 @@ illusion is not robust (King et al., 2017).
 
 ### Autostereograms
 
-[Autostereograms](https://en.wikipedia.org/wiki/Autostereogram) are
+**[Autostereograms](https://en.wikipedia.org/wiki/Autostereogram)** are
 images made of a pattern that is horizontally repeated (with slight
 variations) which, when watched with the appropriate focus, will
 generate an illusion of depth.
@@ -278,9 +258,7 @@ perceive the letters **3D** as carved in the figure
 It can take a bit of time to “get there”, but once you are used to it,
 it’s a mind-blowing experience 🤯
 
-``` python
-ill.autostereogram(stimulus="3D", width=1600, height=900)
-```
+    ill.autostereogram(stimulus="3D", width=1600, height=900)
 
 ![](img/README_autostereogram1.png)
 
@@ -295,15 +273,13 @@ the number of circles `n`, their size range and their transparency with
 
 ![](img/depthmask.png)
 
-``` python
-ill.autostereogram(stimulus="docs/img/depthmask.png",
-                   pattern=ill.image_circles,
-                   color="blackwhite",
-                   alpha=0.75,
-                   size_min=0.005,
-                   size_max=0.03,
-                   n=1000)
-```
+    ill.autostereogram(stimulus="docs/img/depthmask.png",
+                       pattern=ill.image_circles,
+                       color="blackwhite",
+                       alpha=0.75,
+                       size_min=0.005,
+                       size_max=0.03,
+                       n=1000)
 
 ![](img/README_autostereogram2.png)
 
@@ -318,21 +294,19 @@ by blending images of faces with noise-like images.
 
 Blending of images can be achieved: as followed
 
-``` python
-ill.pareidolia(pattern="docs/img/snake.png", 
-               n=[20, 300, 4000], 
-               sd=[4, 2, 1], 
-               weight=[3, 2, 1],
-               alpha=80,
-               blur=0.5)
-```
+    ill.pareidolia(pattern="docs/img/snake.png", 
+                   n=[20, 300, 4000], 
+                   sd=[4, 2, 1], 
+                   weight=[3, 2, 1],
+                   alpha=80,
+                   blur=0.5)
 
 ![](img/README_pareidolia.png)
 
 ### Transparency From Motion (TFM)
 
-In visual perception, the [**kinetic depth
-effect**](https://en.wikipedia.org/wiki/Kinetic_depth_effect) refers to
+In visual perception, the **[kinetic depth
+effect](https://en.wikipedia.org/wiki/Kinetic_depth_effect)** refers to
 the phenomenon whereby the three-dimensional structural form of an
 object can be perceived when the object is moving (Wallach & O’Connell,
 1953; [Mamassian & Wallace,
@@ -346,14 +320,13 @@ directions that results in the perception of two transparent layers (See
 2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf); [Schütz
 & Mamassian,
 2016](https://jov.arvojournals.org/article.aspx?articleid=2548036) and
-<http://lab-perception.org/demo/p/tfm> for a demo).
+<a href="http://lab-perception.org/demo/p/tfm" class="uri">http://lab-perception.org/demo/p/tfm</a>
+for a demo).
 
-``` python
-parameters = ill.motiontransparency_parameters(angle=45)
-images = ill.motiontransparency_images(parameters)
+    parameters = ill.motiontransparency_parameters(angle=45)
+    images = ill.motiontransparency_images(parameters)
 
-ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])
-```
+    ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])
 
 ![](img/README_TFM1.gif)
 
@@ -362,8 +335,8 @@ ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["F
 
 ### Pinna illusion
 
-See also [Zeljic et al.,
-2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717).
+See also **[Zeljic et al.,
+2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717)**.
 
 -   **TO DO** *(consider helping!)*
 
@@ -379,32 +352,30 @@ See also [Zeljic et al.,
 Pyllusion can be easily integrated into
 [PsychoPy](https://www.psychopy.org/) for running experiments as well!
 
-``` python
-# Load packages
-import pyllusion as ill
-from psychopy import visual, event
+    # Load packages
+    import pyllusion as ill
+    from psychopy import visual, event
 
-# Create parameters
-parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
+    # Create parameters
+    parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
 
-# Initiate Window
-window = visual.Window(size=[1820, 980], winType='pygame', color='white', fullscr=False)
+    # Initiate Window
+    window = visual.Window(size=[1820, 980], winType='pygame', color='white', fullscr=False)
 
-# Display illusion
-ill.delboeuf_psychopy(window=window, parameters=parameters)
+    # Display illusion
+    ill.delboeuf_psychopy(window=window, parameters=parameters)
 
-# Refresh and close window
-window.flip()
-event.waitKeys()  # Press any key to close
-window.close()
-```
+    # Refresh and close window
+    window.flip()
+    event.waitKeys()  # Press any key to close
+    window.close()
 
 ![](img/image_example.gif)
 
 ## References
 
-Bertamini, M. (2017). [*Programming visual illusions for
-everyone*](https://www.programmingvisualillusionsforeveryone.online).
+Bertamini, M. (2017). *[Programming visual illusions for
+everyone](https://www.programmingvisualillusionsforeveryone.online)*.
 Springer.
 
 Chouinard, P. A., Noulty, W. A., Sperandio, I., & Landry, O. (2013).
@@ -415,7 +386,8 @@ Experimental Brain Research, 230(2), 219–231.
 Kantrowitz, J. T., Butler, P. D., Schecter, I., Silipo, G., & Javitt, D.
 C. (2009). Seeing the world dimly: The impact of early visual deficits
 on visual experience in schizophrenia. Schizophrenia Bulletin, 35(6),
-1085–1094. <doi:10.1093/schbul/sbp100>
+1085–1094.
+<a href="doi:10.1093/schbul/sbp100" class="uri">doi:10.1093/schbul/sbp100</a>
 
 King, D. J., Hodgekins, J., Chouinard, P. A., Chouinard, V. A., &
 Sperandio, I. (2017). A review of abnormalities in the perception of
@@ -425,12 +397,13 @@ visual illusions in schizophrenia. Psychonomic bulletin & review, 24(3),
 Parnas, J., Vianin, P., Saebye, D., Jansson, L., Volmer-Larsen, a, &
 Bovet, P. (2001). Visual binding abilities in the initial and advanced
 stages of schizophrenia. Acta Psychiatrica Scandinavica, 103(3),
-171–180. <doi:10.1034/j.1600-0447.2001.00160.x>
+171–180.
+<a href="doi:10.1034/j.1600-0447.2001.00160.x" class="uri">doi:10.1034/j.1600-0447.2001.00160.x</a>
 
 Silverstein, S. M., & Keane, B. P. (2011). Perceptual organization
 impairment in schizophrenia and associated brain mechanisms: Review of
 research from 2005 to 2010. Schizophrenia Bulletin, 37(4), 690–699.
-<doi:10.1093/schbul/sbr052>
+<a href="doi:10.1093/schbul/sbr052" class="uri">doi:10.1093/schbul/sbr052</a>
 
 Song, C., Schwarzkopf, D. S., & Rees, G. (2011). Interocular induction
 of illusory size perception. BMC Neuroscience 27, 12(1).
