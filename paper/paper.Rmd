@@ -66,6 +66,16 @@ library("papaja")
 ```
 
 
+<!-- [? - Perception](https://journals.sagepub.com/home/pec) -->
+<!-- [2.45 - Journal of Experimental Psychology: Human Perception and Performance](https://www.apa.org/pubs/journals/xhp/) -->
+<!-- [1.893 - Attention, Perception, & Psychophysics](https://www.springer.com/journal/13414) -->
+<!-- [? - Art \& Perception](https://brill.com/view/journals/artp/artp-overview.xml) -->
+<!-- [? - Journal of Vision](https://jov.arvojournals.org/) -->
+<!-- [1.102 - Visual Cognition](https://www.tandfonline.com/toc/pvis20/current) -->
+<!-- [2.61 - Vision Research](https://www.sciencedirect.com/journal/vision-research) -->
+<!-- [3 - Visual Neuroscience](https://www.cambridge.org/core/journals/visual-neuroscience) -->
+<!-- [2.396 - Cognitive Neuropsychology](https://www.tandfonline.com/toc/pcgn20/current) -->
+<!-- [Journal of Illusions](https://journalofillusion.net/index.php/joi) -->
 
 
 
