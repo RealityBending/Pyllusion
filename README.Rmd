@@ -25,7 +25,9 @@ knitr::opts_chunk$set(
 # Setup python - you need to change the path to your python distribution
 library(reticulate)
 # reticulate::use_python("D:/Downloads/WPy64-3902/python-3.9.0.amd64/")
-reticulate::use_python("C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd64")
+#reticulate::use_python("C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd64")
+
+reticulate::use_python("C:/Users/Pham Thanh Tam/Desktop/WPy-3710b/python-3.7.1.amd64")
 matplotlib <- import("matplotlib")
 matplotlib$use("Agg", force = TRUE)
 ```
