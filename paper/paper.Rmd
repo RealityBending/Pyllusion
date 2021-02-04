@@ -24,16 +24,16 @@ affiliation:
   - id            : "1"
     institution   : "School of Social Sciences, Nanyang Technological University, Singapore"
   - id            : "2"
-    institution   : "School of Psychology, University of New South Wales, Australia"
+    institution   : "School of Psychology, University of New South Wales"
   - id            : "3"
     institution   : "Centre for Research and Development in Learning, Nanyang Technological University, Singapore"
   - id            : "4"
     institution   : "Lee Kong Chian School of Medicine, Nanyang Technological University, Singapore"
 authornote: |
 abstract: |
-  Visual illusions are fascinating phenomena that have been used and studied by artists and scientists for centuries, leading to important discoveries about the neurocognitive underpinnings of perception, consciousness, and neuropsychiatric disorders such as schizophrenia or autism. Surprisingly, despite their historical and theoretical importance as psychological stimuli, there is no dedicated software, nor consistent approach, to generate illusions in a systemic fashion. Instead, scientists have to craft them by hand in an idiosyncratic fashion, or use pre-made images not tailored for the specific needs of their studies. This, in turn, hinders the reproducibility of illusion-based research, narrowing possibilities for scientific breakthroughs and their applications. With the aim of addressing this gap, *Pyllusion* is a Python-based open-source software (freely available at https://github.com/RealityBending/Pyllusion), that offers a framework to manipulate and generate illusions in a systematic way, compatible with different output formats such as image files (.png, .jpg, .tiff, etc.) or experimental software stimuli (such as *PsychoPy*).
+  Visual illusions are fascinating phenomena that have been used and studied by artists and scientists for centuries, leading to important discoveries about the neurocognitive underpinnings of perception, consciousness, and neuropsychiatric disorders such as schizophrenia or autism. Surprisingly, despite their historical and theoretical importance as psychological stimuli, there is no dedicated software, nor consistent approach, to generate illusions in a systemic fashion. Instead, scientists have to craft them by hand in an idiosyncratic fashion, or use pre-made images not tailored for the specific needs of their studies. This, in turn, hinders the reproducibility of illusion-based research, narrowing possibilities for scientific breakthroughs and their applications. With the aim of addressing this gap, ***Pyllusion*** is a Python-based open-source software (freely available at https://github.com/RealityBending/Pyllusion), that offers a framework to manipulate and generate illusions in a systematic way, compatible with different output formats such as image files (.png, .jpg, .tiff, etc.) or experimental software stimuli (such as *PsychoPy*).
 keywords          : "Pyllusion, Visual Illusions, Optical Illusions, Schizophrenia, Python, PsychoPy"
-wordcount         : "3394"
+wordcount         : ""
 bibliography      : ["paper.bib"]
 floatsintext      : yes
 figsintext        : yes
@@ -63,15 +63,42 @@ editor_options:
 
 ```{r r_setup, include = FALSE, warning=FALSE, message=FALSE}
 library("papaja")
+# library("kableExtra")
+# options(knitr.kable.NA = 'None')
+
+# library(tidyverse)
+# library(easystats)
+
+# Setup python - you need to change the path to your python distribution
+# library(reticulate)
+# reticulate::use_python("C:/Users/Pham Thanh Tam/Desktop/WPy-3710b/python-3.7.1.amd64/")
+# reticulate::use_python("D:/Downloads/WPy64-3902/python-3.9.0.amd64/")
+# reticulate::use_python("C:/Users/Dom/Desktop/WPy64-3860/python-3.8.6.amd64/")
+# reticulate::use_python("C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd64/")
+
+
+# matplotlib <- import("matplotlib")
+# matplotlib$use("Agg", force = TRUE)
 ```
 
 
+[? - Perception](https://journals.sagepub.com/home/pec)
+[2.45 - Journal of Experimental Psychology: Human Perception and Performance](https://www.apa.org/pubs/journals/xhp/)
+[1.893 - Attention, Perception, & Psychophysics](https://www.springer.com/journal/13414)
+[? - Art \& Perception](https://brill.com/view/journals/artp/artp-overview.xml)
+[? - Journal of Vision](https://jov.arvojournals.org/)
+[1.102 - Visual Cognition](https://www.tandfonline.com/toc/pvis20/current)
+[2.61 - Vision Research](https://www.sciencedirect.com/journal/vision-research)
+[3 - Visual Neuroscience](https://www.cambridge.org/core/journals/visual-neuroscience)
+[2.396 - Cognitive Neuropsychology](https://www.tandfonline.com/toc/pcgn20/current)
+[Journal of Illusions](https://journalofillusion.net/index.php/joi/index)
 
+# Introduction
 
 
 Visual illusions have been observed for hundreds of years [@LuckieshVisualIllusions1965], many of which were described in print by @helmholtz1856handbuch in 1856 [@helmholtz1856handbuch]. In general terms, a visual illusion can be thought of as the inaccurate perception of a visual stimulus or a given attribute, be it geometrical (size, shape, or angle), or another property such as colour [@muller1896lehre; @howe2005muller; @delboeuf1893nouvelle; @ebbinghaus1902grundzuge; @roberts2005roles; @adelson200024]. Often, an illusory perception resists 'correction' in perception even after an observer has been made aware of the misperception. Novel examples of illusions are still observed and have even cropped up on social media platforms, a famous example being 'The Dress Illusion' (see **Fig. 1**) as discussed by @schlaffke2015brain. See @ninio2014geometrical, @LuckieshVisualIllusions1965, and @robinson1972psychology for extensive collections of visual illusions.
 
-```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="The internet-famous 'Dress illusion' image (on the left), which some people perceive as white and yellow \\textit{vs.} black and blue. It is thought to illustrate how perceptual priors (i.e., expectations regarding the lighting conditions) can bias our conscious representation of an object (see visual explanation - from Wikipedia - on the right)."}
+```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="The internet-famous 'Dress illusion' image (on the left), which some people perceive as white and yellow *vs.* black and blue. It is thought to illustrate how perceptual priors (i.e., expectations regarding the lighting conditions) can bias our conscious representation of an object (see visual explanation - from Wikipedia - on the right)."}
 knitr::include_graphics("figure1.png")
 ```
 
@@ -88,13 +115,17 @@ Individuals with autistic spectrum disorder (ASD) is another clinical group that
 In summary, these studies suggest that illusions, rather than being mere perceptual artifacts, engage specific neurocognitive processes involved in important higher order functions and neuropsychiatric disorders. A common approach to explain illusory phenomena is using the Predictive Coding framework [@friston2009predictive], which posits that illusory perception typically arises because of a strong systematic bias for prior beliefs (top-down influence) that are mismatched with actual sensory evidence, causing the generation of an objectively wrong but more plausible percept (i.e., two objectively equivalent-sized circles being interpreted as different sizes because of their surrounding context) [@notredame2014visual]. In the case of schizophrenia and also in other states of psychosis, a greater resistance to visual illusions is then interpreted as a product of reduced adaptive top-down influence [@schneider2002reduced; @koethe2009binocular] and an over-reliance on sensory evidence (bottom-up processes) in making perceptual judgements [@dima2010impaired]. While evidence from visual illusions research has garnered substantial support for the predictive coding account, helping to underscore the neurocomputational mechanisms that are fundamental to psychiatric and psychological disorders [@sterzer2018predictive], there are contradictory findings that fail to be integrated within this approach. The lack of consistency and replicability in experimental designs using illusions-based stimuli appear to be one of the main reasons for slowing the progress in the field.
 
 
-Despite the relevance of visual illusions in psychology and neuroscience, the field of illusion research lacks a dedicated software to generate and report the stimuli, in order for them to be reproduced and re-used by other researchers and studies. As several reviews have highlighted [e.g., @gori2016visual], the lack of a validated paradigm and the improper measurement of visual illusion sensitivity (especially amongst individuals with communication problems) may be preventing progress in understanding the distinct mechanisms that underlie psychopathology and other fields alike. This is particularly problematic in the context of the replicability and reproducibility issues recently outlined in psychological science [@topalidou2015long; @open2015estimating; @milkowski2018replicability; @maizey2019barriers]. Our software, *Pyllusion*, aims at addressing this gap by proposing and implementing a parametric framework for illusions generation.
+Despite the relevance of visual illusions in psychology and neuroscience, the field of illusion research lacks a dedicated software to generate and report the stimuli, in order for them to be reproduced and re-used by other researchers and studies. As several reviews have highlighted [e.g., @gori2016visual], the lack of a validated paradigm and the improper measurement of visual illusion sensitivity (especially amongst individuals with communication problems) may be preventing progress in understanding the distinct mechanisms that underlie psychopathology and other fields alike. This is particularly problematic in the context of the replicability and reproducibility issues recently outlined in psychological science [@topalidou2015long; @open2015estimating; @milkowski2018replicability; @maizey2019barriers]. Our software, **Pyllusion**, aims at addressing this gap by proposing and implementing a parametric framework for illusions generation.
+
 
 # A Parametric Framework for Illusion Research
 
-The core idea of the "parametric" approach proposed here and implemented in *Pyllusion* is to dissociate the parameters of an illusion from its rendered output. For instance, the Ponzo illusion (see **Fig. 2**) can be described in terms of properties of the "distractor" lines (which create the illusion), such as the angle (related to the illusion strength), the color, width, etc. and properties of the "target" lines (which are affected by the illusion), such as the size of the smallest line, the objective difference of the ratio of their lengths, or their color, width, etc. This set of parameters can then be rendered in different formats with further format-specific characteristics (in the case of images, the image size, ratio, resolution, compression, etc.).
 
-```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="The parametric framework for illusions originally implemented in \\textit{Pyllusion} aims at dissociating the \\textit{parametric} representation of an illusion (on the left) from its \\textit{rendered} representation, in this case as an image of the Ponzo illusion (on the right). In technical terms, an \\textit{illusion strength} of -15 represents a 15 degree tilt of the vertical lines (black distractor lines); an objective \\textit{difference} of 0.3 represents a 30\\% length difference of the upper and lower horizontal lines (red target lines) where the \\textit{size} of the shorter horizontal line is 0.5."}
+The core idea of the "parametric" approach proposed here and implemented in **Pyllusion** is to dissociate the parameters of an illusion from its rendered output. For instance, the Ponzo illusion (see **Fig. 2**) can be described in terms of properties of the "distractor" lines (which create the illusion), such as the angle (related to the illusion strength), the color, width, etc. and properties of the "target" lines (which are affected by the illusion), such as the size of the smallest line, the objective difference of the ratio of their lengths, or their color, width, etc. This set of parameters can then be rendered in different formats with further format-specific characteristics (in the case of images, the image size, ratio, resolution, compression, etc.).
+
+
+
+```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="The parametric framework for illusions originally implemented in **Pyllusion** aims at dissociating the *parametric* representation of an illusion (on the left) from its *rendered* representation, in this case as an image of the Ponzo illusion (on the right). In technical terms, an *illusion strength* of -15 represents a 15 degree tilt of the vertical lines (black distractor lines); an objective *difference* of 0.3 represents a 30% length difference of the upper and lower horizontal lines (red target lines) where the *size* of the shorter horizontal line is 0.5."}
 knitr::include_graphics("figure2.png")
 ```
 
@@ -103,7 +134,7 @@ This essentially allows researchers to describe, manipulate, process and share t
 
 Moreover, this parametric approach is scalable and works well with different kinds of illusions, as demonstrated in the software. Indeed, many visual illusions (especially the classical one) appears to have relatively similar parameters (such as a feature - like the angle or the size of some shapes - related to the strength of the illusion, or the color of the "target" objects), which in turn allows for a consistent programming interface (API).
 
-Interestingly, in most of the visual illusions, the strength of the illusion can be dissociated from the actual "difference" (which is impacted by the illusion). For instance, in the Müller-Lyer illusion (see **Fig. 2**), the difference between the two horizontal segments can be modulated orthogonally from the angle of the "distractors" arrows. Allowing researchers to easily manipulate these parameters opens the door for potentially interesting paradigms and experiments. In the following section, we will describe with concrete examples how we operationalized such a parametric approach in the *Pyllusion* software.
+Interestingly, in most of the visual illusions, the strength of the illusion can be dissociated from the actual "difference" (which is impacted by the illusion). For instance, in the Müller-Lyer illusion (see **Fig. 2**), the difference between the two horizontal segments can be modulated orthogonally from the angle of the "distractors" arrows. Allowing researchers to easily manipulate these parameters opens the door for potentially interesting paradigms and experiments. In the following section, we will describe with concrete examples how we operationalized such a parametric approach in the **Pyllusion** software.
 
 
 
@@ -116,17 +147,17 @@ Interestingly, in most of the visual illusions, the strength of the illusion can
 
 It is not the first time that Python, illusions and cognitive science are brought together. In his book, *"Programming visual illusions for everyone"*, @bertamini2017programming describes how to use *PsychoPy* to generate famous illusions. That said, although being a fantastic tool and resource for researchers and anybody interested in illusions, it is presented as a fun introduction to programming and to Python, rather than a dedicated software for illusions *per se*.
 
-*Pyllusion* is an open-source package to programmatically generate illusions written in Python 3 [@python3], which means that its users benefit from a large number of learning resources and a vibrant community. However, although being a programming-based tool, users not familiar with Python or other languages can easily use it as well, as it requires minimal programming skills (one can essentially copy the few necessary lines from the documentation and tweak the explicitly-named parameters). This makes it a very flexible tool; advanced users can incorporate *Pyllusion* in their scripts or experiments (for instance, to generate illusions "on the fly" based on the input of the user), whereas novice users can simply copy the minimal code to pre-generate and save the illusions as images.
+**Pyllusion** is an open-source package to programmatically generate illusions written in Python 3 [@python3], which means that its users benefit from a large number of learning resources and a vibrant community. However, although being a programming-based tool, users not familiar with Python or other languages can easily use it as well, as it requires minimal programming skills (one can essentially copy the few necessary lines from the documentation and tweak the explicitly-named parameters). This makes it a very flexible tool; advanced users can incorporate **Pyllusion** in their scripts or experiments (for instance, to generate illusions "on the fly" based on the input of the user), whereas novice users can simply copy the minimal code to pre-generate and save the illusions as images.
 
 
 The source code is available under the MIT license on GitHub (*https://github.com/RealityBending/Pyllusion/*). Its documentation (*https://realitybending.github.io/Pyllusion/*) is automatically built and rendered from the code and includes guides for installation, a description of the package's functions, as well as examples of use. Finally, the issue tracker on GitHub offers a convenient and public forum that allows users to report bugs, get help and gain insight into the development of the package. Additionally, the repository leverages a comprehensive test suite (using *pytest*) and continuous integration (using Travis-CI and GitHub actions) to ensure software stability and quality. The test coverage and build status can transparently be tracked via the GitHub repository. Thanks to its collaborative and open development, *Pyllusion* can continuously evolve, adapt, and integrate new functionalities to meet the needs of the community.
 
 <!-- Installation -->
-*Pyllusion* is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install Pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. Once the package is loaded, two steps are further required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
+**Pyllusion** is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install Pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. Once the package is loaded, two steps are further required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
 
-We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to other the other illusions supported by *Pyllusion*, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Poggendorff illusion and more (see **Fig. 3**, as well as the full list with examples on the **[readme](https://github.com/RealityBending/Pyllusion)**.
+We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to other the other illusions supported by ***Pyllusion***, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Poggendorff illusion and more (see **Fig. 3**, as well as the full list with examples on the [**readme**](https://github.com/RealityBending/Pyllusion) page of the repository).
 
-```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="95%", fig.align='center', fig.cap="Different historical visual illusions currently supported by \\textit{Pyllusion}. These can all be generated using the parametric approach described in this paper, allowing for fully reproducible studies."}
+```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="Different historical visual illusions currently supported by ***Pyllusion***. These can all be generated using the parametric approach described in this paper, allowing for fully reproducible studies."}
 knitr::include_graphics("figure3.png")
 ```
 
@@ -134,15 +165,15 @@ knitr::include_graphics("figure3.png")
 
 ## Step 1: Parameters
 
-The parameters for each illusion can be generated using the `IllusionName_parameters()` function. Many optional arguments are available for modifying, of which the description and default values can be find in the API documentation (*https://realitybending.github.io/Pyllusion/functions.html*). In the example below, we specify the `illusion_strength` argument, and the function will compute all of the remaining parameters accordingly.
+The parameters for each illusion can be generated using the `IllusionName_parameters()` function. Many optional arguments are available for modifying, of which the description and default values can be find in the API documentation (https://realitybending.github.io/Pyllusion/functions.html). In the example below, we specify the `illusion_strength` argument, and the function will compute all of the remaining parameters accordingly.
 
 
 ```python
 # Load package
-import pyllusion as ill
+import pyllusion
 
 # Create parameters
-parameters = ill.(illusion_strength=2)
+parameters = pyllusion.delboeuf_parameters(illusion_strength=2)
 
 # Visualize parameters
 print(parameters)
@@ -218,9 +249,9 @@ knitr::include_graphics("figure4.png")
 
 ### PsychoPy
 
-As illusions are heavily used in experimental psychology, we designed *Pyllusion* so that it is directly usable within *PsychoPy* [@peirce2007psychopy] experiments. *PsychoPy* is an open-source, free and Python-based package for experiments creation, recognized for its timing accuracy [@bridges2020timing] and its GUI (the "builder"), thereby allowing users who are not familiar with code to easily build experiments.
+As illusions are heavily used in experimental psychology, we designed ***Pyllusion*** so that it is directly usable within *PsychoPy* [@peirce2007psychopy] experiments. *PsychoPy* is an open-source, free and Python-based package for experiments creation, recognized for its timing accuracy [@bridges2020timing] and its GUI (the "builder"), thereby allowing users who are not familiar with code to easily build experiments.
 
-The *PsychoPy* "builder" interface allows for code components to be flexibly added, which makes it convenient to insert the few lines necessary for displaying illusions. However, using the programming interface of *PsychoPy* (which underlies the graphical interface) reveals how seamless the integration with *Pyllusion* can be. The following code is a minimal example demonstrating how to use a Delboeuf illusion within a *PsychoPy* workflow. Running it opens a new window, displays the illusion in it, and then closes it once an input (a key press) is detected.
+The *PsychoPy* "builder" interface allows for code components to be flexibly added, which makes it convenient to insert the few lines necessary for displaying illusions. However, using the programming interface of *PsychoPy* (which underlies the graphical interface) reveals how seamless the integration with ***Pyllusion*** can be. The following code is a minimal example demonstrating how to use a Delboeuf illusion within a *PsychoPy* workflow. Running it opens a new window, displays the illusion in it, and then closes it once an input (a key press) is detected.
 
 
 ```python
@@ -249,10 +280,10 @@ This native integration with *PsychoPy* could appear as somewhat redundant and u
 # Future Plans and Developments
 
 <!-- Open source -->
-Being an open-source software, *Pyllusion* will continue to grow and evolve based on the community's input. While the direction and state of the package in the long term can be hard to predict, several short term goals can be mentioned.
+Being an open-source software, **Pyllusion** will continue to grow and evolve based on the community's input. While the direction and state of the package in the long term can be hard to predict, several short term goals can be mentioned.
 
 <!-- Add more illusions -->
-The initial release of *Pyllusion* focuses on a set of classical, well-described, visual illusions, as they are the most commonly used (for historical reasons mainly, as well as for their relative simplicity). That said, the number of existing illusions is virtually infinite [and great advances are made to generate new ones using machine learning; @watanabe2018illusory]. Thus, new illusions, as well as new illusion types (e.g., movement-based using GIF or video formats, or auditory illusions using sounds and music) could be added in the future. Due to the open and collaborative nature of the software, these evolutions will be driven by the needs of the community, ensuring that *Pyllusion* remains cutting-edge, adaptable and useful to address future issues.
+The initial release of ***Pyllusion*** focuses on a set of classical, well-described, visual illusions, as they are the most commonly used (for historical reasons mainly, as well as for their relative simplicity). That said, the number of existing illusions is virtually infinite [and great advances are made to generate new ones using machine learning; @watanabe2018illusory]. Thus, new illusions, as well as new illusion types (e.g., movement-based using GIF or video formats, or auditory illusions using sounds and music) could be added in the future. Due to the open and collaborative nature of the software, these evolutions will be driven by the needs of the community, ensuring that ***Pyllusion*** remains cutting-edge, adaptable and useful to address future issues.
 
 <!-- Add more engines -->
 Adding new illusions refers mostly to implementing an algorithm to conceptualise and essentialize them as sets of parameters, which is by design independent from their rendering. However, more rendering engines could be added down the road. For instance, one of the first milestones could take the form of an integration with other Python-based experiment building software, such as *OpenSesame* [@mathot2012opensesame] or *Neuropsydia* [@makowski2017neuropsydia]. Additionally, a conversion to other languages could also be an interesting feature, especially *JavaScript*, as this would allow a closer integration with web browser apps [and online experiments software, such as *jsPsych*; @de2016psychophysics; or *lab.js* ; @henninger2020labjs].
