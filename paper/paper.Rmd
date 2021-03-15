@@ -33,7 +33,7 @@ authornote: |
 abstract: |
   Visual illusions are fascinating phenomena that have been used and studied by artists and scientists for centuries, leading to important discoveries about the neurocognitive underpinnings of perception, consciousness, and neuropsychiatric disorders such as schizophrenia or autism. Surprisingly, despite their historical and theoretical importance as psychological stimuli, there is no dedicated software, nor consistent approach, to generate illusions in a systemic fashion. Instead, scientists have to craft them by hand in an idiosyncratic fashion, or use pre-made images not tailored for the specific needs of their studies. This, in turn, hinders the reproducibility of illusion-based research, narrowing possibilities for scientific breakthroughs and their applications. With the aim of addressing this gap, *Pyllusion* is a Python-based open-source software (freely available at https://github.com/RealityBending/Pyllusion), that offers a framework to manipulate and generate illusions in a systematic way, compatible with different output formats such as image files (.png, .jpg, .tiff, etc.) or experimental software (such as *PsychoPy*).
 keywords          : "Pyllusion, Visual Illusions, Optical Illusions, Schizophrenia, Python, PsychoPy"
-wordcount         : "3527"
+wordcount         : "3584"
 bibliography      : ["paper.bib"]
 floatsintext      : yes
 figsintext        : yes
