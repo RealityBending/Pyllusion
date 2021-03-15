@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.2.1)  2 FEB 2021 11:51
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.2.1)  15 MAR 2021 14:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1256,8 +1256,8 @@ File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
 
 ] [2]
-File: figure1.png Graphic file (type bmp)
-<figure1.png>
+Underfull \vbox (badness 1838) has occurred while \output is active []
+
 [3]
 Underfull \vbox (badness 7649) has occurred while \output is active []
 
@@ -1271,7 +1271,7 @@ File: figure2.png Graphic file (type bmp)
 Underfull \vbox (badness 7047) has occurred while \output is active []
 
 [8]
-Overfull \hbox (30.53171pt too wide) in paragraph at lines 257--258
+Overfull \hbox (30.53171pt too wide) in paragraph at lines 253--254
 []\TU/lmr/m/n/12 The source code is available under the MIT license on GitHub (
 []$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][][][][][][][] [
 ]
@@ -1281,29 +1281,29 @@ Overfull \hbox (30.53171pt too wide) in paragraph at lines 257--258
 File: figure3.png Graphic file (type bmp)
 <figure3.png>
 
-LaTeX Warning: Float too large for page by 54.6138pt on input line 270.
+LaTeX Warning: Float too large for page by 54.6138pt on input line 266.
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 283.
-[10] [11] [12]
-Underfull \vbox (badness 1406) has occurred while \output is active []
-
-[13]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 279.
+[10] [11] [12] [13]
 File: figure4.png Graphic file (type bmp)
 <figure4.png>
 [14] [15]
 Underfull \vbox (badness 1314) has occurred while \output is active []
 
 [16] [17] [18] [19] [20]
-Overfull \hbox (1.72809pt too wide) in paragraph at lines 492--494
+Overfull \hbox (1.72809pt too wide) in paragraph at lines 491--493
  \TU/lmr/m/n/12 (2017). A review of abnormalities in the perception of visual i
 llusions in schizophre-
  []
 
+
+Underfull \vbox (badness 1389) has occurred while \output is active []
+
 [21] [22]
 Underfull \vbox (badness 1389) has occurred while \output is active []
 
-[23] [24] AED endfloat: Processing end Figures and Tables [25]
+[23] [24] [25] AED endfloat: Processing end Figures and Tables [26]
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -1344,15 +1344,15 @@ LaTeX Info: Redefining \sffamily on input line 19.
 LaTeX Info: Redefining \ttfamily on input line 19.
 )
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 88D0641EE276EF545493A2FA0151F8F0;1262.
+(rerunfilecheck)             Checksum: 08D4AA4A1267861B827E0881F00FE9CF;1261.
  ) 
 Here is how much of TeX's memory you used:
- 21222 strings out of 479212
- 377502 string characters out of 5873010
- 863792 words of memory out of 5000000
- 40459 multiletter control sequences out of 15000+600000
- 420402 words of font info for 70 fonts, out of 8000000 for 9000
+ 21209 strings out of 479212
+ 377306 string characters out of 5873010
+ 862414 words of memory out of 5000000
+ 40447 multiletter control sequences out of 15000+600000
+ 420394 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,11n,122p,2792b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,11n,122p,2952b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on paper.pdf (25 pages).
+Output written on paper.pdf (26 pages).
