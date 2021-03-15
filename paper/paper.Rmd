@@ -4,7 +4,7 @@ shorttitle        : "Pyllusion"
 author:
   - name          : "Dominique Makowski"
     affiliation   : " 1,*"
-    corresponding : no    # Define only one corresponding author
+    corresponding : yes    # Define only one corresponding author
     address       : "HSS 04-18, 48 Nanyang Avenue, Singapore"
     email         : "dmakowski@ntu.edu.sg"
     orcid         : 0000-0001-5375-9967
@@ -33,7 +33,7 @@ authornote: |
 abstract: |
   Visual illusions are fascinating phenomena that have been used and studied by artists and scientists for centuries, leading to important discoveries about the neurocognitive underpinnings of perception, consciousness, and neuropsychiatric disorders such as schizophrenia or autism. Surprisingly, despite their historical and theoretical importance as psychological stimuli, there is no dedicated software, nor consistent approach, to generate illusions in a systemic fashion. Instead, scientists have to craft them by hand in an idiosyncratic fashion, or use pre-made images not tailored for the specific needs of their studies. This, in turn, hinders the reproducibility of illusion-based research, narrowing possibilities for scientific breakthroughs and their applications. With the aim of addressing this gap, *Pyllusion* is a Python-based open-source software (freely available at https://github.com/RealityBending/Pyllusion), that offers a framework to manipulate and generate illusions in a systematic way, compatible with different output formats such as image files (.png, .jpg, .tiff, etc.) or experimental software (such as *PsychoPy*).
 keywords          : "Pyllusion, Visual Illusions, Optical Illusions, Schizophrenia, Python, PsychoPy"
-wordcount         : "3584"
+wordcount         : "3615"
 bibliography      : ["paper.bib"]
 floatsintext      : yes
 figsintext        : yes
@@ -46,11 +46,11 @@ draft             : no
 documentclass     : "apa6"
 classoption       : "man"
 output:
+  papaja::apa6_word:
+    keep_tex: FALSE
   papaja::apa6_pdf:
     keep_tex: TRUE
     latex_engine: xelatex
-  papaja::apa6_word:
-    keep_tex: FALSE
 header-includes:
    - \usepackage[labelfont=bf, font={color=gray,small}]{caption}
    - \usepackage{float}
@@ -271,6 +271,10 @@ Adding new illusions refers mostly to implementing an algorithm to conceptualise
 Finally, we look forward to the creation of studies that would investigate how, for each illusion, the modulation of the parameters affect behavioural responses, conscious perception, and the associated neural underpinnings. This would in turn allow for a better understanding of the commonalities and differences between these fascinating stimuli, as well as their effect accross different populations (such as patients suffering from neuropsychiatric disorders). As such, we hope that our tool contributes to the development of a strong axis that will unite the community working with illusions to push the field forward. 
 
 
+
+# Conflict of Interest Statement
+
+The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
 
 
 # Acknowledgements

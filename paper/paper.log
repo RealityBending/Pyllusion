@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.2.1)  15 MAR 2021 14:13
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2021.2.1)  15 MAR 2021 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1292,7 +1292,7 @@ File: figure4.png Graphic file (type bmp)
 Underfull \vbox (badness 1314) has occurred while \output is active []
 
 [16] [17] [18] [19] [20]
-Overfull \hbox (1.72809pt too wide) in paragraph at lines 491--493
+Overfull \hbox (1.72809pt too wide) in paragraph at lines 496--498
  \TU/lmr/m/n/12 (2017). A review of abnormalities in the perception of visual i
 llusions in schizophre-
  []
@@ -1344,13 +1344,13 @@ LaTeX Info: Redefining \sffamily on input line 19.
 LaTeX Info: Redefining \ttfamily on input line 19.
 )
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 08D4AA4A1267861B827E0881F00FE9CF;1261.
+(rerunfilecheck)             Checksum: 6E45E621FE6D86473184BB0FB99D9845;1466.
  ) 
 Here is how much of TeX's memory you used:
- 21209 strings out of 479212
- 377306 string characters out of 5873010
- 862414 words of memory out of 5000000
- 40447 multiletter control sequences out of 15000+600000
+ 21210 strings out of 479212
+ 377338 string characters out of 5873010
+ 862469 words of memory out of 5000000
+ 40448 multiletter control sequences out of 15000+600000
  420394 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,11n,122p,2952b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
