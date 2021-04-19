@@ -14,7 +14,7 @@ author:
   - name          : "Tam Pham"
     affiliation   : " 1"
     orcid         : 0000-0002-6392-6703
-  - name          : "Paul Boyce"
+  - name          : "W. Paul Boyce"
     affiliation   : "2"
     orcid         : 0000-0003-1093-0028
   - name          : "S.H. Annabel Chen"
@@ -32,7 +32,7 @@ affiliation:
 authornote: |
 abstract: |
   Visual illusions are fascinating phenomena that have been used and studied by artists and scientists for centuries, leading to important discoveries about the neurocognitive underpinnings of perception, consciousness, and neuropsychiatric disorders such as schizophrenia or autism. Surprisingly, despite their historical and theoretical importance as psychological stimuli, there is no dedicated software, nor consistent approach, to generate illusions in a systemic fashion. Instead, scientists have to craft them by hand in an idiosyncratic fashion, or use pre-made images not tailored for the specific needs of their studies. This, in turn, hinders the reproducibility of illusion-based research, narrowing possibilities for scientific breakthroughs and their applications. With the aim of addressing this gap, *Pyllusion* is a Python-based open-source software (freely available at https://github.com/RealityBending/Pyllusion), that offers a framework to manipulate and generate illusions in a systematic way, compatible with different output formats such as image files (.png, .jpg, .tiff, etc.) or experimental software (such as *PsychoPy*).
-keywords          : "Pyllusion, Visual Illusions, Optical Illusions, Schizophrenia, Python, PsychoPy"
+keywords          : "Pyllusion, Visual Illusions, Python, Software, Open-source, Perception"
 wordcount         : "3561"
 bibliography      : ["paper.bib"]
 floatsintext      : yes
@@ -129,7 +129,7 @@ This is not the first time that Python, illusions and cognitive science are brou
 *Pyllusion* is an open-source package to programmatically generate illusions written in Python 3 [@python3], which means that its users benefit from a large number of learning resources and a vibrant community. However, although being a programming-based tool, users not familiar with Python or other languages can easily use it as well, as it requires minimal programming skills (one can essentially copy the few necessary lines from the documentation and tweak the explicitly-named parameters). This makes it a very flexible tool; advanced users can incorporate *Pyllusion* in their scripts or experiments (for instance, to generate illusions "on the fly" based on the input of the user), whereas novice users can simply copy the minimal code to pre-generate and save the illusions as images.
 
 
-The source code is available under the MIT license on GitHub (*https://github.com/RealityBending/Pyllusion/*). Its documentation (*https://realitybending.github.io/Pyllusion/*) is automatically built and rendered from the code and includes guides for installation, a description of the package's functions, as well as examples of use. Finally, the issue tracker on GitHub offers a convenient and public forum that allows users to report bugs, get help and gain insight into the development of the package. Additionally, the repository leverages a comprehensive test suite (using *pytest*) and continuous integration (using GitHub actions) to ensure software stability and quality. The test coverage and build status can transparently be tracked via the GitHub repository. Thanks to its collaborative and open development, *Pyllusion* can continuously evolve, adapt, and integrate new functionalities to meet the needs of the community.
+The source code is available under the MIT license on GitHub (*https://github.com/RealityBending/Pyllusion/*). Its documentation is automatically built and rendered from the code and includes guides for installation, a description of the package's functions, as well as examples of use. Finally, the issue tracker on GitHub offers a convenient and public forum that allows users to report bugs, get help and gain insight into the development of the package. Additionally, the repository leverages a comprehensive test suite (using *pytest*) and continuous integration (using GitHub actions) to ensure software stability and quality. The test coverage and build status can transparently be tracked via the GitHub repository. Thanks to its collaborative and open development, *Pyllusion* can continuously evolve, adapt, and integrate new functionalities to meet the needs of the community.
 
 <!-- Installation -->
 *Pyllusion* is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. Once the package is loaded, two further steps are required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
