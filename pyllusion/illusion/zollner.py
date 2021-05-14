@@ -96,7 +96,11 @@ def zollner_image(parameters=None, width=800, height=600, background="white", **
     Returns
     -------
     Image
-        Image of the Zöllner illusion.
+        Image of the Zöllner illusion, defaults to 800 x 600 pixels.
+        Can be resized
+        (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)
+        and saved in different file formats
+        (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).
 
     Examples
     ---------

@@ -216,7 +216,7 @@ image = ill.delboeuf_image(parameters, height=600, width=800)
 image.save("my_illusion.png")
 ```
 
-Images can be easily post-processed using the PIL library. For instance, with just a few lines, one can loop through different combinations of parameters, generate illusions, add text on them, and collate together in a mosaic, as can be seen in **Fig. 3**.
+The final images are rendered at 800 x 600 pixels (default), which can be easily post-processed using the PIL library. For example, to see what other image file formats can be saved, refer to PIL's **[documentation](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html)**. With just a few lines, one can loop through different combinations of parameters, generate illusions, add text on them, and collate together in a mosaic, as can be seen in **Fig. 3**.
 
 
 ```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="Different combinations of illusion strength and objective difference between the two target stimuli (the area of the red circles) for the Delboeuf illusion. The vertical central column shows varying magnitudes of size difference in both directions with no illusion, whereas the horizontal central row shows different magnitudes of illusion strength when the targets are of identical sizes. By using negative or positive values for the illusion strength, one can generate congruent or incongruent illusions (that reinforce or attenuate the actual difference respectively)."}

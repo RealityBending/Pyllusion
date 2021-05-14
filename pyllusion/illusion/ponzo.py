@@ -94,7 +94,11 @@ def ponzo_image(parameters=None, width=800, height=600, outline=20, background="
     Returns
     -------
     Image
-        Image of the Ponzo illusion.
+        Image of the Ponzo illusion, defaults to 800 x 600 pixels.
+        Can be resized
+        (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)
+        and saved in different file formats
+        (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).
 
     Examples
     ---------

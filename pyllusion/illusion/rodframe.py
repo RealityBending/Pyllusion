@@ -87,7 +87,11 @@ def rodframe_image(
     Returns
     -------
     Image
-        Image of the Rod and frame illusion.
+        Image of the Rod and frame illusion, defaults to 800 x 600 pixels.
+        Can be resized
+        (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)
+        and saved in different file formats
+        (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).
         
     Examples
     ---------

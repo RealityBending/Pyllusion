@@ -14,6 +14,15 @@ def white_image(parameters=None, width=800, height=600, **kwargs):
     White’s illusion is a brightness illusion in which rectangles of the same grey
     color are perceived of different luminance depending on their background.
 
+    Returns
+    -------
+    Image
+        Image of the white illusion, defaults to 800 x 600 pixels.
+        Can be resized
+        (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)
+        and saved in different file formats
+        (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).
+
     Examples
     ---------
     >>> import pyllusion as ill
