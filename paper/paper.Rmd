@@ -132,7 +132,9 @@ This is not the first time that Python, illusions and cognitive science are brou
 The source code is available under the MIT license on GitHub (*https://github.com/RealityBending/Pyllusion/*). Its documentation is automatically built and rendered from the code and includes guides for installation, a description of the package's functions, as well as examples of use. Finally, the issue tracker on GitHub offers a convenient and public forum that allows users to report bugs, get help and gain insight into the development of the package. Additionally, the repository leverages a comprehensive test suite (using *pytest*) and continuous integration (using GitHub actions) to ensure software stability and quality. The test coverage and build status can transparently be tracked via the GitHub repository. Thanks to its collaborative and open development, *Pyllusion* can continuously evolve, adapt, and integrate new functionalities to meet the needs of the community.
 
 <!-- Installation -->
-*Pyllusion* is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. Once the package is loaded, two further steps are required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
+*Pyllusion* is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. In the example script below, the line `import pyllusion as ill` is used so that it stores the *Pyllusion* module locally and makes functions accessible as `ill` (this effectively binds any module to a convenient local name).
+
+Once the package is loaded, two further steps are required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
 
 We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to the other illusions supported by *Pyllusion*, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Poggendorff illusion and more (see **Fig. 2**, as well as the full list with examples on the **[readme](https://github.com/RealityBending/Pyllusion)**.
 
@@ -152,7 +154,7 @@ The parameters for each illusion can be generated using the `IllusionName_parame
 import pyllusion as ill
 
 # Create parameters
-parameters = ill.delboeuf_parameters(illusion_strength=2)
+parameters = ill.delboeuf_parameters(illusion_strength=2, difference=0)
 
 # Visualize parameters
 print(parameters)
@@ -171,15 +173,15 @@ print(parameters)
  'Distance_Centers': 1,
  'Distance_Edges_Inner': 0.75,
  'Distance_Edges_Outer': 0.59,
- ...}
+...}
  ```
 
 As one can see, the output of this function is a basic Python dictionary (as denoted by the curly brackets), which makes it easy to further process, modify, share, store or investigate. This "container" object stores the values for a large number of parameters, such as the size of each (inner and outer) circle, the distance between the centers and edges of the circles, and their position, which is then passed to a "rendering" function which converts this set of parameters into the final output.
 
+Note the two main parameters, `illusion_strength`, and `difference`, have fairly generic names, as the meaning of these parameters fundamentally depends on the nature of the illusion. For instance, while `illusion_strength` refers to the angle of the non-horizontal lines in the Ponzo illusion (in biasing the appearance of the target horizontal lines) it refers to the area of the outer circles in the Delboeuf illusion. In the case of the latter, an illusion strength of 2 (as shown in the above script) means that the size of the right outer circle will be 2 times larger than that of the right inner circle, while the left inner and outer circles remain equally sized with each other, thus creating a false perception that the right inner circle appears larger than its left counterpart. Conceptually, this term represents the extent to which the surrounding context biases the perceptual experience (see **Fig. 2**). On the other hand, the `difference` parameter refers to the objective difference in the features of the to-be-compared targets, such as the difference in sizes of two inner circles (Delbeouf and Ebbinghaus illusion), and the lengths (Ponzo and Müller-Lyer illusion) or the angle displacement (Zöllner illusion) of two horizontal lines. In the above example, a difference of 0 implies that the left inner circle and the right inner circle are of the same size. Specification of this parameter (i.e., difference $\neq$ = 0) can be used to modify the actual target difference so that there exists an objectively correct answer when subjects are tested with these illusions.
 
-Note the two main parameters, `illusion_strength`, and `difference`, have fairly generic names. For instance, in the Ponzo illusion, less abstract names for these arguments could have been `difference_size_outer_circles` and `difference_size_inner_circles`). Indeed, the meaning of these parameters depends on the nature of the illusion. For instance, while `illusion_strength` currently refers to the  the area of the outer circles in the Delboeuf illusion, it refers to the angle of the non-horizontal lines in the Ponzo illusion.
+Although less abstract names for these arguments (for example, `difference_size_outer_circles` and `difference_size_inner_circles` to represent illusion strength for Delboeuf illusion), the decision to unify the inducing parameters under the "illusion strength" and "difference" labels was further motivated by the aim of having a consistent naming scheme for the API. This means that users can experiment with new illusions by modulating the illusion strength and objective target features, without the need of learning what is the actual physical parameter (e.g., "angle of the distractor lines") driving the illusion.
 
-Conceptually, this term represents the extent to which the surrounding context biases the perceptual experience (see **Fig. 2**). The decision to unify the inducing parameters under the "illusion strength" label was further motivated by the aim of having a consistent naming scheme for the API. This means that users can experiment with new illusions by modulating the illusion strength, without the need of learning what is the actual physical parameter (e.g., "angle of the distractor lines") driving the illusion.
 
 <!-- ![Meaning and illusory perception effect of 'illusion strength' for the Delboeuf illusion and the Ponzo illusion.](figure3.png) -->
 
