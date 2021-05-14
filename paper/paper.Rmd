@@ -18,7 +18,7 @@ author:
     affiliation   : "2"
     orcid         : 0000-0003-1093-0028
   - name          : "S.H. Annabel Chen"
-    affiliation   : " 1, 3, 4"
+    affiliation   : " 1, 3, 4, 5"
     orcid         : 0000-0002-1540-5516
 affiliation:
   - id            : "1"
@@ -29,6 +29,8 @@ affiliation:
     institution   : "Centre for Research and Development in Learning, Nanyang Technological University, Singapore"
   - id            : "4"
     institution   : "Lee Kong Chian School of Medicine, Nanyang Technological University, Singapore"
+  - id            : "5"
+    institution   : "National Institute of Education, Nanyang Technological University, Singapore"
 authornote: |
 abstract: |
   Visual illusions are fascinating phenomena that have been used and studied by artists and scientists for centuries, leading to important discoveries about the neurocognitive underpinnings of perception, consciousness, and neuropsychiatric disorders such as schizophrenia or autism. Surprisingly, despite their historical and theoretical importance as psychological stimuli, there is no dedicated software, nor consistent approach, to generate illusions in a systemic fashion. Instead, scientists have to craft them by hand in an idiosyncratic fashion, or use pre-made images not tailored for the specific needs of their studies. This, in turn, hinders the reproducibility of illusion-based research, narrowing possibilities for scientific breakthroughs and their applications. With the aim of addressing this gap, *Pyllusion* is a Python-based open-source software (freely available at https://github.com/RealityBending/Pyllusion), that offers a framework to manipulate and generate illusions in a systematic way, compatible with different output formats such as image files (.png, .jpg, .tiff, etc.) or experimental software (such as *PsychoPy*).
@@ -96,6 +98,14 @@ Individuals with autistic spectrum disorder (ASD) comprise another clinical grou
 
 In summary, these studies suggest that illusions, rather than being mere perceptual artifacts, engage specific neurocognitive processes involved in important higher order functions and neuropsychiatric disorders. A common approach to explain illusory phenomena is using the Predictive Coding framework [@friston2009predictive], which posits that illusory perception typically arises because of a strong systematic bias for prior beliefs (top-down influence) that are mismatched with actual sensory evidence, causing the generation of an objectively wrong but more plausible percept [i.e., two objectively equivalent-sized circles being interpreted as different sizes because of their surrounding context, @notredame2014visual]. In the case of schizophrenia and also in other states of psychosis, a greater resistance to visual illusions is then interpreted as a product of reduced adaptive top-down influence [@schneider2002reduced; @koethe2009binocular] and an over-reliance on sensory evidence (bottom-up processes) in making perceptual judgements [@dima2010impaired]. While evidence from visual illusions research has garnered substantial support for the predictive coding account, helping to underscore the neurocomputational mechanisms that are fundamental to psychiatric and psychological disorders [@sterzer2018predictive], there are contradictory findings that fail to be integrated within this approach. The lack of consistency and replicability in experimental designs using illusion-based stimuli appear to be one of the main hurdles precluding theoretical consensus in the field.
 
+
+<!-- Discussion of studies showing that differences in stimulus parameters/features systematically alter illusions leading to a need to reproducible stimuli (hence emphasizing the gap pyllusion is filling) -->
+A fundamental problem for illusion research is that it lacks an objective, quantitative method to operationalize and measure illusion strength in experiments, relying on participants' subjective ratings on the perceived illusion.
+...
+Studies have shown that differences in stimulus features have systematic effects on the perceived illusion. For instance, simple manipulations such as inverting the orientation of the illusion (by 180 degrees) can influence perceptions of the Contrast and Ponzo illusion where in both cases, illusion magnitude is greater when the illusion presentation is in their upright conditions [@poom2020influences]. For the Ponzo illusion, this may be explained by the higher familiarity with ground planes like roads and railways receding in the distance (rather than towards us).
+...
+It is crucial that experimental paradigms identify and isolate the perceptual effects of interest so that results can be consistently interpreted across different types of illusions in relation to the parametric properties of the visual illusion.
+<!---->
 
 Despite the relevance of visual illusions in psychology and neuroscience, the field of illusion research lacks a dedicated software to generate and report the stimuli, in order for them to be reproduced and re-used by other researchers and studies. As several reviews have highlighted [e.g., @gori2016visual], the lack of a validated paradigm and the improper measurement of visual illusion sensitivity (especially amongst individuals with communication problems) may be preventing progress in understanding the distinct mechanisms that underlie psychopathology and other fields alike. This is particularly problematic in the context of the replicability and reproducibility issues recently outlined in psychological science [@topalidou2015long; @open2015estimating; @milkowski2018replicability; @maizey2019barriers]. Our software, *Pyllusion*, aims at addressing this gap by proposing and implementing a parametric framework for illusions generation.
 
