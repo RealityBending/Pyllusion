@@ -58,7 +58,7 @@ illusion was named for the Belgian philosopher, mathematician,
 experimental psychologist, hypnotist, and psychophysicist Joseph Remi
 Leopold Delboeuf (1831–1896), who created it in 1865.
 
-    import pyllusion as ill
+    import pyllusion
 
     parameters = ill.delboeuf_parameters(illusion_strength=3)
     ill.delboeuf_image(parameters)
@@ -353,7 +353,7 @@ Pyllusion can be easily integrated into
 [PsychoPy](https://www.psychopy.org/) for running experiments as well!
 
     # Load packages
-    import pyllusion as ill
+    import pyllusion
     from psychopy import visual, event
 
     # Create parameters

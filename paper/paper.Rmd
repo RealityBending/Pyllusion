@@ -143,7 +143,7 @@ The source code is available under the MIT license on GitHub ([*https://github.c
 
 <!-- Installation -->
 
-*Pyllusion* is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. In the example script below, the line `import pyllusion as ill` is used so that it stores the *Pyllusion* module locally and makes functions accessible as `ill` (this effectively binds any module to a convenient local name).
+*Pyllusion* is available on PyPI, the main repository of software for Python and can thus be installed by running the command `pip install pyllusion`. Once the software is installed, it must be loaded in Python scripts with `import pyllusion`. In the example script below, the line `import pyllusion` is used so that it stores the *Pyllusion* module locally and makes functions accessible as `ill` (this effectively binds any module to a convenient local name).
 
 Once the package is loaded, two further steps are required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
 
@@ -159,7 +159,7 @@ The parameters for each illusion can be generated using the `IllusionName_parame
 
 ``` {.python}
 # Load package
-import pyllusion as ill
+import pyllusion
 
 # Create parameters
 parameters = ill.delboeuf_parameters(illusion_strength=2, difference=0)
@@ -208,7 +208,7 @@ The following Python code shows the full and reproducible code to generate a PNG
 
 ``` {.python}
 # Load package
-import pyllusion as ill
+import pyllusion
 
 # Create parameters
 parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
@@ -236,7 +236,7 @@ The *PsychoPy* "builder" interface allows for code components to be flexibly add
 
 ``` {.python}
 # Load packages
-import pyllusion as ill
+import pyllusion
 from psychopy import visual, event
 
 # Create parameters

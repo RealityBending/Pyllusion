@@ -40,11 +40,11 @@ def image_noise(
 
     Examples
     ----------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> ill.image_noise()
-    >>> ill.image_noise(blackwhite=True)
-    >>> ill.image_noise(blur=0.005)
+    >>> pyllusion.image_noise()
+    >>> pyllusion.image_noise(blackwhite=True)
+    >>> pyllusion.image_noise(blur=0.005)
     """
     # Generate random colors
     r = red(size=(width, height), **kwargs)

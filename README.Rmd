@@ -79,14 +79,14 @@ Retrieved from https://github.com/RealityBending/Pyllusion
 The **[Delboeuf illusion](https://en.wikipedia.org/wiki/Delboeuf_illusion)** is an optical illusion of relative size perception, where circles of identical size appear as different because of their surrounding context. The illusion was named for the Belgian philosopher, mathematician, experimental psychologist, hypnotist, and psychophysicist Joseph Remi Leopold Delboeuf (1831–1896), who created it in 1865.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-import pyllusion as ill
+import pyllusion
 
 parameters = ill.delboeuf_parameters(illusion_strength=3)
 ill.delboeuf_image(parameters)
 ```
 
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-import pyllusion as ill
+import pyllusion
 
 img = ill.delboeuf_image(illusion_strength=3)
 img.save("docs/img/README_delboeuf1.png")
@@ -405,7 +405,7 @@ Pyllusion can be easily integrated into [PsychoPy](https://www.psychopy.org/) fo
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 # Load packages
-import pyllusion as ill
+import pyllusion
 from psychopy import visual, event
 
 # Create parameters

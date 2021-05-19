@@ -33,7 +33,7 @@ If applicable and useful, you can add screenshots by drag-and-dropping the image
 It's important that you give us some information about the system you are using. For that you can run:
 
 ```python
-import pyllusion as ill
+import pyllusion
 ill.version()
 ```
 

@@ -1,5 +1,5 @@
 # Import packages
-import pyllusion as ill
+import pyllusion
 import numpy as np
 from psychopy import visual, event, gui, core
 import wx

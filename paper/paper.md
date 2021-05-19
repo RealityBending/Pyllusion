@@ -170,7 +170,7 @@ The following Python code shows the full and reproducible code to generate a PNG
 
 ```python
 # Load package
-import pyllusion as ill
+import pyllusion
 
 # Create parameters
 parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
@@ -198,7 +198,7 @@ The *PsychoPy* "builder" interface allows for code components to be flexibly add
 
 ```python
 # Load packages
-import pyllusion as ill
+import pyllusion
 from psychopy import visual, event
 
 # Create parameters

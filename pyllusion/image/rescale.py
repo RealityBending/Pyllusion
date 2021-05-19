@@ -26,9 +26,9 @@ def rescale(x, to=[0, 1], scale=None):
 
     Examples
     ----------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> ill.rescale([3, 1, 2, 4, 6], to=[0, 1]) #doctest: +ELLIPSIS
+    >>> pyllusion.rescale([3, 1, 2, 4, 6], to=[0, 1]) #doctest: +ELLIPSIS
     [0.4, 0.0, 0.2, 0.6000000000000001, 1.0]
 
     """

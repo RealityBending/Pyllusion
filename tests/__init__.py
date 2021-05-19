@@ -1,4 +1,4 @@
-import pyllusion as ill
+import pyllusion
 import numpy as np
 
 

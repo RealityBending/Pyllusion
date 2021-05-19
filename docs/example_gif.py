@@ -1,5 +1,5 @@
 # Load packages
-import pyllusion as ill
+import pyllusion
 from psychopy import visual, event
 
 # Create parameters

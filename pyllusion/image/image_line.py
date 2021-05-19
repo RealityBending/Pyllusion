@@ -72,15 +72,15 @@ def image_line(
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> image = ill.image_line(x=0, y=0, length=1)
-    >>> image = ill.image_line(image=image, x1=0, y1=0, length=0.5, rotate=90, color="green")
-    >>> image = ill.image_line(image=image, x1=0, y1=0, length=0.5, rotate=45)
-    >>> image = ill.image_line(image=image, x=0, y=0, length=1, rotate=135, color="blue")
-    >>> image = ill.image_line(image=image, length=1, rotate=20, color="red")
-    >>> image = ill.image_line(image=image, x1=0, y1=0, length=0.5, rotate=-90, size=3)
-    >>> image = ill.image_line(image=image, x1=-1, y1=-1, length=1, rotate=45, size=5, blur=0.005)
+    >>> image = pyllusion.image_line(x=0, y=0, length=1)
+    >>> image = pyllusion.image_line(image=image, x1=0, y1=0, length=0.5, rotate=90, color="green")
+    >>> image = pyllusion.image_line(image=image, x1=0, y1=0, length=0.5, rotate=45)
+    >>> image = pyllusion.image_line(image=image, x=0, y=0, length=1, rotate=135, color="blue")
+    >>> image = pyllusion.image_line(image=image, length=1, rotate=20, color="red")
+    >>> image = pyllusion.image_line(image=image, x1=0, y1=0, length=0.5, rotate=-90, size=3)
+    >>> image = pyllusion.image_line(image=image, x1=-1, y1=-1, length=1, rotate=45, size=5, blur=0.005)
     >>> image
     """
     # Get image

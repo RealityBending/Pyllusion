@@ -19,14 +19,14 @@ def image_mosaic(image_list, ncols="auto", nrows="auto"):
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> img1 = ill.delboeuf_image()
-    >>> img2 = ill.ponzo_image()
-    >>> img3 = ill.rodframe_image()
-    >>> img4 = ill.mullerlyer_image()
-    >>> img5 = ill.ebbinghaus_image()
-    >>> ill.image_mosaic([img1, img2, img3, img4, img5], ncols=2)
+    >>> img1 = pyllusion.delboeuf_image()
+    >>> img2 = pyllusion.ponzo_image()
+    >>> img3 = pyllusion.rodframe_image()
+    >>> img4 = pyllusion.mullerlyer_image()
+    >>> img5 = pyllusion.ebbinghaus_image()
+    >>> pyllusion.image_mosaic([img1, img2, img3, img4, img5], ncols=2)
     """
     # Compute dimensions
     n = len(image_list)

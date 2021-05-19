@@ -29,10 +29,10 @@ def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> ill.image_blobs(n=100)
-    >>> ill.image_blobs(n=[5, 300, 1000], sd=[50, 10, 5], weight=[1, 1.5, 2])
+    >>> pyllusion.image_blobs(n=100)
+    >>> pyllusion.image_blobs(n=[5, 300, 1000], sd=[50, 10, 5], weight=[1, 1.5, 2])
     """
     # Sanitize input
     if isinstance(sd, (int, float)):
@@ -87,9 +87,9 @@ def image_blob(x=450, y=100, width=800, height=600, sd=30):
     Image
         Image of blob.
 
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> ill.image_blob()
+    >>> pyllusion.image_blob()
     """
     blob = _image_blob(x=x, y=y, width=width, height=height)
     blob = rescale(blob, to=[0, 255])
@@ -106,7 +106,7 @@ def image_blob(x=450, y=100, width=800, height=600, sd=30):
 def _image_blob(x=400, y=300, width=800, height=600, sd=30):
     """Returns a 2D Gaussian kernel.
 
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> import matplotlib.pyplot as plt
     >>> array = _image_blob(sd=8)
     >>> plt.imshow(array)  #doctest: +ELLIPSIS

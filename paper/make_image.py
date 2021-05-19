@@ -1,6 +1,6 @@
 import numpy as np
 import PIL
-import pyllusion as ill
+import pyllusion
 
 # PONZO FOR FIG 1 PPT
 parameters = ill.ponzo_parameters(illusion_strength=20,

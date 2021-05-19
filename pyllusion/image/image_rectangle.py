@@ -72,12 +72,12 @@ def image_rectangle(
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> image = ill.image_rectangle(x=0, y=0, color=(0,0,0,0), outline=3, rotate=1)
-    >>> image = ill.image_rectangle(image=image, x=0.5, size_width=0.5, rotate=45, color="red")
-    >>> image = ill.image_rectangle(image=image, y=0.25, size_height=0.2,  color="yellow", alpha=0.5)
-    >>> image = ill.image_rectangle(image=image, size_width=0.5, size_height=0.5, blur=0.01, color="green", adjust_width=True)
+    >>> image = pyllusion.image_rectangle(x=0, y=0, color=(0,0,0,0), outline=3, rotate=1)
+    >>> image = pyllusion.image_rectangle(image=image, x=0.5, size_width=0.5, rotate=45, color="red")
+    >>> image = pyllusion.image_rectangle(image=image, y=0.25, size_height=0.2,  color="yellow", alpha=0.5)
+    >>> image = pyllusion.image_rectangle(image=image, size_width=0.5, size_height=0.5, blur=0.01, color="green", adjust_width=True)
     >>> image
     """
     # Get image
