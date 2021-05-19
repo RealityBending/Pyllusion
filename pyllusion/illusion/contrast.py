@@ -26,11 +26,11 @@ def contrast_psychopy(window, parameters=None, **kwargs):
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.contrast_parameters(difference=0, illusion_strength=-50)
+    >>> parameters = pyllusion.contrast_parameters(difference=0, illusion_strength=-50)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame',
@@ -38,7 +38,7 @@ def contrast_psychopy(window, parameters=None, **kwargs):
                                colorSpace='rgb255')
     
     >>> # Display illusion
-    >>> ill.contrast_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.contrast_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -93,10 +93,10 @@ def contrast_image(parameters=None, width=800, height=600, **kwargs):
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.contrast_parameters(illusion_strength=-50, difference=0)
-    >>> ill.contrast_image(parameters)
+    >>> parameters = pyllusion.contrast_parameters(illusion_strength=-50, difference=0)
+    >>> pyllusion.contrast_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:

@@ -173,10 +173,10 @@ The following Python code shows the full and reproducible code to generate a PNG
 import pyllusion
 
 # Create parameters
-parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
+parameters = pyllusion.delboeuf_parameters(illusion_strength=1, difference=2)
 
 # Generate image from parameters
-image = ill.delboeuf_image(parameters, height=600, width=800)
+image = pyllusion.delboeuf_image(parameters, height=600, width=800)
 
 # Save it
 image.save("my_illusion.png")
@@ -202,13 +202,13 @@ import pyllusion
 from psychopy import visual, event
 
 # Create parameters
-parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
+parameters = pyllusion.delboeuf_parameters(illusion_strength=1, difference=2)
 
 # Initiate Window
 window = visual.Window(size=[800, 600], winType='pygame', color='white')
 
 # Display illusion
-ill.delboeuf_psychopy(window=window, parameters=parameters)
+pyllusion.delboeuf_psychopy(window=window, parameters=parameters)
 
 # Refresh and close window
 window.flip()

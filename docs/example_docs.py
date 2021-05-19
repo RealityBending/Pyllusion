@@ -42,7 +42,7 @@ strengths = np.random.randint(low=1, high=6, size=(5,))
 parameters_list = []
 
 for diff, strg in zip(differences, strengths):
-    parameters = ill.ebbinghaus_parameters(difference=diff, illusion_strength=strg)
+    parameters = pyllusion.ebbinghaus_parameters(difference=diff, illusion_strength=strg)
     parameters_list.append(parameters)
 
 for param in parameters_list:  # Loop illusions to display
@@ -54,7 +54,7 @@ for param in parameters_list:  # Loop illusions to display
     core.wait(jitter)
 
     # Display illusion
-    ill.ebbinghaus_psychopy(window=window, parameters=param)
+    pyllusion.ebbinghaus_psychopy(window=window, parameters=param)
     window.flip()
     event.waitKeys()  # Press any key to move on
  

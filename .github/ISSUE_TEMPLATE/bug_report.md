@@ -34,7 +34,7 @@ It's important that you give us some information about the system you are using.
 
 ```python
 import pyllusion
-ill.version()
+pyllusion.version()
 ```
 
 And copy paste the output.
