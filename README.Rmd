@@ -31,8 +31,8 @@ reticulate::use_python("C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd6
 # reticulate::use_python("C:/Users/Pham Thanh Tam/Desktop/WPy-3710b/python-3.7.1.amd64")
 
 
-matplotlib <- import("matplotlib")
-matplotlib$use("Agg", force = TRUE)
+# matplotlib <- import("matplotlib")
+# matplotlib$use("Agg", force = TRUE)
 
 ```
 
