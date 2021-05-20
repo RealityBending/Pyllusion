@@ -33,7 +33,6 @@ reticulate::use_python("C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd6
 
 # matplotlib <- import("matplotlib")
 # matplotlib$use("Agg", force = TRUE)
-
 ```
 
 
