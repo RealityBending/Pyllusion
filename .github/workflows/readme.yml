@@ -17,7 +17,7 @@ jobs:
         run: |
             Rscript -e "remotes::install_github('rstudio/reticulate')"
             Rscript -e "reticulate::install_miniconda()"
-            Rscript -e "reticulate::py_install(c('Pillow'), pip = TRUE)"
+            Rscript -e "reticulate::py_install(c('Pillow', 'scipy'), pip = TRUE)"
       - name: Render README
         run: Rscript -e 'rmarkdown::render("README.Rmd")'
       - name: Commit results
