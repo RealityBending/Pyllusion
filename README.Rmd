@@ -409,7 +409,7 @@ See also [David Novick's](https://twitter.com/NovickProf) tweets [**here**](http
 Pyllusion can be easily integrated into [PsychoPy](https://www.psychopy.org/) for running experiments as well!
 
 
-```{python, warning=FALSE, message=FALSE, eval=FALSE}
+```
 # Load packages
 import pyllusion
 from psychopy import visual, event
