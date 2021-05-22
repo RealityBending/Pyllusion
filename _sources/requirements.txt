@@ -4,11 +4,11 @@ m2r
 recommonmark
 sphinx
 nbsphinx
+git+https://github.com/Chilipp/sphinx-nbexamples.git@master
 matplotlib
 Pillow
 numpy
 pandas
 scipy
 sphinx_bootstrap_theme
-sphinx-nbexamples
 sphinx-copybutton

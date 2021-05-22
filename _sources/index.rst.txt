@@ -11,6 +11,7 @@ You can navigate to the different sections using the left panel. We would recomm
    introduction
    installation
    functions
+   psychopathology
 	
 
 .. only:: comment

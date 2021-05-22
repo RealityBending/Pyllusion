@@ -5,12 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pyllusion.image.image_mosaic &#8212; Pyllusion 0.0.10 documentation</title>
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
@@ -62,6 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
 </ul>
 </ul>
 </li>
@@ -130,14 +131,14 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; img1 = ill.delboeuf_image()</span>
-<span class="sd">    &gt;&gt;&gt; img2 = ill.ponzo_image()</span>
-<span class="sd">    &gt;&gt;&gt; img3 = ill.rodframe_image()</span>
-<span class="sd">    &gt;&gt;&gt; img4 = ill.mullerlyer_image()</span>
-<span class="sd">    &gt;&gt;&gt; img5 = ill.ebbinghaus_image()</span>
-<span class="sd">    &gt;&gt;&gt; ill.image_mosaic([img1, img2, img3, img4, img5], ncols=2)</span>
+<span class="sd">    &gt;&gt;&gt; img1 = pyllusion.delboeuf_image()</span>
+<span class="sd">    &gt;&gt;&gt; img2 = pyllusion.ponzo_image()</span>
+<span class="sd">    &gt;&gt;&gt; img3 = pyllusion.rodframe_image()</span>
+<span class="sd">    &gt;&gt;&gt; img4 = pyllusion.mullerlyer_image()</span>
+<span class="sd">    &gt;&gt;&gt; img5 = pyllusion.ebbinghaus_image()</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.image_mosaic([img1, img2, img3, img4, img5], ncols=2)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Compute dimensions</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_list</span><span class="p">)</span>
