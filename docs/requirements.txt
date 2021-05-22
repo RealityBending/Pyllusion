@@ -3,6 +3,7 @@ mock
 m2r
 recommonmark
 sphinx
+nbsphinx
 git+https://github.com/Chilipp/sphinx-nbexamples.git@master
 matplotlib
 Pillow
