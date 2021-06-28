@@ -139,17 +139,17 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    ---------</span>
-<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt; from psychopy import visual, event</span>
 
 <span class="sd">    &gt;&gt;&gt; # Create parameters</span>
-<span class="sd">    &gt;&gt;&gt; parameters = ill.verticalhorizontal_parameters(illusion_strength=90)</span>
+<span class="sd">    &gt;&gt;&gt; parameters = pyllusion.verticalhorizontal_parameters(illusion_strength=90)</span>
 
 <span class="sd">    &gt;&gt;&gt; # Initiate Window</span>
 <span class="sd">    &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&#39;white&#39;)</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; # Display illusion</span>
-<span class="sd">    &gt;&gt;&gt; ill.verticalhorizontal_psychopy(window=window, parameters=parameters)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.verticalhorizontal_psychopy(window=window, parameters=parameters)</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; # Refresh and close window    </span>
 <span class="sd">    &gt;&gt;&gt; window.flip()</span>
@@ -205,10 +205,10 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    ---------</span>
-<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; parameters = ill.verticalhorizontal_parameters(illusion_strength=90)</span>
-<span class="sd">    &gt;&gt;&gt; ill.verticalhorizontal_image(parameters) </span>
+<span class="sd">    &gt;&gt;&gt; parameters = pyllusion.verticalhorizontal_parameters(illusion_strength=90)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.verticalhorizontal_image(parameters) </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Create white canvas and get drawing context</span>
     <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>

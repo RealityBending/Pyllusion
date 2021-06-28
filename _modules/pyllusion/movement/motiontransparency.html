@@ -120,10 +120,10 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; parameters = ill.motiontransparency_parameters(angle=45, duration=4, n=100, fps=20, speed=2)</span>
-<span class="sd">    &gt;&gt;&gt; images = ill.motiontransparency_images(parameters)  #doctest: +ELLIPSIS</span>
+<span class="sd">    &gt;&gt;&gt; parameters = pyllusion.motiontransparency_parameters(angle=45, duration=4, n=100, fps=20, speed=2)</span>
+<span class="sd">    &gt;&gt;&gt; images = pyllusion.motiontransparency_images(parameters)  #doctest: +ELLIPSIS</span>
 <span class="sd">    - 0.00% ...</span>
-<span class="sd">    &gt;&gt;&gt; # ill.images_to_gif(images, path=&quot;Transparency_From_Motion.gif&quot;, fps=parameters[&quot;FPS&quot;])</span>
+<span class="sd">    &gt;&gt;&gt; # pyllusion.images_to_gif(images, path=&quot;Transparency_From_Motion.gif&quot;, fps=parameters[&quot;FPS&quot;])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">parameters</span> <span class="o">=</span> <span class="n">motiontransparency_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

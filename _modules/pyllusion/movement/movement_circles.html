@@ -117,10 +117,10 @@
 
 <div class="viewcode-block" id="movement_circles"><a class="viewcode-back" href="../../../functions.html#pyllusion.movement.movement_circles">[docs]</a><span class="k">def</span> <span class="nf">movement_circles</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; images = ill.movement_circles(n=50, duration=4, fps=30, color=&quot;black&quot;, size=0.05)</span>
-<span class="sd">    &gt;&gt;&gt; #ill.images_to_gif(images, path=&quot;mygif.gif&quot;, fps=30)</span>
+<span class="sd">    &gt;&gt;&gt; images = pyllusion.movement_circles(n=50, duration=4, fps=30, color=&quot;black&quot;, size=0.05)</span>
+<span class="sd">    &gt;&gt;&gt; #pyllusion.images_to_gif(images, path=&quot;mygif.gif&quot;, fps=30)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n_frames</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">duration</span> <span class="o">*</span> <span class="n">fps</span><span class="p">)</span>
 

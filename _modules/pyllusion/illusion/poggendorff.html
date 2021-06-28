@@ -139,17 +139,17 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    ---------    </span>
-<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt; from psychopy import visual, event</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; # Create parameters</span>
-<span class="sd">    &gt;&gt;&gt; parameters = ill.poggendorff_parameters(illusion_strength=-50)</span>
+<span class="sd">    &gt;&gt;&gt; parameters = pyllusion.poggendorff_parameters(illusion_strength=-50)</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; # Initiate Window</span>
 <span class="sd">    &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&quot;white&quot;)</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; # Display illusion</span>
-<span class="sd">    &gt;&gt;&gt; ill.poggendorff_psychopy(window=window, parameters=parameters)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.poggendorff_psychopy(window=window, parameters=parameters)</span>
 
 <span class="sd">    &gt;&gt;&gt; # Refresh and close window    </span>
 <span class="sd">    &gt;&gt;&gt; window.flip()</span>
@@ -211,10 +211,10 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    ---------</span>
-<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; parameters = ill.poggendorff_parameters(illusion_strength=-55)</span>
-<span class="sd">    &gt;&gt;&gt; ill.poggendorff_image(parameters) </span>
+<span class="sd">    &gt;&gt;&gt; parameters = pyllusion.poggendorff_parameters(illusion_strength=-55)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.poggendorff_image(parameters) </span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Create white canvas and get drawing context</span>

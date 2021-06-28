@@ -141,17 +141,17 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    ---------</span>
-<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt; from psychopy import visual, event</span>
 
 <span class="sd">    &gt;&gt;&gt; # Create parameters</span>
-<span class="sd">    &gt;&gt;&gt; parameters = ill.mullerlyer_parameters(illusion_strength=30, difference=0)</span>
+<span class="sd">    &gt;&gt;&gt; parameters = pyllusion.mullerlyer_parameters(illusion_strength=30, difference=0)</span>
 
 <span class="sd">    &gt;&gt;&gt; # Initiate Window</span>
 <span class="sd">    &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&quot;white&quot;)</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; # Display illusion</span>
-<span class="sd">    &gt;&gt;&gt; ill.mullerlyer_psychopy(window=window, parameters=parameters)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.mullerlyer_psychopy(window=window, parameters=parameters)</span>
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; # Refresh and close window    </span>
 <span class="sd">    &gt;&gt;&gt; window.flip()</span>
@@ -218,13 +218,13 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    ---------</span>
-<span class="sd">    &gt;&gt;&gt; import pyllusion as ill</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; parameters = ill.mullerlyer_parameters(illusion_strength=30, difference=2)</span>
-<span class="sd">    &gt;&gt;&gt; ill.mullerlyer_image(parameters)</span>
+<span class="sd">    &gt;&gt;&gt; parameters = pyllusion.mullerlyer_parameters(illusion_strength=30, difference=2)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.mullerlyer_image(parameters)</span>
 
-<span class="sd">    &gt;&gt;&gt; parameters = ill.mullerlyer_parameters(illusion_strength=30, difference=0)</span>
-<span class="sd">    &gt;&gt;&gt; ill.mullerlyer_image(parameters)</span>
+<span class="sd">    &gt;&gt;&gt; parameters = pyllusion.mullerlyer_parameters(illusion_strength=30, difference=0)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.mullerlyer_image(parameters)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Create white canvas and get drawing context</span>
     <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
