@@ -8,10 +8,10 @@ def motiontransparency_images(parameters=None, width=800, height=500, **kwargs):
     """
     >>> import pyllusion
     >>>
-    >>> parameters = ill.motiontransparency_parameters(angle=45, duration=4, n=100, fps=20, speed=2)
-    >>> images = ill.motiontransparency_images(parameters)  #doctest: +ELLIPSIS
+    >>> parameters = pyllusion.motiontransparency_parameters(angle=45, duration=4, n=100, fps=20, speed=2)
+    >>> images = pyllusion.motiontransparency_images(parameters)  #doctest: +ELLIPSIS
     - 0.00% ...
-    >>> # ill.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])
+    >>> # pyllusion.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])
     """
     if parameters is None:
         parameters = motiontransparency_parameters(**kwargs)

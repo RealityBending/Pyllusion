@@ -26,17 +26,17 @@ def delboeuf_psychopy(window, parameters=None, **kwargs):
     
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
    
     >>> # Create parameters
-    >>> parameters = ill.delboeuf_parameters(illusion_strength=1, difference=2)
+    >>> parameters = pyllusion.delboeuf_parameters(illusion_strength=1, difference=2)
     
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color='white')
     
     >>> # Display illusion
-    >>> ill.delboeuf_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.delboeuf_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -95,10 +95,10 @@ def delboeuf_image(parameters=None, width=800, height=600, outline=10,
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.delboeuf_parameters(illusion_strength=1, difference=-2)
-    >>> ill.delboeuf_image(parameters)
+    >>> parameters = pyllusion.delboeuf_parameters(illusion_strength=1, difference=-2)
+    >>> pyllusion.delboeuf_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:
@@ -163,9 +163,9 @@ def delboeuf_parameters(
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.delboeuf_parameters()
+    >>> parameters = pyllusion.delboeuf_parameters()
     """
     # Size inner circles
     parameters = _delboeuf_parameters_sizeinner(

@@ -14,9 +14,9 @@ def pareidolia(pattern=None, n=[10, 1000], sd=[20, 2], weight=[2, 1], alpha=80, 
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> ill.pareidolia((480, 480), n=[20, 300, 4000], sd=[4, 2, 1], weight=[3, 2, 1])  #doctest: +ELLIPSIS
+    >>> pyllusion.pareidolia((480, 480), n=[20, 300, 4000], sd=[4, 2, 1], weight=[3, 2, 1])  #doctest: +ELLIPSIS
     <PIL.Image.Image ...>
 
     """
@@ -65,9 +65,9 @@ def pareidolia(pattern=None, n=[10, 1000], sd=[20, 2], weight=[2, 1], alpha=80, 
 
 #     Examples
 #     ---------
-#     >>> import pyllusion as ill
+#     >>> import pyllusion
 #     >>>
-#     >>> ill.pareidolia(n_layers=2, sd=[8, 16])  #doctest: +ELLIPSIS
+#     >>> pyllusion.pareidolia(n_layers=2, sd=[8, 16])  #doctest: +ELLIPSIS
 #     <PIL.Image.Image ...>
 
 #     """

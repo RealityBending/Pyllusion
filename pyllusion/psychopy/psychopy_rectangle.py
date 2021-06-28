@@ -61,14 +61,14 @@ def psychopy_rectangle(
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
     
     >>> # Initiate window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
 
     >>> # Draw rectangle
-    >>> ill.psychopy_rectangle(window, x=0, y=0,
+    >>> pyllusion.psychopy_rectangle(window, x=0, y=0,
                                size_width=0.5, size_height=0.5,
                                color='white',
                                outline_color='black', outline=3, rotate=1)

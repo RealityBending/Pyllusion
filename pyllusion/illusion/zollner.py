@@ -28,17 +28,17 @@ def zollner_psychopy(window, parameters=None, **kwargs):
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.zollner_parameters(illusion_strength=75)
+    >>> parameters = pyllusion.zollner_parameters(illusion_strength=75)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pyglet', color='white')
     
     >>> # Display illusion
-    >>> ill.zollner_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.zollner_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -104,10 +104,10 @@ def zollner_image(parameters=None, width=800, height=600, background="white", **
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.zollner_parameters(illusion_strength=75)
-    >>> ill.zollner_image(parameters)
+    >>> parameters = pyllusion.zollner_parameters(illusion_strength=75)
+    >>> pyllusion.zollner_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:

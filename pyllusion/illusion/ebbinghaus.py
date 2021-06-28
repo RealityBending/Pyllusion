@@ -29,17 +29,17 @@ def ebbinghaus_psychopy(window, parameters=None, **kwargs):
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.ebbinghaus_parameters(illusion_strength=1, difference=2)
+    >>> parameters = pyllusion.ebbinghaus_parameters(illusion_strength=1, difference=2)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
     
     >>> # Display illusion
-    >>> ill.ebbinghaus_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.ebbinghaus_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -94,10 +94,10 @@ def ebbinghaus_image(
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.ebbinghaus_parameters(illusion_strength=1, difference=2)
-    >>> ill.ebbinghaus_image(parameters)
+    >>> parameters = pyllusion.ebbinghaus_parameters(illusion_strength=1, difference=2)
+    >>> pyllusion.ebbinghaus_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:

@@ -26,17 +26,17 @@ def rodframe_psychopy(window, parameters=None, **kwargs):
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.rodframe_parameters(illusion_strength=11)
+    >>> parameters = pyllusion.rodframe_parameters(illusion_strength=11)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
     
     >>> # Display illusion
-    >>> ill.rodframe_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.rodframe_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -95,13 +95,13 @@ def rodframe_image(
         
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.rodframe_parameters(illusion_strength=11, difference=0)
-    >>> ill.rodframe_image(parameters)
+    >>> parameters = pyllusion.rodframe_parameters(illusion_strength=11, difference=0)
+    >>> pyllusion.rodframe_image(parameters)
     
-    >>> parameters = ill.rodframe_parameters(illusion_strength=20, difference=20)
-    >>> ill.rodframe_image(parameters)
+    >>> parameters = pyllusion.rodframe_parameters(illusion_strength=20, difference=20)
+    >>> pyllusion.rodframe_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:

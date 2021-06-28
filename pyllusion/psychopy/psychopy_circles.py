@@ -47,14 +47,14 @@ def psychopy_circle(
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
 
     >>> # Initiate window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
 
     >>> # Draw circle
-    >>> ill.psychopy_circle(window, color="yellow", y=0.5)
+    >>> pyllusion.psychopy_circle(window, color="yellow", y=0.5)
 
     >>> # Refresh and close window    
     >>> window.flip()

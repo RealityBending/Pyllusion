@@ -35,7 +35,7 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid", method="pil"):
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> import PIL.Image, PIL.ImageDraw
     >>>
     >>> image  = PIL.Image.new('RGB', (500, 400), color = "white")
@@ -78,7 +78,7 @@ def _coord_text(
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> import PIL.Image, PIL.ImageDraw
     >>>
     >>> image  = PIL.Image.new('RGB', (500, 500), color = "white")

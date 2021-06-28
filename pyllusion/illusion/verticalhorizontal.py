@@ -27,17 +27,17 @@ def verticalhorizontal_psychopy(window, parameters=None, **kwargs):
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.verticalhorizontal_parameters(illusion_strength=90)
+    >>> parameters = pyllusion.verticalhorizontal_parameters(illusion_strength=90)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color='white')
     
     >>> # Display illusion
-    >>> ill.verticalhorizontal_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.verticalhorizontal_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -93,10 +93,10 @@ def verticalhorizontal_image(
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.verticalhorizontal_parameters(illusion_strength=90)
-    >>> ill.verticalhorizontal_image(parameters) 
+    >>> parameters = pyllusion.verticalhorizontal_parameters(illusion_strength=90)
+    >>> pyllusion.verticalhorizontal_image(parameters) 
     """
     # Create white canvas and get drawing context
     if parameters is None:

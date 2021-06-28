@@ -1,8 +1,8 @@
 def images_to_gif(images, path="mygif.gif", fps=30):
     """
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> ill.image_blobs(n=500)  #doctest: +ELLIPSIS
+    >>> pyllusion.image_blobs(n=500)  #doctest: +ELLIPSIS
      <PIL.Image.Image ...>
     """
     try:

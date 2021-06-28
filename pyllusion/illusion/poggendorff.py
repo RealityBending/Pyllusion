@@ -27,17 +27,17 @@ def poggendorff_psychopy(window, parameters=None, **kwargs):
 
     Examples
     ---------    
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
     
     >>> # Create parameters
-    >>> parameters = ill.poggendorff_parameters(illusion_strength=-50)
+    >>> parameters = pyllusion.poggendorff_parameters(illusion_strength=-50)
     
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
     
     >>> # Display illusion
-    >>> ill.poggendorff_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.poggendorff_psychopy(window=window, parameters=parameters)
 
     >>> # Refresh and close window    
     >>> window.flip()
@@ -99,10 +99,10 @@ def poggendorff_image(
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.poggendorff_parameters(illusion_strength=-55)
-    >>> ill.poggendorff_image(parameters) 
+    >>> parameters = pyllusion.poggendorff_parameters(illusion_strength=-55)
+    >>> pyllusion.poggendorff_image(parameters) 
 
     """
     # Create white canvas and get drawing context

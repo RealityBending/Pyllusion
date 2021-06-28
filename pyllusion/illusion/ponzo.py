@@ -27,17 +27,17 @@ def ponzo_psychopy(window, parameters=None, **kwargs):
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.ponzo_parameters(illusion_strength=20)
+    >>> parameters = pyllusion.ponzo_parameters(illusion_strength=20)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
     
     >>> # Display illusion
-    >>> ill.ponzo_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.ponzo_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -102,10 +102,10 @@ def ponzo_image(parameters=None, width=800, height=600, outline=20, background="
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.ponzo_parameters(illusion_strength=20)
-    >>> ill.ponzo_image(parameters)
+    >>> parameters = pyllusion.ponzo_parameters(illusion_strength=20)
+    >>> pyllusion.ponzo_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:

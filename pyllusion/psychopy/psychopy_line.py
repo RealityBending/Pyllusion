@@ -47,14 +47,14 @@ def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1
 
     Examples
     --------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
     
     >>> # Initiate window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
 
     >>> # Draw line
-    >>> ill.psychopy_line(window, x=0, y=0, length=1)
+    >>> pyllusion.psychopy_line(window, x=0, y=0, length=1)
     
     >>> # Refresh and close window    
     >>> window.flip()

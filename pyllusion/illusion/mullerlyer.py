@@ -29,17 +29,17 @@ def mullerlyer_psychopy(window, parameters=None, **kwargs):
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>> from psychopy import visual, event
 
     >>> # Create parameters
-    >>> parameters = ill.mullerlyer_parameters(illusion_strength=30, difference=0)
+    >>> parameters = pyllusion.mullerlyer_parameters(illusion_strength=30, difference=0)
 
     >>> # Initiate Window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
     
     >>> # Display illusion
-    >>> ill.mullerlyer_psychopy(window=window, parameters=parameters)
+    >>> pyllusion.mullerlyer_psychopy(window=window, parameters=parameters)
     
     >>> # Refresh and close window    
     >>> window.flip()
@@ -106,13 +106,13 @@ def mullerlyer_image(parameters=None, width=800, height=600, outline=20, backgro
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> parameters = ill.mullerlyer_parameters(illusion_strength=30, difference=2)
-    >>> ill.mullerlyer_image(parameters)
+    >>> parameters = pyllusion.mullerlyer_parameters(illusion_strength=30, difference=2)
+    >>> pyllusion.mullerlyer_image(parameters)
 
-    >>> parameters = ill.mullerlyer_parameters(illusion_strength=30, difference=0)
-    >>> ill.mullerlyer_image(parameters)
+    >>> parameters = pyllusion.mullerlyer_parameters(illusion_strength=30, difference=0)
+    >>> pyllusion.mullerlyer_image(parameters)
     """
     # Create white canvas and get drawing context
     if parameters is None:

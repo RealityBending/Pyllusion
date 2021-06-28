@@ -12,11 +12,11 @@ def autostereogram(stimulus="Hello", pattern=None, n_repetitions=14, depth=1, in
 
     Examples
     ---------
-    >>> import pyllusion as ill
+    >>> import pyllusion
     >>>
-    >>> ill.autostereogram(stimulus="3D", width=1000, height=500, font="arialbd.ttf")  #doctest: +SKIP
-    >>> ill.autostereogram(stimulus="3D",
-    ...                    pattern=ill.image_circles,
+    >>> pyllusion.autostereogram(stimulus="3D", width=1000, height=500, font="arialbd.ttf")  #doctest: +SKIP
+    >>> pyllusion.autostereogram(stimulus="3D",
+    ...                    pattern=pyllusion.image_circles,
     ...                    n_repetitions=16,
     ...                    n=1000,
     ...                    invert=False,
