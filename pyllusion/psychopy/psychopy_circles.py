@@ -16,7 +16,19 @@ def psychopy_circle(
     ):
     """
     Creates a PsychoPy stimulus of a circle.
-    
+
+    The `*_circle` functions are meant to facilitate the creation of primitive shapes,
+    in this case, circle(s), that can be assembled into illusory stimuli.
+
+    This function is intended to create circles similar to `image_circle()` within PsychoPy.
+    It is essentially a wrapper around PsychoPy `psychopy.visual.Circle()`. The difference lies
+    within the names of the arguments and the values that they take (e.g., we use a consistent
+    x-y plane [-1, 1; -1, 1] for the screen "space" with 0 as the center, instead of pixels starting
+    from the corner). The purpose of this wrapper is to have consistent behaviour for functions that 
+    are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
+    for more information (https://www.psychopy.org/api/visual/circle.html).
+
+
     Parameters
     ----------
     window: object
@@ -44,6 +56,10 @@ def psychopy_circle(
     Returns
     -------
     In-place modification of the PsychoPy window (No explicit return).
+
+    See Also
+    --------
+    image_circle
 
     Examples
     --------
