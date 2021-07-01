@@ -6,7 +6,19 @@ def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1
                   adjust_width=False, adjust_height=False, **kwargs):
     """
     Creates a PsychoPy stimulus of a line.
-    
+
+
+    The `*_line` functions are meant to facilitate the creation of primitive shapes,
+    in this case, line(s), that can be assembled into illusory stimuli.
+
+    This function is intended to create lines similar to `image_line()` within PsychoPy.
+    It is essentially a wrapper around PsychoPy `psychopy.visual.Line()`. The difference lies
+    within the names of the arguments and the values that they take (e.g., we use a consistent
+    x-y plane [-1, 1; -1, 1] for the screen "space" with 0 as the center, instead of pixels starting
+    from the corner). The purpose of this wrapper is to have consistent behaviour for functions that
+    are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
+    for more information (https://www.psychopy.org/api/visual/line.html).
+
     Parameters
     ----------
     window: object
@@ -27,7 +39,7 @@ def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1
         The orientation of the line in degrees, 0 being vertical and
         positive values rotating clockwise.
     color : Union[list, str]
-        The color of the line as single string value or [r, g, b] list, in which 
+        The color of the line as single string value or [r, g, b] list, in which
         colorSpace='rgb255' argument has to be added.
     alpha : float
         The opacity of the line relative to the background, from 1.0 (opaque) to
@@ -45,18 +57,22 @@ def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1
     -------
     In-place modification of the PsychoPy window (No explicit return).
 
+    See Also
+    --------
+    image_line
+
     Examples
     --------
     >>> import pyllusion
     >>> from psychopy import visual, event
-    
+
     >>> # Initiate window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
 
     >>> # Draw line
     >>> pyllusion.psychopy_line(window, x=0, y=0, length=1)
-    
-    >>> # Refresh and close window    
+
+    >>> # Refresh and close window
     >>> window.flip()
     >>> event.waitKeys()  # Press any key to close
     >>> window.close()
@@ -84,6 +100,6 @@ def psychopy_line(window, x=0, y=0, x1=None, y1=None, x2=None, y2=None, length=1
     # blur
     if alpha > 0:
         line.opacity = alpha
-    
+
     # Display
     line.draw()

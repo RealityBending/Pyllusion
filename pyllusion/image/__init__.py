@@ -2,8 +2,8 @@
 Pyllusion submodule.
 """
 
-from .image_blobs import image_blob, image_blobs
-from .image_circles import image_circle, image_circles
+from .image_blob import image_blob, image_blobs
+from .image_circle import image_circle, image_circles
 from .image_line import image_line
 from .image_mosaic import image_mosaic
 from .image_noise import image_noise

@@ -19,7 +19,18 @@ def psychopy_rectangle(
 ):
     """
     Creates a PsychoPy stimulus of a rectangle.
-    
+
+    The `*_rectangle` functions are meant to facilitate the creation of primitive shapes,
+    in this case, rectangle(s), that can be assembled into illusory stimuli.
+
+    This function is intended to create lines similar to `image_rectangle()` within PsychoPy.
+    It is essentially a wrapper around PsychoPy `psychopy.visual.Rect()`. The difference lies
+    within the names of the arguments and the values that they take (e.g., we use a consistent
+    x-y plane [-1, 1; -1, 1] for the screen "space" with 0 as the center, instead of pixels starting
+    from the corner). The purpose of this wrapper is to have consistent behaviour for functions that
+    are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
+    for more information (https://www.psychopy.org/api/visual/rect.html).
+
     Parameters
     ----------
     window: object
@@ -36,12 +47,12 @@ def psychopy_rectangle(
         The orientation of the rectangle in degrees, 0 being vertical and
         positive values rotating clockwise.
     color : Union[list, str]
-        The fill color of the rectangle as single string value or [r, g, b] list, in which 
+        The fill color of the rectangle as single string value or [r, g, b] list, in which
         colorSpace='rgb255' argument has to be added.
     outline : float
         The width of the outline of the rectangle.
     outline_color : Union[list, str]
-        The outline color of the rectangle as single string value or [r, g, b] list, in which 
+        The outline color of the rectangle as single string value or [r, g, b] list, in which
         colorSpace='rgb255' argument has to be added.
     alpha : float
         The opacity of the rectangle relative to the background, from 1.0 (opaque) to
@@ -59,11 +70,15 @@ def psychopy_rectangle(
     -------
     In-place modification of the PsychoPy window (No explicit return).
 
+    See Also
+    --------
+    image_rectangle
+
     Examples
     --------
     >>> import pyllusion
     >>> from psychopy import visual, event
-    
+
     >>> # Initiate window
     >>> window = visual.Window(size=[800, 600], winType='pygame', color="white")
 
@@ -72,8 +87,8 @@ def psychopy_rectangle(
                                size_width=0.5, size_height=0.5,
                                color='white',
                                outline_color='black', outline=3, rotate=1)
-    
-    >>> # Refresh and close window    
+
+    >>> # Refresh and close window
     >>> window.flip()
     >>> event.waitKeys()  # Press any key to close
     >>> window.close()
@@ -92,11 +107,11 @@ def psychopy_rectangle(
         size_width = size_width * (window.size[1] / window.size[0])
     if adjust_height is True:
         size_height = size_height * (window.size[0] / window.size[1])
-    
+
     # Get coordinates
     x1, y1, x2, y2 = _coord_rectangle(image=window, x=x, y=y, size_width=size_width,
                                       size_height=size_height, method="psychopy")
-    
+
     # Rectangle parameters
     rect = visual.Rect(
         win=window,
@@ -111,14 +126,14 @@ def psychopy_rectangle(
     y = (y1 + y2)/2
     rect.pos = [x-window.size[0]/2, y-window.size[1]/2]
     rect.lineColor = outline_color
-    
+
     # Alpha
     if alpha > 0:
         rect.opacity = alpha
-    
+
     # Orientation
     if rotate != 0:
         rect.ori = rotate
-    
+
     # Display
     rect.draw()

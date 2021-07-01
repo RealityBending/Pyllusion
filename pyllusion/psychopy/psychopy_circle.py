@@ -24,7 +24,7 @@ def psychopy_circle(
     It is essentially a wrapper around PsychoPy `psychopy.visual.Circle()`. The difference lies
     within the names of the arguments and the values that they take (e.g., we use a consistent
     x-y plane [-1, 1; -1, 1] for the screen "space" with 0 as the center, instead of pixels starting
-    from the corner). The purpose of this wrapper is to have consistent behaviour for functions that 
+    from the corner). The purpose of this wrapper is to have consistent behaviour for functions that
     are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
     for more information (https://www.psychopy.org/api/visual/circle.html).
 
@@ -38,12 +38,12 @@ def psychopy_circle(
     y : float
         y-coordinates of the center of the circle, from -1 to 1.
     color : Union[list, str]
-        The fill color of the circle as single string value or [r, g, b] list, in which 
+        The fill color of the circle as single string value or [r, g, b] list, in which
         colorSpace='rgb255' argument has to be added.
     outline : float
         The width of the outline of the circle.
     outline_color : Union[list, str]
-        The outline color of the circle as single string value or [r, g, b] list, in which 
+        The outline color of the circle as single string value or [r, g, b] list, in which
         colorSpace='rgb255' argument has to be added.
     alpha : float
         The opacity of the circle relative to the background, from 1.0 (opaque) to
@@ -59,7 +59,7 @@ def psychopy_circle(
 
     See Also
     --------
-    image_circle
+    image_circles
 
     Examples
     --------
@@ -72,7 +72,7 @@ def psychopy_circle(
     >>> # Draw circle
     >>> pyllusion.psychopy_circle(window, color="yellow", y=0.5)
 
-    >>> # Refresh and close window    
+    >>> # Refresh and close window
     >>> window.flip()
     >>> event.waitKeys()  # Press any key to close
     >>> window.close()
@@ -89,8 +89,8 @@ def psychopy_circle(
 
     # Get coordinates
     radius, x, y = _coord_circle(image=window, diameter=size, x=x, y=y, method="psychopy")
-    
-    
+
+
     # Circle parameters
     ## Draw circle if blur = 0
     if blur == 0:
@@ -101,10 +101,10 @@ def psychopy_circle(
 
         if alpha > 0:
             circle.opacity = alpha
-        
+
         # Display circle
         circle.draw()
-    
+
     ## Draw grating if blur > 0
     elif blur > 0:
         grating = visual.GratingStim(tex=np.ones([int(radius*2), int(radius*2)]),

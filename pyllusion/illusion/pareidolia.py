@@ -1,7 +1,7 @@
 import numpy as np
 import PIL.Image
 
-from ..image.image_blobs import image_blobs
+from ..image.image_blob import image_blobs
 
 
 def pareidolia(pattern=None, n=[10, 1000], sd=[20, 2], weight=[2, 1], alpha=80, blur=30, negative=False):
