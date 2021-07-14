@@ -3,13 +3,14 @@ The Pyllusion module.
 """
 __version__ = "0.0.11"
 
+# Import Illusions
+from .Delboeuf import *
 
 # Import submodules
 from .illusion import *
 from .image import *
 from .movement import *
 from .psychopy import *
-
 
 # Maintainer info
 __author__ = "The Reality Bending League"
