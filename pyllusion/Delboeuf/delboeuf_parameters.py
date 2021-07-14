@@ -64,6 +64,7 @@ def _delboeuf_parameters(
 
     # Get location and distances
     if distance_auto is False:
+        distance_reference = 'Between Centers'
         distance_centers = distance
         position_left, position_right = -(distance_centers / 2), (distance_centers / 2)
         distance_edges_inner = distance_centers - (
@@ -73,6 +74,7 @@ def _delboeuf_parameters(
             outer_size_left / 2 + outer_size_right / 2
         )
     else:
+        distance_reference = 'Between Edges'
         distance_edges_outer = distance
         distance_centers = distance_edges_outer + (
             inner_size_left / 2 + inner_size_right / 2
@@ -87,9 +89,11 @@ def _delboeuf_parameters(
             "Illusion": "Delboeuf",
             "Illusion_Strength": illusion_strength,
             "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
+            "Size_Min": size_min,
             "Size_Outer_Left": outer_size_left,
             "Size_Outer_Right": outer_size_right,
-            "Distance_Centers": distance_centers,
+            "Distance": distance_centers,
+            "Distance_Reference": distance_reference,
             "Distance_Edges_Inner": distance_edges_inner,
             "Distance_Edges_Outer": distance_edges_outer,
             "Size_Inner_Smaller": np.min([inner_size_left, inner_size_right]),
