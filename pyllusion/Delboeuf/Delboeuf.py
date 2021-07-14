@@ -27,7 +27,6 @@ class Delboeuf:
         distance_auto : bool, optional
             [description], by default False
         """
-
         self.parameters = _delboeuf_parameters(
             illusion_strength=illusion_strength,
             difference=difference,
@@ -35,6 +34,17 @@ class Delboeuf:
             distance=distance,
             distance_auto=distance_auto,
         )
+
+    # def update(self, **kwargs):
+    #     """
+    #     update [summary]
+
+    #     Parameters
+    #     ----------
+    #     parameters : [type]
+    #         [description]
+    #     """
+    #     self.parameters.update(parameters)
 
     def get_parameters(self):
         """
@@ -51,7 +61,7 @@ class Delboeuf:
     def to_image(self, width=800, height=600, outline=10, background="white", **kwargs):
         """"""
         img = _delboeuf_image(
-            self.parameters,
+            parameters=self.parameters,
             width=width,
             height=height,
             outline=outline,
