@@ -35,16 +35,47 @@ class Delboeuf:
             distance_auto=distance_auto,
         )
 
-    # def update(self, **kwargs):
-    #     """
-    #     update [summary]
+    def update(self, illusion_strength=None, difference=None, size_min=None,
+               distance=None, distance_auto=None):
+        """
+        update [summary]
 
-    #     Parameters
-    #     ----------
-    #     parameters : [type]
-    #         [description]
-    #     """
-    #     self.parameters.update(parameters)
+        Parameters
+        ----------
+        parameters : [type]
+            [description]
+        """
+        # Try loading inspect
+        try:
+            import inspect
+        except ImportError:
+            raise ImportError(
+                "Pyllusion error: update(): the 'inspect' module is required for this function to run. ",
+                "Please install it first (`pip install inspect`).",
+            )
+
+        # get original values
+        values = inspect.getfullargspec(self.__init__)[3]
+
+        if illusion_strength is None:
+            illusion_strength = values[0]
+        if difference is None:
+            difference = values[1]
+        if size_min is None:
+            size_min = values[2]
+        if distance is None:
+            distance = values[3]
+        if distance_auto is None:
+            distance_auto = values[4]
+
+        self.parameters = _delboeuf_parameters(
+            illusion_strength=illusion_strength,
+            difference=difference,
+            size_min=size_min,
+            distance=distance,
+            distance_auto=distance_auto,
+        )
+        # self.parameters.update(parameters)
 
     def get_parameters(self):
         """
@@ -72,4 +103,4 @@ class Delboeuf:
 
     def to_psychopy(self, window, **kwargs):
         """"""
-        _delboeuf_psychopy(self.parameters, window, **kwargs)
+        _delboeuf_psychopy(window, self.parameters, **kwargs)
