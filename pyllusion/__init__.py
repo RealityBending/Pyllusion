@@ -5,6 +5,7 @@ __version__ = "0.0.11"
 
 # Import Illusions
 from .Delboeuf import *
+from .Ebbinghaus import *
 
 # Import submodules
 from .illusion import *

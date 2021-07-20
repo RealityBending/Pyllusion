@@ -64,7 +64,7 @@ class Delboeuf:
         Returns
         -------
         dict
-            Dictionary of parameters of the delboeuf illusion.
+            Dictionary of parameters of the Delboeuf illusion.
 
         Examples
         ---------
