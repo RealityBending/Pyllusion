@@ -3,17 +3,11 @@ The Pyllusion module.
 """
 __version__ = "0.0.11"
 
+from .Contrast import *
+
 # Import Illusions
 from .Delboeuf import *
 from .Ebbinghaus import *
-from .MullerLyer import *
-from .Ponzo import *
-from .VerticalHorizontal import *
-from .RodFrame import *
-from .Poggendorff import *
-from .Zollner import *
-from .Contrast import *
-from .White import *
 
 # Import submodules
 from .illusion import *
@@ -25,6 +19,8 @@ from .Ponzo import *
 from .psychopy import *
 from .RodFrame import *
 from .VerticalHorizontal import *
+from .White import *
+from .Zollner import *
 
 
 # Maintainer info
