@@ -6,17 +6,13 @@ __version__ = "0.0.11"
 # Import Illusions
 from .Delboeuf import *
 from .Ebbinghaus import *
-from .MullerLyer import *
-from .Ponzo import *
-from .VerticalHorizontal import *
-from .RodFrame import *
-from .Poggendorff import *
 
 # Import submodules
 from .illusion import *
 from .image import *
 from .movement import *
 from .MullerLyer import *
+from .Poggendorff import *
 from .Ponzo import *
 from .psychopy import *
 from .RodFrame import *
