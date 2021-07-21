@@ -84,7 +84,7 @@ def _ebbinghaus_parameters(illusion_strength=0, difference=0, size_min=0.25, dis
     parameters.update({
         "Illusion": "Ebbinghaus",
         "Illusion_Strength": illusion_strength,
-        "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
+        "Illusion_Type": "Incongruent" if illusion_strength > 0 else "Congruent",
 
         "Size_Outer_Left": outer_size_left,
         "Size_Outer_Right": outer_size_right,
@@ -94,7 +94,6 @@ def _ebbinghaus_parameters(illusion_strength=0, difference=0, size_min=0.25, dis
         "Distance_Edges_Inner": distance_edges_inner,
         "Distance_Edges_Outer": distance_edges_outer,
 
-        "Size_Min": size_min,
         "Size_Inner_Smaller": np.min([inner_size_left, inner_size_right]),
         "Size_Inner_Larger": np.max([inner_size_left, inner_size_right]),
         "Size_Outer_Smaller": np.min([outer_size_left, outer_size_right]),

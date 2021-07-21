@@ -50,8 +50,7 @@ def _delboeuf_parameters(
         {
             "Illusion": "Delboeuf",
             "Illusion_Strength": illusion_strength,
-            "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
-            "Size_Min": size_min,
+            "Illusion_Type": "Incongruent" if illusion_strength > 0 else "Congruent",
             "Size_Outer_Left": outer_size_left,
             "Size_Outer_Right": outer_size_right,
             "Distance": distance_centers,

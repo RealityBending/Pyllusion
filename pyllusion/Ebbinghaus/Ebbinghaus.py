@@ -8,26 +8,26 @@ class Ebbinghaus:
     A class to generate the Ebbinghaus Illusion.
 
     The Ebbinghaus illusion is an optical illusion of relative size perception,
-    where circles of identical size appear as different because of their
-    surrounding context.
-    
+    where circles of identical size appear as different because of their surrounding context.
+    Specifically, the central circle that is surrounded by large circles appears smaller
+    than the central circle surrounded by small circles.
+
     Each instance of ``Ebbinghaus`` contains attributes corresponding to the parameters of the illusion.
     These parameters are:
         * ``Difference``: Objective difference in the target features, by modifying ``difference`` of ``ebbinghaus_parameters()``
-        * ``Illusion``: Name of the illusion.
+        * ``Illusion``: Name of the illusion, 'Ebbinghaus'.
         * ``Illusion_Strength``: Strength of the surrounding context in biasing illusion, by modifying ``illusion_strength`` of ``ebbinghaus_parameters()``.
-        * ``Illusion_Type``: 'Congruent' if biased towards perceiving the illusion, and 'Incongruent' if against. 
-        * ``Size_Min``: size of the smaller inner circle, by modifying ``size_min`` of ``ebbinghaus_parameters()``.
+        * ``Illusion_Type``: 'Congruent' if the illusion enhances the perception of the objective difference in the illusion, and 'Incongruent' if it reduces the perceived difference.
         * ``Size_Inner_Left``: Size of the inner left circle.
         * ``Size_Inner_Right``: Size of the inner right circle.
-        * ``Sine_Inner_Difference``: Difference in size (area) of the left and right inner circles.
+        * ``Sine_Inner_Difference``: Difference in areas of the left and right inner circles.
         * ``Size_Outer_Left``: Size of the surrounding circles around the left inner circle.
         * ``Size_Outer_Right``: Size of the surrounding circles around the right inner circle.
         * ``Distance``: Distance between the circles, by modifying ``distance`` of ``ebbinghaus_parameters()``.
         * ``Distance_Reference``: Distance between circles is computed 'Between Edges' or 'Between Centers', by modifying ``distance_auto`` of ``ebbinghaus_parameters()``.
         * ``Distance_Edges_Inner``: Distance between the edges of the inner left and right circles.
         * ``Distance_Edges_Outer``: Distance between the edges of the surrounding left circles and right circles.
-        * ``Size_Inner_Smaller``: Size of the smaller inner circle.
+        * ``Size_Inner_Smaller``: Size of the smaller inner circle, equates to ``size_min`` of ``ebbinghaus_parameters()``.
         * ``Size_Inner_Larger``: Size of the larger inner circle.
         * ``Size_Outer_Smaller``: Size of the smaller surrounding circles.
         * ``Size_Outer_Larger``: Size of the larger surrounding cricles.
@@ -49,17 +49,15 @@ class Ebbinghaus:
         ----------
         illusion_strength : float
             The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
-            Specifically, the size of right outer circles relative to the left (in percentage, e.g, if ``difference=1``,
-            it means that the right outer circles will be 100% bigger, i.e., 2 times bigger than the left
-            outer circles). A negative sign reflects the size difference of the left outer circles relative
-            to the right, i.e., ``difference=-1`` means the left outer circles will be 100% bigger than the
-            right outer circles.
+            Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if ``illusion_strength=1``,
+            it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
+            A negative sign means that the illusion will enhance the perception of the actual ``difference`` in target features
+            whereas a positive sign reduces this perception.
         difference : float
             The objective size difference of the inner circles.
             Specifically, the size of left inner circle relative to the right (in percentage, e.g., if ``difference=1``,
             it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
-             A negative sign reflects the size difference of the right inner circle relative to the left, i.e.,
-             ``difference=-1`` means the right inner circle will be 100% bigger than the left inner circle.
+            A negative sign would make the left inner circle smaller than the right inner circle.
         size_min : float
             Size of smaller inner circle.
         distance : float
