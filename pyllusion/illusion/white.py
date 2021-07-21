@@ -86,7 +86,7 @@ def white_parameters(difference=0, illusion_strength=0, strips_n=9):
     target1_y = y[0::2] + (strip_height / 2)
 
     parameters = {
-        "Illusion": "Contrast",
+        "Illusion": "White's",
         "Illusion_Strength": illusion_strength,
         "Difference": difference,
         "Illusion_Type": "Congruent" if illusion_strength > 0 else "Incongruent",
