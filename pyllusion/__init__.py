@@ -10,6 +10,7 @@ from .MullerLyer import *
 from .Ponzo import *
 from .VerticalHorizontal import *
 from .RodFrame import *
+from .Poggendorff import *
 
 # Import submodules
 from .illusion import *

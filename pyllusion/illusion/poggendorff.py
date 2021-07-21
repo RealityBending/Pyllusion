@@ -6,7 +6,7 @@ from ..psychopy import psychopy_line, psychopy_rectangle
 
 def poggendorff_psychopy(window, parameters=None, **kwargs):
     """Create a PsychoPy stimulus of the Poggendorff illusion.
-    
+
     
     The Poggendorff illusion is an optical illusion that involves the misperception
     of the position of one segment of a transverse line that has been interrupted
