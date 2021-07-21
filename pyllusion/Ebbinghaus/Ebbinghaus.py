@@ -51,7 +51,7 @@ class Ebbinghaus:
             The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
             Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if ``illusion_strength=1``,
             it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
-            A negative sign means that the illusion will enhance the perception of the actual ``difference`` in target features
+            A negative sign means that the illusion will enhance the perception of the actual ``difference`` in circle sizes
             whereas a positive sign reduces this perception.
         difference : float
             The objective size difference of the inner circles.
@@ -59,9 +59,9 @@ class Ebbinghaus:
             it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
             A negative sign would make the left inner circle smaller than the right inner circle.
         size_min : float
-            Size of smaller inner circle.
+            Size of smaller inner circle. Defaults to 0.25.
         distance : float
-            Distance between circles.
+            Distance between circles. Defaults to 1.
         distance_auto : bool
             If true, distance is between edges (fixed spacing), if false, between centers (fixed location).
 
@@ -70,11 +70,6 @@ class Ebbinghaus:
         dict
             Dictionary of parameters of the Ebbinghaus illusion.
 
-        Examples
-        ---------
-        >>> import pyllusion
-        >>>
-        >>> parameters = pyllusion.ebbinghaus_parameters()
         """
         self.parameters = _ebbinghaus_parameters(
             illusion_strength=illusion_strength,

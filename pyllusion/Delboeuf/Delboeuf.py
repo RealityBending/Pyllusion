@@ -46,7 +46,7 @@ class Delboeuf:
             The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
             Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if ``illusion_strength=1``,
             it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
-            A negative sign means that the illusion will enhance the perception of the actual ``difference`` in target features
+            A negative sign means that the illusion will enhance the perception of the actual ``difference`` in circle sizes
             whereas a positive sign reduces this perception.
         difference : float
             The objective size difference of the inner circles.
@@ -65,11 +65,6 @@ class Delboeuf:
         dict
             Dictionary of parameters of the Delboeuf illusion.
 
-        Examples
-        ---------
-        >>> import pyllusion
-        >>>
-        >>> parameters = pyllusion.delboeuf_parameters()
         """
         self.parameters = _delboeuf_parameters(
             illusion_strength=illusion_strength,

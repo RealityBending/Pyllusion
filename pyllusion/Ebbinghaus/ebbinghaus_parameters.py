@@ -4,35 +4,6 @@ from ..Delboeuf.delboeuf_parameters import _delboeuf_parameters_sizeinner, _delb
 
 
 def _ebbinghaus_parameters(illusion_strength=0, difference=0, size_min=0.25, distance=1, distance_auto=False):
-    """Compute Parameters for Ebbinghaus Illusion.
-
-    Parameters
-    ----------
-    illusion_strength : float
-        The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
-        Specifically, the size of right outer circles relative to the left (in percentage, e.g, if ``difference=1``,
-        it means that the right outer circles will be 100% bigger, i.e., 2 times bigger than the left
-        outer circles). A negative sign reflects the size difference of the left outer circles relative
-        to the right, i.e., ``difference=-1`` means the left outer circles will be 100% bigger than the
-        right outer circles.
-    difference : float
-        The objective size difference of the inner circles.
-        Specifically, the size of left inner circle relative to the right (in percentage, e.g., if ``difference=1``,
-        it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
-         A negative sign reflects the size difference of the right inner circle relative to the left, i.e.,
-         ``difference=-1`` means the right inner circle will be 100% bigger than the left inner circle.
-    size_min : float
-        Size of smaller inner circle.
-    distance : float
-        Distance between circles.
-    distance_auto : bool
-        If true, distance is between edges (fixed spacing), if false, between centers (fixed location).
-
-    Returns
-    -------
-    dict
-        Dictionary of parameters of the Ebbinghaus illusion.
-    """
 
     # Size inner circles
     parameters = _delboeuf_parameters_sizeinner(difference=difference, size_min=size_min)
