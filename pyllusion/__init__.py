@@ -19,6 +19,8 @@ from .movement import *
 from .MullerLyer import *
 from .Ponzo import *
 from .psychopy import *
+from .RodFrame import *
+from .VerticalHorizontal import *
 
 
 # Maintainer info
