@@ -25,7 +25,7 @@ def _color(color="black", alpha=1, mode="RGB"):
     # Add transparency
     if mode == "RGBA":
         if len(color) == 3:
-            color = color + tuple([np.int(_rgb(alpha))])
+            color = color + tuple([int(_rgb(alpha))])
 
     return color
 
@@ -50,14 +50,14 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid", method="pil"):
     if unit == "grid":
         # Get coordinates in pixels
         width, height = image.size
-        x = np.int(rescale(x, to=[0, width], scale=[-1, 1]))
+        x = int(rescale(x, to=[0, width], scale=[-1, 1]))
         if method == "pil":
-            y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+            y = int(rescale(-y, to=[0, height], scale=[-1, 1]))
         elif method == "psychopy":
-            y = np.int(rescale(y, to=[0, height], scale=[-1, 1]))
+            y = int(rescale(y, to=[0, height], scale=[-1, 1]))
 
         # Convert diameter based on height
-        diameter = np.int(rescale(diameter, to=[0, height], scale=[0, 2]))
+        diameter = int(rescale(diameter, to=[0, height], scale=[0, 2]))
         diameter = 2 if diameter < 2 else diameter
         
     radius = diameter / 2
@@ -91,11 +91,11 @@ def _coord_text(
     if unit == "grid":
         # Get coordinates in pixels
         width, height = image.size
-        x = np.int(rescale(x, to=[0, width], scale=[-1, 1]))
+        x = int(rescale(x, to=[0, width], scale=[-1, 1]))
         if method == "pil":
-            y = np.int(rescale(-y, to=[0, height], scale=[-1, 1]))
+            y = int(rescale(-y, to=[0, height], scale=[-1, 1]))
         elif method == "psychopy":
-            y = np.int(rescale(y, to=[0, height], scale=[-1, 1]))
+            y = int(rescale(y, to=[0, height], scale=[-1, 1]))
 
     if size == "auto":
         # Initialize values
@@ -169,15 +169,15 @@ def _coord_line(
         if adjust_height is True:
             y1, y2 = y1 * (width / height), y2 * (width / height)
 
-        x1 = np.int(rescale(x1, to=[0, width], scale=[-1, 1]))
-        x2 = np.int(rescale(x2, to=[0, width], scale=[-1, 1]))
+        x1 = int(rescale(x1, to=[0, width], scale=[-1, 1]))
+        x2 = int(rescale(x2, to=[0, width], scale=[-1, 1]))
         if method == "pil":
-            y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
-            y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+            y1 = int(rescale(-y1, to=[0, height], scale=[-1, 1]))
+            y2 = int(rescale(-y2, to=[0, height], scale=[-1, 1]))
         elif method == "psychopy":
-            y1 = np.int(rescale(y1, to=[0, height], scale=[-1, 1]))
-            y2 = np.int(rescale(y2, to=[0, height], scale=[-1, 1]))
-        length = np.int(rescale(length, to=[0, height], scale=[0, 2]))
+            y1 = int(rescale(y1, to=[0, height], scale=[-1, 1]))
+            y2 = int(rescale(y2, to=[0, height], scale=[-1, 1]))
+        length = int(rescale(length, to=[0, height], scale=[0, 2]))
     return (x1, y1, x2, y2), length, angle
 
 
@@ -204,12 +204,12 @@ def _coord_rectangle(image=None, x=0, y=0, size_width=1, size_height=1, method="
     # Get coordinates in pixels
     if image is not None:
         width, height = image.size
-        x1 = np.int(rescale(x1, to=[0, width], scale=[-1, 1]))
-        x2 = np.int(rescale(x2, to=[0, width], scale=[-1, 1]))
+        x1 = int(rescale(x1, to=[0, width], scale=[-1, 1]))
+        x2 = int(rescale(x2, to=[0, width], scale=[-1, 1]))
         if method == "pil":
-            y1 = np.int(rescale(-y1, to=[0, height], scale=[-1, 1]))
-            y2 = np.int(rescale(-y2, to=[0, height], scale=[-1, 1]))
+            y1 = int(rescale(-y1, to=[0, height], scale=[-1, 1]))
+            y2 = int(rescale(-y2, to=[0, height], scale=[-1, 1]))
         elif method == "psychopy":
-            y1 = np.int(rescale(y1, to=[0, height], scale=[-1, 1]))
-            y2 = np.int(rescale(y2, to=[0, height], scale=[-1, 1]))
+            y1 = int(rescale(y1, to=[0, height], scale=[-1, 1]))
+            y2 = int(rescale(y2, to=[0, height], scale=[-1, 1]))
     return (x1, y1, x2, y2)

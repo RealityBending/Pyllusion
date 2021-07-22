@@ -31,7 +31,7 @@ def _poggendorff_image(
 
     image = image_rectangle(
         image=image,
-        y=parameters["Rectangle_y"],
+        y=0,
         size_width=parameters["Rectangle_Width"],
         size_height=parameters["Rectangle_Height"],
         color="grey",
