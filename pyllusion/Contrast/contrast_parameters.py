@@ -59,13 +59,13 @@ def _contrast_parameters_internal(difference=0, illusion_strength=0):
 
     # Transform to RGB tuples
     background_up_rgb = tuple(
-        np.rint(rescale([background_up] * 3, scale=[0, 1], to=[0, 256])).astype(int)
+        np.rint(rescale([background_up] * 3, scale=[0, 1], to=[0, 255])).astype(int)
     )
     background_low_rgb = tuple(
-        np.rint(rescale([background_low] * 3, scale=[0, 1], to=[0, 256])).astype(int)
+        np.rint(rescale([background_low] * 3, scale=[0, 1], to=[0, 255])).astype(int)
     )
-    up_rgb = tuple(np.rint(rescale([up] * 3, scale=[0, 1], to=[0, 256])).astype(int))
-    low_rgb = tuple(np.rint(rescale([low] * 3, scale=[0, 1], to=[0, 256])).astype(int))
+    up_rgb = tuple(np.rint(rescale([up] * 3, scale=[0, 1], to=[0, 255])).astype(int))
+    low_rgb = tuple(np.rint(rescale([low] * 3, scale=[0, 1], to=[0, 255])).astype(int))
 
     return (
         (up, low, background_up, background_low),

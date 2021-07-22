@@ -128,6 +128,7 @@ class Contrast:
     
         >>> # Create parameters
         >>> contrast = pyllusion.Contrast(difference=0, illusion_strength=-50)
+        >>> parameters = contrast.get_parameters()
     
         >>> # Initiate Window
         >>> window = visual.Window(size=[800, 600], winType='pygame',

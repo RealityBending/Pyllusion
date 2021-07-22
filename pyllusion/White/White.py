@@ -1,5 +1,6 @@
 from .white_image import _white_image
 from .white_parameters import _white_parameters
+from .white_psychopy import _white_psychopy
 
 
 class White:
@@ -111,3 +112,41 @@ class White:
             **kwargs
         )
         return img
+    
+    def to_psychopy(self, window, **kwargs):
+        """Create a PsychoPy stimulus of the White's illusion.
+
+        Parameters
+        ----------
+        window : object
+            The window object initiated by `psychopy.visual.Window` in which the stimulus will be rendered.
+        **kwargs
+            Additional arguments passed into `white_parameters()`.
+
+        Returns
+        -------
+        In-place modification of the PsychoPy window (No explicit return).
+    
+        Examples
+        ---------
+        >>> import pyllusion
+        >>> from psychopy import visual, event
+    
+        >>> # Create parameters
+        >>> white = pyllusion.White(difference=0, illusion_strength=100)
+        >>> parameters = white.get_parameters()
+    
+        >>> # Initiate Window
+        >>> window = visual.Window(size=[800, 600], winType='pygame',
+                                   color=parameters["Background1_RGB"], colorSpace='rgb255')
+
+        >>> # Display illusion
+        >>> white.to_psychopy(window)
+    
+        >>> # Refresh and close window
+        >>> window.flip()
+        >>> event.waitKeys()  # Press any key to close
+        >>> window.close()
+
+        """
+        _white_psychopy(window, self.parameters, **kwargs)
