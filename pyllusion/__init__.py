@@ -1,7 +1,7 @@
 """
 The Pyllusion module.
 """
-__version__ = "0.0.11"
+__version__ = "0.0.12"
 
 # Import Illusions
 from .Contrast import *
