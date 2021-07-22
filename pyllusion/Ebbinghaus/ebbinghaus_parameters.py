@@ -90,7 +90,7 @@ def _ebbinghaus_parameters_outercircles(x=0, y=0, size_inner=0.25, size_outer=0.
     # Find n
     if n == "auto":
         perimeter = 2 * np.pi * distance
-        n = np.int(perimeter / size_outer)
+        n = int(perimeter / size_outer)
 
     # Get position of outer circles
     angle = np.deg2rad(np.linspace(0, 360, num=n, endpoint=False))
