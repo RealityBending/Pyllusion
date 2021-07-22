@@ -3,24 +3,26 @@ The Pyllusion module.
 """
 __version__ = "0.0.12"
 
+from .Autostereogram import *
+
 # Import Illusions
 from .Contrast import *
 from .Delboeuf import *
 from .Ebbinghaus import *
-from .Autostereogram import *
-from .Pareidolia import *
-from .RodFrame import *
-from .VerticalHorizontal import *
-from .White import *
-from .Zollner import *
-from .MullerLyer import *
-from .Poggendorff import *
-from .Ponzo import *
 
 # Import submodules
 from .image import *
 from .movement import *
+from .MullerLyer import *
+from .Pareidolia import *
+from .Poggendorff import *
+from .Ponzo import *
 from .psychopy import *
+from .RodFrame import *
+from .VerticalHorizontal import *
+from .White import *
+from .Zollner import *
+
 
 # Maintainer info
 __author__ = "The Reality Bending League"
