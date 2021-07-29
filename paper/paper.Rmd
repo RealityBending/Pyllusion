@@ -82,7 +82,7 @@ This is especially true given that several illusions may be affected by manipula
 
 <!--For the Ebbinghaus illusion - of which some proponents have argued is a variant of the Delboeuf illusion [e.g., @weintraub1986fragments] - it is not clear whether manipulating the distance between the surrounding and target circles in the former interacts with the size of the surrounding context circles in affecting the illusion magnitude [@girgus1972interrelationship]. There are also mixed findings regarding whether adding smaller surrounding circles increases or decreases the perceived size of the target circle in the Ebbinghaus illusion [@massaro1971judgmental; @jaeger1978ebbinghaus].-->
 
-Although conflicting findings have been taken as support for respective competing theories [@jaeger2015ebbinghaus], a general understanding of the fundamental parameters underlying the various illusions is still lacking. What may propel the field forward is an increase in the convenience for testing a battery of different illusions [rather than investigating just one illusion - which is commonly seen in previous studies, @cretenoud2019factors] to understand common (or distinct) factors between illusions.  Interestingly, @grzeczkowski2017individual found that there is a lack of correlations between given illusions’ magnitude (across classic illusions including Ebbinghaus, Muller-Lyer, Ponzo “hallway”, White, and tilt illusions), suggesting that there is little evidence for common factors between visual illusions. An easy-to-use, open-source software consisting of catalogued illusions could greatly facilitate research [such as that conducted by @grzeczkowski2017individual] by determining which illusions, and under which optimal conditions, show correlations in illusion magnitude, if any at all. Such a package could, by design, indefinitely expand its repertoire of illusions so long as novel illusions and variations of illusions are discovered/developed. For psychopathology researchers, this would encourage efforts to replicate common-use illusions and investigate rarely-tested illusions [e.g., the Poggendorff illusion in schizophrenia, @kantrowitz2009seeing ], which is critical for understanding the extent and specificity of perceptual deficits. Thus, having a tool that can effectively bring together a library of visual illusions and facilitate ease of stimulus parameter manipulation and replication could prove an invaluable addition to the field of visual perception research.
+Although conflicting findings have been taken as support for respective competing theories [@jaeger2015ebbinghaus], a general understanding of the fundamental parameters underlying the various illusions is still lacking. What may propel the field forward is an increase in the convenience for testing a battery of different illusions [rather than investigating just one illusion - which is commonly seen in previous studies, @cretenoud2019factors] to understand common (or distinct) factors between illusions.  Interestingly, @grzeczkowski2017individual found that there is a lack of correlations between given illusions’ magnitude (across classic illusions including Ebbinghaus, Muller-Lyer, Ponzo “hallway”, White, and tilt illusions), suggesting that there is little evidence for common factors between visual illusions. An easy-to-use, open-source software consisting of catalogued illusions could greatly facilitate research [such as that conducted by @grzeczkowski2017individual] by determining which illusions, and under which optimal conditions, show correlations in illusion magnitude, if any at all. Such a package could, by design, indefinitely expand its repertoire of illusions so long as novel illusions and variations of illusions are discovered/developed. For psychopathology researchers, this would encourage efforts to replicate common-use illusions and investigate rarely-tested illusions [e.g., the Poggendorff illusion in schizophrenia, @kantrowitz2009seeing ], which is critical for understanding the extent and specificity of perceptual deficits. Additionally, research such as that examining differences between cultures [@jahoda1970susceptibility], or research examining variations within participants [@hamburger2010analysis], would also benefit greatly from a software allowing for stimuli replication across platforms and displays. Indeed, illusion decrement and transfer of illusion decrement [@coren1972illusion; @coren1974transfer; @porac1985transfer] research could also benefit from such a tool. @porac1985transfer provided evidence that any transfer effect is driven by the similarity in the global stimulus as opposed to variations in the local components. With this in mind, a software allowing the ease of manipulation of local components in a given global configuration (or variant) of an illusion and facilitates additions to the library of novel global configurations (supported by a class-based environment), or variations, of a given illusion, would be beneficial. The ease of access to, switching between, and updating of, the illusions in this catalogue serve to streamline research using such stimuli with the minimum of effort. Thus, having a tool that can effectively bring together a library of visual illusions and facilitate ease of stimulus parameter manipulation and replication could prove an invaluable addition to the field of visual perception research.
 
 <!-- Replicability issues on clinical findings-->
 <!-- The effects of these parametric properties are especially important for illusions that have been used to explain real life phenomena. For instance, the Delboeuf illusion has often been referenced in studies of dieting and perceived food portions [e.g., @van2012plate; @mcclain2014visual]. The overestimation of food portions when served on plates with wider rims (i.e., rim surrounds food more closely) and colored rims (i.e., greater color contrast between border and food) has been attributed to the effect of central parametric properties like proximity [@girgus1982assimilation; @surkys2006delboeuf; @jaeger2007effects] and color contrast [@oyama1962effect; @weintraub1972coming] underlying the Delboeuf illusion. This has important implications for eating behaviour and weight control [@mcclain2014visual]. Another applied usage of illusions can be found in the study of goalkeeper postures. Perceptions of a larger-than-usual goalkeeper, reducing penalty-taking accuracy [@van2008human], is facilitated when arms are raised at higher angles. This has been linked to the Müller-Lyer illusion, in which increasing angles of the wings (deflected away to a maximum of 160 degrees) causes an overestimation of the shaft lengths [@restle1977size]. -->
@@ -135,32 +135,33 @@ knitr::include_graphics("figure3.png")
 
 ## Step 1: Parameters
 
-The parameters for each illusion can be generated using the `IllusionName_parameters()` function. Many optional arguments are available for modifying, of which the description and default values can be found in the API documentation ([*https://realitybending.github.io/Pyllusion/functions.html*](https://realitybending.github.io/Pyllusion/functions.html){.uri}). In the example below, we specify the `illusion_strength` argument, and the function will compute all of the remaining parameters accordingly.
+The parameters for each illusion can be generated using the `IllusionName()` function. Many optional arguments are available for modifying, of which the description and default values can be found in the API documentation ([*https://realitybending.github.io/Pyllusion/functions.html*](https://realitybending.github.io/Pyllusion/functions.html){.uri}). In the example below, we specify the `illusion_strength` argument, and the function will compute all of the remaining parameters accordingly.
 
 ``` {.python}
 # Load package
 import pyllusion
 
 # Create parameters
-parameters = pyllusion.delboeuf_parameters(illusion_strength=2, difference=0)
+delboeuf = pyllusion.Delboeuf(illusion_strength=2)
 
 # Visualize parameters
-print(parameters)
+delboeuf.get_parameters()
 ```
 
 ``` {.python}
 {'Difference': 0,
  'Size_Inner_Left': 0.25,
  'Size_Inner_Right': 0.25,
- 'Size_Inner_Difference': 0.0,
+ 'Size_Inner_Difference': 0.000244140625,
  'Illusion': 'Delboeuf',
  'Illusion_Strength': 2,
- 'Illusion_Type': 'Congruent',
+ 'Illusion_Type': 'Incongruent',
  'Size_Outer_Left': 0.3,
- 'Size_Outer_Right': 0.52,
- 'Distance_Centers': 1,
+ 'Size_Outer_Right': 0.5196152422706631,
+ 'Distance': 1,
+ 'Distance_Reference': 'Between Centers',
  'Distance_Edges_Inner': 0.75,
- 'Distance_Edges_Outer': 0.59,
+ 'Distance_Edges_Outer': 0.5901923788646685,
 ...}
 ```
 
@@ -182,26 +183,26 @@ The dictionary containing the parameters of the illusion, can then be passed to 
 
 ### Images
 
-Each function is illusion-specific and hence, uniform function names (in the form `IllusionName_FunctionGoal()`) are used in the process of creating the illusion. Parameters are computed using `*_parameters()` (the asterisk representing the illusion name), and images can be generated via `*_image()` (or similarly, `*_psychopy()`, as we will see later).
+Each function is illusion-specific and hence, uniform function names (in the form `IllusionName.FunctionGoal()`) are used in the process of creating the illusion. Parameters are computed internally whenever the illusion is created using `IllusionName()`, and images can be generated via `IllusionName.to_image()` (or similarly, `IllusionName.to_psychopy()`, as we will see later).
 
-The following Python code shows the full and reproducible code to generate a PNG image with a Delboeuf illusion. However, note that the parameters generation and the rendering have been dissociated for illustrative purposes. In practice, the arguments related to the parameters of the illusion can be passed directly to the rendering function, which will automatically compute the parameters if no dictionary is passed. Similarly, the saving step can be done directly by adding `.save()` at the end of the the `*_image()` function, which reduces the amount of Python lines to one.
+The following Python code shows the full and reproducible code to generate a PNG image with a Delboeuf illusion. However, note that the parameters generation and the rendering have been dissociated for illustrative purposes. In practice, the arguments related to the parameters of the illusion can be passed directly to the rendering function, which will automatically compute the parameters if no dictionary is passed. Similarly, the saving step can be done directly by adding `.save()` at the end of the the `IllusionName.to_image()` function, which reduces the amount of Python lines to one.
 
 ``` {.python}
 # Load package
 import pyllusion
 
 # Create parameters
-parameters = pyllusion.delboeuf_parameters(illusion_strength=1, difference=2)
+delboeuf = pyllusion.Delboeuf(illusion_strength=1, difference=2)
 
 # Generate image from parameters
-image = pyllusion.delboeuf_image(parameters, height=600, width=800)
+image = delboeuf.to_image(height=600, width=800)
 
 # Save it
 image.save("my_illusion.png")
 ```
 
 <!-- The final images are rendered by default at 800 x 600 pixels, which can be easily post-processed using the PIL library. For example, to see what other image file formats can be saved, refer to PIL's [**documentation**](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).  -->
-Images can be generated in different resolutions using the `width` and `height` argument (in pixels), and can be further post-processed using the PIL library. There is no standard syntax to open PIL images in full-screen mode in the viewing program and hence, users would need to pass their window display resolution (e.g., `width=1920` and `height=1080` for a 1920x1080p resolution) into `*_image()` and save the outputs in their desired file formats (refer to PIL's 
+Images can be generated in different resolutions using the `width` and `height` argument (in pixels), and can be further post-processed using the PIL library. There is no standard syntax to open PIL images in full-screen mode in the viewing program and hence, users would need to pass their window display resolution (e.g., `width=1920` and `height=1080` for a 1920x1080p resolution) into `IllusionName.to_image()` and save the outputs in their desired file formats (refer to PIL's 
 [**documentation**](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html)) before opening them locally. Note that however, images based on the PIL library can only be generated in pixels, which means that images with the same pixel resolutions will differ in absolute size across different-sized screen displays. This is an important point to consider for experiments with varying screen displays (also depending on the software used to visualize the images). With just a few lines, one can loop through different combinations of parameters, generate illusions, add text on them, and collate together in a mosaic, as can be seen in **Fig. 3**.
 
 ```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="100%", fig.cap="Different combinations of illusion strength and objective difference between the two target stimuli (the area of the red circles) for the Delboeuf illusion. The vertical central column shows varying magnitudes of size difference in both directions with no illusion, whereas the horizontal central row shows different magnitudes of illusion strength when the targets are of identical sizes. By using negative or positive values for the illusion strength, one can generate congruent or incongruent illusions (that reinforce or attenuate the actual difference respectively)."}
@@ -222,13 +223,13 @@ import pyllusion
 from psychopy import visual, event
 
 # Create parameters
-parameters = pyllusion.delboeuf_parameters(illusion_strength=1, difference=2)
+delbouef = pyllusion.Delboeuf(illusion_strength=1, difference=2)
 
 # Initiate Window
 window = visual.Window(size=[800, 600], winType='pygame', color='white')
 
 # Display illusion
-pyllusion.delboeuf_psychopy(window=window, parameters=parameters)
+delboeuf.to_psychopy(window)
 
 # Refresh and close window
 window.flip()
@@ -236,8 +237,8 @@ event.waitKeys()  # Press any key to close
 window.close()
 ```
 
-This native integration with *PsychoPy* could appear as somewhat redundant and unnecessary, as one could pre-generate all the illusions as images, and simply load them in *PsychoPy* as images, instead of generating them from scratch using *PsychoPy*'s drawing functionalities. However, this direct integration in experiment building software has multiple benefits, such as avoiding the storage of large image file sizes (resulting in more efficient use of space for experiments that can be uploaded and stored online), avoiding issues of image scaling and resolution on different screens, and allowing "on-the-fly" generation of stimuli, which opens the door for novel adaptive paradigms where the modulation of illusions crucially depends on the participant's input. In contrast to the `*_image()` functions which have some limitations in modifying stimuli based on screen sizes, users can easily specify additional arguments in `visual.Window()`, such as setting `fullscr=True` to open the stimuli in full-screen mode on the viewing program and specifying the preferred `units` (which currently defaults to pixels, see  PIL's 
-[**units arguments**](https://www.psychopy.org/general/units.html#units)). With this, users can choose to have fixed absolute sizes in *cm* or *deg* (degrees of visual angle) across different-sized screen displays or activate *norm* or *height* to scale stimuli according to window sizes.
+This native integration with *PsychoPy* could appear as somewhat redundant and unnecessary, as one could pre-generate all the illusions as images, and simply load them in *PsychoPy* as images, instead of generating them from scratch using *PsychoPy*'s drawing functionalities. However, this direct integration in experiment building software has multiple benefits, such as avoiding the storage of large image file sizes (resulting in more efficient use of space for experiments that can be uploaded and stored online), avoiding issues of image scaling and resolution on different screens, and allowing "on-the-fly" generation of stimuli, which opens the door for novel adaptive paradigms where the modulation of illusions crucially depends on the participant's input. In contrast to the `IllusionName.to_image()` functions which have some limitations in modifying stimuli based on screen sizes, users can easily specify additional arguments in `visual.Window()`, such as setting `fullscr=True` to open the stimuli in full-screen mode on the viewing program and specifying the preferred `units` (which currently defaults to pixels, see  PIL's 
+[**units arguments**](https://www.psychopy.org/general/units.html#units)). With this, users can choose to have fixed absolute sizes in *cm* or *deg* (degrees of visual angle) across different-sized screen displays or activate *norm* or *height* to scale stimuli according to window sizes. Users are also advised to report the sizes of their screen, along with reproducible scripts, to facilitate replication efforts.
 
 
 
