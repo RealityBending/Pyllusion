@@ -237,7 +237,7 @@ window.close()
 ```
 
 This native integration with *PsychoPy* could appear as somewhat redundant and unnecessary, as one could pre-generate all the illusions as images, and simply load them in *PsychoPy* as images, instead of generating them from scratch using *PsychoPy*'s drawing functionalities. However, this direct integration in experiment building software has multiple benefits, such as avoiding the storage of large image file sizes (resulting in more efficient use of space for experiments that can be uploaded and stored online), avoiding issues of image scaling and resolution on different screens, and allowing "on-the-fly" generation of stimuli, which opens the door for novel adaptive paradigms where the modulation of illusions crucially depends on the participant's input. In contrast to the `*_image()` functions which have some limitations in modifying stimuli based on screen sizes, users can easily specify additional arguments in `visual.Window()`, such as setting `fullscr=True` to open the stimuli in full-screen mode on the viewing program and specifying the preferred `units` (which currently defaults to pixels, see  PIL's 
-[**units arguments**](https://www.psychopy.org/general/units.html#units)). With this, users can choose to have fixed absolute sizes in *cm* across different-sized screen displays or activate *norm* or *height* to scale stimuli according to window sizes.
+[**units arguments**](https://www.psychopy.org/general/units.html#units)). With this, users can choose to have fixed absolute sizes in *cm* or *deg* (degrees of visual angle) across different-sized screen displays or activate *norm* or *height* to scale stimuli according to window sizes.
 
 
 
