@@ -62,6 +62,8 @@ Describing illusions using a set of parameters aims at fostering **reproducible 
 pip install https://github.com/RealityBending/Pyllusion/zipball/master
 ```
 
+You can also find the installation instructions for Python 3 [here](https://realpython.com/installing-python/).
+
 ## Contribution
 
 You have some ideas? Want to improve things, add new illusions, and help us shake people's brain? Let us know, we would be very happy to have you on board :relaxed:.
@@ -93,6 +95,7 @@ delboeuf.to_image()
 import pyllusion
 import PIL
 
+delboeuf = pyllusion.Delboeuf(illusion_strength=3)
 img = delboeuf.to_image()
 img.save("docs/img/README_delboeuf1.png")
 ```
@@ -112,6 +115,7 @@ ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=2)
 ebbinghaus.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=2)
 img = ebbinghaus.to_image()
 img.save("docs/img/README_ebbinghaus1.png")
 ```
@@ -131,6 +135,7 @@ mullerlyer = pyllusion.MullerLyer(illusion_strength=30)
 mullerlyer.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+mullerlyer = pyllusion.MullerLyer(illusion_strength=30)
 img = mullerlyer.to_image()
 img.save("docs/img/README_mullerlyer1.png")
 ```
@@ -149,6 +154,7 @@ ponzo = pyllusion.Ponzo(illusion_strength=20)
 ponzo.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+ponzo = pyllusion.Ponzo(illusion_strength=20)
 img = ponzo.to_image()
 img.save("docs/img/README_ponzo1.png")
 ```
@@ -161,10 +167,11 @@ img.save("docs/img/README_ponzo1.png")
 The **[vertical–horizontal illusion](https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion)** illustrates the tendency for observers to overestimate the length of a vertical line relative to a horizontal line of the same length (Shipley et al., 1949).
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-verticalhorizontal = pyllusion.VerticalHorizontal(illusion_strength=90)
+verticalhorizontal = pyllusion.VerticalHorizontal(illusion_strength=-90)
 verticalhorizontal.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+verticalhorizontal = pyllusion.VerticalHorizontal(illusion_strength=-90)
 img = verticalhorizontal.to_image()
 img.save("docs/img/README_verticalhorizontal1.png")
 ```
@@ -181,6 +188,7 @@ zollner = pyllusion.Zollner(illusion_strength=75)
 zollner.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+zollner = pyllusion.Zollner(illusion_strength=75)
 img = zollner.to_image()
 img.save("docs/img/README_zollner1.png")
 ```
@@ -193,10 +201,11 @@ img.save("docs/img/README_zollner1.png")
 The **[Rod and frame illusion](https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion)** is an optical illusion causing the participant to perceive the rod to be oriented congruent with the orientation of the frame.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-rodframe = pyllusion.RodFrame(illusion_strength=11)
+rodframe = pyllusion.RodFrame(illusion_strength=-11)
 rodframe.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+rodframe = pyllusion.RodFrame(illusion_strength=-11)
 img = rodframe.to_image()
 img.save("docs/img/README_rodframe1.png")
 ```
@@ -215,6 +224,7 @@ poggendorff = pyllusion.Poggendorff(illusion_strength=-50)
 poggendorff.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+poggendorff = pyllusion.Poggendorff(illusion_strength=-50)
 img = poggendorff.to_image()
 img.save("docs/img/README_poggendorff1.png")
 ```
@@ -231,6 +241,7 @@ contrast = pyllusion.Contrast(illusion_strength=-50)
 contrast.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+contrast = pyllusion.Contrast(illusion_strength=-50)
 img = contrast.to_image()
 img.save("docs/img/README_contrast1.png")
 ```
@@ -248,6 +259,7 @@ white = pyllusion.White(illusion_strength=100)
 white.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+white = pyllusion.White(illusion_strength=100)
 img = white.to_image()
 img.save("docs/img/README_white1.png")
 ```
@@ -341,6 +353,12 @@ pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png",
 pareidolia.draw()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
+pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png", 
+                                 n=[20, 300, 4000], 
+                                 sd=[4, 2, 1], 
+                                 weight=[3, 2, 1],
+                                 alpha=80,
+                                 blur=0.5)
 img = pareidolia.draw()
 img.save("docs/img/README_pareidolia.png")
 ```
