@@ -85,15 +85,15 @@ The **[Delboeuf illusion](https://en.wikipedia.org/wiki/Delboeuf_illusion)** is 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
 import pyllusion
 
-parameters = pyllusion.delboeuf_parameters(illusion_strength=3)
-pyllusion.delboeuf_image(parameters)
+delboeuf = pyllusion.Delboeuf(illusion_strength=3)
+delboeuf.to_image()
 ```
 
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
 import pyllusion
 import PIL
 
-img = pyllusion.delboeuf_image(illusion_strength=3)
+img = delboeuf.to_image()
 img.save("docs/img/README_delboeuf1.png")
 ```
 
@@ -108,11 +108,11 @@ The Ebbinghaus illusion is considered a high-level integration illusion (King et
 
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.ebbinghaus_parameters(illusion_strength=2)
-pyllusion.ebbinghaus_image(parameters)
+ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=2)
+ebbinghaus.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.ebbinghaus_image(illusion_strength=2)
+img = ebbinghaus.to_image()
 img.save("docs/img/README_ebbinghaus1.png")
 ```
 
@@ -127,11 +127,11 @@ The **[Müller-Lyer illusion](https://en.wikipedia.org/wiki/M%C3%BCller-Lyer_ill
 The Müller-Lyer illusion is a high-level integration illusion requiring contextual processing by the brain (King et al., 2017). The effect of this illusion in schizophrenics appears to be more mixed, with some studies finding greater resistance to it (e.g., Parnas et al., 2001) and others showing increased susceptibility (e.g., Kantrowitz et al., 2009). There is some evidence that susceptibility to the Müller-Lyer illusion is negatively correlated with autistic traits in the typical population (but not with the Ebbinghaus nor the Ponzo illusion) (Chouinard et al., 2013).
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.mullerlyer_parameters(illusion_strength=30)
-pyllusion.mullerlyer_image(parameters)
+mullerlyer = pyllusion.MullerLyer(illusion_strength=30)
+mullerlyer.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.mullerlyer_image(illusion_strength=30)
+img = mullerlyer.to_image()
 img.save("docs/img/README_mullerlyer1.png")
 ```
 
@@ -145,11 +145,11 @@ The **[Ponzo illusion](https://en.wikipedia.org/wiki/Ponzo_illusion)** is an opt
 Ponzo illusion is considered a high-level integration illusion as it is cognitively demanding in the sense that depth cues have to be correctly interpreted to signal changes in visual distance (King et al., 2017), requiring higher-level cortical processes (Song et al., 2011). Similar to the Ebbinghaus illusion, it is also shown to have less effect in biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.ponzo_parameters(illusion_strength=20)
-pyllusion.ponzo_image(parameters)
+ponzo = pyllusion.Ponzo(illusion_strength=20)
+ponzo.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.ponzo_image(illusion_strength=20)
+img = ponzo.to_image()
 img.save("docs/img/README_ponzo1.png")
 ```
 
@@ -161,11 +161,11 @@ img.save("docs/img/README_ponzo1.png")
 The **[vertical–horizontal illusion](https://en.wikipedia.org/wiki/Vertical%E2%80%93horizontal_illusion)** illustrates the tendency for observers to overestimate the length of a vertical line relative to a horizontal line of the same length (Shipley et al., 1949).
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.verticalhorizontal_parameters(illusion_strength=90)
-pyllusion.verticalhorizontal_image(parameters)
+verticalhorizontal = pyllusion.VerticalHorizontal(illusion_strength=90)
+verticalhorizontal.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.verticalhorizontal_image(illusion_strength=90)
+img = verticalhorizontal.to_image()
 img.save("docs/img/README_verticalhorizontal1.png")
 ```
 
@@ -177,11 +177,11 @@ img.save("docs/img/README_verticalhorizontal1.png")
 The **[Zöllner illusion](https://en.wikipedia.org/wiki/Z%C3%B6llner_illusion)** is an optical illusion, where horizontal lines are perceived as not parallel because of their background. It is named after its discoverer, the German astrophysicist Johann Karl Friedrich Zöllner in 1860.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.zollner_parameters(illusion_strength=75)
-pyllusion.zollner_image(parameters)
+zollner = pyllusion.Zollner(illusion_strength=75)
+zollner.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.zollner_image(illusion_strength=75)
+img = zollner.to_image()
 img.save("docs/img/README_zollner1.png")
 ```
 
@@ -193,11 +193,11 @@ img.save("docs/img/README_zollner1.png")
 The **[Rod and frame illusion](https://en.wikipedia.org/wiki/Rod_and_frame_test#Rod_and_frame_illusion)** is an optical illusion causing the participant to perceive the rod to be oriented congruent with the orientation of the frame.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.rodframe_parameters(illusion_strength=11)
-pyllusion.rodframe_image(parameters)
+rodframe = pyllusion.RodFrame(illusion_strength=11)
+rodframe.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.rodframe_image(illusion_strength=11)
+img = rodframe.to_image()
 img.save("docs/img/README_rodframe1.png")
 ```
 
@@ -211,11 +211,11 @@ img.save("docs/img/README_rodframe1.png")
 The **[Poggendorff illusion](https://en.wikipedia.org/wiki/Poggendorff_illusion)** is an optical illusion that involves the misperception of the position of one segment of a transverse line that has been interrupted by the contour of an intervening structure. It is named after Johann Christian Poggendorff who discovered in Zöllner's illusion after 1860. The magnitude of the illusion depends on the properties of the obscuring pattern and the nature of its borders.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.poggendorff_parameters(illusion_strength=-50)
-pyllusion.poggendorff_image(parameters)
+poggendorff = pyllusion.Poggendorff(illusion_strength=-50)
+poggendorff.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.poggendorff_image(illusion_strength=-50)
+img = poggendorff.to_image()
 img.save("docs/img/README_poggendorff1.png")
 ```
 ![](docs/img/README_poggendorff1.png)
@@ -227,11 +227,11 @@ A neutral gray target will appear lighter or darker than it does in isolation wh
 In the image here, the two inner rectangles are exactly the same shade of grey, but the upper one appears to be a lighter grey than the lower one due to the background provided by the outer rectangles.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.contrast_parameters(illusion_strength=-50)
-pyllusion.contrast_image(parameters)
+contrast = pyllusion.Contrast(illusion_strength=-50)
+contrast.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.contrast_image(illusion_strength=-50)
+img = contrast.to_image()
 img.save("docs/img/README_contrast1.png")
 ```
 
@@ -244,11 +244,11 @@ img.save("docs/img/README_contrast1.png")
 **[White's illusion](https://en.wikipedia.org/wiki/White%27s_illusion)** is a brightness illusion in which rectangles of the same grey color are perceived of different luminance depending on their background.
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-parameters = pyllusion.white_parameters(illusion_strength=100)
-pyllusion.white_image(parameters)
+white = pyllusion.White(illusion_strength=100)
+white.to_image()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.white_image(illusion_strength=100)
+img = white.to_image()
 img.save("docs/img/README_white1.png")
 ```
 
@@ -285,7 +285,8 @@ It can take a bit of time to "get there", but once you are used to it, it's a mi
 
 
 ````
-pyllusion.autostereogram(stimulus="3D", width=1600, height=900)
+autostereograms = pyllusion.Autostereogram(stimulus="3D", width=1600, height=900)
+autostereograms.draw()
 ````
 
 <!-- ```{python message=FALSE, warning=FALSE, echo=FALSE} -->
@@ -301,13 +302,14 @@ The function is highly customisable, and we can use a black and white image as a
 ![](docs/img/depthmask.png)
 
 ````
-pyllusion.autostereogram(stimulus="docs/img/depthmask.png",
+autostereograms = pyllusion.Autostereogram(stimulus="docs/img/depthmask.png",
                    pattern=pyllusion.image_circles,
                    color="blackwhite",
                    alpha=0.75,
                    size_min=0.005,
                    size_max=0.03,
                    n=1000)
+autostereograms.draw()
 ````
 
 <!-- ```{python message=FALSE, warning=FALSE, echo=FALSE} -->
@@ -330,20 +332,16 @@ Pareidolia is the tendency to incorrectly perceive of a stimulus as an object pa
 Blending of images can be achieved: as followed
 
 ```{python, warning=FALSE, message=FALSE, eval=FALSE}
-pyllusion.pareidolia(pattern="docs/img/snake.png", 
-               n=[20, 300, 4000], 
-               sd=[4, 2, 1], 
-               weight=[3, 2, 1],
-               alpha=80,
-               blur=0.5)
+pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png", 
+                                 n=[20, 300, 4000], 
+                                 sd=[4, 2, 1], 
+                                 weight=[3, 2, 1],
+                                 alpha=80,
+                                 blur=0.5)
+pareidolia.draw()
 ```
 ```{python message=FALSE, warning=FALSE, echo=FALSE}
-img = pyllusion.pareidolia(pattern="docs/img/snake.png",
-                     n=[20, 300, 4000],
-                     sd=[4, 2, 1],
-                     weight=[3, 2, 1],
-                     alpha=80,
-                     blur=0.5)
+img = pareidolia.draw()
 img.save("docs/img/README_pareidolia.png")
 ```
 ![](docs/img/README_pareidolia.png)
@@ -416,13 +414,14 @@ import pyllusion
 from psychopy import visual, event
 
 # Create parameters
-parameters = pyllusion.delboeuf_parameters(illusion_strength=1, difference=2)
+delboeuf = pyllusion.Delboeuf(illusion_strength=1, difference=2)
 
 # Initiate Window
-window = visual.Window(size=[1820, 980], winType='pygame', color='white', fullscr=False)
+window = visual.Window(size=[1920, 1080], winType='pygame',
+                       color='white', fullscr=False)
 
 # Display illusion
-pyllusion.delboeuf_psychopy(window=window, parameters=parameters)
+delboeuf.to_psychopy(window)
 
 # Refresh and close window
 window.flip()
