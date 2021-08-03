@@ -13,7 +13,7 @@ class Delboeuf:
 
     Each instance of Delboeuf contains attributes corresponding to the parameters of the illusion.
 
-    Parameters
+    Attributes
     ----------
     illusion_strength : float
         The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
