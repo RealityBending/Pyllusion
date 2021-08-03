@@ -145,92 +145,24 @@
 where circles of identical size appear as different because of their surrounding context.
 Specifically, the circle that is closely surrounded by a ring appears larger than the circle surrounded by a distant ring.</p>
 <p>Each instance of Delboeuf contains attributes corresponding to the parameters of the illusion.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pyllusion.Delboeuf.illusion_strength">
-<span class="sig-name descname"><span class="pre">illusion_strength</span></span><a class="headerlink" href="#pyllusion.Delboeuf.illusion_strength" title="Permalink to this definition">¶</a></dt>
-<dd><p>The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
 Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if illusion_strength=1,
 it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
 A negative sign means that the illusion will enhance the perception of the actual difference in circle sizes
-whereas a positive sign reduces this perception.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pyllusion.Delboeuf.difference">
-<span class="sig-name descname"><span class="pre">difference</span></span><a class="headerlink" href="#pyllusion.Delboeuf.difference" title="Permalink to this definition">¶</a></dt>
-<dd><p>The objective size difference of the inner circles.
+whereas a positive sign reduces this perception.</p></li>
+<li><p><strong>difference</strong> (<em>float</em>) – The objective size difference of the inner circles.
 Specifically, the size of left inner circle relative to the right (in percentage, e.g., if difference=1,
 it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
-A negative sign would make the left inner circle smaller than the right inner circle.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float</p>
+A negative sign would make the left inner circle smaller than the right inner circle.</p></li>
+<li><p><strong>size_min</strong> (<em>float</em>) – Size of smaller inner circle. Defaults to 0.25.</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – Distance between circles. Defaults to 1.</p></li>
+<li><p><strong>distance_auto</strong> (<em>bool</em>) – If true, distance is between edges (fixed spacing), if false (default), between centers (fixed location).</p></li>
+</ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pyllusion.Delboeuf.size_min">
-<span class="sig-name descname"><span class="pre">size_min</span></span><a class="headerlink" href="#pyllusion.Delboeuf.size_min" title="Permalink to this definition">¶</a></dt>
-<dd><p>Size of smaller inner circle. Defaults to 0.25.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pyllusion.Delboeuf.distance">
-<span class="sig-name descname"><span class="pre">distance</span></span><a class="headerlink" href="#pyllusion.Delboeuf.distance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Distance between circles. Defaults to 1.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="pyllusion.Delboeuf.distance_auto">
-<span class="sig-name descname"><span class="pre">distance_auto</span></span><a class="headerlink" href="#pyllusion.Delboeuf.distance_auto" title="Permalink to this definition">¶</a></dt>
-<dd><p>If true, distance is between edges (fixed spacing), if false (default), between centers (fixed location).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_parameters():</span></span></dt>
-<dd><p>Returns a dictionary of parameters passed into the Delboeuf illusion.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">to_dict():</span></span></dt>
-<dd><p>Alias for <cite>get_parameters()</cite>.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">to_image(width=800,</span> <span class="pre">height=600,</span> <span class="pre">outline=10,</span> <span class="pre">background=&quot;white&quot;,</span> <span class="pre">\*\*kwargs):</span></span></dt>
-<dd><p>Create a PIL image of the Delboeuf illusion.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">to_psychopy(window,</span> <span class="pre">\*\*kwargs):</span></span></dt>
-<dd><p>Create a PsychoPy stimulus of the Delboeuf illusion.</p>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.Delboeuf.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.get_parameters" title="Permalink to this definition">¶</a></dt>

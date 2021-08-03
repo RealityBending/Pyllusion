@@ -125,7 +125,7 @@
 
 <span class="sd">    Each instance of Delboeuf contains attributes corresponding to the parameters of the illusion.</span>
 
-<span class="sd">    Attributes</span>
+<span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    illusion_strength : float</span>
 <span class="sd">        The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.</span>
@@ -144,17 +144,6 @@
 <span class="sd">        Distance between circles. Defaults to 1.</span>
 <span class="sd">    distance_auto : bool</span>
 <span class="sd">        If true, distance is between edges (fixed spacing), if false (default), between centers (fixed location).</span>
-
-<span class="sd">    Methods</span>
-<span class="sd">    -------</span>
-<span class="sd">    get_parameters():</span>
-<span class="sd">        Returns a dictionary of parameters passed into the Delboeuf illusion.</span>
-<span class="sd">    to_dict():</span>
-<span class="sd">        Alias for `get_parameters()`.</span>
-<span class="sd">    to_image(width=800, height=600, outline=10, background=&quot;white&quot;, **kwargs):</span>
-<span class="sd">        Create a PIL image of the Delboeuf illusion.</span>
-<span class="sd">    to_psychopy(window, **kwargs):</span>
-<span class="sd">        Create a PsychoPy stimulus of the Delboeuf illusion.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
