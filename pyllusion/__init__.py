@@ -4,9 +4,13 @@ The Pyllusion module.
 __version__ = "0.0.12"
 
 from .Autostereogram import *
+
+# Import Illusions
 from .Contrast import *
 from .Delboeuf import *
 from .Ebbinghaus import *
+
+# Import submodules
 from .image import *
 from .movement import *
 from .MullerLyer import *
@@ -18,6 +22,7 @@ from .RodFrame import *
 from .VerticalHorizontal import *
 from .White import *
 from .Zollner import *
+
 
 # Maintainer info
 __author__ = "The Reality Bending League"
