@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyllusion.Autostereogram.Autostereogram &#8212; Pyllusion 0.0.12 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/logo.png"></span>
+          Pyllusion</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.12</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <h1>Source code for pyllusion.Autostereogram.Autostereogram</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">PIL.Image</span><span class="o">,</span> <span class="nn">PIL.ImageDraw</span><span class="o">,</span> <span class="nn">PIL.ImageFilter</span><span class="o">,</span> <span class="nn">PIL.ImageFont</span><span class="o">,</span> <span class="nn">PIL.ImageOps</span>
+
+<span class="kn">from</span> <span class="nn">..image</span> <span class="kn">import</span> <span class="n">image_noise</span><span class="p">,</span> <span class="n">image_text</span>
+
+
+<div class="viewcode-block" id="Autostereogram"><a class="viewcode-back" href="../../../functions.html#pyllusion.Autostereogram">[docs]</a><span class="k">class</span> <span class="nc">Autostereogram</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to generate Autostereograms based on a given depth map.</span>
+
+<span class="sd">    Autostereograms are images made of a pattern that is horizontally repeated (with slight variations)</span>
+<span class="sd">    which, when watched with the appropriate focus, will generate an illusion of depth.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_repetitions</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">invert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">stimulus</span> <span class="o">=</span> <span class="n">stimulus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pattern</span> <span class="o">=</span> <span class="n">pattern</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_repetitions</span> <span class="o">=</span> <span class="n">n_repetitions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="n">depth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invert</span> <span class="o">=</span> <span class="n">invert</span>
+
+        <span class="c1"># If &#39;/&#39; and &#39;.&#39; in string, we assume it&#39;s a path</span>
+        <span class="k">if</span> <span class="s2">&quot;/&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stimulus</span> <span class="ow">and</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stimulus</span><span class="p">:</span>
+            <span class="n">depth_map</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stimulus</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Else a text</span>
+            <span class="n">depth_map</span> <span class="o">=</span> <span class="n">image_text</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stimulus</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># Convert to black and white</span>
+        <span class="n">depth_map</span> <span class="o">=</span> <span class="n">depth_map</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+        <span class="n">depth_map</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">ImageOps</span><span class="o">.</span><span class="n">autocontrast</span><span class="p">(</span><span class="n">depth_map</span><span class="p">)</span>
+    
+        <span class="k">if</span> <span class="n">invert</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">depth_map</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">ImageOps</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">depth_map</span><span class="p">)</span>
+
+        <span class="c1"># Get size of depth map</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">depth_map</span><span class="o">.</span><span class="n">size</span>
+    
+        <span class="c1"># We want the strip width to be a multiple of the tile</span>
+        <span class="c1"># width so it repeats cleanly.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strip_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_repetitions</span><span class="p">)</span>
+    
+        <span class="c1"># Fix conflicting arguments</span>
+        <span class="n">conflicting_args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;font&quot;</span><span class="p">]</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">conflicting_args</span><span class="p">}</span>
+    
+        <span class="c1"># Create strip of pattern</span>
+        <span class="k">if</span> <span class="n">pattern</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">strip</span> <span class="o">=</span> <span class="n">image_noise</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">strip_width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">strip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pattern</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">strip_width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strip_pixels</span> <span class="o">=</span> <span class="n">strip</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    
+
+<div class="viewcode-block" id="Autostereogram.draw"><a class="viewcode-back" href="../../../functions.html#pyllusion.Autostereogram.draw">[docs]</a>    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">guide</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a PIL image of Autostereograms.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        guide : bool</span>
+<span class="sd">            Defaults to &#39;True&#39; to activate two red dots as guidance, and &#39;False&#39; to disable the guide.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Image</span>
+<span class="sd">            Image of the Autostereograms illusion, defaults to 800 x 600 pixels.</span>
+<span class="sd">            Can be resized</span>
+<span class="sd">            (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)</span>
+<span class="sd">            and saved in different file formats</span>
+<span class="sd">            (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).</span>
+<span class="sd">    </span>
+<span class="sd">        Examples</span>
+<span class="sd">        ---------</span>
+<span class="sd">        &gt;&gt;&gt; import pyllusion</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; autostereograms = pyllusion.Autostereogram(stimulus=&quot;3D&quot;, width=1000, height=500, font=&quot;arialbd.ttf&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; autostereograms.draw(guide=True)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">))</span>
+
+        <span class="c1"># Load pixels for easy replacement</span>
+        <span class="n">depth_pixels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">depth_map</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+        <span class="n">image_pixels</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">):</span>
+                <span class="c1"># Need one full strip&#39;s worth to borrow from.</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">strip_width</span><span class="p">:</span>
+                    <span class="n">image_pixels</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">strip_pixels</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">shift_amplitude</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">*</span> <span class="p">(</span><span class="n">depth_pixels</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_repetitions</span><span class="p">)</span>
+                    <span class="n">image_pixels</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_pixels</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">strip_width</span> <span class="o">+</span> <span class="n">shift_amplitude</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
+    
+        <span class="c1"># Add guide</span>
+        <span class="k">if</span> <span class="n">guide</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">draw</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+                <span class="n">diameter</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+                <span class="n">center_x</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">strip_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">center_y</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+                <span class="n">draw</span><span class="o">.</span><span class="n">ellipse</span><span class="p">([</span><span class="n">center_x</span><span class="o">-</span><span class="n">diameter</span><span class="p">,</span> <span class="n">center_y</span><span class="o">-</span><span class="n">diameter</span><span class="p">,</span> <span class="n">center_x</span><span class="o">+</span><span class="n">diameter</span><span class="p">,</span> <span class="n">center_y</span><span class="o">+</span><span class="n">diameter</span><span class="p">],</span> <span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">image</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Dominique Makowski.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

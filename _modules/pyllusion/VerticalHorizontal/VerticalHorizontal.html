@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyllusion.VerticalHorizontal.VerticalHorizontal &#8212; Pyllusion 0.0.12 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/logo.png"></span>
+          Pyllusion</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.12</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <h1>Source code for pyllusion.VerticalHorizontal.VerticalHorizontal</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.verticalhorizontal_image</span> <span class="kn">import</span> <span class="n">_verticalhorizontal_image</span>
+<span class="kn">from</span> <span class="nn">.verticalhorizontal_parameters</span> <span class="kn">import</span> <span class="n">_verticalhorizontal_parameters</span>
+<span class="kn">from</span> <span class="nn">.verticalhorizontal_psychopy</span> <span class="kn">import</span> <span class="n">_verticalhorizontal_psychopy</span>
+
+
+<div class="viewcode-block" id="VerticalHorizontal"><a class="viewcode-back" href="../../../functions.html#pyllusion.VerticalHorizontal">[docs]</a><span class="k">class</span> <span class="nc">VerticalHorizontal</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to generate the vertical-horizontal illusion.</span>
+
+<span class="sd">    The vertical–horizontal illusion illustrates the tendency for observers to overestimate</span>
+<span class="sd">    the length of a vertical line relative to a horizontal line of the same length.</span>
+<span class="sd">        </span>
+<span class="sd">    Each instance of ``MullerLyer`` contains attributes corresponding to the parameters of the illusion.</span>
+<span class="sd">    These parameters are:</span>
+<span class="sd">        * ``Difference``: Objective difference in the target features, by modifying ``difference`` of ``verticalhorizontal_parameters()``</span>
+<span class="sd">        * ``Illusion``: Name of the illusion, &#39;VerticalHorizontal&#39;.</span>
+<span class="sd">        * ``Illusion_Strength``: Strength of the surrounding context in biasing illusion, by modifying ``illusion_strength`` of ``verticalhorizontal_parameters()``.</span>
+<span class="sd">        * ``Illusion_Type``: &#39;Congruent&#39; if the illusion enhances the perception of the objective difference in the illusion, and &#39;Incongruent&#39; if it reduces the perceived difference.</span>
+<span class="sd">        * ``Left_x1``: x-coordinate of the starting point of the left line.</span>
+<span class="sd">        * ``Left_y1``: y-coordinate of the starting point of the left line.</span>
+<span class="sd">        * ``Left_x2``: x-coordinate of the end point of the left line.</span>
+<span class="sd">        * ``Left_y2``: y-coordinate of the end point of the left line.</span>
+<span class="sd">        * ``Left_Angle``: The angle in which the left line is rotated.</span>
+<span class="sd">        * ``Right_x1``: x-coordinate of the starting point of the right line.</span>
+<span class="sd">        * ``Right_y1``: y-coordinate of the starting point of the right line.</span>
+<span class="sd">        * ``Right_x2``: x-coordinate of the end point of the right line.</span>
+<span class="sd">        * ``Right_y2``: y-coordinate of the end point of the right line.</span>
+<span class="sd">        * ``Right_Angle``: The angle in which the right line is rotated.</span>
+<span class="sd">        * ``Size_Left``: Length of the left line.</span>
+<span class="sd">        * ``Size_Right``: Length of the right line.</span>
+<span class="sd">        * ``Size_Larger``: Length of the longer line.</span>
+<span class="sd">        * ``Size_Smaller``: Length of the shorter line, equates to ``size_min`` of ``verticalhorizontal_parameters()``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_min</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute Parameters for vertical-horizontal illusion.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        illusion_strength : float</span>
+<span class="sd">            The strength of the tilted vertical line in biasing the overestimation of its length relative to the horizontal line. </span>
+<span class="sd">            Specifically, the orientation of the line in degrees, 0 being vertical and</span>
+<span class="sd">            values rotating anticlockwise if the left line is rotated and clockwise if the right line is rotated.</span>
+<span class="sd">            A negative sign means that the illusion will enhance the perception of the actual ``difference`` in lengths</span>
+<span class="sd">            whereas a positive sign reduces this perception.</span>
+<span class="sd">        difference : float</span>
+<span class="sd">            The objective length difference of the vertical and horizontal lines.</span>
+<span class="sd">            Specifically, the real difference of left line relative to the right line. E.g.,</span>
+<span class="sd">            if ``difference=1``, the left line will be 100% longer, i.e., 2 times longer than</span>
+<span class="sd">            the right line. A negative sign would make the right line longer than the left line.</span>
+<span class="sd">        size_min : float</span>
+<span class="sd">            Length of the shorter line. Defaults to 0.5.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Dictionary of parameters of the vertical-horizontal illusion.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">_verticalhorizontal_parameters</span><span class="p">(</span>
+            <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span><span class="p">,</span>
+            <span class="n">difference</span><span class="o">=</span><span class="n">difference</span><span class="p">,</span>
+            <span class="n">size_min</span><span class="o">=</span><span class="n">size_min</span><span class="p">,</span>
+        <span class="p">)</span>
+    
+<div class="viewcode-block" id="VerticalHorizontal.get_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.VerticalHorizontal.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a dictionary of parameters passed into the vertical-horizontal illusion.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span></div>
+
+<div class="viewcode-block" id="VerticalHorizontal.to_dict"><a class="viewcode-back" href="../../../functions.html#pyllusion.VerticalHorizontal.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alias for `get_parameters()`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="VerticalHorizontal.to_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.VerticalHorizontal.to_image">[docs]</a>    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a PIL image of the vertical-horizontal illusion.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        width : int</span>
+<span class="sd">            Width of the returned image.</span>
+<span class="sd">        height : int</span>
+<span class="sd">            Height of the returned image.</span>
+<span class="sd">        background : str</span>
+<span class="sd">            Color of the background.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional arguments passed into `verticalhorizontal_parameters()`.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Image</span>
+<span class="sd">            Image of the vertical-horizontal illusion, defaults to 800 x 600 pixels.</span>
+<span class="sd">            Can be resized</span>
+<span class="sd">            (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)</span>
+<span class="sd">            and saved in different file formats</span>
+<span class="sd">            (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).</span>
+<span class="sd">    </span>
+<span class="sd">        Examples</span>
+<span class="sd">        ---------</span>
+<span class="sd">        &gt;&gt;&gt; import pyllusion</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; verticalhorizontal = pyllusion.VerticalHorizontal(illusion_strength=20)</span>
+<span class="sd">        &gt;&gt;&gt; verticalhorizontal.to_image()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">_verticalhorizontal_image</span><span class="p">(</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">img</span></div>
+
+<div class="viewcode-block" id="VerticalHorizontal.to_psychopy"><a class="viewcode-back" href="../../../functions.html#pyllusion.VerticalHorizontal.to_psychopy">[docs]</a>    <span class="k">def</span> <span class="nf">to_psychopy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a PsychoPy stimulus of the vertical-horizontal illusion.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        window : object</span>
+<span class="sd">            The window object in which the stimulus will be rendered.</span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional arguments passed into `verticalhorizontal_parameters()`.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        In-place modification of the PsychoPy window (No explicit return).</span>
+<span class="sd">    </span>
+<span class="sd">        Examples</span>
+<span class="sd">        ---------</span>
+<span class="sd">        &gt;&gt;&gt; import pyllusion</span>
+<span class="sd">        &gt;&gt;&gt; from psychopy import visual, event</span>
+<span class="sd">    </span>
+<span class="sd">        &gt;&gt;&gt; # Create parameters</span>
+<span class="sd">        &gt;&gt;&gt; verticalhorizontal = pyllusion.VerticalHorizontal(illusion_strength=90)</span>
+<span class="sd">    </span>
+<span class="sd">        &gt;&gt;&gt; # Initiate Window</span>
+<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&#39;white&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; # Display illusion</span>
+<span class="sd">        &gt;&gt;&gt; verticalhorizontal.to_psychopy(window)</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; # Refresh and close window    </span>
+<span class="sd">        &gt;&gt;&gt; window.flip()</span>
+<span class="sd">        &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
+<span class="sd">        &gt;&gt;&gt; window.close()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_verticalhorizontal_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Dominique Makowski.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -80,7 +80,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Functions</a><ul>
-<li><a class="reference internal" href="#module-pyllusion.Delboeuf">Illusion</a></li>
+<li><a class="reference internal" href="#illusion">Illusion</a></li>
 <li><a class="reference internal" href="#module-pyllusion.image">Image</a></li>
 <li><a class="reference internal" href="#psychopy">PsychoPy</a></li>
 <li><a class="reference internal" href="#module-pyllusion.movement">Movement</a></li>
@@ -135,19 +135,1130 @@
       
   <section id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
-<section id="module-pyllusion.Delboeuf">
-<span id="illusion"></span><h2>Illusion<a class="headerlink" href="#module-pyllusion.Delboeuf" title="Permalink to this headline">¶</a></h2>
-<p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.Ebbinghaus"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.MullerLyer"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.Ponzo"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.VerticalHorizontal"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.Zollner"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.Poggendorff"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.Contrast"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.White"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.Autostereogram"></span><p>Pyllusion submodule.</p>
-<span class="target" id="module-pyllusion.Pareidolia"></span><p>Pyllusion submodule.</p>
+<section id="illusion">
+<h2>Illusion<a class="headerlink" href="#illusion" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Delboeuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_auto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the Delboeuf Illusion.</p>
+<p>The Delboeuf illusion is an optical illusion of relative size perception,
+where circles of identical size appear as different because of their surrounding context.
+Specifically, the circle that is closely surrounded by a ring appears larger than the circle surrounded by a distant ring.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Delboeuf</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">delboeuf_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Delboeuf’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">delboeuf_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Left</span></code>: Size of the inner left circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Right</span></code>: Size of the inner right circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sine_Inner_Difference</span></code>: Difference in areas of the left and right inner circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Left</span></code>: Size of the outer left rim.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Right</span></code>: Size of the outer right rim.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance</span></code>: Distance between the circles, by modifying <code class="docutils literal notranslate"><span class="pre">distance</span></code> of <code class="docutils literal notranslate"><span class="pre">delboeuf_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Reference</span></code>: Distance between circles is computed ‘Between Edges’ or ‘Between Centers’, by modifying <code class="docutils literal notranslate"><span class="pre">distance_auto</span></code> of <code class="docutils literal notranslate"><span class="pre">delboeuf_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Edges_Inner</span></code>: Distance between the edges of the inner left and right circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Edges_Outer</span></code>: Distance between the edges of the outer left and right rims.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Smaller</span></code>: Size of the smaller inner circle, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">delboeuf_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Larger</span></code>: Size of the larger inner circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Smaller</span></code>: Size of the smaller outer rim.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Larger</span></code>: Size of the larger outer rim.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position_Left</span></code>: Position of the left circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position_Right</span></code>: Position of the right circle.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the Delboeuf illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the Delboeuf illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>outline</strong> (<em>float</em>) – The width of the outline of the circles in the illusion, passed into <cite>image_circle()</cite>.</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>delboeuf_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Delboeuf illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">delboeuf</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Delboeuf</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">delboeuf</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the Delboeuf illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object initiated by <cite>psychopy.visual.Window</cite> in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>delboeuf_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">delboeuf</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Delboeuf</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">delboeuf</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.Ebbinghaus">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Ebbinghaus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_auto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the Ebbinghaus Illusion.</p>
+<p>The Ebbinghaus illusion is an optical illusion of relative size perception,
+where circles of identical size appear as different because of their surrounding context.
+Specifically, the central circle that is surrounded by large circles appears smaller
+than the central circle surrounded by small circles.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Ebbinghaus</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Ebbinghaus’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Left</span></code>: Size of the inner left circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Right</span></code>: Size of the inner right circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sine_Inner_Difference</span></code>: Difference in areas of the left and right inner circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Left</span></code>: Size of the surrounding circles around the left inner circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Right</span></code>: Size of the surrounding circles around the right inner circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance</span></code>: Distance between the circles, by modifying <code class="docutils literal notranslate"><span class="pre">distance</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Reference</span></code>: Distance between circles is computed ‘Between Edges’ or ‘Between Centers’, by modifying <code class="docutils literal notranslate"><span class="pre">distance_auto</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Edges_Inner</span></code>: Distance between the edges of the inner left and right circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Edges_Outer</span></code>: Distance between the edges of the surrounding left circles and right circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Smaller</span></code>: Size of the smaller inner circle, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Larger</span></code>: Size of the larger inner circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Smaller</span></code>: Size of the smaller surrounding circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Larger</span></code>: Size of the larger surrounding cricles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position_Outer_x_Left</span></code>: x-coordinates of the left surrounding circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position_Outer_y_Left</span></code>: y-coordinates of the left surrounding circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position_Outer_x_Right</span></code>: x-coordinates of the right surrounding circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position_Outer_y_Right</span></code>: y-coordinates of the right surrounding circles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position_Left</span></code>: Position of the left inner circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Position_Right</span></code>: Position of the right inner circle.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Ebbinghaus.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the Ebbinghaus illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Ebbinghaus.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Ebbinghaus.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the Ebbinghaus illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>ebbinghaus_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Ebbinghaus illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ebbinghaus</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Ebbinghaus</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ebbinghaus</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Ebbinghaus.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the Ebbinghaus illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object initiated by <cite>psychopy.visual.Window</cite> in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>ebbinghaus_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ebbinghaus</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Ebbinghaus</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ebbinghaus</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.MullerLyer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">MullerLyer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the Müller-Lyer illusion.</p>
+<p>The Müller-Lyer illusion is an optical illusion causing the participant to
+perceive two segments as being of different length depending on the shape of
+the arrows. Specifically, the line with outward-protruding fins appears longer than
+the line with inward-protruding fins.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">MullerLyer</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘MullerLyer’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance</span></code>: Distance between the upper and lower horizontal lines, by modifying <code class="docutils literal notranslate"><span class="pre">distance</span></code> of <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x1</span></code>: x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y1</span></code>: y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x2</span></code>: x-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y2</span></code>: y-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_x1</span></code>: x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_y1</span></code>: y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_x2</span></code>: x-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_y2</span></code>: y-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Bottom</span></code>: Length of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Top</span></code>: Length of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Larger</span></code>: Length of the longer horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Smaller</span></code>: Length of the shorter horizontal line, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_Length</span></code>: Length of the distractor fins. Equivalent to half the length of <code class="docutils literal notranslate"><span class="pre">size_min</span></code> passed into <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_TopLeft_*</span></code> x- and y- coordinates of the top left fins.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_TopRight_*</span></code> x- and y- coordinates of the top right fins.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_BottomLeft_*</span></code> x- and y- coordinates of the bottom left fins.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_BottomRight_*</span></code> x- and y- coordinates of the bottom right fins.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.MullerLyer.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the Müller-Lyer illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.MullerLyer.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.MullerLyer.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the Müller-Lyer illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameters</strong> (<em>dict</em>) – Parameters of the Müller-Lyer illusion generated by <cite>mullerlyer_parameters()</cite>.</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>outline</strong> (<em>float</em>) – The width of the lines in the illusion, passed into <cite>image_line()</cite>.</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>mullerlyer_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Müller-Lyer illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mullerlyer</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">MullerLyer</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mullerlyer</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.MullerLyer.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the Müller-Lyer illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object initiated by <cite>psychopy.visual.Window</cite> in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>mullerlyer_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mullerlyer</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">MullerLyer</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mullerlyer</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.Ponzo">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Ponzo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the Ponzo illusion.</p>
+<p>The Ponzo illusion is an optical illusion of relative size perception, where
+horizontal lines of identical size appear as different because of their surrounding context.
+Specifically, because we interpret the converging sides as mimicing railway tracks (i.e., upward-converging lines receding into the distance),
+the upper line appears longer than the shorter one.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Ponzo</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Ponzo’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distance</span></code>: Distance between the upper and lower horizontal lines, by modifying <code class="docutils literal notranslate"><span class="pre">distance</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x1</span></code>: x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y1</span></code>: y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x2</span></code>: x-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y2</span></code>: y-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_x1</span></code>: x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_y1</span></code>: y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_x2</span></code>: x-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_y2</span></code>: y-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Bottom</span></code>: Length of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Top</span></code>: Length of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Larger</span></code>: Length of the longer horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Smaller</span></code>: Length of the shorter horizontal line, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Side_Angle</span></code>: Angle of the converging vertical lines, equates to <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Side_Length</span></code>: Length of the converging vertical lines.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_x1</span></code>: x-coordinate of the starting point (bottom) of the left converging line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_y1</span></code>: y-coordinate of the starting point (bottom) of the left converging line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_x2</span></code>: x-coordinate of the end point (top) of the left converging line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_y2</span></code>: y-coordinate of the end point (top) of the left converging line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_x1</span></code>: x-coordinate of the starting point (bottom) of the right converging line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_y1</span></code>: y-coordinate of the starting point (bottom) of the right converging line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_x2</span></code>: x-coordinate of the end point (top) of the right converging line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_y2</span></code>: y-coordinate of the end point (top) of the right converging line.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Ponzo.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the Ponzo illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Ponzo.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Ponzo.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the Ponzo illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>outline</strong> (<em>float</em>) – The width of the lines in the illusion, passed into <cite>image_line()</cite>.</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>ponzo_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Ponzo illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ponzo</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Ponzo</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ponzo</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Ponzo.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the Ponzo illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>ponzo_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ponzo</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Ponzo</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ponzo</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.VerticalHorizontal">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">VerticalHorizontal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the vertical-horizontal illusion.</p>
+<p>The vertical–horizontal illusion illustrates the tendency for observers to overestimate
+the length of a vertical line relative to a horizontal line of the same length.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">MullerLyer</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">verticalhorizontal_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘VerticalHorizontal’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">verticalhorizontal_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_x1</span></code>: x-coordinate of the starting point of the left line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_y1</span></code>: y-coordinate of the starting point of the left line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_x2</span></code>: x-coordinate of the end point of the left line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_y2</span></code>: y-coordinate of the end point of the left line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_Angle</span></code>: The angle in which the left line is rotated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_x1</span></code>: x-coordinate of the starting point of the right line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_y1</span></code>: y-coordinate of the starting point of the right line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_x2</span></code>: x-coordinate of the end point of the right line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_y2</span></code>: y-coordinate of the end point of the right line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_Angle</span></code>: The angle in which the right line is rotated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Left</span></code>: Length of the left line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Right</span></code>: Length of the right line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Larger</span></code>: Length of the longer line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size_Smaller</span></code>: Length of the shorter line, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">verticalhorizontal_parameters()</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.VerticalHorizontal.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the vertical-horizontal illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.VerticalHorizontal.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.VerticalHorizontal.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the vertical-horizontal illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>verticalhorizontal_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the vertical-horizontal illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verticalhorizontal</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">VerticalHorizontal</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verticalhorizontal</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.VerticalHorizontal.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the vertical-horizontal illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>verticalhorizontal_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verticalhorizontal</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">VerticalHorizontal</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verticalhorizontal</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.Zollner">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Zollner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distractors_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distractors_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.66</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the Zöllner illusion.</p>
+<p>The Zöllner illusion is an optical illusion, where horizontal lines are perceived
+as not parallel because of their background (i.e., the slanting of the intersecting lines).</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Zollner</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">zollner_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Zollner’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">zollner_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_x1</span></code>: x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_y1</span></code>: y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_x2</span></code>: x-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Top_y2</span></code>: y-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x1</span></code>: x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y1</span></code>: y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x2</span></code>: x-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y2</span></code>: y-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_n</span></code>: Number of intersecting distractor lines, equates to <code class="docutils literal notranslate"><span class="pre">distractors_n</span></code> of <code class="docutils literal notranslate"><span class="pre">zollner_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_Size</span></code>: Length of intersecting distractor lines, equates to <code class="docutils literal notranslate"><span class="pre">distractors_length</span></code> of <code class="docutils literal notranslate"><span class="pre">zollner_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_Angle</span></code>: Angle of the intersecting distractor lines (relative to vertical).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_Top_*</span></code>: x- and y- coordinates of the starting points and end points of the top distractor lines.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_Bottom_*</span></code>: x- and y- coordinates of the starting points and end points of the bottom distractor lines.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Zollner.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the Zollner illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Zollner.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Zollner.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the Zöllner illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>zollner_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Zöllner illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zollner</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Zollner</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zollner</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Zollner.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the Zöllner illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>zollner_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zollner</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Zollner</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pyglet&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zollner</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.Poggendorff">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Poggendorff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the Poggendorff illusion.</p>
+<p>The Poggendorff illusion is an optical illusion that involves the misperception
+of the position of one segment of a transverse line that has been interrupted
+by the contour of an intervening structure.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Poggendorff</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">poggendorff_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Poggendorff’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">poggendorff_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_x1</span></code>: x-coordinate of the starting point (from centre) of the left line segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_y1</span></code>: y-coordinate of the starting point (from centre) of the left line segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_x2</span></code>: x-coordinate of the end point (leftwards) of the left line segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Left_y2</span></code>: y-coordinate of the end point (leftwards) of the left line segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_x1</span></code>: x-coordinate of the starting point (from centre) of the right line segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_y1</span></code>: y-coordinate of the starting point (from centre) of the right line segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_x2</span></code>: x-coordinate of the end point (rightwards) of the right line segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Right_y2</span></code>: y-coordinate of the end point (rightwards) of the right line segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Angle</span></code>: Angle displacement of the transverse line from horizontal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rectangle_Height</span></code>: Height of rectangle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rectangle_Width</span></code>: Width of rectangle.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Poggendorff.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the Poggendorff illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Poggendorff.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Poggendorff.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the Poggendorff illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>poggendorff_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Poggendorff illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poggendorff</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Poggendorff</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">55</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poggendorff</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Poggendorff.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the Poggendorff illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>poggendorff_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poggendorff</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Poggendorff</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poggendorff</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.Contrast">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Contrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the Simultaneous Contrast illusion.</p>
+<p>Simultaneous contrast, identified by Michel Eugène Chevreul, refers to the
+manner in which the colors of two different objects affect each other.
+Specifically, when comparing two targets with the same shade of grey, the one that is
+embedded against a darker background appears lighter than the other target embedded against a lighter background.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Contrast</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">contrast_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Contrast’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">contrast_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rectangle_Top</span></code>: Luminance of the top inner rectangle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rectangle_Bottom</span></code>: Luminance of the bottom inner rectangle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Background_Top</span></code>: Luminance of the top half of the background.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Background_Bottom</span></code>: Luminance of the bottom half of the background.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rectangle_Top_RGB</span></code>: RGB value of the top inner rectangle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rectangle_Bottom_RGB</span></code>: RGB value of the bottom inner rectangle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Background_Top_RGB</span></code>: RGB value of the top half of the background.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Background_Bottom_RGB</span></code>: RGB value of the bottom half of the background.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Contrast.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the Simultaneous Contrast illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Contrast.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Contrast.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the Simultaneous Contrast illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>contrast_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Simultaneous Contrast illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Contrast</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">contrast</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Contrast.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the Simultaneous Contrast illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>contrast_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Contrast</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parameters</span> <span class="o">=</span> <span class="n">contrast</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span>
+<span class="go">                           color=parameters[&quot;Background_Top_RGB&quot;],</span>
+<span class="go">                           colorSpace=&#39;rgb255&#39;)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">contrast</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.White">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">White</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strips_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate the White’s illusion.</p>
+<p>White’s illusion is a brightness illusion in which rectangles of the same grey
+color are perceived of different luminance depending on their background.
+Specifically, rectangles embedded against a darker background appears lighter
+than the rectangles embedded against a lighter background.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">White</span></code> contains attributes corresponding to the parameters of the illusion.
+These parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">white_parameters()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘White’s’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">white_parameters()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Target1</span></code>: Luminance of the left grey rectangles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Target2</span></code>: Luminance of the right grey rectangle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Background1</span></code>: Luminance of the background that <code class="docutils literal notranslate"><span class="pre">Target1</span></code> is embedded in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Background2</span></code>: Luminance of the background that <code class="docutils literal notranslate"><span class="pre">Target2</span></code> is embedded in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Target1_RGB</span></code>: RGB value of the left grey rectangles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Target2_RGB</span></code>: RGB value of the right grey rectangle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Background1_RGB</span></code>: RGB value of the background that <code class="docutils literal notranslate"><span class="pre">Target1</span></code> is embedded in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Background2_RGB</span></code>: RGB value of the background that <code class="docutils literal notranslate"><span class="pre">Target2</span></code> is embedded in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Target1_y</span></code>: y-coordinates of the left grey rectangles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Target2_y</span></code>: y-coordinates of the right grey rectangles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Target_Height</span></code>: Height of each strip of rectangular segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Target_n</span></code>: Number of horizontal rectangular segments, equates to <code class="docutils literal notranslate"><span class="pre">strips_n</span></code> in <code class="docutils literal notranslate"><span class="pre">white_parameters()</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.White.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of parameters passed into the White’s illusion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.White.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_parameters()</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.White.to_image">
+<span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of the White’s illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>white_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the white illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">white</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">White</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">white</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.White.to_psychopy">
+<span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.to_psychopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PsychoPy stimulus of the White’s illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – The window object initiated by <cite>psychopy.visual.Window</cite> in which the stimulus will be rendered.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>white_parameters()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create parameters</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">white</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">White</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parameters</span> <span class="o">=</span> <span class="n">white</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span>
+<span class="go">                           color=parameters[&quot;Background1_RGB&quot;], colorSpace=&#39;rgb255&#39;)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">white</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.Autostereogram">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Autostereogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stimulus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Hello'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repetitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Autostereogram/Autostereogram.html#Autostereogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Autostereogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to generate Autostereograms based on a given depth map.</p>
+<p>Autostereograms are images made of a pattern that is horizontally repeated (with slight variations)
+which, when watched with the appropriate focus, will generate an illusion of depth.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Autostereogram.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">guide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Autostereogram/Autostereogram.html#Autostereogram.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Autostereogram.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of Autostereograms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>guide</strong> (<em>bool</em>) – Defaults to ‘True’ to activate two red dots as guidance, and ‘False’ to disable the guide.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Autostereograms illusion, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">autostereograms</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">&quot;arialbd.ttf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">autostereograms</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">guide</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyllusion.Pareidolia">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Pareidolia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[10,</span> <span class="pre">1000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[20,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[2,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Pareidolia/Pareidolia.html#Pareidolia"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Pareidolia" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to create (pseudo)noise images.</p>
+<p>Pareidolia is the tendency to incorrectly perceive of a stimulus as an object
+pattern or meaning known to the observer. To create stimuli for the observation
+of such phenomenon, this function creates pure-noise images using bivariate
+Gaussian blobs with different standard deviations (SD).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyllusion.Pareidolia.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Pareidolia/Pareidolia.html#Pareidolia.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Pareidolia.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a PIL image of a Pareidolia image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>negative</strong> (<em>bool</em>) – Activate ‘True’ to invert pixel values (negative-positive inverting) of an image. Defaults to ‘False’.
+Passed to <code class="docutils literal notranslate"><span class="pre">PIL.ImageOps.invert</span></code>.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>Image</em> – Image of the Pareidolia image, defaults to 800 x 600 pixels.
+Can be resized
+(<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
+and saved in different file formats
+(<cite>save()</cite> See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html">https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html</a>).</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pareidolia</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Pareidolia</span><span class="p">((</span><span class="mi">480</span><span class="p">,</span> <span class="mi">480</span><span class="p">),</span> <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">4000</span><span class="p">],</span> <span class="n">sd</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">weight</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">blur</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pareidolia</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  
+<span class="go">&lt;PIL.Image.Image ...&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-pyllusion.image">
 <span id="image"></span><h2>Image<a class="headerlink" href="#module-pyllusion.image" title="Permalink to this headline">¶</a></h2>

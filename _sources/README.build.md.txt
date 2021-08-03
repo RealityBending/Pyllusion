@@ -42,6 +42,13 @@ You have some ideas? Want to improve things, add new illusions, and help
 us shake people’s brain? Let us know, we would be very happy to have you
 on board :relaxed:.
 
+## Central Repository
+
+If you have used **Pyllusion** in your experiments and have made your
+scripts and data open access, feel free to also reference the link to
+your data in *central\_repository.xlsx* (located in this GitHub
+repository) by making a pull request\!
+
 ## Citation
 
 You can cite the package as follows:
