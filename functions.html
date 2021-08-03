@@ -80,7 +80,20 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Functions</a><ul>
-<li><a class="reference internal" href="#illusion">Illusion</a></li>
+<li><a class="reference internal" href="#illusion">Illusion</a><ul>
+<li><a class="reference internal" href="#delboeuf">Delboeuf</a></li>
+<li><a class="reference internal" href="#ebbinghaus">Ebbinghaus</a></li>
+<li><a class="reference internal" href="#mullerlyer">MullerLyer</a></li>
+<li><a class="reference internal" href="#ponzo">Ponzo</a></li>
+<li><a class="reference internal" href="#verticalhorizontal">VerticalHorizontal</a></li>
+<li><a class="reference internal" href="#zollner">Zollner</a></li>
+<li><a class="reference internal" href="#poggendorff">Poggendorff</a></li>
+<li><a class="reference internal" href="#contrast">Contrast</a></li>
+<li><a class="reference internal" href="#white">White</a></li>
+<li><a class="reference internal" href="#autostereogram">Autostereogram</a></li>
+<li><a class="reference internal" href="#pareidolia">Pareidolia</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pyllusion.image">Image</a></li>
 <li><a class="reference internal" href="#psychopy">PsychoPy</a></li>
 <li><a class="reference internal" href="#module-pyllusion.movement">Movement</a></li>
@@ -137,6 +150,8 @@
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
 <section id="illusion">
 <h2>Illusion<a class="headerlink" href="#illusion" title="Permalink to this headline">¶</a></h2>
+<section id="delboeuf">
+<h3>Delboeuf<a class="headerlink" href="#delboeuf" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Delboeuf">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Delboeuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_auto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf" title="Permalink to this definition">¶</a></dt>
@@ -145,59 +160,103 @@
 where circles of identical size appear as different because of their surrounding context.
 Specifically, the circle that is closely surrounded by a ring appears larger than the circle surrounded by a distant ring.</p>
 <p>Each instance of Delboeuf contains attributes corresponding to the parameters of the illusion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.illusion_strength">
+<span class="sig-name descname"><span class="pre">illusion_strength</span></span><a class="headerlink" href="#pyllusion.Delboeuf.illusion_strength" title="Permalink to this definition">¶</a></dt>
+<dd><p>The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
 Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if illusion_strength=1,
 it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
 A negative sign means that the illusion will enhance the perception of the actual difference in circle sizes
-whereas a positive sign reduces this perception.</p></li>
-<li><p><strong>difference</strong> (<em>float</em>) – The objective size difference of the inner circles.
-Specifically, the size of left inner circle relative to the right (in percentage, e.g., if difference=1,
-it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
-A negative sign would make the left inner circle smaller than the right inner circle.</p></li>
-<li><p><strong>size_min</strong> (<em>float</em>) – Size of smaller inner circle. Defaults to 0.25.</p></li>
-<li><p><strong>distance</strong> (<em>float</em>) – Distance between circles. Defaults to 1.</p></li>
-<li><p><strong>distance_auto</strong> (<em>bool</em>) – If true, distance is between edges (fixed spacing), if false (default), between centers (fixed location).</p></li>
-</ul>
+whereas a positive sign reduces this perception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.difference">
+<span class="sig-name descname"><span class="pre">difference</span></span><a class="headerlink" href="#pyllusion.Delboeuf.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>The objective size difference of the inner circles.
+Specifically, the size of left inner circle relative to the right (in percentage, e.g., if difference=1,
+it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
+A negative sign would make the left inner circle smaller than the right inner circle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.size_min">
+<span class="sig-name descname"><span class="pre">size_min</span></span><a class="headerlink" href="#pyllusion.Delboeuf.size_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of smaller inner circle. Defaults to 0.25.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><a class="headerlink" href="#pyllusion.Delboeuf.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distance between circles. Defaults to 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyllusion.Delboeuf.distance_auto">
+<span class="sig-name descname"><span class="pre">distance_auto</span></span><a class="headerlink" href="#pyllusion.Delboeuf.distance_auto" title="Permalink to this definition">¶</a></dt>
+<dd><p>If true, distance is between edges (fixed spacing), if false (default), between centers (fixed location).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.Delboeuf.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Delboeuf illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><p><em>dict</em> – A dictionary of all parameters passed into the Delboeuf illusion, including:
--* <code class="docutils literal notranslate"><span class="pre">Difference</span></code> : Objective difference in the target features, by modifying difference of delboeuf_parameters()
--* <cite>Illusion`</cite> : Name of the illusion, ‘Delboeuf’.
--* <a href="#id1"><span class="problematic" id="id2">`</span></a>Illusion_Strength : Strength of the surrounding context in biasing illusion, by modifying illusion_strength of</p>
+<dd class="field-odd"><p><p><em>dict</em> – A dictionary of all parameters passed into the Delboeuf illusion, including:</p>
+<p>-* <code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying difference of delboeuf_parameters().
+-* <cite>Illusion`</cite>: Name of the illusion, ‘Delboeuf’.
+-* <a href="#id1"><span class="problematic" id="id2">`</span></a>Illusion_Strength: Strength of the surrounding context in biasing illusion, by modifying illusion_strength of</p>
 <blockquote>
 <div><p>delboeuf_parameters().</p>
 </div></blockquote>
 <dl class="simple">
-<dt>-* <cite>Illusion_Type`</cite><span class="classifier">’Congruent’ if the illusion enhances the perception of the objective difference in the illusion,</span></dt><dd><p>and ‘Incongruent’ if it reduces the perceived  difference.</p>
+<dt>-* <cite>Illusion_Type`</cite>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion,</dt><dd><p>and ‘Incongruent’ if it reduces the perceived  difference.</p>
 </dd>
 </dl>
-<p>-* <cite>Size_Inner_Left`</cite> : Size of the inner left circle.
--* <cite>Size_Inner_Right`</cite> : Size of the inner right circle.
--* <cite>Sine_Inner_Difference`</cite> : Difference in areas of the left and right inner circles.
--* <cite>Size_Outer_Left`</cite> : Size of the outer left rim.
--* <cite>Size_Outer_Right`</cite> : Size of the outer right rim.
--* <cite>Distance`</cite> : Distance between the circles, by modifying distance of delboeuf_parameters().
--* <cite>Distance_Reference`</cite> : Distance between circles is computed ‘Between Edges’ or ‘Between Centers’, by modifying</p>
+<p>-* <cite>Size_Inner_Left`</cite>: Size of the inner left circle.
+-* <cite>Size_Inner_Right`</cite>: Size of the inner right circle.
+-* <cite>Sine_Inner_Difference`</cite>: Difference in areas of the left and right inner circles.
+-* <cite>Size_Outer_Left`</cite>: Size of the outer left rim.
+-* <cite>Size_Outer_Right`</cite>: Size of the outer right rim.
+-* <cite>Distance`</cite>: Distance between the circles, by modifying distance of delboeuf_parameters().
+-* <cite>Distance_Reference`</cite>: Distance between circles is computed ‘Between Edges’ or ‘Between Centers’, by modifying</p>
 <blockquote>
 <div><p>distance_auto of delboeuf_parameters().</p>
 </div></blockquote>
-<p>-* <cite>Distance_Edges_Inner`</cite> : Distance between the edges of the inner left and right circles.
--* <cite>Distance_Edges_Outer`</cite> : Distance between the edges of the outer left and right rims.
--* <cite>Size_Inner_Smaller`</cite> : Size of the smaller inner circle, equates to size_min of delboeuf_parameters().
--* <cite>Size_Inner_Larger`</cite> : Size of the larger inner circle.
--* <cite>Size_Outer_Smaller`</cite> : Size of the smaller outer rim.
--* <cite>Size_Outer_Larger`</cite> : Size of the larger outer rim.
--* <cite>Position_Left`</cite> : Position of the left circle.
--* <cite>Position_Right`</cite> : Position of the right circle.</p>
+<p>-* <cite>Distance_Edges_Inner`</cite>: Distance between the edges of the inner left and right circles.
+-* <cite>Distance_Edges_Outer`</cite>: Distance between the edges of the outer left and right rims.
+-* <cite>Size_Inner_Smaller`</cite>: Size of the smaller inner circle, equates to size_min of delboeuf_parameters().
+-* <cite>Size_Inner_Larger`</cite>: Size of the larger inner circle.
+-* <cite>Size_Outer_Smaller`</cite>: Size of the smaller outer rim.
+-* <cite>Size_Outer_Larger`</cite>: Size of the larger outer rim.
+-* <cite>Position_Left`</cite>: Position of the left circle.
+-* <cite>Position_Right`</cite>: Position of the right circle.</p>
 </p>
 </dd>
 </dl>
@@ -282,6 +341,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="ebbinghaus">
+<h3>Ebbinghaus<a class="headerlink" href="#ebbinghaus" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Ebbinghaus">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Ebbinghaus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_auto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus" title="Permalink to this definition">¶</a></dt>
@@ -403,6 +465,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="mullerlyer">
+<h3>MullerLyer<a class="headerlink" href="#mullerlyer" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.MullerLyer">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">MullerLyer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer" title="Permalink to this definition">¶</a></dt>
@@ -525,6 +590,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="ponzo">
+<h3>Ponzo<a class="headerlink" href="#ponzo" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Ponzo">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Ponzo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo" title="Permalink to this definition">¶</a></dt>
@@ -651,6 +719,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="verticalhorizontal">
+<h3>VerticalHorizontal<a class="headerlink" href="#verticalhorizontal" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.VerticalHorizontal">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">VerticalHorizontal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal" title="Permalink to this definition">¶</a></dt>
@@ -765,6 +836,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="zollner">
+<h3>Zollner<a class="headerlink" href="#zollner" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Zollner">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Zollner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distractors_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distractors_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.66</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner" title="Permalink to this definition">¶</a></dt>
@@ -878,6 +952,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="poggendorff">
+<h3>Poggendorff<a class="headerlink" href="#poggendorff" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Poggendorff">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Poggendorff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff" title="Permalink to this definition">¶</a></dt>
@@ -990,6 +1067,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="contrast">
+<h3>Contrast<a class="headerlink" href="#contrast" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Contrast">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Contrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast" title="Permalink to this definition">¶</a></dt>
@@ -1102,6 +1182,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="white">
+<h3>White<a class="headerlink" href="#white" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.White">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">White</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strips_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White" title="Permalink to this definition">¶</a></dt>
@@ -1217,6 +1300,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="autostereogram">
+<h3>Autostereogram<a class="headerlink" href="#autostereogram" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Autostereogram">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Autostereogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stimulus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Hello'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repetitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Autostereogram/Autostereogram.html#Autostereogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Autostereogram" title="Permalink to this definition">¶</a></dt>
@@ -1250,6 +1336,9 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
+<section id="pareidolia">
+<h3>Pareidolia<a class="headerlink" href="#pareidolia" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Pareidolia">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Pareidolia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[10,</span> <span class="pre">1000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[20,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[2,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Pareidolia/Pareidolia.html#Pareidolia"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Pareidolia" title="Permalink to this definition">¶</a></dt>
@@ -1287,6 +1376,7 @@ and saved in different file formats
 
 </dd></dl>
 
+</section>
 </section>
 <section id="module-pyllusion.image">
 <span id="image"></span><h2>Image<a class="headerlink" href="#module-pyllusion.image" title="Permalink to this headline">¶</a></h2>
