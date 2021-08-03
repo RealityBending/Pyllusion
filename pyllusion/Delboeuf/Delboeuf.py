@@ -13,7 +13,7 @@ class Delboeuf:
 
     Each instance of Delboeuf contains attributes corresponding to the parameters of the illusion.
 
-    Parameters
+    Attributes
     ----------
     illusion_strength : float
         The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
@@ -76,28 +76,29 @@ class Delboeuf:
         --------
         dict
             A dictionary of all parameters passed into the Delboeuf illusion, including:
-            -* ``Difference`` : Objective difference in the target features, by modifying difference of delboeuf_parameters()
-            -* `Illusion`` : Name of the illusion, 'Delboeuf'.
-            -* `Illusion_Strength : Strength of the surrounding context in biasing illusion, by modifying illusion_strength of
+
+            -* ``Difference``: Objective difference in the target features, by modifying difference of delboeuf_parameters().
+            -* `Illusion``: Name of the illusion, 'Delboeuf'.
+            -* `Illusion_Strength: Strength of the surrounding context in biasing illusion, by modifying illusion_strength of
                 delboeuf_parameters().
-            -* `Illusion_Type`` : 'Congruent' if the illusion enhances the perception of the objective difference in the illusion,
+            -* `Illusion_Type``: 'Congruent' if the illusion enhances the perception of the objective difference in the illusion,
                 and 'Incongruent' if it reduces the perceived  difference.
-            -* `Size_Inner_Left`` : Size of the inner left circle.
-            -* `Size_Inner_Right`` : Size of the inner right circle.
-            -* `Sine_Inner_Difference`` : Difference in areas of the left and right inner circles.
-            -* `Size_Outer_Left`` : Size of the outer left rim.
-            -* `Size_Outer_Right`` : Size of the outer right rim.
-            -* `Distance`` : Distance between the circles, by modifying distance of delboeuf_parameters().
-            -* `Distance_Reference`` : Distance between circles is computed 'Between Edges' or 'Between Centers', by modifying
+            -* `Size_Inner_Left``: Size of the inner left circle.
+            -* `Size_Inner_Right``: Size of the inner right circle.
+            -* `Sine_Inner_Difference``: Difference in areas of the left and right inner circles.
+            -* `Size_Outer_Left``: Size of the outer left rim.
+            -* `Size_Outer_Right``: Size of the outer right rim.
+            -* `Distance``: Distance between the circles, by modifying distance of delboeuf_parameters().
+            -* `Distance_Reference``: Distance between circles is computed 'Between Edges' or 'Between Centers', by modifying
                 distance_auto of delboeuf_parameters().
-            -* `Distance_Edges_Inner`` : Distance between the edges of the inner left and right circles.
-            -* `Distance_Edges_Outer`` : Distance between the edges of the outer left and right rims.
-            -* `Size_Inner_Smaller`` : Size of the smaller inner circle, equates to size_min of delboeuf_parameters().
-            -* `Size_Inner_Larger`` : Size of the larger inner circle.
-            -* `Size_Outer_Smaller`` : Size of the smaller outer rim.
-            -* `Size_Outer_Larger`` : Size of the larger outer rim.
-            -* `Position_Left`` : Position of the left circle.
-            -* `Position_Right`` : Position of the right circle.
+            -* `Distance_Edges_Inner``: Distance between the edges of the inner left and right circles.
+            -* `Distance_Edges_Outer``: Distance between the edges of the outer left and right rims.
+            -* `Size_Inner_Smaller``: Size of the smaller inner circle, equates to size_min of delboeuf_parameters().
+            -* `Size_Inner_Larger``: Size of the larger inner circle.
+            -* `Size_Outer_Smaller``: Size of the smaller outer rim.
+            -* `Size_Outer_Larger``: Size of the larger outer rim.
+            -* `Position_Left``: Position of the left circle.
+            -* `Position_Right``: Position of the right circle.
         """
         return self.parameters
 
