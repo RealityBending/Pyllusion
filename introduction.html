@@ -187,6 +187,8 @@ and software.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">RealityBending</span><span class="o">/</span><span class="n">Pyllusion</span><span class="o">/</span><span class="n">zipball</span><span class="o">/</span><span class="n">master</span>
 </pre></div>
 </div>
+<p>You can also find the installation instructions for Python 3
+<a class="reference external" href="https://realpython.com/installing-python/">here</a>.</p>
 </section>
 <section id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
@@ -215,8 +217,8 @@ experimental psychologist, hypnotist, and psychophysicist Joseph Remi
 Leopold Delboeuf (1831–1896), who created it in 1865.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyllusion</span>
 
-<span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">delboeuf_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">delboeuf_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<span class="n">delboeuf</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Delboeuf</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">delboeuf</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_delboeuf1.png"><img alt="" src="_images/README_delboeuf1.png" /></a>
@@ -241,8 +243,8 @@ Reduced sensitivity of schizophrenics to this illusion has been used to
 reflect how prior knowledge influences perceptual organization to a
 lesser extent, i.e., reduced top-down influence, in schizophrenia
 (Silverstein &amp; Keane, 2011).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">ebbinghaus_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">ebbinghaus_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ebbinghaus</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Ebbinghaus</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ebbinghaus</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_ebbinghaus1.png"><img alt="" src="_images/README_ebbinghaus1.png" /></a>
@@ -264,8 +266,8 @@ There is some evidence that susceptibility to the Müller-Lyer illusion
 is negatively correlated with autistic traits in the typical population
 (but not with the Ebbinghaus nor the Ponzo illusion) (Chouinard et al.,
 2013).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">mullerlyer_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">mullerlyer_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mullerlyer</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">MullerLyer</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">mullerlyer</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_mullerlyer1.png"><img alt="" src="_images/README_mullerlyer1.png" /></a>
@@ -285,8 +287,8 @@ interpreted to signal changes in visual distance (King et al., 2017),
 requiring higher-level cortical processes (Song et al., 2011). Similar
 to the Ebbinghaus illusion, it is also shown to have less effect in
 biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">ponzo_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">ponzo_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ponzo</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Ponzo</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ponzo</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_ponzo1.png"><img alt="" src="_images/README_ponzo1.png" /></a>
@@ -298,8 +300,8 @@ illusion</a>**
 illustrates the tendency for observers to overestimate the length of a
 vertical line relative to a horizontal line of the same length (Shipley
 et al., 1949).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">verticalhorizontal_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">verticalhorizontal_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">verticalhorizontal</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">VerticalHorizontal</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">verticalhorizontal</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_verticalhorizontal1.png"><img alt="" src="_images/README_verticalhorizontal1.png" /></a>
@@ -311,8 +313,8 @@ illusion</a>** is an
 optical illusion, where horizontal lines are perceived as not parallel
 because of their background. It is named after its discoverer, the
 German astrophysicist Johann Karl Friedrich Zöllner in 1860.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">zollner_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">zollner_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zollner</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Zollner</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">zollner</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_zollner1.png"><img alt="" src="_images/README_zollner1.png" /></a>
@@ -323,8 +325,8 @@ German astrophysicist Johann Karl Friedrich Zöllner in 1860.</p>
 illusion</a>**
 is an optical illusion causing the participant to perceive the rod to be
 oriented congruent with the orientation of the frame.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">rodframe_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">rodframe_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rodframe</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">RodFrame</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">rodframe</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_rodframe1.png"><img alt="" src="_images/README_rodframe1.png" /></a>
@@ -339,8 +341,8 @@ an intervening structure. It is named after Johann Christian Poggendorff
 who discovered in Zöllner’s illusion after 1860. The magnitude of the
 illusion depends on the properties of the obscuring pattern and the
 nature of its borders.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">poggendorff_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">poggendorff_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">poggendorff</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Poggendorff</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">poggendorff</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_poggendorff1.png"><img alt="" src="_images/README_poggendorff1.png" /></a>
@@ -356,8 +358,8 @@ two different objects affect each other.</p>
 <p>In the image here, the two inner rectangles are exactly the same shade
 of grey, but the upper one appears to be a lighter grey than the lower
 one due to the background provided by the outer rectangles.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">contrast_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">contrast_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">contrast</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Contrast</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">contrast</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_contrast1.png"><img alt="" src="_images/README_contrast1.png" /></a>
@@ -367,8 +369,8 @@ one due to the background provided by the outer rectangles.</p>
 <p><a href="#id29"><span class="problematic" id="id30">**</span></a><a class="reference external" href="https://en.wikipedia.org/wiki/White%27s_illusion">White’s illusion</a>**
 is a brightness illusion in which rectangles of the same grey color are
 perceived of different luminance depending on their background.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">white_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">white_image</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">white</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">White</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">white</span><span class="o">.</span><span class="n">to_image</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_white1.png"><img alt="" src="_images/README_white1.png" /></a>
@@ -401,7 +403,8 @@ very sharp and until your eyes stabilize. You should then be able to
 perceive the letters <strong>3D</strong> as carved in the figure</p>
 <p>It can take a bit of time to “get there”, but once you are used to it,
 it’s a mind-blowing experience 🤯</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyllusion</span><span class="o">.</span><span class="n">autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">autostereograms</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+<span class="n">autostereograms</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 <!-- ```{python message=FALSE, warning=FALSE, echo=FALSE} --><!-- img = pyllusion.autostereogram(stimulus="3D", width=1600, height=900) --><!-- img.save("docs/img/README_autostereogram1.png") --><!-- ``` --><a class="reference external image-reference" href="img/README_autostereogram1.png"><img alt="" src="_images/README_autostereogram1.png" /></a>
@@ -414,13 +417,14 @@ function to which we can provide additional arguments like <code class="docutils
 the number of circles <code class="docutils literal notranslate"><span class="pre">n</span></code>, their size range and their transparency with
 <code class="docutils literal notranslate"><span class="pre">alpha</span></code>).</p>
 <a class="reference external image-reference" href="img/depthmask.png"><img alt="" src="_images/depthmask.png" /></a>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyllusion</span><span class="o">.</span><span class="n">autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;docs/img/depthmask.png&quot;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">autostereograms</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Autostereogram</span><span class="p">(</span><span class="n">stimulus</span><span class="o">=</span><span class="s2">&quot;docs/img/depthmask.png&quot;</span><span class="p">,</span>
                    <span class="n">pattern</span><span class="o">=</span><span class="n">pyllusion</span><span class="o">.</span><span class="n">image_circles</span><span class="p">,</span>
                    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blackwhite&quot;</span><span class="p">,</span>
                    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
                    <span class="n">size_min</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
                    <span class="n">size_max</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span>
                    <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">autostereograms</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 <!-- ```{python message=FALSE, warning=FALSE, echo=FALSE} --><!-- img = pyllusion.autostereogram(stimulus="docs/img/depthmask.png", --><!--                    pattern=pyllusion.image_circles, --><!--                    color="blackwhite", --><!--                    alpha=0.75, --><!--                    size_min=0.005, --><!--                    size_max=0.03, --><!--                    n=1000) --><!-- img.save("docs/img/README_autostereogram2.png") --><!-- ``` --><a class="reference external image-reference" href="img/README_autostereogram2.png"><img alt="" src="_images/README_autostereogram2.png" /></a>
@@ -434,12 +438,13 @@ in their study <em>“Seeing Jesus in toast”</em>, famously (the study got
 awarded an Ignobel prize) investigated the correlates of face pareidolia
 by blending images of faces with noise-like images.</p>
 <p>Blending of images can be achieved: as followed</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pyllusion</span><span class="o">.</span><span class="n">pareidolia</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;docs/img/snake.png&quot;</span><span class="p">,</span>
-               <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">4000</span><span class="p">],</span>
-               <span class="n">sd</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-               <span class="n">weight</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-               <span class="n">alpha</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
-               <span class="n">blur</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pareidolia</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Pareidolia</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;docs/img/snake.png&quot;</span><span class="p">,</span>
+                                 <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">4000</span><span class="p">],</span>
+                                 <span class="n">sd</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                                 <span class="n">weight</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                                 <span class="n">alpha</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+                                 <span class="n">blur</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">pareidolia</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference external image-reference" href="img/README_pareidolia.png"><img alt="" src="_images/README_pareidolia.png" /></a>
@@ -500,13 +505,14 @@ and
 <span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
 
 <span class="c1"># Create parameters</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">delboeuf_parameters</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">delboeuf</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Delboeuf</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Initiate Window</span>
-<span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">1820</span><span class="p">,</span> <span class="mi">980</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fullscr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span>
+                       <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fullscr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Display illusion</span>
-<span class="n">pyllusion</span><span class="o">.</span><span class="n">delboeuf_psychopy</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="n">delboeuf</span><span class="o">.</span><span class="n">to_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
 
 <span class="c1"># Refresh and close window</span>
 <span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
@@ -518,8 +524,8 @@ and
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>Bertamini, M. (2017). <a href="#id39"><span class="problematic" id="id40">*</span></a><a class="reference external" href="https://www.programmingvisualillusionsforeveryone.online">Programming visual illusions for
-everyone</a><a href="#id41"><span class="problematic" id="id42">*</span></a>.
+<p>Bertamini, M. (2017). <a href="#id40"><span class="problematic" id="id41">*</span></a><a class="reference external" href="https://www.programmingvisualillusionsforeveryone.online">Programming visual illusions for
+everyone</a><a href="#id42"><span class="problematic" id="id43">*</span></a>.
 Springer.</p>
 <p>Chouinard, P. A., Noulty, W. A., Sperandio, I., &amp; Landry, O. (2013).
 Global processing during the Müller-Lyer illusion is distinctively

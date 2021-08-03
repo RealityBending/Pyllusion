@@ -33,6 +33,9 @@ and software.
 
     pip install https://github.com/RealityBending/Pyllusion/zipball/master
 
+You can also find the installation instructions for Python 3
+[here](https://realpython.com/installing-python/).
+
 ## Contribution
 
 You have some ideas? Want to improve things, add new illusions, and help
@@ -61,8 +64,8 @@ Leopold Delboeuf (1831–1896), who created it in 1865.
 ``` python
 import pyllusion
 
-parameters = pyllusion.delboeuf_parameters(illusion_strength=3)
-pyllusion.delboeuf_image(parameters)
+delboeuf = pyllusion.Delboeuf(illusion_strength=3)
+delboeuf.to_image()
 ```
 
 ![](img/README_delboeuf1.png)
@@ -90,8 +93,8 @@ lesser extent, i.e., reduced top-down influence, in schizophrenia
 (Silverstein & Keane, 2011).
 
 ``` python
-parameters = pyllusion.ebbinghaus_parameters(illusion_strength=2)
-pyllusion.ebbinghaus_image(parameters)
+ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=2)
+ebbinghaus.to_image()
 ```
 
 ![](img/README_ebbinghaus1.png)
@@ -116,8 +119,8 @@ is negatively correlated with autistic traits in the typical population
 2013).
 
 ``` python
-parameters = pyllusion.mullerlyer_parameters(illusion_strength=30)
-pyllusion.mullerlyer_image(parameters)
+mullerlyer = pyllusion.MullerLyer(illusion_strength=30)
+mullerlyer.to_image()
 ```
 
 ![](img/README_mullerlyer1.png)
@@ -140,8 +143,8 @@ to the Ebbinghaus illusion, it is also shown to have less effect in
 biasing perception in schizophrenic subjects (Kantrowitz et al., 2009).
 
 ``` python
-parameters = pyllusion.ponzo_parameters(illusion_strength=20)
-pyllusion.ponzo_image(parameters)
+ponzo = pyllusion.Ponzo(illusion_strength=20)
+ponzo.to_image()
 ```
 
 ![](img/README_ponzo1.png)
@@ -155,8 +158,8 @@ vertical line relative to a horizontal line of the same length (Shipley
 et al., 1949).
 
 ``` python
-parameters = pyllusion.verticalhorizontal_parameters(illusion_strength=90)
-pyllusion.verticalhorizontal_image(parameters)
+verticalhorizontal = pyllusion.VerticalHorizontal(illusion_strength=-90)
+verticalhorizontal.to_image()
 ```
 
 ![](img/README_verticalhorizontal1.png)
@@ -170,8 +173,8 @@ because of their background. It is named after its discoverer, the
 German astrophysicist Johann Karl Friedrich Zöllner in 1860.
 
 ``` python
-parameters = pyllusion.zollner_parameters(illusion_strength=75)
-pyllusion.zollner_image(parameters)
+zollner = pyllusion.Zollner(illusion_strength=75)
+zollner.to_image()
 ```
 
 ![](img/README_zollner1.png)
@@ -184,8 +187,8 @@ is an optical illusion causing the participant to perceive the rod to be
 oriented congruent with the orientation of the frame.
 
 ``` python
-parameters = pyllusion.rodframe_parameters(illusion_strength=11)
-pyllusion.rodframe_image(parameters)
+rodframe = pyllusion.RodFrame(illusion_strength=-11)
+rodframe.to_image()
 ```
 
 ![](img/README_rodframe1.png)
@@ -202,8 +205,8 @@ illusion depends on the properties of the obscuring pattern and the
 nature of its borders.
 
 ``` python
-parameters = pyllusion.poggendorff_parameters(illusion_strength=-50)
-pyllusion.poggendorff_image(parameters)
+poggendorff = pyllusion.Poggendorff(illusion_strength=-50)
+poggendorff.to_image()
 ```
 
 ![](img/README_poggendorff1.png)
@@ -222,8 +225,8 @@ of grey, but the upper one appears to be a lighter grey than the lower
 one due to the background provided by the outer rectangles.
 
 ``` python
-parameters = pyllusion.contrast_parameters(illusion_strength=-50)
-pyllusion.contrast_image(parameters)
+contrast = pyllusion.Contrast(illusion_strength=-50)
+contrast.to_image()
 ```
 
 ![](img/README_contrast1.png)
@@ -235,8 +238,8 @@ is a brightness illusion in which rectangles of the same grey color are
 perceived of different luminance depending on their background.
 
 ``` python
-parameters = pyllusion.white_parameters(illusion_strength=100)
-pyllusion.white_image(parameters)
+white = pyllusion.White(illusion_strength=100)
+white.to_image()
 ```
 
 ![](img/README_white1.png)
@@ -281,7 +284,8 @@ perceive the letters **3D** as carved in the figure
 It can take a bit of time to “get there”, but once you are used to it,
 it’s a mind-blowing experience 🤯
 
-    pyllusion.autostereogram(stimulus="3D", width=1600, height=900)
+    autostereograms = pyllusion.Autostereogram(stimulus="3D", width=1600, height=900)
+    autostereograms.draw()
 
 <!-- ```{python message=FALSE, warning=FALSE, echo=FALSE} -->
 
@@ -304,13 +308,14 @@ the number of circles `n`, their size range and their transparency with
 
 ![](img/depthmask.png)
 
-    pyllusion.autostereogram(stimulus="docs/img/depthmask.png",
+    autostereograms = pyllusion.Autostereogram(stimulus="docs/img/depthmask.png",
                        pattern=pyllusion.image_circles,
                        color="blackwhite",
                        alpha=0.75,
                        size_min=0.005,
                        size_max=0.03,
                        n=1000)
+    autostereograms.draw()
 
 <!-- ```{python message=FALSE, warning=FALSE, echo=FALSE} -->
 
@@ -346,12 +351,13 @@ by blending images of faces with noise-like images.
 Blending of images can be achieved: as followed
 
 ``` python
-pyllusion.pareidolia(pattern="docs/img/snake.png", 
-               n=[20, 300, 4000], 
-               sd=[4, 2, 1], 
-               weight=[3, 2, 1],
-               alpha=80,
-               blur=0.5)
+pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png", 
+                                 n=[20, 300, 4000], 
+                                 sd=[4, 2, 1], 
+                                 weight=[3, 2, 1],
+                                 alpha=80,
+                                 blur=0.5)
+pareidolia.draw()
 ```
 
 ![](img/README_pareidolia.png)
@@ -426,13 +432,14 @@ Pyllusion can be easily integrated into
     from psychopy import visual, event
     
     # Create parameters
-    parameters = pyllusion.delboeuf_parameters(illusion_strength=1, difference=2)
+    delboeuf = pyllusion.Delboeuf(illusion_strength=1, difference=2)
     
     # Initiate Window
-    window = visual.Window(size=[1820, 980], winType='pygame', color='white', fullscr=False)
+    window = visual.Window(size=[1920, 1080], winType='pygame',
+                           color='white', fullscr=False)
     
     # Display illusion
-    pyllusion.delboeuf_psychopy(window=window, parameters=parameters)
+    delboeuf.to_psychopy(window)
     
     # Refresh and close window
     window.flip()
