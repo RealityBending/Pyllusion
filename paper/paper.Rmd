@@ -127,7 +127,7 @@ The source code is available under the MIT license on GitHub ([*https://github.c
 
 Once the package is loaded, two further steps are required to generate the illusions, 1) specifying the parameters and 2) rendering the output accordingly.
 
-We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to the other illusions supported by *Pyllusion*, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Poggendorff illusion and more (see **Fig. 2**, as well as the full list with examples on the [**readme**](https://github.com/RealityBending/Pyllusion).
+We will use the Delboeuf illusion in the hands-on example shown below. However, the same workflow applies to the other illusions supported by *Pyllusion*, including the Ebbinghaus illusion, the Müller-Lyer illusion, the Ponzo illusion, the Zöllner illusion, the Rod and Frame illusion, the Poggendorff illusion and more (see **Fig. 2**, as well as the full list with examples on the [**readme**](https://github.com/RealityBending/Pyllusion)).
 
 ```{r include=TRUE, eval=TRUE, echo = FALSE, out.width="95%", fig.align='center', fig.cap="Different classical visual illusions currently supported by \\textit{Pyllusion}. These can all be generated using the parametric approach described in this paper, allowing for fully reproducible studies."}
 knitr::include_graphics("figure3.png")
