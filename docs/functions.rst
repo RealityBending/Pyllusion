@@ -5,37 +5,37 @@ Functions
 Illusion
 -----------
 
-.. automodule:: pyllusion.Delboeuf
+.. autoclass:: pyllusion.Delboeuf
    :members: 
 
-.. automodule:: pyllusion.Ebbinghaus
+.. autoclass:: pyllusion.Ebbinghaus
    :members: 
 
-.. automodule:: pyllusion.MullerLyer
+.. autoclass:: pyllusion.MullerLyer
    :members: 
 
-.. automodule:: pyllusion.Ponzo
+.. autoclass:: pyllusion.Ponzo
    :members: 
 
-.. automodule:: pyllusion.VerticalHorizontal
+.. autoclass:: pyllusion.VerticalHorizontal
    :members: 
 
-.. automodule:: pyllusion.Zollner
+.. autoclass:: pyllusion.Zollner
    :members: 
 
-.. automodule:: pyllusion.Poggendorff
+.. autoclass:: pyllusion.Poggendorff
    :members: 
 
-.. automodule:: pyllusion.Contrast
+.. autoclass:: pyllusion.Contrast
    :members: 
 
-.. automodule:: pyllusion.White
+.. autoclass:: pyllusion.White
    :members: 
 
-.. automodule:: pyllusion.Autostereogram
+.. autoclass:: pyllusion.Autostereogram
    :members: 
 
-.. automodule:: pyllusion.Pareidolia
+.. autoclass:: pyllusion.Pareidolia
    :members: 
 
 Image
