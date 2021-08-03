@@ -3,34 +3,51 @@ import PIL
 import pyllusion
 
 # PONZO FOR FIG 1 PPT
-parameters = pyllusion.ponzo_parameters(illusion_strength=20,
-                                  difference=0,
-                                  size_min=0.5)
-img = pyllusion.ponzo_image(parameters)
+ponzo = pyllusion.Ponzo(illusion_strength=-15, difference=0.3, size_min=0.5)
+img = ponzo.to_image()
 img
 img.save("ponzo_for_ppt.png")
 
 
 # MOSAIC Illusions
-img1 = pyllusion.delboeuf_image(width=1280, height=620, illusion_strength=3)
+img1 = pyllusion.Delboeuf(illusion_strength=3)
+img1 = img1.to_image(width=1280, height=620)
 img1_text = pyllusion.image_text(width=1280, height=90, text="Delboeuf", y=0, size=70)
-img2 = pyllusion.ebbinghaus_image(width=1280, height=620, illusion_strength=2)
+
+img2 = pyllusion.Ebbinghaus(illusion_strength=2)
+img2 = img2.to_image(width=1280, height=620)
 img2_text = pyllusion.image_text(width=1280, height=90, text="Ebbinghaus", y=0, size=70)
-img3 = pyllusion.mullerlyer_image(width=1280, height=620, illusion_strength=30)
+
+img3 = pyllusion.MullerLyer(illusion_strength=-30)
+img3 = img3.to_image(width=1280, height=620)
 img3_text = pyllusion.image_text(width=1280, height=90, text="Müller-Lyer", y=0, size=70)
-img4 = pyllusion.ponzo_image(width=1280, height=620, illusion_strength=20)
+
+img4 = pyllusion.Ponzo(illusion_strength=20)
+img4 = img4.to_image(width=1280, height=620)
 img4_text = pyllusion.image_text(width=1280, height=90, text="Ponzo", y=0, size=70)
-img5 = pyllusion.verticalhorizontal_image(width=1280, height=620, illusion_strength=90)
+
+img5 = pyllusion.VerticalHorizontal(illusion_strength=-90)
+img5 = img5.to_image(width=1280, height=620)
 img5_text = pyllusion.image_text(width=1280, height=90, text="Vertical-Horizontal", y=0, size=70)
-img6 = pyllusion.zollner_image(width=1280, height=620, illusion_strength=75)
+
+img6 = pyllusion.Zollner(illusion_strength=75)
+img6 = img6.to_image(width=1280, height=620)
 img6_text = pyllusion.image_text(width=1280, height=90, text="Zöllner", y=0, size=70)
-img7 = pyllusion.rodframe_image(width=1280, height=620, illusion_strength=11)
+
+img7 = pyllusion.RodFrame(illusion_strength=-11)
+img7 = img7.to_image(width=1280, height=620)
 img7_text = pyllusion.image_text(width=1280, height=90, text="Rod and Frame", y=0, size=70)
-img8 = pyllusion.poggendorff_image(width=1280, height=620, illusion_strength=50)
+
+img8 = pyllusion.Poggendorff(illusion_strength=50)
+img8 = img8.to_image(width=1280, height=620)
 img8_text = pyllusion.image_text(width=1280, height=90, text="Poggendorff", y=0, size=70)
-img9 = pyllusion.contrast_image(width=1280, height=620, illusion_strength=50)
+
+img9 = pyllusion.Contrast(illusion_strength=50)
+img9 = img9.to_image(width=1280, height=620)
 img9_text = pyllusion.image_text(width=1280, height=90, text="Contrast", y=0, size=70, color="black")
-img10 = pyllusion.white_image(width=1280, height=620, illusion_strength=100)
+
+img10 = pyllusion.White(illusion_strength=100)
+img10 = img10.to_image(width=1280, height=620)
 img10_text = pyllusion.image_text(width=1280, height=90, text="White", y=0, size=70, color="black")
 
 def get_concat_v(im1, im2, background=None):
@@ -84,7 +101,8 @@ final.save("figure3.png")
 imgs = []
 for strength in [-2, -1, 0, 1, 2]:
     for diff in [-2, -1, 0, 1, 2]:
-        stim = pyllusion.delboeuf_image(height=800, width=800, illusion_strength=strength, difference=diff)
+        stim = pyllusion.Delboeuf(illusion_strength=strength, difference=diff)
+        stim = stim.to_image(height=800, width=800)
 
         PIL.ImageDraw.Draw(stim).text((20, 0),
                                     f"Strength = {strength}, Difference = {diff}",
