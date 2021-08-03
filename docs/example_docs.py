@@ -37,12 +37,13 @@ fix = visual.TextStim(win=window, name='fix', text='+',
 jitter_duration = np.arange(0.5, 1.5, .15)
 
 # Initiate parameters for illusion and draw 
-differences = np.random.randint(low=1, high=6, size=(5,))
-strengths = np.random.randint(low=1, high=6, size=(5,))
+differences = np.random.randint(low=-2, high=2, size=(5,))
+strengths = np.random.randint(low=-2, high=2, size=(5,))
 parameters_list = []
 
 for diff, strg in zip(differences, strengths):
-    parameters = pyllusion.ebbinghaus_parameters(difference=diff, illusion_strength=strg)
+    ebbinghaus = pyllusion.Ebbinghaus(difference=diff, illusion_strength=strg)
+    parameters = ebbinghaus.get_parameters()
     parameters_list.append(parameters)
 
 for param in parameters_list:  # Loop illusions to display
@@ -54,7 +55,7 @@ for param in parameters_list:  # Loop illusions to display
     core.wait(jitter)
 
     # Display illusion
-    pyllusion.ebbinghaus_psychopy(window=window, parameters=param)
+    ebbinghaus.to_psychopy(window)
     window.flip()
     event.waitKeys()  # Press any key to move on
  
