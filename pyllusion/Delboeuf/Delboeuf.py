@@ -76,6 +76,7 @@ class Delboeuf:
         --------
         dict
             A dictionary of all parameters passed into the Delboeuf illusion, including:
+
             - **Difference** : Objective difference in the target features, by modifying `difference` of delboeuf_parameters()
             - **Illusion** : Name of the illusion, 'Delboeuf'.
             - **Illusion_Strength : Strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of

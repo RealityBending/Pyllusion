@@ -12,7 +12,7 @@ class Contrast:
     Specifically, when comparing two targets with the same shade of grey, the one that is
     embedded against a darker background appears lighter than the other target embedded against a lighter background.
 
-    Each instance of ``Contrast`` contains attributes corresponding to the parameters of the illusion.
+    Each instance of **Contrast** contains attributes corresponding to the parameters of the illusion.
 
     Parameters
     ----------
@@ -20,7 +20,7 @@ class Contrast:
         The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.
         Specifically, the difference in background colours, where large values create greater contrast in the two
         grey backgrounds.
-        A positive sign means that the illusion will enhance the perception of the actual ``difference`` in brightness contrast
+        A positive sign means that the illusion will enhance the perception of the actual **difference** in brightness contrast
         of the two inner rectangles, whereas a negative sign reduces this perception.
     difference : float
         The objective difference of the grey shades of the two inner rectangles.
@@ -40,7 +40,7 @@ class Contrast:
                 The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.
                 Specifically, the difference in background colours, where large values create greater contrast in the two
                 grey backgrounds.
-                A positive sign means that the illusion will enhance the perception of the actual ``difference`` in brightness contrast
+                A positive sign means that the illusion will enhance the perception of the actual **difference** in brightness contrast
                 of the two inner rectangles, whereas a negative sign reduces this perception.
             difference : float
                 The objective difference of the grey shades of the two inner rectangles.
@@ -59,7 +59,22 @@ class Contrast:
         Returns
         -------
         dict
-            Dictionary of parameters of the Simultaneous Contrast illusion.
+            Dictionary of parameters of the Simultaneous Contrast illusion, including:
+
+            - **Difference**: Objective difference in the target features, by modifying `difference` of contrast_parameters().
+            - **Illusion**: Name of the illusion, 'Contrast'.
+            - **Illusion_Strength**: Strength of the surrounding context in biasing illusion, by modifying `illusion_strength`
+                of contrast_parameters().
+            - **Illusion_Type**: 'Congruent' if the illusion enhances the perception of the objective difference in the illusion,
+                and 'Incongruent' if it reduces the perceived difference.
+            - **Rectangle_Top**: Luminance of the top inner rectangle.
+            - **Rectangle_Bottom**: Luminance of the bottom inner rectangle.
+            - **Background_Top**: Luminance of the top half of the background.
+            - **Background_Bottom**: Luminance of the bottom half of the background.
+            - **Rectangle_Top_RGB**: RGB value of the top inner rectangle.
+            - **Rectangle_Bottom_RGB**: RGB value of the bottom inner rectangle.
+            - **Background_Top_RGB**: RGB value of the top half of the background.
+            - **Background_Bottom_RGB**: RGB value of the bottom half of the background.
         """
         return self.parameters
 
