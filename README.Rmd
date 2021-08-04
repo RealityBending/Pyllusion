@@ -70,7 +70,7 @@ You have some ideas? Want to improve things, add new illusions, and help us shak
 
 ## Central Repository
 
-If you have used **Pyllusion** in your experiments and have made your scripts and data open access, feel free to also reference the link to your data in *central_repository.xlsx* (located in this GitHub repository) by making a pull request!
+If you have used **Pyllusion** in your experiments, and have made your scripts and data open access, feel free to also reference the link to your data by opening [an issue](https://github.com/RealityBending/Pyllusion/issues) with the **Experiment Report** template.
 
 
 ## Citation
