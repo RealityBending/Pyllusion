@@ -124,31 +124,27 @@
 <span class="sd">    Specifically, the central circle that is surrounded by large circles appears smaller</span>
 <span class="sd">    than the central circle surrounded by small circles.</span>
 
-<span class="sd">    Each instance of ``Ebbinghaus`` contains attributes corresponding to the parameters of the illusion.</span>
-<span class="sd">    These parameters are:</span>
-<span class="sd">        * ``Difference``: Objective difference in the target features, by modifying ``difference`` of ``ebbinghaus_parameters()``</span>
-<span class="sd">        * ``Illusion``: Name of the illusion, &#39;Ebbinghaus&#39;.</span>
-<span class="sd">        * ``Illusion_Strength``: Strength of the surrounding context in biasing illusion, by modifying ``illusion_strength`` of ``ebbinghaus_parameters()``.</span>
-<span class="sd">        * ``Illusion_Type``: &#39;Congruent&#39; if the illusion enhances the perception of the objective difference in the illusion, and &#39;Incongruent&#39; if it reduces the perceived difference.</span>
-<span class="sd">        * ``Size_Inner_Left``: Size of the inner left circle.</span>
-<span class="sd">        * ``Size_Inner_Right``: Size of the inner right circle.</span>
-<span class="sd">        * ``Sine_Inner_Difference``: Difference in areas of the left and right inner circles.</span>
-<span class="sd">        * ``Size_Outer_Left``: Size of the surrounding circles around the left inner circle.</span>
-<span class="sd">        * ``Size_Outer_Right``: Size of the surrounding circles around the right inner circle.</span>
-<span class="sd">        * ``Distance``: Distance between the circles, by modifying ``distance`` of ``ebbinghaus_parameters()``.</span>
-<span class="sd">        * ``Distance_Reference``: Distance between circles is computed &#39;Between Edges&#39; or &#39;Between Centers&#39;, by modifying ``distance_auto`` of ``ebbinghaus_parameters()``.</span>
-<span class="sd">        * ``Distance_Edges_Inner``: Distance between the edges of the inner left and right circles.</span>
-<span class="sd">        * ``Distance_Edges_Outer``: Distance between the edges of the surrounding left circles and right circles.</span>
-<span class="sd">        * ``Size_Inner_Smaller``: Size of the smaller inner circle, equates to ``size_min`` of ``ebbinghaus_parameters()``.</span>
-<span class="sd">        * ``Size_Inner_Larger``: Size of the larger inner circle.</span>
-<span class="sd">        * ``Size_Outer_Smaller``: Size of the smaller surrounding circles.</span>
-<span class="sd">        * ``Size_Outer_Larger``: Size of the larger surrounding cricles.</span>
-<span class="sd">        * ``Position_Outer_x_Left``: x-coordinates of the left surrounding circles.</span>
-<span class="sd">        * ``Position_Outer_y_Left``: y-coordinates of the left surrounding circles.</span>
-<span class="sd">        * ``Position_Outer_x_Right``: x-coordinates of the right surrounding circles.</span>
-<span class="sd">        * ``Position_Outer_y_Right``: y-coordinates of the right surrounding circles.</span>
-<span class="sd">        * ``Position_Left``: Position of the left inner circle.</span>
-<span class="sd">        * ``Position_Right``: Position of the right inner circle.</span>
+<span class="sd">    Each instance of **Ebbinghaus** contains attributes corresponding to the parameters of the illusion.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    illusion_strength : float</span>
+<span class="sd">        The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.</span>
+<span class="sd">        Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if **illusion_strength=1**,</span>
+<span class="sd">        it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).</span>
+<span class="sd">        A negative sign means that the illusion will enhance the perception of the actual **difference** in circle sizes</span>
+<span class="sd">        whereas a positive sign reduces this perception.</span>
+<span class="sd">    difference : float</span>
+<span class="sd">        The objective size difference of the inner circles.</span>
+<span class="sd">        Specifically, the size of left inner circle relative to the right (in percentage, e.g., if **difference=1**,</span>
+<span class="sd">        it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).</span>
+<span class="sd">        A negative sign would make the left inner circle smaller than the right inner circle.</span>
+<span class="sd">    size_min : float</span>
+<span class="sd">        Size of smaller inner circle. Defaults to 0.25.</span>
+<span class="sd">    distance : float</span>
+<span class="sd">        Distance between circles. Defaults to 1.</span>
+<span class="sd">    distance_auto : bool</span>
+<span class="sd">        If true, distance is between edges (fixed spacing), if false, between centers (fixed location).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -159,29 +155,23 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        illusion_strength : float</span>
-<span class="sd">            The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.</span>
-<span class="sd">            Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if ``illusion_strength=1``,</span>
-<span class="sd">            it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).</span>
-<span class="sd">            A negative sign means that the illusion will enhance the perception of the actual ``difference`` in circle sizes</span>
-<span class="sd">            whereas a positive sign reduces this perception.</span>
-<span class="sd">        difference : float</span>
-<span class="sd">            The objective size difference of the inner circles.</span>
-<span class="sd">            Specifically, the size of left inner circle relative to the right (in percentage, e.g., if ``difference=1``,</span>
-<span class="sd">            it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).</span>
-<span class="sd">            A negative sign would make the left inner circle smaller than the right inner circle.</span>
-<span class="sd">        size_min : float</span>
-<span class="sd">            Size of smaller inner circle. Defaults to 0.25.</span>
-<span class="sd">        distance : float</span>
-<span class="sd">            Distance between circles. Defaults to 1.</span>
-<span class="sd">        distance_auto : bool</span>
-<span class="sd">            If true, distance is between edges (fixed spacing), if false, between centers (fixed location).</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        dict</span>
-<span class="sd">            Dictionary of parameters of the Ebbinghaus illusion.</span>
-
+<span class="sd">            illusion_strength : float</span>
+<span class="sd">                The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.</span>
+<span class="sd">                Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if **illusion_strength=1**,</span>
+<span class="sd">                it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).</span>
+<span class="sd">                A negative sign means that the illusion will enhance the perception of the actual **difference** in circle sizes</span>
+<span class="sd">                whereas a positive sign reduces this perception.</span>
+<span class="sd">            difference : float</span>
+<span class="sd">                The objective size difference of the inner circles.</span>
+<span class="sd">                Specifically, the size of left inner circle relative to the right (in percentage, e.g., if **difference=1**,</span>
+<span class="sd">                it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).</span>
+<span class="sd">                A negative sign would make the left inner circle smaller than the right inner circle.</span>
+<span class="sd">            size_min : float</span>
+<span class="sd">                Size of smaller inner circle. Defaults to 0.25.</span>
+<span class="sd">            distance : float</span>
+<span class="sd">                Distance between circles. Defaults to 1.</span>
+<span class="sd">            distance_auto : bool</span>
+<span class="sd">                f true, distance is between edges (fixed spacing), if false, between centers (fixed location).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">_ebbinghaus_parameters</span><span class="p">(</span>
             <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span><span class="p">,</span>
@@ -190,10 +180,42 @@
             <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="p">,</span>
             <span class="n">distance_auto</span><span class="o">=</span><span class="n">distance_auto</span><span class="p">,</span>
         <span class="p">)</span>
-    
+
 <div class="viewcode-block" id="Ebbinghaus.get_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a dictionary of parameters passed into the Ebbinghaus illusion.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Dictionary of parameters of the Ebbinghaus illusion.</span>
+
+<span class="sd">            - **Difference**: Objective difference in the target features, by modifying `difference` of ebbinghaus_parameters()</span>
+<span class="sd">            - **Illusion**: Name of the illusion, &#39;Ebbinghaus&#39;.</span>
+<span class="sd">            - **Illusion_Strength**: Strength of the surrounding context in biasing illusion, by modifying `illusion_strength`</span>
+<span class="sd">                of ebbinghaus_parameters().</span>
+<span class="sd">            - **Illusion_Type**: &#39;Congruent&#39; if the illusion enhances the perception of the objective difference in the illusion,</span>
+<span class="sd">                and &#39;Incongruent&#39; if it reduces the perceived difference.</span>
+<span class="sd">            - **Size_Inner_Left**: Size of the inner left circle.</span>
+<span class="sd">            - **Size_Inner_Right**: Size of the inner right circle.</span>
+<span class="sd">            - **Sine_Inner_Difference**: Difference in areas of the left and right inner circles.</span>
+<span class="sd">            - **Size_Outer_Left**: Size of the surrounding circles around the left inner circle.</span>
+<span class="sd">            - **Size_Outer_Right**: Size of the surrounding circles around the right inner circle.</span>
+<span class="sd">            - **Distance**: Distance between the circles, by modifying `distance` of ebbinghaus_parameters().</span>
+<span class="sd">            - **Distance_Reference**: Distance between circles is computed &#39;Between Edges&#39; or &#39;Between Centers&#39;, by modifying</span>
+<span class="sd">                `distance_auto` of ebbinghaus_parameters().</span>
+<span class="sd">            - **Distance_Edges_Inner**: Distance between the edges of the inner left and right circles.</span>
+<span class="sd">            - **Distance_Edges_Outer**: Distance between the edges of the surrounding left circles and right circles.</span>
+<span class="sd">            - **Size_Inner_Smaller**: Size of the smaller inner circle, equates to `size_min` of ebbinghaus_parameters().</span>
+<span class="sd">            - **Size_Inner_Larger**: Size of the larger inner circle.</span>
+<span class="sd">            - **Size_Outer_Smaller**: Size of the smaller surrounding circles.</span>
+<span class="sd">            - **Size_Outer_Larger**: Size of the larger surrounding cricles.</span>
+<span class="sd">            - **Position_Outer_x_Left**: x-coordinates of the left surrounding circles.</span>
+<span class="sd">            - **Position_Outer_y_Left**: y-coordinates of the left surrounding circles.</span>
+<span class="sd">            - **Position_Outer_x_Right**: x-coordinates of the right surrounding circles.</span>
+<span class="sd">            - **Position_Outer_y_Right**: y-coordinates of the right surrounding circles.</span>
+<span class="sd">            - **Position_Left**: Position of the left inner circle.</span>
+<span class="sd">            - **Position_Right**: Position of the right inner circle.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span></div>
 
@@ -205,7 +227,7 @@
 
 <div class="viewcode-block" id="Ebbinghaus.to_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.to_image">[docs]</a>    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a PIL image of the Ebbinghaus illusion.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        width : int</span>
@@ -216,7 +238,7 @@
 <span class="sd">            Color of the background.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `ebbinghaus_parameters()`.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Image</span>
@@ -225,14 +247,14 @@
 <span class="sd">            (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)</span>
 <span class="sd">            and saved in different file formats</span>
 <span class="sd">            (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">        &gt;&gt;&gt;</span>
 <span class="sd">        &gt;&gt;&gt; ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=1, difference=2)</span>
 <span class="sd">        &gt;&gt;&gt; ebbinghaus.to_image()</span>
-<span class="sd">        &quot;&quot;&quot;</span>    
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">img</span> <span class="o">=</span> <span class="n">_ebbinghaus_image</span><span class="p">(</span>
             <span class="n">parameters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
@@ -255,21 +277,21 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        In-place modification of the PsychoPy window (No explicit return).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">        &gt;&gt;&gt; from psychopy import visual, event</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Create parameters</span>
 <span class="sd">        &gt;&gt;&gt; ebbinghaus = pyllusion.Ebbinghaus(difference=2, illusion_strength=3)</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Initiate Window</span>
 <span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&#39;white&#39;)</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Display illusion</span>
 <span class="sd">        &gt;&gt;&gt; ebbinghaus.to_psychopy(window)</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Refresh and close window</span>
 <span class="sd">        &gt;&gt;&gt; window.flip()</span>
 <span class="sd">        &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>

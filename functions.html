@@ -184,14 +184,15 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <dd><p>Returns a dictionary of parameters passed into the Delboeuf illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><p><em>dict</em> – A dictionary of all parameters passed into the Delboeuf illusion, including:
-- <strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of delboeuf_parameters()
-- <strong>Illusion</strong> : Name of the illusion, ‘Delboeuf’.
-- <a href="#id1"><span class="problematic" id="id2">**</span></a>Illusion_Strength : Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of</p>
-<blockquote>
-<div><p>delboeuf_parameters().</p>
-</div></blockquote>
-<ul class="simple">
+<dd class="field-odd"><p><p><em>dict</em> – A dictionary of all parameters passed into the Delboeuf illusion, including:</p>
+<ul>
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of delboeuf_parameters()</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, ‘Delboeuf’.</p></li>
+<li><dl>
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>Illusion_Strength<span class="classifier">Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of</span></dt><dd><p>delboeuf_parameters().</p>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt><strong>Illusion_Type</strong><span class="classifier">’Congruent’ if the illusion enhances the perception of the objective difference in the illusion,</span></dt><dd><p>and ‘Incongruent’ if it reduces the perceived  difference.</p>
 </dd>
@@ -312,39 +313,72 @@ and saved in different file formats
 where circles of identical size appear as different because of their surrounding context.
 Specifically, the central circle that is surrounded by large circles appears smaller
 than the central circle surrounded by small circles.</p>
-<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Ebbinghaus</span></code> contains attributes corresponding to the parameters of the illusion.
-These parameters are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Ebbinghaus’.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Left</span></code>: Size of the inner left circle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Right</span></code>: Size of the inner right circle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Sine_Inner_Difference</span></code>: Difference in areas of the left and right inner circles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Left</span></code>: Size of the surrounding circles around the left inner circle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Right</span></code>: Size of the surrounding circles around the right inner circle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distance</span></code>: Distance between the circles, by modifying <code class="docutils literal notranslate"><span class="pre">distance</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Reference</span></code>: Distance between circles is computed ‘Between Edges’ or ‘Between Centers’, by modifying <code class="docutils literal notranslate"><span class="pre">distance_auto</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Edges_Inner</span></code>: Distance between the edges of the inner left and right circles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distance_Edges_Outer</span></code>: Distance between the edges of the surrounding left circles and right circles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Smaller</span></code>: Size of the smaller inner circle, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">ebbinghaus_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Inner_Larger</span></code>: Size of the larger inner circle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Smaller</span></code>: Size of the smaller surrounding circles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Outer_Larger</span></code>: Size of the larger surrounding cricles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Position_Outer_x_Left</span></code>: x-coordinates of the left surrounding circles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Position_Outer_y_Left</span></code>: y-coordinates of the left surrounding circles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Position_Outer_x_Right</span></code>: x-coordinates of the right surrounding circles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Position_Outer_y_Right</span></code>: y-coordinates of the right surrounding circles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Position_Left</span></code>: Position of the left inner circle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Position_Right</span></code>: Position of the right inner circle.</p></li>
+<p>Each instance of <strong>Ebbinghaus</strong> contains attributes corresponding to the parameters of the illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
+Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if <strong>illusion_strength=1</strong>,
+it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
+A negative sign means that the illusion will enhance the perception of the actual <strong>difference</strong> in circle sizes
+whereas a positive sign reduces this perception.</p></li>
+<li><p><strong>difference</strong> (<em>float</em>) – The objective size difference of the inner circles.
+Specifically, the size of left inner circle relative to the right (in percentage, e.g., if <strong>difference=1</strong>,
+it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
+A negative sign would make the left inner circle smaller than the right inner circle.</p></li>
+<li><p><strong>size_min</strong> (<em>float</em>) – Size of smaller inner circle. Defaults to 0.25.</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – Distance between circles. Defaults to 1.</p></li>
+<li><p><strong>distance_auto</strong> (<em>bool</em>) – If true, distance is between edges (fixed spacing), if false, between centers (fixed location).</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.Ebbinghaus.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Ebbinghaus illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Ebbinghaus illusion.</p>
+<ul class="simple">
+<li><p><strong>Difference</strong>: Objective difference in the target features, by modifying <cite>difference</cite> of ebbinghaus_parameters()</p></li>
+<li><p><strong>Illusion</strong>: Name of the illusion, ‘Ebbinghaus’.</p></li>
+<li><dl class="simple">
+<dt><strong>Illusion_Strength</strong>: Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite></dt><dd><p>of ebbinghaus_parameters().</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Illusion_Type</strong>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion,</dt><dd><p>and ‘Incongruent’ if it reduces the perceived difference.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>Size_Inner_Left</strong>: Size of the inner left circle.</p></li>
+<li><p><strong>Size_Inner_Right</strong>: Size of the inner right circle.</p></li>
+<li><p><strong>Sine_Inner_Difference</strong>: Difference in areas of the left and right inner circles.</p></li>
+<li><p><strong>Size_Outer_Left</strong>: Size of the surrounding circles around the left inner circle.</p></li>
+<li><p><strong>Size_Outer_Right</strong>: Size of the surrounding circles around the right inner circle.</p></li>
+<li><p><strong>Distance</strong>: Distance between the circles, by modifying <cite>distance</cite> of ebbinghaus_parameters().</p></li>
+<li><dl class="simple">
+<dt><strong>Distance_Reference</strong>: Distance between circles is computed ‘Between Edges’ or ‘Between Centers’, by modifying</dt><dd><p><cite>distance_auto</cite> of ebbinghaus_parameters().</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>Distance_Edges_Inner</strong>: Distance between the edges of the inner left and right circles.</p></li>
+<li><p><strong>Distance_Edges_Outer</strong>: Distance between the edges of the surrounding left circles and right circles.</p></li>
+<li><p><strong>Size_Inner_Smaller</strong>: Size of the smaller inner circle, equates to <cite>size_min</cite> of ebbinghaus_parameters().</p></li>
+<li><p><strong>Size_Inner_Larger</strong>: Size of the larger inner circle.</p></li>
+<li><p><strong>Size_Outer_Smaller</strong>: Size of the smaller surrounding circles.</p></li>
+<li><p><strong>Size_Outer_Larger</strong>: Size of the larger surrounding cricles.</p></li>
+<li><p><strong>Position_Outer_x_Left</strong>: x-coordinates of the left surrounding circles.</p></li>
+<li><p><strong>Position_Outer_y_Left</strong>: y-coordinates of the left surrounding circles.</p></li>
+<li><p><strong>Position_Outer_x_Right</strong>: x-coordinates of the right surrounding circles.</p></li>
+<li><p><strong>Position_Outer_y_Right</strong>: y-coordinates of the right surrounding circles.</p></li>
+<li><p><strong>Position_Left</strong>: Position of the left inner circle.</p></li>
+<li><p><strong>Position_Right</strong>: Position of the right inner circle.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1038,14 +1072,14 @@ and saved in different file formats
 manner in which the colors of two different objects affect each other.
 Specifically, when comparing two targets with the same shade of grey, the one that is
 embedded against a darker background appears lighter than the other target embedded against a lighter background.</p>
-<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Contrast</span></code> contains attributes corresponding to the parameters of the illusion.</p>
+<p>Each instance of <strong>Contrast</strong> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.
 Specifically, the difference in background colours, where large values create greater contrast in the two
 grey backgrounds.
-A positive sign means that the illusion will enhance the perception of the actual <code class="docutils literal notranslate"><span class="pre">difference</span></code> in brightness contrast
+A positive sign means that the illusion will enhance the perception of the actual <strong>difference</strong> in brightness contrast
 of the two inner rectangles, whereas a negative sign reduces this perception.</p></li>
 <li><p><strong>difference</strong> (<em>float</em>) – The objective difference of the grey shades of the two inner rectangles.
 Large positive signs reflect a darker lower rectangle relative to the upper rectangle, and negative signs reflect a darker upper
@@ -1059,7 +1093,30 @@ rectangle relative to the lower rectangle.</p></li>
 <dd><p>Returns a dictionary of parameters passed into the Simultaneous Contrast illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>dict</em> – Dictionary of parameters of the Simultaneous Contrast illusion.</p>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Simultaneous Contrast illusion, including:</p>
+<ul class="simple">
+<li><p><strong>Difference</strong>: Objective difference in the target features, by modifying <cite>difference</cite> of contrast_parameters().</p></li>
+<li><p><strong>Illusion</strong>: Name of the illusion, ‘Contrast’.</p></li>
+<li><dl class="simple">
+<dt><strong>Illusion_Strength</strong>: Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite></dt><dd><p>of contrast_parameters().</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Illusion_Type</strong>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion,</dt><dd><p>and ‘Incongruent’ if it reduces the perceived difference.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>Rectangle_Top</strong>: Luminance of the top inner rectangle.</p></li>
+<li><p><strong>Rectangle_Bottom</strong>: Luminance of the bottom inner rectangle.</p></li>
+<li><p><strong>Background_Top</strong>: Luminance of the top half of the background.</p></li>
+<li><p><strong>Background_Bottom</strong>: Luminance of the bottom half of the background.</p></li>
+<li><p><strong>Rectangle_Top_RGB</strong>: RGB value of the top inner rectangle.</p></li>
+<li><p><strong>Rectangle_Bottom_RGB</strong>: RGB value of the bottom inner rectangle.</p></li>
+<li><p><strong>Background_Top_RGB</strong>: RGB value of the top half of the background.</p></li>
+<li><p><strong>Background_Bottom_RGB</strong>: RGB value of the bottom half of the background.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
