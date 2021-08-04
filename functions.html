@@ -185,30 +185,18 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><em>dict</em> – A dictionary of all parameters passed into the Delboeuf illusion, including:</p>
-<ul>
+<ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of delboeuf_parameters()</p></li>
-<li><p><strong>Illusion</strong> : Name of the illusion, ‘Delboeuf’.</p></li>
-<li><dl>
-<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>Illusion_Strength<span class="classifier">Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of</span></dt><dd><p>delboeuf_parameters().</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Illusion_Type</strong><span class="classifier">’Congruent’ if the illusion enhances the perception of the objective difference in the illusion,</span></dt><dd><p>and ‘Incongruent’ if it reduces the perceived  difference.</p>
-</dd>
-</dl>
-</li>
+<li><p><strong>Illusion</strong> : Name of the illusion, Delboeuf.</p></li>
+<li><p><strong>Illusion_Strength</strong> : The strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of delboeuf_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived  difference.</p></li>
 <li><p><strong>Size_Inner_Left</strong> : Size of the inner left circle.</p></li>
 <li><p><strong>Size_Inner_Right</strong> : Size of the inner right circle.</p></li>
 <li><p><strong>Sine_Inner_Difference</strong> : Difference in areas of the left and right inner circles.</p></li>
 <li><p><strong>Size_Outer_Left</strong> : Size of the outer left rim.</p></li>
 <li><p><strong>Size_Outer_Right</strong> : Size of the outer right rim.</p></li>
 <li><p><strong>Distance</strong> : Distance between the circles, by modifying <cite>distance</cite> of delboeuf_parameters().</p></li>
-<li><dl class="simple">
-<dt><strong>Distance_Reference</strong>: Distance between circles is computed ‘Between Edges’ or ‘Between Centers’, by modifying</dt><dd><p>distance_auto of delboeuf_parameters().</p>
-</dd>
-</dl>
-</li>
+<li><p><strong>Distance_Reference</strong> : Distance between circles is computed ‘Between Edges’ or <cite>Between Centers</cite>, by modifying distance_auto of delboeuf_parameters().</p></li>
 <li><p><strong>Distance_Edges_Inner</strong> : Distance between the edges of the inner left and right circles.</p></li>
 <li><p><strong>Distance_Edges_Outer</strong> : Distance between the edges of the outer left and right rims.</p></li>
 <li><p><strong>Size_Inner_Smaller</strong> : Size of the smaller inner circle, equates to size_min of delboeuf_parameters().</p></li>
@@ -338,43 +326,31 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <dd><p>Returns a dictionary of parameters passed into the Ebbinghaus illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Ebbinghaus illusion.</p>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Ebbinghaus illusion, including:</p>
 <ul class="simple">
-<li><p><strong>Difference</strong>: Objective difference in the target features, by modifying <cite>difference</cite> of ebbinghaus_parameters()</p></li>
-<li><p><strong>Illusion</strong>: Name of the illusion, ‘Ebbinghaus’.</p></li>
-<li><dl class="simple">
-<dt><strong>Illusion_Strength</strong>: Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite></dt><dd><p>of ebbinghaus_parameters().</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Illusion_Type</strong>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion,</dt><dd><p>and ‘Incongruent’ if it reduces the perceived difference.</p>
-</dd>
-</dl>
-</li>
-<li><p><strong>Size_Inner_Left</strong>: Size of the inner left circle.</p></li>
-<li><p><strong>Size_Inner_Right</strong>: Size of the inner right circle.</p></li>
-<li><p><strong>Sine_Inner_Difference</strong>: Difference in areas of the left and right inner circles.</p></li>
-<li><p><strong>Size_Outer_Left</strong>: Size of the surrounding circles around the left inner circle.</p></li>
-<li><p><strong>Size_Outer_Right</strong>: Size of the surrounding circles around the right inner circle.</p></li>
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of ebbinghaus_parameters()</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, ‘Ebbinghaus’.</p></li>
+<li><p><strong>Illusion_Strength</strong> : The strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of ebbinghaus_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived difference.</p></li>
+<li><p><strong>Size_Inner_Left</strong> : Size of the inner left circle.</p></li>
+<li><p><strong>Size_Inner_Right</strong> : Size of the inner right circle.</p></li>
+<li><p><strong>Sine_Inner_Difference</strong> : Difference in areas of the left and right inner circles.</p></li>
+<li><p><strong>Size_Outer_Left</strong> : Size of the surrounding circles around the left inner circle.</p></li>
+<li><p><strong>Size_Outer_Right</strong> : Size of the surrounding circles around the right inner circle.</p></li>
 <li><p><strong>Distance</strong>: Distance between the circles, by modifying <cite>distance</cite> of ebbinghaus_parameters().</p></li>
-<li><dl class="simple">
-<dt><strong>Distance_Reference</strong>: Distance between circles is computed ‘Between Edges’ or ‘Between Centers’, by modifying</dt><dd><p><cite>distance_auto</cite> of ebbinghaus_parameters().</p>
-</dd>
-</dl>
-</li>
-<li><p><strong>Distance_Edges_Inner</strong>: Distance between the edges of the inner left and right circles.</p></li>
-<li><p><strong>Distance_Edges_Outer</strong>: Distance between the edges of the surrounding left circles and right circles.</p></li>
-<li><p><strong>Size_Inner_Smaller</strong>: Size of the smaller inner circle, equates to <cite>size_min</cite> of ebbinghaus_parameters().</p></li>
-<li><p><strong>Size_Inner_Larger</strong>: Size of the larger inner circle.</p></li>
-<li><p><strong>Size_Outer_Smaller</strong>: Size of the smaller surrounding circles.</p></li>
-<li><p><strong>Size_Outer_Larger</strong>: Size of the larger surrounding cricles.</p></li>
-<li><p><strong>Position_Outer_x_Left</strong>: x-coordinates of the left surrounding circles.</p></li>
-<li><p><strong>Position_Outer_y_Left</strong>: y-coordinates of the left surrounding circles.</p></li>
-<li><p><strong>Position_Outer_x_Right</strong>: x-coordinates of the right surrounding circles.</p></li>
-<li><p><strong>Position_Outer_y_Right</strong>: y-coordinates of the right surrounding circles.</p></li>
-<li><p><strong>Position_Left</strong>: Position of the left inner circle.</p></li>
-<li><p><strong>Position_Right</strong>: Position of the right inner circle.</p></li>
+<li><p><strong>Distance_Reference</strong> : Distance between circles is computed ‘Between Edges’ or <cite>Between Centers</cite>, by modifying <cite>distance_auto</cite> of ebbinghaus_parameters().</p></li>
+<li><p><strong>Distance_Edges_Inner</strong> : Distance between the edges of the inner left and right circles.</p></li>
+<li><p><strong>Distance_Edges_Outer</strong> : Distance between the edges of the surrounding left circles and right circles.</p></li>
+<li><p><strong>Size_Inner_Smaller</strong> : Size of the smaller inner circle, equates to <cite>size_min</cite> of ebbinghaus_parameters().</p></li>
+<li><p><strong>Size_Inner_Larger</strong> : Size of the larger inner circle.</p></li>
+<li><p><strong>Size_Outer_Smaller</strong> : Size of the smaller surrounding circles.</p></li>
+<li><p><strong>Size_Outer_Larger</strong> : Size of the larger surrounding cricles.</p></li>
+<li><p><strong>Position_Outer_x_Left</strong> : x-coordinates of the left surrounding circles.</p></li>
+<li><p><strong>Position_Outer_y_Left</strong> : y-coordinates of the left surrounding circles.</p></li>
+<li><p><strong>Position_Outer_x_Right</strong> : x-coordinates of the right surrounding circles.</p></li>
+<li><p><strong>Position_Outer_y_Right</strong> : y-coordinates of the right surrounding circles.</p></li>
+<li><p><strong>Position_Left</strong> : Position of the left inner circle.</p></li>
+<li><p><strong>Position_Right</strong> : Position of the right inner circle.</p></li>
 </ul>
 </p>
 </dd>
@@ -470,38 +446,58 @@ and saved in different file formats
 perceive two segments as being of different length depending on the shape of
 the arrows. Specifically, the line with outward-protruding fins appears longer than
 the line with inward-protruding fins.</p>
-<p>Each instance of <code class="docutils literal notranslate"><span class="pre">MullerLyer</span></code> contains attributes corresponding to the parameters of the illusion.
-These parameters are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘MullerLyer’.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distance</span></code>: Distance between the upper and lower horizontal lines, by modifying <code class="docutils literal notranslate"><span class="pre">distance</span></code> of <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x1</span></code>: x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y1</span></code>: y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x2</span></code>: x-coordinate of the end point (right) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y2</span></code>: y-coordinate of the end point (right) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_x1</span></code>: x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_y1</span></code>: y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_x2</span></code>: x-coordinate of the end point (right) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_y2</span></code>: y-coordinate of the end point (right) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Bottom</span></code>: Length of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Top</span></code>: Length of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Larger</span></code>: Length of the longer horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Smaller</span></code>: Length of the shorter horizontal line, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_Length</span></code>: Length of the distractor fins. Equivalent to half the length of <code class="docutils literal notranslate"><span class="pre">size_min</span></code> passed into <code class="docutils literal notranslate"><span class="pre">mullerlyer_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_TopLeft_*</span></code> x- and y- coordinates of the top left fins.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_TopRight_*</span></code> x- and y- coordinates of the top right fins.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_BottomLeft_*</span></code> x- and y- coordinates of the bottom left fins.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractor_BottomRight_*</span></code> x- and y- coordinates of the bottom right fins.</p></li>
+<p>Each instance of ** MullerLyer**  contains attributes corresponding to the parameters of the illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the arrow shapes (or fins) in biasing the perception of lines of unequal lengths.
+Specifically, the angle of the fins in degrees, i.e., ** illusion_strength=20**  represents
+a 20 degree tilt (away from vertical) of the fins.
+A negative sign means that the illusion will enhance the perception of the actual ** difference**  in lengths
+whereas a positive sign reduces this perception.</p></li>
+<li><p><strong>difference</strong> (<em>float</em>) – The objective length difference of the horizontal lines.
+Specifically, the real difference of upper horizontal line relative to the lower horizontal line. E.g.,
+if ** difference=1** , the upper line will be 100% longer, i.e., 2 times longer than the lower line.
+A negative sign would make the lower line longer than the upper line.</p></li>
+<li><p><strong>size_min</strong> (<em>float</em>) – Length of lower horizontal line.</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – Distance between the upper and lower horizontal lines.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.MullerLyer.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Müller-Lyer illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Müller-Lyer illusion, including:</p>
+<ul class="simple">
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of mullerlyer_parameters()</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, MullerLyer.</p></li>
+<li><p><strong>Illusion_Strength</strong> : The strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of mullerlyer_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived difference</p></li>
+<li><p><strong>Distance</strong> : Distance between the upper and lower horizontal lines, by modifying <cite>distance</cite> of mullerlyer_parameters()`.</p></li>
+<li><p><strong>Bottom_x1</strong> : x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_y1</strong> : y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_x2</strong> : x-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_y2</strong> : y-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><strong>Top_x1</strong> : x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><strong>Top_y1</strong> : y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><strong>Top_x2</strong> : x-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><strong>Top_y2</strong> : y-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><strong>Size_Bottom</strong> : Length of the lower horizontal line.</p></li>
+<li><p><strong>Size_Top</strong> : Length of the upper horizontal line.</p></li>
+<li><p><strong>Size_Larger</strong> : Length of the longer horizontal line.</p></li>
+<li><p><strong>Size_Smaller</strong> : Length of the shorter horizontal line, equates to <cite>size_min</cite> of mullerlyer_parameters().</p></li>
+<li><p><strong>Distractor_Length</strong> : Length of the distractor fins. Equivalent to half the length of <cite>size_min</cite> passed into mullerlyer_parameters().</p></li>
+<li><p><strong>Distractor_TopLeft_*</strong> : x- and y- coordinates of the top left fins.</p></li>
+<li><p><strong>Distractor_TopRight_*</strong> : x- and y- coordinates of the top right fins.</p></li>
+<li><p><strong>Distractor_BottomLeft_*</strong> : x- and y- coordinates of the bottom left fins.</p></li>
+<li><p><strong>Distractor_BottomRight_*</strong> : x- and y- coordinates of the bottom right fins.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -566,8 +562,8 @@ and saved in different file formats
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mullerlyer</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">MullerLyer</span><span class="p">(</span><span class="n">difference</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; # Initiate Window
+&gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pygame`, color=`white`)
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
@@ -1095,26 +1091,18 @@ rectangle relative to the lower rectangle.</p></li>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Simultaneous Contrast illusion, including:</p>
 <ul class="simple">
-<li><p><strong>Difference</strong>: Objective difference in the target features, by modifying <cite>difference</cite> of contrast_parameters().</p></li>
-<li><p><strong>Illusion</strong>: Name of the illusion, ‘Contrast’.</p></li>
-<li><dl class="simple">
-<dt><strong>Illusion_Strength</strong>: Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite></dt><dd><p>of contrast_parameters().</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><strong>Illusion_Type</strong>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion,</dt><dd><p>and ‘Incongruent’ if it reduces the perceived difference.</p>
-</dd>
-</dl>
-</li>
-<li><p><strong>Rectangle_Top</strong>: Luminance of the top inner rectangle.</p></li>
-<li><p><strong>Rectangle_Bottom</strong>: Luminance of the bottom inner rectangle.</p></li>
-<li><p><strong>Background_Top</strong>: Luminance of the top half of the background.</p></li>
-<li><p><strong>Background_Bottom</strong>: Luminance of the bottom half of the background.</p></li>
-<li><p><strong>Rectangle_Top_RGB</strong>: RGB value of the top inner rectangle.</p></li>
-<li><p><strong>Rectangle_Bottom_RGB</strong>: RGB value of the bottom inner rectangle.</p></li>
-<li><p><strong>Background_Top_RGB</strong>: RGB value of the top half of the background.</p></li>
-<li><p><strong>Background_Bottom_RGB</strong>: RGB value of the bottom half of the background.</p></li>
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of contrast_parameters().</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, Contrast.</p></li>
+<li><p><strong>Illusion_Strength</strong> : The strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of contrast_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived difference.</p></li>
+<li><p><strong>Rectangle_Top</strong> : Luminance of the top inner rectangle.</p></li>
+<li><p><strong>Rectangle_Bottom</strong> : Luminance of the bottom inner rectangle.</p></li>
+<li><p><strong>Background_Top</strong> : Luminance of the top half of the background.</p></li>
+<li><p><strong>Background_Bottom</strong> : Luminance of the bottom half of the background.</p></li>
+<li><p><strong>Rectangle_Top_RGB</strong> : RGB value of the top inner rectangle.</p></li>
+<li><p><strong>Rectangle_Bottom_RGB</strong> : RGB value of the bottom inner rectangle.</p></li>
+<li><p><strong>Background_Top_RGB</strong> : RGB value of the top half of the background.</p></li>
+<li><p><strong>Background_Bottom_RGB</strong> : RGB value of the bottom half of the background.</p></li>
 </ul>
 </p>
 </dd>
