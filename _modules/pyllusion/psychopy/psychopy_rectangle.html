@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyllusion.psychopy.psychopy_rectangle &#8212; Pyllusion 0.0.12 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/logo.png"></span>
+          Pyllusion</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.12</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <h1>Source code for pyllusion.psychopy.psychopy_rectangle</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">..image.utilities</span> <span class="kn">import</span> <span class="n">_coord_rectangle</span>
+
+
+<div class="viewcode-block" id="psychopy_rectangle"><a class="viewcode-back" href="../../../functions.html#pyllusion.psychopy.psychopy_rectangle">[docs]</a><span class="k">def</span> <span class="nf">psychopy_rectangle</span><span class="p">(</span>
+    <span class="n">window</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">size_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">size_height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">rotate</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">outline</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">outline_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">adjust_width</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">adjust_height</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a PsychoPy stimulus of a rectangle.</span>
+
+<span class="sd">    The `*_rectangle` functions are meant to facilitate the creation of primitive shapes,</span>
+<span class="sd">    in this case, rectangle(s), that can be assembled into illusory stimuli.</span>
+
+<span class="sd">    This function is intended to create lines similar to `image_rectangle()` within PsychoPy.</span>
+<span class="sd">    It is essentially a wrapper around PsychoPy `psychopy.visual.Rect()`. The difference lies</span>
+<span class="sd">    within the names of the arguments and the values that they take (e.g., we use a consistent</span>
+<span class="sd">    x-y plane [-1, 1; -1, 1] for the screen &quot;space&quot; with 0 as the center, instead of pixels starting</span>
+<span class="sd">    from the corner). The purpose of this wrapper is to have consistent behaviour for functions that</span>
+<span class="sd">    are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation</span>
+<span class="sd">    for more information (https://www.psychopy.org/api/visual/rect.html).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    window: object</span>
+<span class="sd">        A PsychoPy window for displaying one or more stimuli.</span>
+<span class="sd">    x : float</span>
+<span class="sd">        x-coordinates of the center of the rectangle, from -1 to 1.</span>
+<span class="sd">    y : float</span>
+<span class="sd">        y-coordinates of the center of the rectangle, from -1 to 1.</span>
+<span class="sd">    size_width : float</span>
+<span class="sd">        The width of the rectangle.</span>
+<span class="sd">    size_height : float</span>
+<span class="sd">        The height of the rectangle.</span>
+<span class="sd">    rotate : float</span>
+<span class="sd">        The orientation of the rectangle in degrees, 0 being vertical and</span>
+<span class="sd">        positive values rotating clockwise.</span>
+<span class="sd">    color : Union[list, str]</span>
+<span class="sd">        The fill color of the rectangle as single string value or [r, g, b] list, in which</span>
+<span class="sd">        colorSpace=&#39;rgb255&#39; argument has to be added.</span>
+<span class="sd">    outline : float</span>
+<span class="sd">        The width of the outline of the rectangle.</span>
+<span class="sd">    outline_color : Union[list, str]</span>
+<span class="sd">        The outline color of the rectangle as single string value or [r, g, b] list, in which</span>
+<span class="sd">        colorSpace=&#39;rgb255&#39; argument has to be added.</span>
+<span class="sd">    alpha : float</span>
+<span class="sd">        The opacity of the rectangle relative to the background, from 1.0 (opaque) to</span>
+<span class="sd">        0.0 (transparent).</span>
+<span class="sd">    adjust_width : bool</span>
+<span class="sd">        If set to True, the width of the rectangle can be adjusted</span>
+<span class="sd">        to the height and width of the window. Defaults to False.</span>
+<span class="sd">    adjust_height : bool</span>
+<span class="sd">        If set to True, the height of the rectangle can be adjusted</span>
+<span class="sd">        to the height and width of the window. Defaults to False.</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Additional arguments passed into `psychopy.visual.Rect()`</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    In-place modification of the PsychoPy window (No explicit return).</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    image_rectangle</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pyllusion</span>
+<span class="sd">    &gt;&gt;&gt; from psychopy import visual, event</span>
+
+<span class="sd">    &gt;&gt;&gt; # Initiate window</span>
+<span class="sd">    &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&quot;white&quot;)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Draw rectangle</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.psychopy_rectangle(window, x=0, y=0,</span>
+<span class="sd">                               size_width=0.5, size_height=0.5,</span>
+<span class="sd">                               color=&#39;white&#39;,</span>
+<span class="sd">                               outline_color=&#39;black&#39;, outline=3, rotate=1)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Refresh and close window</span>
+<span class="sd">    &gt;&gt;&gt; window.flip()</span>
+<span class="sd">    &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
+<span class="sd">    &gt;&gt;&gt; window.close()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Try loading psychopy</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+            <span class="s2">&quot;The &#39;psychopy&#39; module is required for this function to run. &quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Please install it first (`pip install PsychoPy`).&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Adjust size for screen ratio</span>
+    <span class="k">if</span> <span class="n">adjust_width</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">size_width</span> <span class="o">=</span> <span class="n">size_width</span> <span class="o">*</span> <span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">adjust_height</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">size_height</span> <span class="o">=</span> <span class="n">size_height</span> <span class="o">*</span> <span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Get coordinates</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">_coord_rectangle</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">size_width</span><span class="o">=</span><span class="n">size_width</span><span class="p">,</span>
+                                      <span class="n">size_height</span><span class="o">=</span><span class="n">size_height</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;psychopy&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Rectangle parameters</span>
+    <span class="n">rect</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span>
+        <span class="n">win</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+        <span class="n">units</span><span class="o">=</span><span class="s1">&#39;pix&#39;</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">,</span>
+        <span class="n">fillColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+        <span class="n">lineWidth</span><span class="o">=</span><span class="n">outline</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">+</span> <span class="n">y2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">rect</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">rect</span><span class="o">.</span><span class="n">lineColor</span> <span class="o">=</span> <span class="n">outline_color</span>
+
+    <span class="c1"># Alpha</span>
+    <span class="k">if</span> <span class="n">alpha</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">rect</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="n">alpha</span>
+
+    <span class="c1"># Orientation</span>
+    <span class="k">if</span> <span class="n">rotate</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">rect</span><span class="o">.</span><span class="n">ori</span> <span class="o">=</span> <span class="n">rotate</span>
+
+    <span class="c1"># Display</span>
+    <span class="n">rect</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Dominique Makowski.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

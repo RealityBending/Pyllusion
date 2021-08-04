@@ -1835,6 +1835,199 @@ provided data will be used.</p></li>
 <section id="psychopy">
 <h2>PsychoPy<a class="headerlink" href="#psychopy" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="module-pyllusion.psychopy"></span><p>Pyllusion submodule.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyllusion.psychopy.psychopy_circle">
+<span class="sig-name descname"><span class="pre">psychopy_circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/psychopy/psychopy_circle.html#psychopy_circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.psychopy.psychopy_circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a PsychoPy stimulus of a circle.</p>
+<p>The <cite>*_circle</cite> functions are meant to facilitate the creation of primitive shapes,
+in this case, circle(s), that can be assembled into illusory stimuli.</p>
+<p>This function is intended to create circles similar to <cite>image_circle()</cite> within PsychoPy.
+It is essentially a wrapper around PsychoPy <cite>psychopy.visual.Circle()</cite>. The difference lies
+within the names of the arguments and the values that they take (e.g., we use a consistent
+x-y plane [-1, 1; -1, 1] for the screen “space” with 0 as the center, instead of pixels starting
+from the corner). The purpose of this wrapper is to have consistent behaviour for functions that
+are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
+for more information (<a class="reference external" href="https://www.psychopy.org/api/visual/circle.html">https://www.psychopy.org/api/visual/circle.html</a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – A PsychoPy window for displaying one or more stimuli.</p></li>
+<li><p><strong>x</strong> (<em>float</em>) – x-coordinates of the center of the circle, from -1 to 1.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y-coordinates of the center of the circle, from -1 to 1.</p></li>
+<li><p><strong>color</strong> (<em>Union[list, str]</em>) – The fill color of the circle as single string value or [r, g, b] list, in which
+colorSpace=’rgb255’ argument has to be added.</p></li>
+<li><p><strong>outline</strong> (<em>float</em>) – The width of the outline of the circle.</p></li>
+<li><p><strong>outline_color</strong> (<em>Union[list, str]</em>) – The outline color of the circle as single string value or [r, g, b] list, in which
+colorSpace=’rgb255’ argument has to be added.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – The opacity of the circle relative to the background, from 1.0 (opaque) to
+0.0 (transparent).</p></li>
+<li><p><strong>blur</strong> (<em>float</em>) – The transparency mask that determines the proportion of the patch that will be blurred.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>psychopy.visual.Circle()</cite> or <cite>psychopy.visual.GratingStim()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_circles</span></code></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Draw circle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyllusion</span><span class="o">.</span><span class="n">psychopy_circle</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyllusion.psychopy.psychopy_line">
+<span class="sig-name descname"><span class="pre">psychopy_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/psychopy/psychopy_line.html#psychopy_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.psychopy.psychopy_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a PsychoPy stimulus of a line.</p>
+<p>The <cite>*_line</cite> functions are meant to facilitate the creation of primitive shapes,
+in this case, line(s), that can be assembled into illusory stimuli.</p>
+<p>This function is intended to create lines similar to <cite>image_line()</cite> within PsychoPy.
+It is essentially a wrapper around PsychoPy <cite>psychopy.visual.Line()</cite>. The difference lies
+within the names of the arguments and the values that they take (e.g., we use a consistent
+x-y plane [-1, 1; -1, 1] for the screen “space” with 0 as the center, instead of pixels starting
+from the corner). The purpose of this wrapper is to have consistent behaviour for functions that
+are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
+for more information (<a class="reference external" href="https://www.psychopy.org/api/visual/line.html">https://www.psychopy.org/api/visual/line.html</a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – A PsychoPy window for displaying one or more stimuli.</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – x-coordinates of the center of the line, from -1 to 1.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – y-coordinates of the center of the line, from -1 to 1.</p></li>
+<li><p><strong>x1, x2</strong> (<em>int</em>) – x-coordinates of the ends of the line, from -1 to 1. If not None, x is set to None.</p></li>
+<li><p><strong>y1, y2</strong> (<em>int</em>) – y-coordinates of the ends of the line, from -1 to 1. If not None, y is set to None.</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – Length of the line returned.</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – Width of the line returned.</p></li>
+<li><p><strong>rotate</strong> (<em>float</em>) – The orientation of the line in degrees, 0 being vertical and
+positive values rotating clockwise.</p></li>
+<li><p><strong>color</strong> (<em>Union[list, str]</em>) – The color of the line as single string value or [r, g, b] list, in which
+colorSpace=’rgb255’ argument has to be added.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – The opacity of the line relative to the background, from 1.0 (opaque) to
+0.0 (transparent).</p></li>
+<li><p><strong>adjust_width</strong> (<em>bool</em>) – If set to True, the x-coordinates of the line can be adjusted
+to the height and width of the window. Defaults to False.</p></li>
+<li><p><strong>adjust_height</strong> (<em>bool</em>) – If set to True, the y-coordinates of the line can be adjusted
+to the height and width of the window. Defaults to False.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>psychopy.visual.Line()</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_line</span></code></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Draw line</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyllusion</span><span class="o">.</span><span class="n">psychopy_line</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyllusion.psychopy.psychopy_rectangle">
+<span class="sig-name descname"><span class="pre">psychopy_rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/psychopy/psychopy_rectangle.html#psychopy_rectangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.psychopy.psychopy_rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a PsychoPy stimulus of a rectangle.</p>
+<p>The <cite>*_rectangle</cite> functions are meant to facilitate the creation of primitive shapes,
+in this case, rectangle(s), that can be assembled into illusory stimuli.</p>
+<p>This function is intended to create lines similar to <cite>image_rectangle()</cite> within PsychoPy.
+It is essentially a wrapper around PsychoPy <cite>psychopy.visual.Rect()</cite>. The difference lies
+within the names of the arguments and the values that they take (e.g., we use a consistent
+x-y plane [-1, 1; -1, 1] for the screen “space” with 0 as the center, instead of pixels starting
+from the corner). The purpose of this wrapper is to have consistent behaviour for functions that
+are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
+for more information (<a class="reference external" href="https://www.psychopy.org/api/visual/rect.html">https://www.psychopy.org/api/visual/rect.html</a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>window</strong> (<em>object</em>) – A PsychoPy window for displaying one or more stimuli.</p></li>
+<li><p><strong>x</strong> (<em>float</em>) – x-coordinates of the center of the rectangle, from -1 to 1.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – y-coordinates of the center of the rectangle, from -1 to 1.</p></li>
+<li><p><strong>size_width</strong> (<em>float</em>) – The width of the rectangle.</p></li>
+<li><p><strong>size_height</strong> (<em>float</em>) – The height of the rectangle.</p></li>
+<li><p><strong>rotate</strong> (<em>float</em>) – The orientation of the rectangle in degrees, 0 being vertical and
+positive values rotating clockwise.</p></li>
+<li><p><strong>color</strong> (<em>Union[list, str]</em>) – The fill color of the rectangle as single string value or [r, g, b] list, in which
+colorSpace=’rgb255’ argument has to be added.</p></li>
+<li><p><strong>outline</strong> (<em>float</em>) – The width of the outline of the rectangle.</p></li>
+<li><p><strong>outline_color</strong> (<em>Union[list, str]</em>) – The outline color of the rectangle as single string value or [r, g, b] list, in which
+colorSpace=’rgb255’ argument has to be added.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – The opacity of the rectangle relative to the background, from 1.0 (opaque) to
+0.0 (transparent).</p></li>
+<li><p><strong>adjust_width</strong> (<em>bool</em>) – If set to True, the width of the rectangle can be adjusted
+to the height and width of the window. Defaults to False.</p></li>
+<li><p><strong>adjust_height</strong> (<em>bool</em>) – If set to True, the height of the rectangle can be adjusted
+to the height and width of the window. Defaults to False.</p></li>
+<li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>psychopy.visual.Rect()</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">image_rectangle</span></code></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyllusion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span><span class="p">,</span> <span class="n">event</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Draw rectangle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyllusion</span><span class="o">.</span><span class="n">psychopy_rectangle</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="go">                           size_width=0.5, size_height=0.5,</span>
+<span class="go">                           color=&#39;white&#39;,</span>
+<span class="go">                           outline_color=&#39;black&#39;, outline=3, rotate=1)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Refresh and close window</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">waitKeys</span><span class="p">()</span>  <span class="c1"># Press any key to close</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </section>
 <section id="module-pyllusion.movement">
 <span id="movement"></span><h2>Movement<a class="headerlink" href="#module-pyllusion.movement" title="Permalink to this headline">¶</a></h2>
