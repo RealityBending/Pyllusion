@@ -12,20 +12,20 @@ class MullerLyer:
     the arrows. Specifically, the line with outward-protruding fins appears longer than
     the line with inward-protruding fins.
 
-    Each instance of ** MullerLyer**  contains attributes corresponding to the parameters of the illusion.
+    Each instance of `MullerLyer`  contains attributes corresponding to the parameters of the illusion.
 
     Parameters
     ----------
     illusion_strength : float
         The strength of the arrow shapes (or fins) in biasing the perception of lines of unequal lengths.
-        Specifically, the angle of the fins in degrees, i.e., ** illusion_strength=20**  represents
+        Specifically, the angle of the fins in degrees, i.e., `illusion_strength=20`  represents
         a 20 degree tilt (away from vertical) of the fins.
-        A negative sign means that the illusion will enhance the perception of the actual ** difference**  in lengths
+        A negative sign means that the illusion will enhance the perception of the actual `difference`  in lengths
         whereas a positive sign reduces this perception.
     difference : float
         The objective length difference of the horizontal lines.
         Specifically, the real difference of upper horizontal line relative to the lower horizontal line. E.g.,
-        if ** difference=1** , the upper line will be 100% longer, i.e., 2 times longer than the lower line.
+        if `difference=1`, the upper line will be 100% longer, i.e., 2 times longer than the lower line.
         A negative sign would make the lower line longer than the upper line.
     size_min : float
         Length of lower horizontal line.
@@ -43,14 +43,14 @@ class MullerLyer:
         ----------
             illusion_strength : float
                 The strength of the arrow shapes (or fins) in biasing the perception of lines of unequal lengths.
-                Specifically, the angle of the fins in degrees, i.e., ** illusion_strength=20**  represents
+                Specifically, the angle of the fins in degrees, i.e., `illusion_strength=20`  represents
                 a 20 degree tilt (away from vertical) of the fins.
-                A negative sign means that the illusion will enhance the perception of the actual ** difference**  in lengths
+                A negative sign means that the illusion will enhance the perception of the actual `difference`  in lengths
                 whereas a positive sign reduces this perception.
             difference : float
                 The objective length difference of the horizontal lines.
                 Specifically, the real difference of upper horizontal line relative to the lower horizontal line. E.g.,
-                if ** difference=1** , the upper line will be 100% longer, i.e., 2 times longer than the lower line.
+                if `difference=1`, the upper line will be 100% longer, i.e., 2 times longer than the lower line.
                 A negative sign would make the lower line longer than the upper line.
             size_min : float
                 Length of lower horizontal line.

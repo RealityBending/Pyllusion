@@ -12,19 +12,19 @@ class Ebbinghaus:
     Specifically, the central circle that is surrounded by large circles appears smaller
     than the central circle surrounded by small circles.
 
-    Each instance of **Ebbinghaus** contains attributes corresponding to the parameters of the illusion.
+    Each instance of `Ebbinghaus` contains attributes corresponding to the parameters of the illusion.
 
     Parameters
     ----------
     illusion_strength : float
         The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
-        Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if **illusion_strength=1**,
+        Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if `illusion_strength=1`,
         it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
-        A negative sign means that the illusion will enhance the perception of the actual **difference** in circle sizes
+        A negative sign means that the illusion will enhance the perception of the actual `difference` in circle sizes
         whereas a positive sign reduces this perception.
     difference : float
         The objective size difference of the inner circles.
-        Specifically, the size of left inner circle relative to the right (in percentage, e.g., if **difference=1**,
+        Specifically, the size of left inner circle relative to the right (in percentage, e.g., if `difference=1`,
         it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
         A negative sign would make the left inner circle smaller than the right inner circle.
     size_min : float
@@ -45,13 +45,13 @@ class Ebbinghaus:
         ----------
             illusion_strength : float
                 The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
-                Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if **illusion_strength=1**,
+                Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if `illusion_strength=1`,
                 it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
-                A negative sign means that the illusion will enhance the perception of the actual **difference** in circle sizes
+                A negative sign means that the illusion will enhance the perception of the actual `difference` in circle sizes
                 whereas a positive sign reduces this perception.
             difference : float
                 The objective size difference of the inner circles.
-                Specifically, the size of left inner circle relative to the right (in percentage, e.g., if **difference=1**,
+                Specifically, the size of left inner circle relative to the right (in percentage, e.g., if `difference=1`,
                 it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
                 A negative sign would make the left inner circle smaller than the right inner circle.
             size_min : float
@@ -59,7 +59,7 @@ class Ebbinghaus:
             distance : float
                 Distance between circles. Defaults to 1.
             distance_auto : bool
-                f true, distance is between edges (fixed spacing), if false, between centers (fixed location).
+                If true, distance is between edges (fixed spacing), if false, between centers (fixed location).
         """
         self.parameters = _ebbinghaus_parameters(
             illusion_strength=illusion_strength,
