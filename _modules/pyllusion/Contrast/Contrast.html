@@ -118,61 +118,60 @@
 <div class="viewcode-block" id="Contrast"><a class="viewcode-back" href="../../../functions.html#pyllusion.Contrast">[docs]</a><span class="k">class</span> <span class="nc">Contrast</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class to generate the Simultaneous Contrast illusion.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Simultaneous contrast, identified by Michel Eugène Chevreul, refers to the</span>
 <span class="sd">    manner in which the colors of two different objects affect each other.</span>
 <span class="sd">    Specifically, when comparing two targets with the same shade of grey, the one that is</span>
 <span class="sd">    embedded against a darker background appears lighter than the other target embedded against a lighter background.</span>
 
 <span class="sd">    Each instance of ``Contrast`` contains attributes corresponding to the parameters of the illusion.</span>
-<span class="sd">    These parameters are:</span>
-<span class="sd">        * ``Difference``: Objective difference in the target features, by modifying ``difference`` of ``contrast_parameters()``</span>
-<span class="sd">        * ``Illusion``: Name of the illusion, &#39;Contrast&#39;.</span>
-<span class="sd">        * ``Illusion_Strength``: Strength of the surrounding context in biasing illusion, by modifying ``illusion_strength`` of ``contrast_parameters()``.</span>
-<span class="sd">        * ``Illusion_Type``: &#39;Congruent&#39; if the illusion enhances the perception of the objective difference in the illusion, and &#39;Incongruent&#39; if it reduces the perceived difference.</span>
-<span class="sd">        * ``Rectangle_Top``: Luminance of the top inner rectangle.</span>
-<span class="sd">        * ``Rectangle_Bottom``: Luminance of the bottom inner rectangle.</span>
-<span class="sd">        * ``Background_Top``: Luminance of the top half of the background.</span>
-<span class="sd">        * ``Background_Bottom``: Luminance of the bottom half of the background.</span>
-<span class="sd">        * ``Rectangle_Top_RGB``: RGB value of the top inner rectangle.</span>
-<span class="sd">        * ``Rectangle_Bottom_RGB``: RGB value of the bottom inner rectangle.</span>
-<span class="sd">        * ``Background_Top_RGB``: RGB value of the top half of the background.</span>
-<span class="sd">        * ``Background_Bottom_RGB``: RGB value of the bottom half of the background.            </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    illusion_strength : float</span>
+<span class="sd">        The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.</span>
+<span class="sd">        Specifically, the difference in background colours, where large values create greater contrast in the two</span>
+<span class="sd">        grey backgrounds.</span>
+<span class="sd">        A positive sign means that the illusion will enhance the perception of the actual ``difference`` in brightness contrast</span>
+<span class="sd">        of the two inner rectangles, whereas a negative sign reduces this perception.</span>
+<span class="sd">    difference : float</span>
+<span class="sd">        The objective difference of the grey shades of the two inner rectangles.</span>
+<span class="sd">        Large positive signs reflect a darker lower rectangle relative to the upper rectangle, and negative signs reflect a darker upper</span>
+<span class="sd">        rectangle relative to the lower rectangle.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_min</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute parameters for the Simultaneous Contrast illusion.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        illusion_strength : float</span>
-<span class="sd">            The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.</span>
-<span class="sd">            Specifically, the difference in background colours, where large values create greater contrast in the two</span>
-<span class="sd">            grey backgrounds. </span>
-<span class="sd">            A positive sign means that the illusion will enhance the perception of the actual ``difference`` in brightness contrast</span>
-<span class="sd">            of the two inner rectangles, whereas a negative sign reduces this perception.</span>
-<span class="sd">        difference : float</span>
-<span class="sd">            The objective difference of the grey shades of the two inner rectangles.</span>
-<span class="sd">            Large positive signs reflect a darker lower rectangle relative to the upper rectangle, and negative signs reflect a darker upper</span>
-<span class="sd">            rectangle relative to the lower rectangle.</span>
-<span class="sd">            </span>
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        dict</span>
-<span class="sd">            Dictionary of parameters of the Simultaneous Contrast illusion.</span>
-
+<span class="sd">            illusion_strength : float</span>
+<span class="sd">                The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.</span>
+<span class="sd">                Specifically, the difference in background colours, where large values create greater contrast in the two</span>
+<span class="sd">                grey backgrounds.</span>
+<span class="sd">                A positive sign means that the illusion will enhance the perception of the actual ``difference`` in brightness contrast</span>
+<span class="sd">                of the two inner rectangles, whereas a negative sign reduces this perception.</span>
+<span class="sd">            difference : float</span>
+<span class="sd">                The objective difference of the grey shades of the two inner rectangles.</span>
+<span class="sd">                Large positive signs reflect a darker lower rectangle relative to the upper rectangle, and negative signs reflect a darker upper</span>
+<span class="sd">                rectangle relative to the lower rectangle.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">_contrast_parameters</span><span class="p">(</span>
             <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span><span class="p">,</span>
             <span class="n">difference</span><span class="o">=</span><span class="n">difference</span><span class="p">,</span>
         <span class="p">)</span>
-    
+
 <div class="viewcode-block" id="Contrast.get_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.Contrast.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a dictionary of parameters passed into the Simultaneous Contrast illusion.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Dictionary of parameters of the Simultaneous Contrast illusion.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span></div>
 
@@ -184,7 +183,7 @@
 
 <div class="viewcode-block" id="Contrast.to_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.Contrast.to_image">[docs]</a>    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a PIL image of the Simultaneous Contrast illusion.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        width : int</span>
@@ -193,7 +192,7 @@
 <span class="sd">            Height of the returned image.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `contrast_parameters()`.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Image</span>
@@ -202,7 +201,7 @@
 <span class="sd">            (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)</span>
 <span class="sd">            and saved in different file formats</span>
 <span class="sd">            (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
@@ -228,33 +227,33 @@
 <span class="sd">            The window object in which the stimulus will be rendered.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `contrast_parameters()`.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        In-place modification of the PsychoPy window (No explicit return).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">        &gt;&gt;&gt; from psychopy import visual, event</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Create parameters</span>
 <span class="sd">        &gt;&gt;&gt; contrast = pyllusion.Contrast(difference=0, illusion_strength=-50)</span>
 <span class="sd">        &gt;&gt;&gt; parameters = contrast.get_parameters()</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Initiate Window</span>
 <span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;,</span>
 <span class="sd">                                   color=parameters[&quot;Background_Top_RGB&quot;],</span>
 <span class="sd">                                   colorSpace=&#39;rgb255&#39;)</span>
-<span class="sd">        </span>
+
 <span class="sd">        &gt;&gt;&gt; # Display illusion</span>
 <span class="sd">        &gt;&gt;&gt; contrast.to_psychopy(window)</span>
-<span class="sd">        </span>
-<span class="sd">        &gt;&gt;&gt; # Refresh and close window    </span>
+
+<span class="sd">        &gt;&gt;&gt; # Refresh and close window</span>
 <span class="sd">        &gt;&gt;&gt; window.flip()</span>
 <span class="sd">        &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
 <span class="sd">        &gt;&gt;&gt; window.close()</span>
-<span class="sd">    </span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_contrast_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
 </pre></div>
