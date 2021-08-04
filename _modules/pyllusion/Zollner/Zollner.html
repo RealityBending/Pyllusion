@@ -122,25 +122,25 @@
 <span class="sd">    The Zöllner illusion is an optical illusion, where horizontal lines are perceived</span>
 <span class="sd">    as not parallel because of their background (i.e., the slanting of the intersecting lines).</span>
 
-<span class="sd">    Each instance of ``Zollner`` contains attributes corresponding to the parameters of the illusion.</span>
-<span class="sd">    These parameters are:</span>
-<span class="sd">        * ``Difference``: Objective difference in the target features, by modifying ``difference`` of ``zollner_parameters()``</span>
-<span class="sd">        * ``Illusion``: Name of the illusion, &#39;Zollner&#39;.</span>
-<span class="sd">        * ``Illusion_Strength``: Strength of the surrounding context in biasing illusion, by modifying ``illusion_strength`` of ``zollner_parameters()``.</span>
-<span class="sd">        * ``Illusion_Type``: &#39;Congruent&#39; if the illusion enhances the perception of the objective difference in the illusion, and &#39;Incongruent&#39; if it reduces the perceived difference.</span>
-<span class="sd">        * ``Top_x1``: x-coordinate of the starting point (left) of the upper horizontal line.</span>
-<span class="sd">        * ``Top_y1``: y-coordinate of the starting point (left) of the upper horizontal line.</span>
-<span class="sd">        * ``Top_x2``: x-coordinate of the end point (right) of the upper horizontal line.</span>
-<span class="sd">        * ``Top_y2``: y-coordinate of the end point (right) of the upper horizontal line.</span>
-<span class="sd">        * ``Bottom_x1``: x-coordinate of the starting point (left) of the lower horizontal line.</span>
-<span class="sd">        * ``Bottom_y1``: y-coordinate of the starting point (left) of the lower horizontal line.</span>
-<span class="sd">        * ``Bottom_x2``: x-coordinate of the end point (right) of the lower horizontal line.</span>
-<span class="sd">        * ``Bottom_y2``: y-coordinate of the end point (right) of the lower horizontal line.</span>
-<span class="sd">        * ``Distractors_n``: Number of intersecting distractor lines, equates to ``distractors_n`` of ``zollner_parameters()``.</span>
-<span class="sd">        * ``Distractors_Size``: Length of intersecting distractor lines, equates to ``distractors_length`` of ``zollner_parameters()``.</span>
-<span class="sd">        * ``Distractors_Angle``: Angle of the intersecting distractor lines (relative to vertical).</span>
-<span class="sd">        * ``Distractors_Top_*``: x- and y- coordinates of the starting points and end points of the top distractor lines.</span>
-<span class="sd">        * ``Distractors_Bottom_*``: x- and y- coordinates of the starting points and end points of the bottom distractor lines.</span>
+<span class="sd">    Each instance of `Zollner` contains attributes corresponding to the parameters of the illusion.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    illusion_strength : float</span>
+<span class="sd">        The strength of the background, i.e., tilted distractor lines, in biasing the perception of unparallel horizontal lines.</span>
+<span class="sd">        Specifically, the angle of the distractor lines in degrees (relative to vertical), where larger values</span>
+<span class="sd">        increase susceptibility to the illusion.</span>
+<span class="sd">        A positive sign means that the illusion will enhance the perception of the actual `difference` in slantness of the horizontal lines</span>
+<span class="sd">        whereas a negative sign reduces this perception.</span>
+<span class="sd">    difference : float</span>
+<span class="sd">        The objective parallel alignment of the two horizontal lines.</span>
+<span class="sd">        Specifically, the angle of the two horizontal target lines in degrees, where `difference=10` represents</span>
+<span class="sd">        a 10 degree tilt of the lines towards each other (converging towards the right side of the pane). A negative sign</span>
+<span class="sd">        flips the direction of the convergence (converging towards the left side of the pane).</span>
+<span class="sd">    distractors_n : int</span>
+<span class="sd">        Number of distractor lines in the background. Defaults to 8.</span>
+<span class="sd">    distractors_length : float</span>
+<span class="sd">        Length of distractor lines in the background. Defaults to 0.66.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -151,26 +151,21 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        illusion_strength : float</span>
-<span class="sd">            The strength of the background, i.e., tilted distractor lines, in biasing the perception of unparallel horizontal lines.</span>
-<span class="sd">            Specifically, the angle of the distractor lines in degrees (relative to vertical), where larger values</span>
-<span class="sd">            increase susceptibility to the illusion.</span>
-<span class="sd">            A positive sign means that the illusion will enhance the perception of the actual ``difference`` in slantness of the horizontal lines</span>
-<span class="sd">            whereas a negative sign reduces this perception.</span>
-<span class="sd">        difference : float</span>
-<span class="sd">            The objective parallel alignment of the two horizontal lines. </span>
-<span class="sd">            Specifically, the angle of the two horizontal target lines in degrees, where ``difference=10`` represents</span>
-<span class="sd">            a 10 degree tilt of the lines towards each other (converging towards the right side of the pane). A negative sign</span>
-<span class="sd">            flips the direction of the convergence (converging towards the left side of the pane).</span>
-<span class="sd">        distractors_n : int</span>
-<span class="sd">            Number of distractor lines in the background. Defaults to 8.</span>
-<span class="sd">        distractors_length : float</span>
-<span class="sd">            Length of distractor lines in the background. Defaults to 0.66.</span>
-<span class="sd">        </span>
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        dict</span>
-<span class="sd">            Dictionary of parameters of the Zöllner illusion.</span>
+<span class="sd">            illusion_strength : float</span>
+<span class="sd">                The strength of the background, i.e., tilted distractor lines, in biasing the perception of unparallel horizontal lines.</span>
+<span class="sd">                Specifically, the angle of the distractor lines in degrees (relative to vertical), where larger values</span>
+<span class="sd">                increase susceptibility to the illusion.</span>
+<span class="sd">                A positive sign means that the illusion will enhance the perception of the actual `difference` in slantness of the horizontal lines</span>
+<span class="sd">                whereas a negative sign reduces this perception.</span>
+<span class="sd">            difference : float</span>
+<span class="sd">                The objective parallel alignment of the two horizontal lines.</span>
+<span class="sd">                Specifically, the angle of the two horizontal target lines in degrees, where `difference=10` represents</span>
+<span class="sd">                a 10 degree tilt of the lines towards each other (converging towards the right side of the pane). A negative sign</span>
+<span class="sd">                flips the direction of the convergence (converging towards the left side of the pane).</span>
+<span class="sd">            distractors_n : int</span>
+<span class="sd">                Number of distractor lines in the background. Defaults to 8.</span>
+<span class="sd">            distractors_length : float</span>
+<span class="sd">                Length of distractor lines in the background. Defaults to 0.66.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">_zollner_parameters</span><span class="p">(</span>
             <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span><span class="p">,</span>
@@ -178,10 +173,33 @@
             <span class="n">distractors_n</span><span class="o">=</span><span class="n">distractors_n</span><span class="p">,</span>
             <span class="n">distractors_length</span><span class="o">=</span><span class="n">distractors_length</span><span class="p">,</span>
         <span class="p">)</span>
-    
+
 <div class="viewcode-block" id="Zollner.get_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.Zollner.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a dictionary of parameters passed into the Zollner illusion.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Dictionary of parameters of the Zöllner illusion, including:</span>
+
+<span class="sd">            - **Difference** : Objective difference in the target features, by modifying `difference` of zollner_parameters()</span>
+<span class="sd">            - **Illusion** : Name of the illusion, Zollner.</span>
+<span class="sd">            - **Illusion_Strength** : Strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of zollner_parameters().</span>
+<span class="sd">            - **Illusion_Type** : `Congruent` if the illusion enhances the perception of the objective difference in the illusion, and `Incongruent` if it reduces the perceived difference.</span>
+<span class="sd">            - **Top_x1** : x-coordinate of the starting point (left) of the upper horizontal line.</span>
+<span class="sd">            - **Top_y1** : y-coordinate of the starting point (left) of the upper horizontal line.</span>
+<span class="sd">            - **Top_x2** : x-coordinate of the end point (right) of the upper horizontal line.</span>
+<span class="sd">            - **Top_y2** : y-coordinate of the end point (right) of the upper horizontal line.</span>
+<span class="sd">            - **Bottom_x1** : x-coordinate of the starting point (left) of the lower horizontal line.</span>
+<span class="sd">            - **Bottom_y1** : y-coordinate of the starting point (left) of the lower horizontal line.</span>
+<span class="sd">            - **Bottom_x2** : x-coordinate of the end point (right) of the lower horizontal line.</span>
+<span class="sd">            - **Bottom_y2** : y-coordinate of the end point (right) of the lower horizontal line.</span>
+<span class="sd">            - **Distractors_n** : Number of intersecting distractor lines, equates to `distractors_n` of zollner_parameters().</span>
+<span class="sd">            - **Distractors_Size** : Length of intersecting distractor lines, equates to `distractors_length` of zollner_parameters().</span>
+<span class="sd">            - **Distractors_Angle** : Angle of the intersecting distractor lines (relative to vertical).</span>
+<span class="sd">            - **Distractors_Top_*** : x- and y- coordinates of the starting points and end points of the top distractor lines.</span>
+<span class="sd">            - **Distractors_Bottom_*** : x- and y- coordinates of the starting points and end points of the bottom distractor lines.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span></div>
 
@@ -204,7 +222,7 @@
 <span class="sd">            Color of the background.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `zollner_parameters()`.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Image</span>
@@ -213,14 +231,14 @@
 <span class="sd">            (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)</span>
 <span class="sd">            and saved in different file formats</span>
 <span class="sd">            (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">        &gt;&gt;&gt;</span>
 <span class="sd">        &gt;&gt;&gt; zollner = pyllusion.Zollner(illusion_strength=75)</span>
 <span class="sd">        &gt;&gt;&gt; zollner.to_image()</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">img</span> <span class="o">=</span> <span class="n">_zollner_image</span><span class="p">(</span>
             <span class="n">parameters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
@@ -232,14 +250,14 @@
 
 <div class="viewcode-block" id="Zollner.to_psychopy"><a class="viewcode-back" href="../../../functions.html#pyllusion.Zollner.to_psychopy">[docs]</a>    <span class="k">def</span> <span class="nf">to_psychopy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a PsychoPy stimulus of the Zöllner illusion.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        window : object</span>
 <span class="sd">            The window object in which the stimulus will be rendered.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `zollner_parameters()`.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        In-place modification of the PsychoPy window (No explicit return).</span>
@@ -248,21 +266,21 @@
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">        &gt;&gt;&gt; from psychopy import visual, event</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Create parameters</span>
 <span class="sd">        &gt;&gt;&gt; zollner = pyllusion.Zollner(illusion_strength=75)</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Initiate Window</span>
-<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pyglet&#39;, color=&#39;white&#39;)</span>
-<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pyglet`, color=`white`)</span>
+
 <span class="sd">        &gt;&gt;&gt; # Display illusion</span>
 <span class="sd">        &gt;&gt;&gt; zollner.to_psychopy(window)</span>
-<span class="sd">        </span>
-<span class="sd">        &gt;&gt;&gt; # Refresh and close window    </span>
+
+<span class="sd">        &gt;&gt;&gt; # Refresh and close window</span>
 <span class="sd">        &gt;&gt;&gt; window.flip()</span>
 <span class="sd">        &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
 <span class="sd">        &gt;&gt;&gt; window.close()</span>
-<span class="sd">    </span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_zollner_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
 </pre></div>

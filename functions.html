@@ -301,17 +301,17 @@ and saved in different file formats
 where circles of identical size appear as different because of their surrounding context.
 Specifically, the central circle that is surrounded by large circles appears smaller
 than the central circle surrounded by small circles.</p>
-<p>Each instance of <strong>Ebbinghaus</strong> contains attributes corresponding to the parameters of the illusion.</p>
+<p>Each instance of <cite>Ebbinghaus</cite> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
-Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if <strong>illusion_strength=1</strong>,
+Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if <cite>illusion_strength=1</cite>,
 it means that the outer circle will be 100% bigger, i.e., 2 times bigger than the inner circle).
-A negative sign means that the illusion will enhance the perception of the actual <strong>difference</strong> in circle sizes
+A negative sign means that the illusion will enhance the perception of the actual <cite>difference</cite> in circle sizes
 whereas a positive sign reduces this perception.</p></li>
 <li><p><strong>difference</strong> (<em>float</em>) – The objective size difference of the inner circles.
-Specifically, the size of left inner circle relative to the right (in percentage, e.g., if <strong>difference=1</strong>,
+Specifically, the size of left inner circle relative to the right (in percentage, e.g., if <cite>difference=1</cite>,
 it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
 A negative sign would make the left inner circle smaller than the right inner circle.</p></li>
 <li><p><strong>size_min</strong> (<em>float</em>) – Size of smaller inner circle. Defaults to 0.25.</p></li>
@@ -446,18 +446,18 @@ and saved in different file formats
 perceive two segments as being of different length depending on the shape of
 the arrows. Specifically, the line with outward-protruding fins appears longer than
 the line with inward-protruding fins.</p>
-<p>Each instance of ** MullerLyer**  contains attributes corresponding to the parameters of the illusion.</p>
+<p>Each instance of <cite>MullerLyer</cite>  contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the arrow shapes (or fins) in biasing the perception of lines of unequal lengths.
-Specifically, the angle of the fins in degrees, i.e., ** illusion_strength=20**  represents
+Specifically, the angle of the fins in degrees, i.e., <cite>illusion_strength=20</cite>  represents
 a 20 degree tilt (away from vertical) of the fins.
-A negative sign means that the illusion will enhance the perception of the actual ** difference**  in lengths
+A negative sign means that the illusion will enhance the perception of the actual <cite>difference</cite>  in lengths
 whereas a positive sign reduces this perception.</p></li>
 <li><p><strong>difference</strong> (<em>float</em>) – The objective length difference of the horizontal lines.
 Specifically, the real difference of upper horizontal line relative to the lower horizontal line. E.g.,
-if ** difference=1** , the upper line will be 100% longer, i.e., 2 times longer than the lower line.
+if <cite>difference=1</cite>, the upper line will be 100% longer, i.e., 2 times longer than the lower line.
 A negative sign would make the lower line longer than the upper line.</p></li>
 <li><p><strong>size_min</strong> (<em>float</em>) – Length of lower horizontal line.</p></li>
 <li><p><strong>distance</strong> (<em>float</em>) – Distance between the upper and lower horizontal lines.</p></li>
@@ -591,43 +591,65 @@ and saved in different file formats
 horizontal lines of identical size appear as different because of their surrounding context.
 Specifically, because we interpret the converging sides as mimicing railway tracks (i.e., upward-converging lines receding into the distance),
 the upper line appears longer than the shorter one.</p>
-<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Ponzo</span></code> contains attributes corresponding to the parameters of the illusion.
-These parameters are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Ponzo’.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distance</span></code>: Distance between the upper and lower horizontal lines, by modifying <code class="docutils literal notranslate"><span class="pre">distance</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x1</span></code>: x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y1</span></code>: y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x2</span></code>: x-coordinate of the end point (right) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y2</span></code>: y-coordinate of the end point (right) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_x1</span></code>: x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_y1</span></code>: y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_x2</span></code>: x-coordinate of the end point (right) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_y2</span></code>: y-coordinate of the end point (right) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Bottom</span></code>: Length of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Top</span></code>: Length of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Larger</span></code>: Length of the longer horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Smaller</span></code>: Length of the shorter horizontal line, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Side_Angle</span></code>: Angle of the converging vertical lines, equates to <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">ponzo_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Side_Length</span></code>: Length of the converging vertical lines.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_x1</span></code>: x-coordinate of the starting point (bottom) of the left converging line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_y1</span></code>: y-coordinate of the starting point (bottom) of the left converging line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_x2</span></code>: x-coordinate of the end point (top) of the left converging line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_y2</span></code>: y-coordinate of the end point (top) of the left converging line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_x1</span></code>: x-coordinate of the starting point (bottom) of the right converging line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_y1</span></code>: y-coordinate of the starting point (bottom) of the right converging line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_x2</span></code>: x-coordinate of the end point (top) of the right converging line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_y2</span></code>: y-coordinate of the end point (top) of the right converging line.</p></li>
+<p>Each instance of <cite>Ponzo</cite> contains attributes corresponding to the parameters of the illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the tilting vertical lines in biasing the perception of horizontal lines of unequal lengths.
+Specifically, the angle of the vertical lines in degrees, i.e., <cite>illusion_strength=20</cite> represents
+a 20 degree tilt of the vertical lines.
+A negative sign means that the illusion will enhance the perception of the actual <cite>difference</cite>  in lengths
+whereas a positive sign reduces this perception.</p></li>
+<li><p><strong>difference</strong> (<em>float</em>) – The objective length difference of the two horizontal lines.
+Specifically, the real difference of the upper horizontal line relative to the lower horizontal line. E.g.,
+if <cite>difference=1</cite> , the upper line will be 100% longer, i.e., 2 times longer than
+the lower line. A negative sign reflects the converse, where <cite>difference=-1</cite>
+will result in the lower line being 100% longer than the upper line.
+A negative sign would make the lower line longer than the upper line.</p></li>
+<li><p><strong>size_min</strong> (<em>float</em>) – Length of shorter horizontal line. Defaults to 0.5.</p></li>
+<li><p><strong>distance</strong> (<em>float</em>) – Distance between the upper and lower horizontal lines. Defaults to 1.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.Ponzo.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Ponzo illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Ponzo illusion, including:</p>
+<ul class="simple">
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of ponzo_parameters()</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, Ponzo.</p></li>
+<li><p><strong>Illusion_Strength</strong> : Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of ponzo_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived difference.</p></li>
+<li><p><strong>Distance</strong> : Distance between the upper and lower horizontal lines, by modifying <cite>distance</cite> of ponzo_parameters().</p></li>
+<li><p><strong>Bottom_x1</strong> : x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_y1</strong> : y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_x2</strong> : x-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_y2</strong> : y-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><strong>Top_x1</strong> : x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><strong>Top_y1</strong> : y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><strong>Top_x2</strong> : x-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><strong>Top_y2</strong> : y-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><strong>Size_Bottom</strong> : Length of the lower horizontal line.</p></li>
+<li><p><strong>Size_Top</strong> : Length of the upper horizontal line.</p></li>
+<li><p><strong>Size_Larger</strong> : Length of the longer horizontal line.</p></li>
+<li><p><strong>Size_Smaller</strong> : Length of the shorter horizontal line, equates to <cite>size_min</cite> of ponzo_parameters().</p></li>
+<li><p><strong>Side_Angle</strong> : Angle of the converging vertical lines, equates to <cite>illusion_strength</cite> of ponzo_parameters().</p></li>
+<li><p><strong>Side_Length</strong> : Length of the converging vertical lines.</p></li>
+<li><p><strong>Left_x1</strong> : x-coordinate of the starting point (bottom) of the left converging line.</p></li>
+<li><p><strong>Left_y1</strong> : y-coordinate of the starting point (bottom) of the left converging line.</p></li>
+<li><p><strong>Left_x2</strong> : x-coordinate of the end point (top) of the left converging line.</p></li>
+<li><p><strong>Left_y2</strong> : y-coordinate of the end point (top) of the left converging line.</p></li>
+<li><p><strong>Right_x1</strong> : x-coordinate of the starting point (bottom) of the right converging line.</p></li>
+<li><p><strong>Right_y1</strong> : y-coordinate of the starting point (bottom) of the right converging line.</p></li>
+<li><p><strong>Right_x2</strong> : x-coordinate of the end point (top) of the right converging line.</p></li>
+<li><p><strong>Right_y2</strong> : y-coordinate of the end point (top) of the right converging line.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -691,8 +713,8 @@ and saved in different file formats
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ponzo</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Ponzo</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; # Initiate Window
+&gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pygame`, color=&quot;white&quot;)
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
@@ -718,34 +740,53 @@ and saved in different file formats
 <dd><p>A class to generate the vertical-horizontal illusion.</p>
 <p>The vertical–horizontal illusion illustrates the tendency for observers to overestimate
 the length of a vertical line relative to a horizontal line of the same length.</p>
-<p>Each instance of <code class="docutils literal notranslate"><span class="pre">MullerLyer</span></code> contains attributes corresponding to the parameters of the illusion.
-These parameters are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">verticalhorizontal_parameters()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘VerticalHorizontal’.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">verticalhorizontal_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_x1</span></code>: x-coordinate of the starting point of the left line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_y1</span></code>: y-coordinate of the starting point of the left line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_x2</span></code>: x-coordinate of the end point of the left line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_y2</span></code>: y-coordinate of the end point of the left line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_Angle</span></code>: The angle in which the left line is rotated.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_x1</span></code>: x-coordinate of the starting point of the right line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_y1</span></code>: y-coordinate of the starting point of the right line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_x2</span></code>: x-coordinate of the end point of the right line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_y2</span></code>: y-coordinate of the end point of the right line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_Angle</span></code>: The angle in which the right line is rotated.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Left</span></code>: Length of the left line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Right</span></code>: Length of the right line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Larger</span></code>: Length of the longer line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Size_Smaller</span></code>: Length of the shorter line, equates to <code class="docutils literal notranslate"><span class="pre">size_min</span></code> of <code class="docutils literal notranslate"><span class="pre">verticalhorizontal_parameters()</span></code>.</p></li>
+<p>Each instance of <cite>MullerLyer</cite> contains attributes corresponding to the parameters of the illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the tilted vertical line in biasing the overestimation of its length relative to the horizontal line.
+Specifically, the orientation of the line in degrees, 0 being vertical and
+values rotating anticlockwise if the left line is rotated and clockwise if the right line is rotated.
+A negative sign means that the illusion will enhance the perception of the actual <cite>difference</cite> in lengths
+whereas a positive sign reduces this perception.</p></li>
+<li><p><strong>difference</strong> (<em>float</em>) – The objective length difference of the vertical and horizontal lines.
+Specifically, the real difference of left line relative to the right line. E.g.,
+if <cite>difference=1</cite>, the left line will be 100% longer, i.e., 2 times longer than
+the right line. A negative sign would make the right line longer than the left line.</p></li>
+<li><p><strong>size_min</strong> (<em>float</em>) – Length of the shorter line. Defaults to 0.5.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.VerticalHorizontal.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the vertical-horizontal illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the vertical-horizontal illusion, including:</p>
+<ul class="simple">
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of verticalhorizontal_parameters()</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, VerticalHorizontal.</p></li>
+<li><p><strong>Illusion_Strength</strong> : Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of verticalhorizontal_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived difference.</p></li>
+<li><p><strong>Left_x1</strong> : x-coordinate of the starting point of the left line.</p></li>
+<li><p><strong>Left_y1</strong> : y-coordinate of the starting point of the left line.</p></li>
+<li><p><strong>Left_x2</strong> : x-coordinate of the end point of the left line.</p></li>
+<li><p><strong>Left_y2</strong> : y-coordinate of the end point of the left line.</p></li>
+<li><p><strong>Left_Angle</strong> : The angle in which the left line is rotated.</p></li>
+<li><p><strong>Right_x1</strong> : x-coordinate of the starting point of the right line.</p></li>
+<li><p><strong>Right_y1</strong> : y-coordinate of the starting point of the right line.</p></li>
+<li><p><strong>Right_x2</strong> : x-coordinate of the end point of the right line.</p></li>
+<li><p><strong>Right_y2</strong> : y-coordinate of the end point of the right line.</p></li>
+<li><p><strong>Right_Angle</strong> : The angle in which the right line is rotated.</p></li>
+<li><p><strong>Size_Left</strong> : Length of the left line.</p></li>
+<li><p><strong>Size_Right</strong> : Length of the right line.</p></li>
+<li><p><strong>Size_Larger</strong> : Length of the longer line.</p></li>
+<li><p><strong>Size_Smaller</strong> : Length of the shorter line, equates to <cite>size_min</cite> of verticalhorizontal_parameters().</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -808,8 +849,8 @@ and saved in different file formats
 <span class="gp">&gt;&gt;&gt; </span><span class="n">verticalhorizontal</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">VerticalHorizontal</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; # Initiate Window
+&gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pygame`, color=`white`)
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
@@ -835,33 +876,53 @@ and saved in different file formats
 <dd><p>A class to generate the Zöllner illusion.</p>
 <p>The Zöllner illusion is an optical illusion, where horizontal lines are perceived
 as not parallel because of their background (i.e., the slanting of the intersecting lines).</p>
-<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Zollner</span></code> contains attributes corresponding to the parameters of the illusion.
-These parameters are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">zollner_parameters()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Zollner’.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">zollner_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_x1</span></code>: x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_y1</span></code>: y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_x2</span></code>: x-coordinate of the end point (right) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Top_y2</span></code>: y-coordinate of the end point (right) of the upper horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x1</span></code>: x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y1</span></code>: y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_x2</span></code>: x-coordinate of the end point (right) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Bottom_y2</span></code>: y-coordinate of the end point (right) of the lower horizontal line.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_n</span></code>: Number of intersecting distractor lines, equates to <code class="docutils literal notranslate"><span class="pre">distractors_n</span></code> of <code class="docutils literal notranslate"><span class="pre">zollner_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_Size</span></code>: Length of intersecting distractor lines, equates to <code class="docutils literal notranslate"><span class="pre">distractors_length</span></code> of <code class="docutils literal notranslate"><span class="pre">zollner_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_Angle</span></code>: Angle of the intersecting distractor lines (relative to vertical).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_Top_*</span></code>: x- and y- coordinates of the starting points and end points of the top distractor lines.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Distractors_Bottom_*</span></code>: x- and y- coordinates of the starting points and end points of the bottom distractor lines.</p></li>
+<p>Each instance of <cite>Zollner</cite> contains attributes corresponding to the parameters of the illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the background, i.e., tilted distractor lines, in biasing the perception of unparallel horizontal lines.
+Specifically, the angle of the distractor lines in degrees (relative to vertical), where larger values
+increase susceptibility to the illusion.
+A positive sign means that the illusion will enhance the perception of the actual <cite>difference</cite> in slantness of the horizontal lines
+whereas a negative sign reduces this perception.</p></li>
+<li><p><strong>difference</strong> (<em>float</em>) – The objective parallel alignment of the two horizontal lines.
+Specifically, the angle of the two horizontal target lines in degrees, where <cite>difference=10</cite> represents
+a 10 degree tilt of the lines towards each other (converging towards the right side of the pane). A negative sign
+flips the direction of the convergence (converging towards the left side of the pane).</p></li>
+<li><p><strong>distractors_n</strong> (<em>int</em>) – Number of distractor lines in the background. Defaults to 8.</p></li>
+<li><p><strong>distractors_length</strong> (<em>float</em>) – Length of distractor lines in the background. Defaults to 0.66.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.Zollner.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Zollner illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Zöllner illusion, including:</p>
+<ul class="simple">
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of zollner_parameters()</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, Zollner.</p></li>
+<li><p><strong>Illusion_Strength</strong> : Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of zollner_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived difference.</p></li>
+<li><p><strong>Top_x1</strong> : x-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><strong>Top_y1</strong> : y-coordinate of the starting point (left) of the upper horizontal line.</p></li>
+<li><p><strong>Top_x2</strong> : x-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><strong>Top_y2</strong> : y-coordinate of the end point (right) of the upper horizontal line.</p></li>
+<li><p><strong>Bottom_x1</strong> : x-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_y1</strong> : y-coordinate of the starting point (left) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_x2</strong> : x-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><strong>Bottom_y2</strong> : y-coordinate of the end point (right) of the lower horizontal line.</p></li>
+<li><p><strong>Distractors_n</strong> : Number of intersecting distractor lines, equates to <cite>distractors_n</cite> of zollner_parameters().</p></li>
+<li><p><strong>Distractors_Size</strong> : Length of intersecting distractor lines, equates to <cite>distractors_length</cite> of zollner_parameters().</p></li>
+<li><p><strong>Distractors_Angle</strong> : Angle of the intersecting distractor lines (relative to vertical).</p></li>
+<li><p><strong>Distractors_Top_*</strong> : x- and y- coordinates of the starting points and end points of the top distractor lines.</p></li>
+<li><p><strong>Distractors_Bottom_*</strong> : x- and y- coordinates of the starting points and end points of the bottom distractor lines.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -924,8 +985,8 @@ and saved in different file formats
 <span class="gp">&gt;&gt;&gt; </span><span class="n">zollner</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Zollner</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pyglet&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; # Initiate Window
+&gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pyglet`, color=`white`)
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
@@ -952,31 +1013,48 @@ and saved in different file formats
 <p>The Poggendorff illusion is an optical illusion that involves the misperception
 of the position of one segment of a transverse line that has been interrupted
 by the contour of an intervening structure.</p>
-<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Poggendorff</span></code> contains attributes corresponding to the parameters of the illusion.
-These parameters are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">poggendorff_parameters()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘Poggendorff’.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">poggendorff_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_x1</span></code>: x-coordinate of the starting point (from centre) of the left line segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_y1</span></code>: y-coordinate of the starting point (from centre) of the left line segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_x2</span></code>: x-coordinate of the end point (leftwards) of the left line segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Left_y2</span></code>: y-coordinate of the end point (leftwards) of the left line segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_x1</span></code>: x-coordinate of the starting point (from centre) of the right line segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_y1</span></code>: y-coordinate of the starting point (from centre) of the right line segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_x2</span></code>: x-coordinate of the end point (rightwards) of the right line segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Right_y2</span></code>: y-coordinate of the end point (rightwards) of the right line segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Angle</span></code>: Angle displacement of the transverse line from horizontal.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Rectangle_Height</span></code>: Height of rectangle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Rectangle_Width</span></code>: Width of rectangle.</p></li>
+<p>Each instance of <cite>Poggendorff</cite> contains attributes corresponding to the parameters of the illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the line tilt in biasing the perception of an uncontinuous single line.
+Specifically, the orientation of the lines in degrees, 0 being vertical and
+larger values (in magnitude; no change with positive or negative sign) rotating clockwise.
+If <cite>difference</cite>  and <cite>illusion_strength</cite>  signs are opposite, it means that the illusion will enhance the perception of the actual <cite>difference</cite>  in line misalignement,
+whereas if the two parameters have the same signs, the illusion acts to reduce this perception.</p></li>
+<li><p><strong>difference</strong> (<em>float</em>) – The objective magnitude of the lines discontinuity.
+Specifically, the amount of displacement of the right line relative to the left line. A positive sign
+represents the right line displaced higher up, and a negative sign represents it displaced lower down.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.Poggendorff.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Poggendorff illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Poggendorff illusion, including:</p>
+<ul class="simple">
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of poggendorff_parameters()</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, Poggendorff.</p></li>
+<li><p><strong>Illusion_Strength</strong> : Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of poggendorff_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived difference.</p></li>
+<li><p><strong>Left_x1</strong> : x-coordinate of the starting point (from centre) of the left line segment.</p></li>
+<li><p><strong>Left_y1</strong> : y-coordinate of the starting point (from centre) of the left line segment.</p></li>
+<li><p><strong>Left_x2</strong> : x-coordinate of the end point (leftwards) of the left line segment.</p></li>
+<li><p><strong>Left_y2</strong> : y-coordinate of the end point (leftwards) of the left line segment.</p></li>
+<li><p><strong>Right_x1</strong> : x-coordinate of the starting point (from centre) of the right line segment.</p></li>
+<li><p><strong>Right_y1</strong> : y-coordinate of the starting point (from centre) of the right line segment.</p></li>
+<li><p><strong>Right_x2</strong> : x-coordinate of the end point (rightwards) of the right line segment.</p></li>
+<li><p><strong>Right_y2</strong> : y-coordinate of the end point (rightwards) of the right line segment.</p></li>
+<li><p><strong>Angle</strong> : Angle displacement of the transverse line from horizontal.</p></li>
+<li><p><strong>Rectangle_Height</strong> : Height of rectangle.</p></li>
+<li><p><strong>Rectangle_Width</strong> : Width of rectangle.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1039,8 +1117,8 @@ and saved in different file formats
 <span class="gp">&gt;&gt;&gt; </span><span class="n">poggendorff</span> <span class="o">=</span> <span class="n">pyllusion</span><span class="o">.</span><span class="n">Poggendorff</span><span class="p">(</span><span class="n">illusion_strength</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; # Initiate Window
+&gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pygame`, color=&quot;white&quot;)
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>
@@ -1200,32 +1278,50 @@ and saved in different file formats
 color are perceived of different luminance depending on their background.
 Specifically, rectangles embedded against a darker background appears lighter
 than the rectangles embedded against a lighter background.</p>
-<p>Each instance of <code class="docutils literal notranslate"><span class="pre">White</span></code> contains attributes corresponding to the parameters of the illusion.
-These parameters are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Difference</span></code>: Objective difference in the target features, by modifying <code class="docutils literal notranslate"><span class="pre">difference</span></code> of <code class="docutils literal notranslate"><span class="pre">white_parameters()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion</span></code>: Name of the illusion, ‘White’s’.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Strength</span></code>: Strength of the surrounding context in biasing illusion, by modifying <code class="docutils literal notranslate"><span class="pre">illusion_strength</span></code> of <code class="docutils literal notranslate"><span class="pre">white_parameters()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Illusion_Type</span></code>: ‘Congruent’ if the illusion enhances the perception of the objective difference in the illusion, and ‘Incongruent’ if it reduces the perceived difference.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Target1</span></code>: Luminance of the left grey rectangles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Target2</span></code>: Luminance of the right grey rectangle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Background1</span></code>: Luminance of the background that <code class="docutils literal notranslate"><span class="pre">Target1</span></code> is embedded in.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Background2</span></code>: Luminance of the background that <code class="docutils literal notranslate"><span class="pre">Target2</span></code> is embedded in.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Target1_RGB</span></code>: RGB value of the left grey rectangles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Target2_RGB</span></code>: RGB value of the right grey rectangle.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Background1_RGB</span></code>: RGB value of the background that <code class="docutils literal notranslate"><span class="pre">Target1</span></code> is embedded in.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Background2_RGB</span></code>: RGB value of the background that <code class="docutils literal notranslate"><span class="pre">Target2</span></code> is embedded in.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Target1_y</span></code>: y-coordinates of the left grey rectangles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Target2_y</span></code>: y-coordinates of the right grey rectangles.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Target_Height</span></code>: Height of each strip of rectangular segment.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Target_n</span></code>: Number of horizontal rectangular segments, equates to <code class="docutils literal notranslate"><span class="pre">strips_n</span></code> in <code class="docutils literal notranslate"><span class="pre">white_parameters()</span></code>.</p></li>
+<p>Each instance of <cite>White</cite> contains attributes corresponding to the parameters of the illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.
+Specifically, the difference in background colours, where large values create greater contrast in the two
+grey backgrounds.
+A positive sign means that the illusion will enhance the perception of the actual <cite>difference</cite> in brightness contrast
+of the two inner rectangles, whereas a negative sign reduces this perception.</p></li>
+<li><p><strong>difference</strong> (<em>float</em>) – The objective difference of the grey shades of the two inner rectangles.
+Specifically, the brightness of the left grey rectangles relative to the right grey rectangles.
+Large positive signs correspond to brighter left rectangles and negative signs correspond to brighter right rectangles.</p></li>
+<li><p><strong>strips_n</strong> (<em>int</em>) – Number of rows of contrasting segments. Defaults to 9.</p></li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.White.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.get_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary of parameters passed into the White’s illusion.</p>
+<dd><p>Returns a dictionary of parameters passed into the White`s illusion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the White`s illusion, including:</p>
+<ul class="simple">
+<li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of white_parameters()</p></li>
+<li><p><strong>Illusion</strong> : Name of the illusion, White’s.</p></li>
+<li><p><strong>Illusion_Strength</strong> : Strength of the surrounding context in biasing illusion, by modifying <cite>illusion_strength</cite> of white_parameters().</p></li>
+<li><p><strong>Illusion_Type</strong> : <cite>Congruent</cite> if the illusion enhances the perception of the objective difference in the illusion, and <cite>Incongruent</cite> if it reduces the perceived difference.</p></li>
+<li><p><strong>Target1</strong> : Luminance of the left grey rectangles.</p></li>
+<li><p><strong>Target2</strong> : Luminance of the right grey rectangle.</p></li>
+<li><p><strong>Background1</strong> : Luminance of the background that <cite>Target1</cite> is embedded in.</p></li>
+<li><p><strong>Background2</strong> : Luminance of the background that <cite>Target2</cite> is embedded in.</p></li>
+<li><p><strong>Target1_RGB</strong> : RGB value of the left grey rectangles.</p></li>
+<li><p><strong>Target2_RGB</strong> : RGB value of the right grey rectangle.</p></li>
+<li><p><strong>Background1_RGB</strong> : RGB value of the background that <cite>Target1</cite> is embedded in.</p></li>
+<li><p><strong>Background2_RGB</strong> : RGB value of the background that <cite>Target2</cite> is embedded in.</p></li>
+<li><p><strong>Target1_y</strong> : y-coordinates of the left grey rectangles.</p></li>
+<li><p><strong>Target2_y</strong> : y-coordinates of the right grey rectangles.</p></li>
+<li><p><strong>Target_Height</strong> : Height of each strip of rectangular segment.</p></li>
+<li><p><strong>Target_n</strong> : Number of horizontal rectangular segments, equates to <cite>strips_n</cite> in white_parameters().</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1237,7 +1333,7 @@ These parameters are:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.White.to_image">
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.to_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a PIL image of the White’s illusion.</p>
+<dd><p>Create a PIL image of the White`s illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1266,7 +1362,7 @@ and saved in different file formats
 <dl class="py method">
 <dt class="sig sig-object py" id="pyllusion.White.to_psychopy">
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.to_psychopy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a PsychoPy stimulus of the White’s illusion.</p>
+<dd><p>Create a PsychoPy stimulus of the White`s illusion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1288,9 +1384,9 @@ and saved in different file formats
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parameters</span> <span class="o">=</span> <span class="n">white</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Initiate Window</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">window</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="n">winType</span><span class="o">=</span><span class="s1">&#39;pygame&#39;</span><span class="p">,</span>
-<span class="go">                           color=parameters[&quot;Background1_RGB&quot;], colorSpace=&#39;rgb255&#39;)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; # Initiate Window
+&gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pygame`,
+                           color=parameters[&quot;Background1_RGB&quot;], colorSpace=`rgb255`)
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Display illusion</span>

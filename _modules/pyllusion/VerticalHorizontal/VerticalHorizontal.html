@@ -121,64 +121,80 @@
 
 <span class="sd">    The vertical–horizontal illusion illustrates the tendency for observers to overestimate</span>
 <span class="sd">    the length of a vertical line relative to a horizontal line of the same length.</span>
-<span class="sd">        </span>
-<span class="sd">    Each instance of ``MullerLyer`` contains attributes corresponding to the parameters of the illusion.</span>
-<span class="sd">    These parameters are:</span>
-<span class="sd">        * ``Difference``: Objective difference in the target features, by modifying ``difference`` of ``verticalhorizontal_parameters()``</span>
-<span class="sd">        * ``Illusion``: Name of the illusion, &#39;VerticalHorizontal&#39;.</span>
-<span class="sd">        * ``Illusion_Strength``: Strength of the surrounding context in biasing illusion, by modifying ``illusion_strength`` of ``verticalhorizontal_parameters()``.</span>
-<span class="sd">        * ``Illusion_Type``: &#39;Congruent&#39; if the illusion enhances the perception of the objective difference in the illusion, and &#39;Incongruent&#39; if it reduces the perceived difference.</span>
-<span class="sd">        * ``Left_x1``: x-coordinate of the starting point of the left line.</span>
-<span class="sd">        * ``Left_y1``: y-coordinate of the starting point of the left line.</span>
-<span class="sd">        * ``Left_x2``: x-coordinate of the end point of the left line.</span>
-<span class="sd">        * ``Left_y2``: y-coordinate of the end point of the left line.</span>
-<span class="sd">        * ``Left_Angle``: The angle in which the left line is rotated.</span>
-<span class="sd">        * ``Right_x1``: x-coordinate of the starting point of the right line.</span>
-<span class="sd">        * ``Right_y1``: y-coordinate of the starting point of the right line.</span>
-<span class="sd">        * ``Right_x2``: x-coordinate of the end point of the right line.</span>
-<span class="sd">        * ``Right_y2``: y-coordinate of the end point of the right line.</span>
-<span class="sd">        * ``Right_Angle``: The angle in which the right line is rotated.</span>
-<span class="sd">        * ``Size_Left``: Length of the left line.</span>
-<span class="sd">        * ``Size_Right``: Length of the right line.</span>
-<span class="sd">        * ``Size_Larger``: Length of the longer line.</span>
-<span class="sd">        * ``Size_Smaller``: Length of the shorter line, equates to ``size_min`` of ``verticalhorizontal_parameters()``.</span>
+
+<span class="sd">    Each instance of `MullerLyer` contains attributes corresponding to the parameters of the illusion.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    illusion_strength : float</span>
+<span class="sd">        The strength of the tilted vertical line in biasing the overestimation of its length relative to the horizontal line.</span>
+<span class="sd">        Specifically, the orientation of the line in degrees, 0 being vertical and</span>
+<span class="sd">        values rotating anticlockwise if the left line is rotated and clockwise if the right line is rotated.</span>
+<span class="sd">        A negative sign means that the illusion will enhance the perception of the actual `difference` in lengths</span>
+<span class="sd">        whereas a positive sign reduces this perception.</span>
+<span class="sd">    difference : float</span>
+<span class="sd">        The objective length difference of the vertical and horizontal lines.</span>
+<span class="sd">        Specifically, the real difference of left line relative to the right line. E.g.,</span>
+<span class="sd">        if `difference=1`, the left line will be 100% longer, i.e., 2 times longer than</span>
+<span class="sd">        the right line. A negative sign would make the right line longer than the left line.</span>
+<span class="sd">    size_min : float</span>
+<span class="sd">        Length of the shorter line. Defaults to 0.5.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_min</span><span class="o">=</span><span class="mf">0.5</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute Parameters for vertical-horizontal illusion.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        illusion_strength : float</span>
-<span class="sd">            The strength of the tilted vertical line in biasing the overestimation of its length relative to the horizontal line. </span>
-<span class="sd">            Specifically, the orientation of the line in degrees, 0 being vertical and</span>
-<span class="sd">            values rotating anticlockwise if the left line is rotated and clockwise if the right line is rotated.</span>
-<span class="sd">            A negative sign means that the illusion will enhance the perception of the actual ``difference`` in lengths</span>
-<span class="sd">            whereas a positive sign reduces this perception.</span>
-<span class="sd">        difference : float</span>
-<span class="sd">            The objective length difference of the vertical and horizontal lines.</span>
-<span class="sd">            Specifically, the real difference of left line relative to the right line. E.g.,</span>
-<span class="sd">            if ``difference=1``, the left line will be 100% longer, i.e., 2 times longer than</span>
-<span class="sd">            the right line. A negative sign would make the right line longer than the left line.</span>
-<span class="sd">        size_min : float</span>
-<span class="sd">            Length of the shorter line. Defaults to 0.5.</span>
-<span class="sd">    </span>
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        dict</span>
-<span class="sd">            Dictionary of parameters of the vertical-horizontal illusion.</span>
+<span class="sd">            illusion_strength : float</span>
+<span class="sd">                The strength of the tilted vertical line in biasing the overestimation of its length relative to the horizontal line.</span>
+<span class="sd">                Specifically, the orientation of the line in degrees, 0 being vertical and</span>
+<span class="sd">                values rotating anticlockwise if the left line is rotated and clockwise if the right line is rotated.</span>
+<span class="sd">                A negative sign means that the illusion will enhance the perception of the actual `difference` in lengths</span>
+<span class="sd">                whereas a positive sign reduces this perception.</span>
+<span class="sd">            difference : float</span>
+<span class="sd">                The objective length difference of the vertical and horizontal lines.</span>
+<span class="sd">                Specifically, the real difference of left line relative to the right line. E.g.,</span>
+<span class="sd">                if `difference=1`, the left line will be 100% longer, i.e., 2 times longer than</span>
+<span class="sd">                the right line. A negative sign would make the right line longer than the left line.</span>
+<span class="sd">            size_min : float</span>
+<span class="sd">                Length of the shorter line. Defaults to 0.5.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">_verticalhorizontal_parameters</span><span class="p">(</span>
             <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span><span class="p">,</span>
             <span class="n">difference</span><span class="o">=</span><span class="n">difference</span><span class="p">,</span>
             <span class="n">size_min</span><span class="o">=</span><span class="n">size_min</span><span class="p">,</span>
         <span class="p">)</span>
-    
+
 <div class="viewcode-block" id="VerticalHorizontal.get_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.VerticalHorizontal.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a dictionary of parameters passed into the vertical-horizontal illusion.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Dictionary of parameters of the vertical-horizontal illusion, including:</span>
+
+<span class="sd">            - **Difference** : Objective difference in the target features, by modifying `difference` of verticalhorizontal_parameters()</span>
+<span class="sd">            - **Illusion** : Name of the illusion, VerticalHorizontal.</span>
+<span class="sd">            - **Illusion_Strength** : Strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of verticalhorizontal_parameters().</span>
+<span class="sd">            - **Illusion_Type** : `Congruent` if the illusion enhances the perception of the objective difference in the illusion, and `Incongruent` if it reduces the perceived difference.</span>
+<span class="sd">            - **Left_x1** : x-coordinate of the starting point of the left line.</span>
+<span class="sd">            - **Left_y1** : y-coordinate of the starting point of the left line.</span>
+<span class="sd">            - **Left_x2** : x-coordinate of the end point of the left line.</span>
+<span class="sd">            - **Left_y2** : y-coordinate of the end point of the left line.</span>
+<span class="sd">            - **Left_Angle** : The angle in which the left line is rotated.</span>
+<span class="sd">            - **Right_x1** : x-coordinate of the starting point of the right line.</span>
+<span class="sd">            - **Right_y1** : y-coordinate of the starting point of the right line.</span>
+<span class="sd">            - **Right_x2** : x-coordinate of the end point of the right line.</span>
+<span class="sd">            - **Right_y2** : y-coordinate of the end point of the right line.</span>
+<span class="sd">            - **Right_Angle** : The angle in which the right line is rotated.</span>
+<span class="sd">            - **Size_Left** : Length of the left line.</span>
+<span class="sd">            - **Size_Right** : Length of the right line.</span>
+<span class="sd">            - **Size_Larger** : Length of the longer line.</span>
+<span class="sd">            - **Size_Smaller** : Length of the shorter line, equates to `size_min` of verticalhorizontal_parameters().</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span></div>
 
@@ -190,7 +206,7 @@
 
 <div class="viewcode-block" id="VerticalHorizontal.to_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.VerticalHorizontal.to_image">[docs]</a>    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a PIL image of the vertical-horizontal illusion.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        width : int</span>
@@ -201,7 +217,7 @@
 <span class="sd">            Color of the background.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `verticalhorizontal_parameters()`.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Image</span>
@@ -210,7 +226,7 @@
 <span class="sd">            (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)</span>
 <span class="sd">            and saved in different file formats</span>
 <span class="sd">            (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
@@ -236,26 +252,26 @@
 <span class="sd">            The window object in which the stimulus will be rendered.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `verticalhorizontal_parameters()`.</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        In-place modification of the PsychoPy window (No explicit return).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">        &gt;&gt;&gt; from psychopy import visual, event</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Create parameters</span>
 <span class="sd">        &gt;&gt;&gt; verticalhorizontal = pyllusion.VerticalHorizontal(illusion_strength=90)</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Initiate Window</span>
-<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&#39;white&#39;)</span>
-<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pygame`, color=`white`)</span>
+
 <span class="sd">        &gt;&gt;&gt; # Display illusion</span>
 <span class="sd">        &gt;&gt;&gt; verticalhorizontal.to_psychopy(window)</span>
-<span class="sd">        </span>
-<span class="sd">        &gt;&gt;&gt; # Refresh and close window    </span>
+
+<span class="sd">        &gt;&gt;&gt; # Refresh and close window</span>
 <span class="sd">        &gt;&gt;&gt; window.flip()</span>
 <span class="sd">        &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
 <span class="sd">        &gt;&gt;&gt; window.close()</span>

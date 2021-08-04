@@ -118,68 +118,82 @@
 <div class="viewcode-block" id="White"><a class="viewcode-back" href="../../../functions.html#pyllusion.White">[docs]</a><span class="k">class</span> <span class="nc">White</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class to generate the White&#39;s illusion.</span>
-<span class="sd">    </span>
+
 <span class="sd">    White’s illusion is a brightness illusion in which rectangles of the same grey</span>
 <span class="sd">    color are perceived of different luminance depending on their background.</span>
 <span class="sd">    Specifically, rectangles embedded against a darker background appears lighter</span>
 <span class="sd">    than the rectangles embedded against a lighter background.</span>
 
-<span class="sd">    Each instance of ``White`` contains attributes corresponding to the parameters of the illusion.</span>
-<span class="sd">    These parameters are:</span>
-<span class="sd">        * ``Difference``: Objective difference in the target features, by modifying ``difference`` of ``white_parameters()``</span>
-<span class="sd">        * ``Illusion``: Name of the illusion, &#39;White&#39;s&#39;.</span>
-<span class="sd">        * ``Illusion_Strength``: Strength of the surrounding context in biasing illusion, by modifying ``illusion_strength`` of ``white_parameters()``.</span>
-<span class="sd">        * ``Illusion_Type``: &#39;Congruent&#39; if the illusion enhances the perception of the objective difference in the illusion, and &#39;Incongruent&#39; if it reduces the perceived difference.</span>
-<span class="sd">        * ``Target1``: Luminance of the left grey rectangles.</span>
-<span class="sd">        * ``Target2``: Luminance of the right grey rectangle.</span>
-<span class="sd">        * ``Background1``: Luminance of the background that ``Target1`` is embedded in.</span>
-<span class="sd">        * ``Background2``: Luminance of the background that ``Target2`` is embedded in.</span>
-<span class="sd">        * ``Target1_RGB``: RGB value of the left grey rectangles.</span>
-<span class="sd">        * ``Target2_RGB``: RGB value of the right grey rectangle.</span>
-<span class="sd">        * ``Background1_RGB``: RGB value of the background that ``Target1`` is embedded in.</span>
-<span class="sd">        * ``Background2_RGB``: RGB value of the background that ``Target2`` is embedded in.</span>
-<span class="sd">        * ``Target1_y``: y-coordinates of the left grey rectangles.</span>
-<span class="sd">        * ``Target2_y``: y-coordinates of the right grey rectangles.</span>
-<span class="sd">        * ``Target_Height``: Height of each strip of rectangular segment.</span>
-<span class="sd">        * ``Target_n``: Number of horizontal rectangular segments, equates to ``strips_n`` in ``white_parameters()``.</span>
+<span class="sd">    Each instance of `White` contains attributes corresponding to the parameters of the illusion.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    illusion_strength : float</span>
+<span class="sd">        The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.</span>
+<span class="sd">        Specifically, the difference in background colours, where large values create greater contrast in the two</span>
+<span class="sd">        grey backgrounds.</span>
+<span class="sd">        A positive sign means that the illusion will enhance the perception of the actual `difference` in brightness contrast</span>
+<span class="sd">        of the two inner rectangles, whereas a negative sign reduces this perception.</span>
+<span class="sd">    difference : float</span>
+<span class="sd">        The objective difference of the grey shades of the two inner rectangles.</span>
+<span class="sd">        Specifically, the brightness of the left grey rectangles relative to the right grey rectangles.</span>
+<span class="sd">        Large positive signs correspond to brighter left rectangles and negative signs correspond to brighter right rectangles.</span>
+<span class="sd">    strips_n : int</span>
+<span class="sd">        Number of rows of contrasting segments. Defaults to 9.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">strips_n</span><span class="o">=</span><span class="mi">9</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Compute parameters for the White&#39;s illusion.</span>
+<span class="sd">        Compute parameters for the White`s illusion.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        illusion_strength : float</span>
-<span class="sd">            The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.</span>
-<span class="sd">            Specifically, the difference in background colours, where large values create greater contrast in the two</span>
-<span class="sd">            grey backgrounds. </span>
-<span class="sd">            A positive sign means that the illusion will enhance the perception of the actual ``difference`` in brightness contrast</span>
-<span class="sd">            of the two inner rectangles, whereas a negative sign reduces this perception.</span>
-<span class="sd">        difference : float</span>
-<span class="sd">            The objective difference of the grey shades of the two inner rectangles.</span>
-<span class="sd">            Specifically, the brightness of the left grey rectangles relative to the right grey rectangles.</span>
-<span class="sd">            Large positive signs correspond to brighter left rectangles and negative signs correspond to brighter right rectangles.</span>
-<span class="sd">        strips_n : int</span>
-<span class="sd">            Number of rows of contrasting segments. Defaults to 9.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        dict</span>
-<span class="sd">            Dictionary of parameters of the White&#39;s illusion.</span>
-
+<span class="sd">            illusion_strength : float</span>
+<span class="sd">                The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.</span>
+<span class="sd">                Specifically, the difference in background colours, where large values create greater contrast in the two</span>
+<span class="sd">                grey backgrounds.</span>
+<span class="sd">                A positive sign means that the illusion will enhance the perception of the actual `difference` in brightness contrast</span>
+<span class="sd">                of the two inner rectangles, whereas a negative sign reduces this perception.</span>
+<span class="sd">            difference : float</span>
+<span class="sd">                The objective difference of the grey shades of the two inner rectangles.</span>
+<span class="sd">                Specifically, the brightness of the left grey rectangles relative to the right grey rectangles.</span>
+<span class="sd">                Large positive signs correspond to brighter left rectangles and negative signs correspond to brighter right rectangles.</span>
+<span class="sd">            strips_n : int</span>
+<span class="sd">                Number of rows of contrasting segments. Defaults to 9.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">_white_parameters</span><span class="p">(</span>
             <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span><span class="p">,</span>
             <span class="n">difference</span><span class="o">=</span><span class="n">difference</span><span class="p">,</span>
             <span class="n">strips_n</span><span class="o">=</span><span class="n">strips_n</span><span class="p">,</span>
         <span class="p">)</span>
-    
+
 <div class="viewcode-block" id="White.get_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.White.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a dictionary of parameters passed into the White&#39;s illusion.</span>
+<span class="sd">        Returns a dictionary of parameters passed into the White`s illusion.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Dictionary of parameters of the White`s illusion, including:</span>
+
+<span class="sd">            - **Difference** : Objective difference in the target features, by modifying `difference` of white_parameters()</span>
+<span class="sd">            - **Illusion** : Name of the illusion, White&#39;s.</span>
+<span class="sd">            - **Illusion_Strength** : Strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of white_parameters().</span>
+<span class="sd">            - **Illusion_Type** : `Congruent` if the illusion enhances the perception of the objective difference in the illusion, and `Incongruent` if it reduces the perceived difference.</span>
+<span class="sd">            - **Target1** : Luminance of the left grey rectangles.</span>
+<span class="sd">            - **Target2** : Luminance of the right grey rectangle.</span>
+<span class="sd">            - **Background1** : Luminance of the background that `Target1` is embedded in.</span>
+<span class="sd">            - **Background2** : Luminance of the background that `Target2` is embedded in.</span>
+<span class="sd">            - **Target1_RGB** : RGB value of the left grey rectangles.</span>
+<span class="sd">            - **Target2_RGB** : RGB value of the right grey rectangle.</span>
+<span class="sd">            - **Background1_RGB** : RGB value of the background that `Target1` is embedded in.</span>
+<span class="sd">            - **Background2_RGB** : RGB value of the background that `Target2` is embedded in.</span>
+<span class="sd">            - **Target1_y** : y-coordinates of the left grey rectangles.</span>
+<span class="sd">            - **Target2_y** : y-coordinates of the right grey rectangles.</span>
+<span class="sd">            - **Target_Height** : Height of each strip of rectangular segment.</span>
+<span class="sd">            - **Target_n** : Number of horizontal rectangular segments, equates to `strips_n` in white_parameters().</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span></div>
 
@@ -190,8 +204,8 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="White.to_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.White.to_image">[docs]</a>    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a PIL image of the White&#39;s illusion.</span>
-<span class="sd">    </span>
+        <span class="sd">&quot;&quot;&quot;Create a PIL image of the White`s illusion.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        width : int</span>
@@ -200,7 +214,7 @@
 <span class="sd">            Height of the returned image.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `white_parameters()`.</span>
-<span class="sd">    </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Image</span>
@@ -209,7 +223,7 @@
 <span class="sd">            (`resize()`, See https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize)</span>
 <span class="sd">            and saved in different file formats</span>
 <span class="sd">            (`save()` See https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
@@ -224,9 +238,9 @@
             <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">img</span></div>
-    
+
 <div class="viewcode-block" id="White.to_psychopy"><a class="viewcode-back" href="../../../functions.html#pyllusion.White.to_psychopy">[docs]</a>    <span class="k">def</span> <span class="nf">to_psychopy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a PsychoPy stimulus of the White&#39;s illusion.</span>
+        <span class="sd">&quot;&quot;&quot;Create a PsychoPy stimulus of the White`s illusion.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -238,23 +252,23 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        In-place modification of the PsychoPy window (No explicit return).</span>
-<span class="sd">    </span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">        &gt;&gt;&gt; from psychopy import visual, event</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Create parameters</span>
 <span class="sd">        &gt;&gt;&gt; white = pyllusion.White(difference=0, illusion_strength=100)</span>
 <span class="sd">        &gt;&gt;&gt; parameters = white.get_parameters()</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Initiate Window</span>
-<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;,</span>
-<span class="sd">                                   color=parameters[&quot;Background1_RGB&quot;], colorSpace=&#39;rgb255&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=`pygame`,</span>
+<span class="sd">                                   color=parameters[&quot;Background1_RGB&quot;], colorSpace=`rgb255`)</span>
 
 <span class="sd">        &gt;&gt;&gt; # Display illusion</span>
 <span class="sd">        &gt;&gt;&gt; white.to_psychopy(window)</span>
-<span class="sd">    </span>
+
 <span class="sd">        &gt;&gt;&gt; # Refresh and close window</span>
 <span class="sd">        &gt;&gt;&gt; window.flip()</span>
 <span class="sd">        &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
