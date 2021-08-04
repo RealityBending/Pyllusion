@@ -61,20 +61,18 @@ class Contrast:
         dict
             Dictionary of parameters of the Simultaneous Contrast illusion, including:
 
-            - **Difference**: Objective difference in the target features, by modifying `difference` of contrast_parameters().
-            - **Illusion**: Name of the illusion, 'Contrast'.
-            - **Illusion_Strength**: Strength of the surrounding context in biasing illusion, by modifying `illusion_strength`
-                of contrast_parameters().
-            - **Illusion_Type**: 'Congruent' if the illusion enhances the perception of the objective difference in the illusion,
-                and 'Incongruent' if it reduces the perceived difference.
-            - **Rectangle_Top**: Luminance of the top inner rectangle.
-            - **Rectangle_Bottom**: Luminance of the bottom inner rectangle.
-            - **Background_Top**: Luminance of the top half of the background.
-            - **Background_Bottom**: Luminance of the bottom half of the background.
-            - **Rectangle_Top_RGB**: RGB value of the top inner rectangle.
-            - **Rectangle_Bottom_RGB**: RGB value of the bottom inner rectangle.
-            - **Background_Top_RGB**: RGB value of the top half of the background.
-            - **Background_Bottom_RGB**: RGB value of the bottom half of the background.
+            - **Difference** : Objective difference in the target features, by modifying `difference` of contrast_parameters().
+            - **Illusion** : Name of the illusion, Contrast.
+            - **Illusion_Strength** : The strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of contrast_parameters().
+            - **Illusion_Type** : `Congruent` if the illusion enhances the perception of the objective difference in the illusion, and `Incongruent` if it reduces the perceived difference.
+            - **Rectangle_Top** : Luminance of the top inner rectangle.
+            - **Rectangle_Bottom** : Luminance of the bottom inner rectangle.
+            - **Background_Top** : Luminance of the top half of the background.
+            - **Background_Bottom** : Luminance of the bottom half of the background.
+            - **Rectangle_Top_RGB** : RGB value of the top inner rectangle.
+            - **Rectangle_Bottom_RGB** : RGB value of the bottom inner rectangle.
+            - **Background_Top_RGB** : RGB value of the top half of the background.
+            - **Background_Bottom_RGB** : RGB value of the bottom half of the background.
         """
         return self.parameters
 

@@ -78,19 +78,16 @@ class Delboeuf:
             A dictionary of all parameters passed into the Delboeuf illusion, including:
 
             - **Difference** : Objective difference in the target features, by modifying `difference` of delboeuf_parameters()
-            - **Illusion** : Name of the illusion, 'Delboeuf'.
-            - **Illusion_Strength : Strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of
-                delboeuf_parameters().
-            - **Illusion_Type** : 'Congruent' if the illusion enhances the perception of the objective difference in the illusion,
-                and 'Incongruent' if it reduces the perceived  difference.
+            - **Illusion** : Name of the illusion, Delboeuf.
+            - **Illusion_Strength** : The strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of delboeuf_parameters().
+            - **Illusion_Type** : `Congruent` if the illusion enhances the perception of the objective difference in the illusion, and `Incongruent` if it reduces the perceived  difference.
             - **Size_Inner_Left** : Size of the inner left circle.
             - **Size_Inner_Right** : Size of the inner right circle.
             - **Sine_Inner_Difference** : Difference in areas of the left and right inner circles.
             - **Size_Outer_Left** : Size of the outer left rim.
             - **Size_Outer_Right** : Size of the outer right rim.
             - **Distance** : Distance between the circles, by modifying `distance` of delboeuf_parameters().
-            - **Distance_Reference**: Distance between circles is computed 'Between Edges' or 'Between Centers', by modifying
-                distance_auto of delboeuf_parameters().
+            - **Distance_Reference** : Distance between circles is computed 'Between Edges' or `Between Centers`, by modifying distance_auto of delboeuf_parameters().
             - **Distance_Edges_Inner** : Distance between the edges of the inner left and right circles.
             - **Distance_Edges_Outer** : Distance between the edges of the outer left and right rims.
             - **Size_Inner_Smaller** : Size of the smaller inner circle, equates to size_min of delboeuf_parameters().

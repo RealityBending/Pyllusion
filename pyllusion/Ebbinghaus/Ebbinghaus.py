@@ -76,34 +76,31 @@ class Ebbinghaus:
         Returns
         -------
         dict
-            Dictionary of parameters of the Ebbinghaus illusion.
+            Dictionary of parameters of the Ebbinghaus illusion, including:
 
-            - **Difference**: Objective difference in the target features, by modifying `difference` of ebbinghaus_parameters()
-            - **Illusion**: Name of the illusion, 'Ebbinghaus'.
-            - **Illusion_Strength**: Strength of the surrounding context in biasing illusion, by modifying `illusion_strength`
-                of ebbinghaus_parameters().
-            - **Illusion_Type**: 'Congruent' if the illusion enhances the perception of the objective difference in the illusion,
-                and 'Incongruent' if it reduces the perceived difference.
-            - **Size_Inner_Left**: Size of the inner left circle.
-            - **Size_Inner_Right**: Size of the inner right circle.
-            - **Sine_Inner_Difference**: Difference in areas of the left and right inner circles.
-            - **Size_Outer_Left**: Size of the surrounding circles around the left inner circle.
-            - **Size_Outer_Right**: Size of the surrounding circles around the right inner circle.
+            - **Difference** : Objective difference in the target features, by modifying `difference` of ebbinghaus_parameters()
+            - **Illusion** : Name of the illusion, 'Ebbinghaus'.
+            - **Illusion_Strength** : The strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of ebbinghaus_parameters().
+            - **Illusion_Type** : `Congruent` if the illusion enhances the perception of the objective difference in the illusion, and `Incongruent` if it reduces the perceived difference.
+            - **Size_Inner_Left** : Size of the inner left circle.
+            - **Size_Inner_Right** : Size of the inner right circle.
+            - **Sine_Inner_Difference** : Difference in areas of the left and right inner circles.
+            - **Size_Outer_Left** : Size of the surrounding circles around the left inner circle.
+            - **Size_Outer_Right** : Size of the surrounding circles around the right inner circle.
             - **Distance**: Distance between the circles, by modifying `distance` of ebbinghaus_parameters().
-            - **Distance_Reference**: Distance between circles is computed 'Between Edges' or 'Between Centers', by modifying
-                `distance_auto` of ebbinghaus_parameters().
-            - **Distance_Edges_Inner**: Distance between the edges of the inner left and right circles.
-            - **Distance_Edges_Outer**: Distance between the edges of the surrounding left circles and right circles.
-            - **Size_Inner_Smaller**: Size of the smaller inner circle, equates to `size_min` of ebbinghaus_parameters().
-            - **Size_Inner_Larger**: Size of the larger inner circle.
-            - **Size_Outer_Smaller**: Size of the smaller surrounding circles.
-            - **Size_Outer_Larger**: Size of the larger surrounding cricles.
-            - **Position_Outer_x_Left**: x-coordinates of the left surrounding circles.
-            - **Position_Outer_y_Left**: y-coordinates of the left surrounding circles.
-            - **Position_Outer_x_Right**: x-coordinates of the right surrounding circles.
-            - **Position_Outer_y_Right**: y-coordinates of the right surrounding circles.
-            - **Position_Left**: Position of the left inner circle.
-            - **Position_Right**: Position of the right inner circle.
+            - **Distance_Reference** : Distance between circles is computed 'Between Edges' or `Between Centers`, by modifying `distance_auto` of ebbinghaus_parameters().
+            - **Distance_Edges_Inner** : Distance between the edges of the inner left and right circles.
+            - **Distance_Edges_Outer** : Distance between the edges of the surrounding left circles and right circles.
+            - **Size_Inner_Smaller** : Size of the smaller inner circle, equates to `size_min` of ebbinghaus_parameters().
+            - **Size_Inner_Larger** : Size of the larger inner circle.
+            - **Size_Outer_Smaller** : Size of the smaller surrounding circles.
+            - **Size_Outer_Larger** : Size of the larger surrounding cricles.
+            - **Position_Outer_x_Left** : x-coordinates of the left surrounding circles.
+            - **Position_Outer_y_Left** : y-coordinates of the left surrounding circles.
+            - **Position_Outer_x_Right** : x-coordinates of the right surrounding circles.
+            - **Position_Outer_y_Right** : y-coordinates of the right surrounding circles.
+            - **Position_Left** : Position of the left inner circle.
+            - **Position_Right** : Position of the right inner circle.
         """
         return self.parameters
 
