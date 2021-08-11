@@ -253,16 +253,19 @@ white.to_image()
 ![](img/README_white1.png)
 
 <!-- ### Chubb illusion -->
+
 <!-- The **[Chubb illusion](https://en.wikipedia.org/wiki/Chubb_illusion)** is an optical illusion or error in visual perception in which the apparent contrast of an object varies substantially to most viewers depending on its relative contrast to the field on which it is displayed. -->
+
 <!-- ![](https://lh5.googleusercontent.com/-EH2_hl1xbE4/TxNmsYaQ5uI/AAAAAAAAEUE/ZqdI5414b1I/s280/chubbillusion.gif) -->
+
 <!-- - **TO DO** *(consider helping!)* -->
 
 ### Kanizsa Square
 
 The **Kanizsa Square** is an [illusory
 contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion. See
-[Keane et al.,
-2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
+[Keane et
+al., 2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
 
 Some studies have tested the effect of the Kanizsa Square in individuals
 with schizophrenia, but the finding of greater resistance to the
@@ -270,7 +273,7 @@ illusion is not robust (King et al., 2017).
 
 ![](https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534@1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png)
 
--   **TO DO** *(consider helping!)*
+  - **TO DO** *(consider helping\!)*
 
 ### Autostereograms
 
@@ -293,8 +296,11 @@ it’s a mind-blowing experience 🤯
     autostereograms.draw()
 
 <!-- ```{python message=FALSE, warning=FALSE, echo=FALSE} -->
+
 <!-- img = pyllusion.autostereogram(stimulus="3D", width=1600, height=900) -->
+
 <!-- img.save("docs/img/README_autostereogram1.png") -->
+
 <!-- ``` -->
 
 ![](img/README_autostereogram1.png)
@@ -320,14 +326,23 @@ the number of circles `n`, their size range and their transparency with
     autostereograms.draw()
 
 <!-- ```{python message=FALSE, warning=FALSE, echo=FALSE} -->
+
 <!-- img = pyllusion.autostereogram(stimulus="docs/img/depthmask.png", -->
+
 <!--                    pattern=pyllusion.image_circles, -->
+
 <!--                    color="blackwhite", -->
+
 <!--                    alpha=0.75, -->
+
 <!--                    size_min=0.005, -->
+
 <!--                    size_max=0.03, -->
+
 <!--                    n=1000) -->
+
 <!-- img.save("docs/img/README_autostereogram2.png") -->
+
 <!-- ``` -->
 
 ![](img/README_autostereogram2.png)
@@ -361,18 +376,18 @@ In visual perception, the **[kinetic depth
 effect](https://en.wikipedia.org/wiki/Kinetic_depth_effect)** refers to
 the phenomenon whereby the three-dimensional structural form of an
 object can be perceived when the object is moving (Wallach & O’Connell,
-1953; [Mamassian & Wallace,
-2010](https://jov.arvojournals.org/article.aspx?articleid=2191769)). One
-of its derivative is the **Transparency-From-Motion** illusion,
+1953; [Mamassian &
+Wallace, 2010](https://jov.arvojournals.org/article.aspx?articleid=2191769)).
+One of its derivative is the **Transparency-From-Motion** illusion,
 consisting in the superposition of two dot clouds moving in different
 directions that results in the perception of two transparent layers (See
-; [Schütz,
-2014](https://jov.arvojournals.org/article.aspx?articleid=2193903);
-[Wexler et al.,
-2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf); [Schütz
-& Mamassian,
-2016](https://jov.arvojournals.org/article.aspx?articleid=2548036) and
-<http://lab-perception.org/demo/p/tfm> for a demo).
+;
+[Schütz, 2014](https://jov.arvojournals.org/article.aspx?articleid=2193903);
+[Wexler et
+al., 2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf);
+[Schütz &
+Mamassian, 2016](https://jov.arvojournals.org/article.aspx?articleid=2548036)
+and <http://lab-perception.org/demo/p/tfm> for a demo).
 
 ``` python
 parameters = pyllusion.motiontransparency_parameters(angle=45)
@@ -384,14 +399,15 @@ pyllusion.images_to_gif(images, path="Transparency_From_Motion.gif", fps=paramet
 ![](img/README_TFM1.gif)
 
 <!-- ### Pattern Detection in Motion  -->
+
 <!-- - **TO DO** *(consider helping!)* -->
 
 ### Pinna illusion
 
-See also **[Zeljic et al.,
-2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717)**.
+See also **[Zeljic et
+al., 2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717)**.
 
--   **TO DO** *(consider helping!)*
+  - **TO DO** *(consider helping\!)*
 
 ![](http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg)
 
@@ -402,34 +418,37 @@ See also [David Novick’s](https://twitter.com/NovickProf) tweets
 and
 [**here**](https://twitter.com/NovickProf/status/1358787676326031360).
 
--   **TO DO** *(consider helping!)*
+  - **TO DO** *(consider helping\!)*
 
 ![](https://pbs.twimg.com/media/Erdge3AXIAcisZj.png)
 
 <!-- ### Exctinction illusion -->
+
 <!-- See also [this tweet](https://twitter.com/AkiyoshiKitaoka/status/1351867885493211138/photo/1 by Akiyoshi Kitaoka). -->
+
 <!-- - **TO DO** *(consider helping!)* -->
+
 <!-- ![](img/extinction_illusion.png) -->
 
 ## PsychoPy Integration
 
 Pyllusion can be easily integrated into
-[PsychoPy](https://www.psychopy.org/) for running experiments as well!
+[PsychoPy](https://www.psychopy.org/) for running experiments as well\!
 
     # Load packages
     import pyllusion
     from psychopy import visual, event
-
+    
     # Create parameters
     delboeuf = pyllusion.Delboeuf(illusion_strength=1, difference=2)
-
+    
     # Initiate Window
     window = visual.Window(size=[1920, 1080], winType='pygame',
                            color='white', fullscr=False)
-
+    
     # Display illusion
     delboeuf.to_psychopy(window)
-
+    
     # Refresh and close window
     window.flip()
     event.waitKeys()  # Press any key to close
