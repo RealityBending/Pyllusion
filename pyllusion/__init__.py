@@ -19,10 +19,10 @@ from .Poggendorff import *
 from .Ponzo import *
 from .psychopy import *
 from .RodFrame import *
+from .utilities import *
 from .VerticalHorizontal import *
 from .White import *
 from .Zollner import *
-
 
 # Maintainer info
 __author__ = "The Reality Bending League"
