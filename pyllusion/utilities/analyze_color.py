@@ -76,8 +76,8 @@ def analyze_color(image, average=True):
     out["RedGreen"] = lab[:, :, 1]
     out["BlueYellow"] = lab[:, :, 2]
 
+    # Average all elements
     if average is True:
-        # Average all elements
         out = {key: np.mean(value) for (key, value) in out.items()}
 
     return out
