@@ -54,8 +54,7 @@ issue](https://github.com/RealityBending/Pyllusion/issues) with the
 
 You can cite the package as follows:
 
-    Makowski, D., Pham, T., Lau, Z. J. (2020). Pyllusion: A Parametric Framework to Generate Visual Illusions using Python. GitHub. 
-    Retrieved from https://github.com/RealityBending/Pyllusion
+    Makowski, D., Lau, Z. J., Pham, T., Paul Boyce, W., & Annabel Chen, S. H. (2021). [A Parametric Framework to Generate Visual Illusions Using Python](https://journals.sagepub.com/doi/abs/10.1177/03010066211057347). Perception, 50(11), 950-965.
 
 ## Features
 

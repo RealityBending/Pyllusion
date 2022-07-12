@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Functions &#8212; Pyllusion 0.0.12 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -147,11 +148,11 @@
     <div class="body col-md-12 content" role="main">
       
   <section id="functions">
-<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h1>
 <section id="illusion">
-<h2>Illusion<a class="headerlink" href="#illusion" title="Permalink to this headline">¶</a></h2>
+<h2>Illusion<a class="headerlink" href="#illusion" title="Permalink to this heading">¶</a></h2>
 <section id="delboeuf">
-<h3>Delboeuf<a class="headerlink" href="#delboeuf" title="Permalink to this headline">¶</a></h3>
+<h3>Delboeuf<a class="headerlink" href="#delboeuf" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Delboeuf">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Delboeuf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_auto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf" title="Permalink to this definition">¶</a></dt>
@@ -161,7 +162,7 @@ where circles of identical size appear as different because of their surrounding
 Specifically, the circle that is closely surrounded by a ring appears larger than the circle surrounded by a distant ring.</p>
 <p>Each instance of Delboeuf contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
 Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if illusion_strength=1,
@@ -183,7 +184,7 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Delboeuf illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – A dictionary of all parameters passed into the Delboeuf illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of delboeuf_parameters()</p></li>
@@ -222,7 +223,7 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the Delboeuf illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -231,7 +232,7 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>delboeuf_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Delboeuf illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -253,13 +254,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Delboeuf/Delboeuf.html#Delboeuf.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Delboeuf.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the Delboeuf illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object initiated by <cite>psychopy.visual.Window</cite> in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>delboeuf_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -292,7 +293,7 @@ and saved in different file formats
 
 </section>
 <section id="ebbinghaus">
-<h3>Ebbinghaus<a class="headerlink" href="#ebbinghaus" title="Permalink to this headline">¶</a></h3>
+<h3>Ebbinghaus<a class="headerlink" href="#ebbinghaus" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Ebbinghaus">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Ebbinghaus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_auto</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus" title="Permalink to this definition">¶</a></dt>
@@ -303,7 +304,7 @@ Specifically, the central circle that is surrounded by large circles appears sma
 than the central circle surrounded by small circles.</p>
 <p>Each instance of <cite>Ebbinghaus</cite> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the surrounding context, i.e. outer circles, in biasing perception of unequally sized inner circles.
 Specifically, the size of the outer circle relative to the inner circle (in percentage, e.g, if <cite>illusion_strength=1</cite>,
@@ -325,7 +326,7 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Ebbinghaus illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Ebbinghaus illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of ebbinghaus_parameters()</p></li>
@@ -368,7 +369,7 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the Ebbinghaus illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -376,7 +377,7 @@ A negative sign would make the left inner circle smaller than the right inner ci
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>ebbinghaus_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Ebbinghaus illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -398,13 +399,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ebbinghaus/Ebbinghaus.html#Ebbinghaus.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ebbinghaus.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the Ebbinghaus illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object initiated by <cite>psychopy.visual.Window</cite> in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>ebbinghaus_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -437,7 +438,7 @@ and saved in different file formats
 
 </section>
 <section id="mullerlyer">
-<h3>MullerLyer<a class="headerlink" href="#mullerlyer" title="Permalink to this headline">¶</a></h3>
+<h3>MullerLyer<a class="headerlink" href="#mullerlyer" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.MullerLyer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MullerLyer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer" title="Permalink to this definition">¶</a></dt>
@@ -448,7 +449,7 @@ the arrows. Specifically, the line with outward-protruding fins appears longer t
 the line with inward-protruding fins.</p>
 <p>Each instance of <cite>MullerLyer</cite>  contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the arrow shapes (or fins) in biasing the perception of lines of unequal lengths.
 Specifically, the angle of the fins in degrees, i.e., <cite>illusion_strength=20</cite>  represents
@@ -469,7 +470,7 @@ A negative sign would make the lower line longer than the upper line.</p></li>
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Müller-Lyer illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Müller-Lyer illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of mullerlyer_parameters()</p></li>
@@ -511,7 +512,7 @@ A negative sign would make the lower line longer than the upper line.</p></li>
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the Müller-Lyer illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parameters</strong> (<em>dict</em>) – Parameters of the Müller-Lyer illusion generated by <cite>mullerlyer_parameters()</cite>.</p></li>
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
@@ -521,7 +522,7 @@ A negative sign would make the lower line longer than the upper line.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>mullerlyer_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Müller-Lyer illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -543,13 +544,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/MullerLyer/MullerLyer.html#MullerLyer.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.MullerLyer.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the Müller-Lyer illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object initiated by <cite>psychopy.visual.Window</cite> in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>mullerlyer_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -582,7 +583,7 @@ and saved in different file formats
 
 </section>
 <section id="ponzo">
-<h3>Ponzo<a class="headerlink" href="#ponzo" title="Permalink to this headline">¶</a></h3>
+<h3>Ponzo<a class="headerlink" href="#ponzo" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Ponzo">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Ponzo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo" title="Permalink to this definition">¶</a></dt>
@@ -593,7 +594,7 @@ Specifically, because we interpret the converging sides as mimicing railway trac
 the upper line appears longer than the shorter one.</p>
 <p>Each instance of <cite>Ponzo</cite> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the tilting vertical lines in biasing the perception of horizontal lines of unequal lengths.
 Specifically, the angle of the vertical lines in degrees, i.e., <cite>illusion_strength=20</cite> represents
@@ -616,7 +617,7 @@ A negative sign would make the lower line longer than the upper line.</p></li>
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Ponzo illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Ponzo illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of ponzo_parameters()</p></li>
@@ -663,7 +664,7 @@ A negative sign would make the lower line longer than the upper line.</p></li>
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the Ponzo illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -672,7 +673,7 @@ A negative sign would make the lower line longer than the upper line.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>ponzo_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Ponzo illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -694,13 +695,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Ponzo/Ponzo.html#Ponzo.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Ponzo.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the Ponzo illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>ponzo_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -733,7 +734,7 @@ and saved in different file formats
 
 </section>
 <section id="verticalhorizontal">
-<h3>VerticalHorizontal<a class="headerlink" href="#verticalhorizontal" title="Permalink to this headline">¶</a></h3>
+<h3>VerticalHorizontal<a class="headerlink" href="#verticalhorizontal" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.VerticalHorizontal">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VerticalHorizontal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal" title="Permalink to this definition">¶</a></dt>
@@ -742,7 +743,7 @@ and saved in different file formats
 the length of a vertical line relative to a horizontal line of the same length.</p>
 <p>Each instance of <cite>MullerLyer</cite> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the tilted vertical line in biasing the overestimation of its length relative to the horizontal line.
 Specifically, the orientation of the line in degrees, 0 being vertical and
@@ -762,7 +763,7 @@ the right line. A negative sign would make the right line longer than the left l
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the vertical-horizontal illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the vertical-horizontal illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of verticalhorizontal_parameters()</p></li>
@@ -800,7 +801,7 @@ the right line. A negative sign would make the right line longer than the left l
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the vertical-horizontal illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -808,7 +809,7 @@ the right line. A negative sign would make the right line longer than the left l
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>verticalhorizontal_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the vertical-horizontal illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -830,13 +831,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/VerticalHorizontal/VerticalHorizontal.html#VerticalHorizontal.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.VerticalHorizontal.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the vertical-horizontal illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>verticalhorizontal_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -869,7 +870,7 @@ and saved in different file formats
 
 </section>
 <section id="zollner">
-<h3>Zollner<a class="headerlink" href="#zollner" title="Permalink to this headline">¶</a></h3>
+<h3>Zollner<a class="headerlink" href="#zollner" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Zollner">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Zollner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distractors_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distractors_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.66</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner" title="Permalink to this definition">¶</a></dt>
@@ -878,7 +879,7 @@ and saved in different file formats
 as not parallel because of their background (i.e., the slanting of the intersecting lines).</p>
 <p>Each instance of <cite>Zollner</cite> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the background, i.e., tilted distractor lines, in biasing the perception of unparallel horizontal lines.
 Specifically, the angle of the distractor lines in degrees (relative to vertical), where larger values
@@ -899,7 +900,7 @@ flips the direction of the convergence (converging towards the left side of the 
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Zollner illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Zöllner illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of zollner_parameters()</p></li>
@@ -936,7 +937,7 @@ flips the direction of the convergence (converging towards the left side of the 
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the Zöllner illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -944,7 +945,7 @@ flips the direction of the convergence (converging towards the left side of the 
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>zollner_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Zöllner illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -966,13 +967,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Zollner/Zollner.html#Zollner.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Zollner.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the Zöllner illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>zollner_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -1005,7 +1006,7 @@ and saved in different file formats
 
 </section>
 <section id="poggendorff">
-<h3>Poggendorff<a class="headerlink" href="#poggendorff" title="Permalink to this headline">¶</a></h3>
+<h3>Poggendorff<a class="headerlink" href="#poggendorff" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Poggendorff">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Poggendorff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff" title="Permalink to this definition">¶</a></dt>
@@ -1015,7 +1016,7 @@ of the position of one segment of a transverse line that has been interrupted
 by the contour of an intervening structure.</p>
 <p>Each instance of <cite>Poggendorff</cite> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the line tilt in biasing the perception of an uncontinuous single line.
 Specifically, the orientation of the lines in degrees, 0 being vertical and
@@ -1033,7 +1034,7 @@ represents the right line displaced higher up, and a negative sign represents it
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Poggendorff illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Poggendorff illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of poggendorff_parameters()</p></li>
@@ -1068,7 +1069,7 @@ represents the right line displaced higher up, and a negative sign represents it
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the Poggendorff illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -1076,7 +1077,7 @@ represents the right line displaced higher up, and a negative sign represents it
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>poggendorff_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Poggendorff illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -1098,13 +1099,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Poggendorff/Poggendorff.html#Poggendorff.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Poggendorff.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the Poggendorff illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>poggendorff_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -1137,7 +1138,7 @@ and saved in different file formats
 
 </section>
 <section id="contrast">
-<h3>Contrast<a class="headerlink" href="#contrast" title="Permalink to this headline">¶</a></h3>
+<h3>Contrast<a class="headerlink" href="#contrast" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Contrast">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Contrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast" title="Permalink to this definition">¶</a></dt>
@@ -1148,7 +1149,7 @@ Specifically, when comparing two targets with the same shade of grey, the one th
 embedded against a darker background appears lighter than the other target embedded against a lighter background.</p>
 <p>Each instance of <strong>Contrast</strong> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.
 Specifically, the difference in background colours, where large values create greater contrast in the two
@@ -1166,7 +1167,7 @@ rectangle relative to the lower rectangle.</p></li>
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the Simultaneous Contrast illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the Simultaneous Contrast illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of contrast_parameters().</p></li>
@@ -1198,14 +1199,14 @@ rectangle relative to the lower rectangle.</p></li>
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the Simultaneous Contrast illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>contrast_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Simultaneous Contrast illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -1227,13 +1228,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Contrast/Contrast.html#Contrast.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Contrast.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the Simultaneous Contrast illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>contrast_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -1269,7 +1270,7 @@ and saved in different file formats
 
 </section>
 <section id="white">
-<h3>White<a class="headerlink" href="#white" title="Permalink to this headline">¶</a></h3>
+<h3>White<a class="headerlink" href="#white" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.White">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">White</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">illusion_strength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">difference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strips_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White" title="Permalink to this definition">¶</a></dt>
@@ -1280,7 +1281,7 @@ Specifically, rectangles embedded against a darker background appears lighter
 than the rectangles embedded against a lighter background.</p>
 <p>Each instance of <cite>White</cite> contains attributes corresponding to the parameters of the illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>illusion_strength</strong> (<em>float</em>) – The strength of the background, i.e., contrasting colours, in biasing the perception of inner rectangles of different grey shades.
 Specifically, the difference in background colours, where large values create greater contrast in the two
@@ -1299,7 +1300,7 @@ Large positive signs correspond to brighter left rectangles and negative signs c
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of parameters passed into the White`s illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><p><em>dict</em> – Dictionary of parameters of the White`s illusion, including:</p>
 <ul class="simple">
 <li><p><strong>Difference</strong> : Objective difference in the target features, by modifying <cite>difference</cite> of white_parameters()</p></li>
@@ -1335,14 +1336,14 @@ Large positive signs correspond to brighter left rectangles and negative signs c
 <span class="sig-name descname"><span class="pre">to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.to_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of the White`s illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>white_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the white illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -1364,13 +1365,13 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">to_psychopy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/White/White.html#White.to_psychopy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.White.to_psychopy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PsychoPy stimulus of the White`s illusion.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – The window object initiated by <cite>psychopy.visual.Window</cite> in which the stimulus will be rendered.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>white_parameters()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -1405,7 +1406,7 @@ and saved in different file formats
 
 </section>
 <section id="autostereogram">
-<h3>Autostereogram<a class="headerlink" href="#autostereogram" title="Permalink to this headline">¶</a></h3>
+<h3>Autostereogram<a class="headerlink" href="#autostereogram" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Autostereogram">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Autostereogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stimulus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Hello'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_repetitions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Autostereogram/Autostereogram.html#Autostereogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Autostereogram" title="Permalink to this definition">¶</a></dt>
@@ -1417,10 +1418,10 @@ which, when watched with the appropriate focus, will generate an illusion of dep
 <span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">guide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Autostereogram/Autostereogram.html#Autostereogram.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Autostereogram.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of Autostereograms.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>guide</strong> (<em>bool</em>) – Defaults to ‘True’ to activate two red dots as guidance, and ‘False’ to disable the guide.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Autostereograms illusion, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -1441,7 +1442,7 @@ and saved in different file formats
 
 </section>
 <section id="pareidolia">
-<h3>Pareidolia<a class="headerlink" href="#pareidolia" title="Permalink to this headline">¶</a></h3>
+<h3>Pareidolia<a class="headerlink" href="#pareidolia" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyllusion.Pareidolia">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Pareidolia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[10,</span> <span class="pre">1000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[20,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[2,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Pareidolia/Pareidolia.html#Pareidolia"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Pareidolia" title="Permalink to this definition">¶</a></dt>
@@ -1455,11 +1456,11 @@ Gaussian blobs with different standard deviations (SD).</p>
 <span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/Pareidolia/Pareidolia.html#Pareidolia.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.Pareidolia.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a PIL image of a Pareidolia image.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>negative</strong> (<em>bool</em>) – Activate ‘True’ to invert pixel values (negative-positive inverting) of an image. Defaults to ‘False’.
 Passed to <code class="docutils literal notranslate"><span class="pre">PIL.ImageOps.invert</span></code>.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of the Pareidolia image, defaults to 800 x 600 pixels.
 Can be resized
 (<cite>resize()</cite>, See <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize">https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.resize</a>)
@@ -1482,14 +1483,14 @@ and saved in different file formats
 </section>
 </section>
 <section id="module-pyllusion.image">
-<span id="image"></span><h2>Image<a class="headerlink" href="#module-pyllusion.image" title="Permalink to this headline">¶</a></h2>
+<span id="image"></span><h2>Image<a class="headerlink" href="#module-pyllusion.image" title="Permalink to this heading">¶</a></h2>
 <p>Pyllusion submodule.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyllusion.image.image_blob">
 <span class="sig-name descname"><span class="pre">image_blob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">450</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_blob.html#image_blob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_blob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a PIL image of a blob.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>int</em>) – x-coordinate of the center of the blob. Unit in pixel.</p></li>
 <li><p><strong>y</strong> (<em>int</em>) – y-coordinate of the center of the blob. Unit in pixel.</p></li>
@@ -1498,7 +1499,7 @@ and saved in different file formats
 <li><p><strong>sd</strong> (<em>int</em>) – The standard deviation of the gaussian blob. Unit in pixel.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>Image</em> – Image of blob.</p></li>
 <li><p><em>&gt;&gt;&gt; import pyllusion</em></p></li>
@@ -1515,7 +1516,7 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">image_blobs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_blob.html#image_blobs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_blobs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a PIL image with blobs of the same standard deviations (SD).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -1524,7 +1525,7 @@ and saved in different file formats
 <li><p><strong>weight</strong> (<em>int</em>) – A multiplication weight in case there are several layers of SDs.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of blob(s).</p>
 </dd>
 </dl>
@@ -1542,7 +1543,7 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">image_circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antialias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_circle.html#image_circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_circle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a PIL image of a circle.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -1559,7 +1560,7 @@ and saved in different file formats
 <li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of circle.</p>
 </dd>
 </dl>
@@ -1581,7 +1582,7 @@ and saved in different file formats
 <span class="sig-name descname"><span class="pre">image_circles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antialias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_circle.html#image_circles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_circles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a PIL image of circles.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -1599,7 +1600,7 @@ If used, circles of random diameters from size_min to size_max are displayed.</p
 <li><p><strong>background</strong> (<em>str</em>) – Color of the background.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of circle(s).</p>
 </dd>
 </dl>
@@ -1619,7 +1620,7 @@ If used, circles of random diameters from size_min to size_max are displayed.</p
 <span class="sig-name descname"><span class="pre">image_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antialias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_line.html#image_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a PIL image of a line.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -1642,7 +1643,7 @@ to the height and width of the input image.</p></li>
 to the height and width of the input image.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of a line.</p>
 </dd>
 </dl>
@@ -1666,13 +1667,13 @@ to the height and width of the input image.</p></li>
 <span class="sig-name descname"><span class="pre">image_mosaic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_mosaic.html#image_mosaic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_mosaic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collate images together in a mosaic.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image_list</strong> (<em>list</em>) – A list of PIL images.</p></li>
 <li><p><strong>ncols, nrows</strong> (<em>int</em>) – How many rows and columns.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – A PIL image.</p>
 </dd>
 </dl>
@@ -1694,7 +1695,7 @@ to the height and width of the input image.</p></li>
 <span class="sig-name descname"><span class="pre">image_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width=500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height=500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red=&lt;built-in</span> <span class="pre">method</span> <span class="pre">uniform</span> <span class="pre">of</span> <span class="pre">numpy.random.mtrand.RandomState</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">green=&lt;built-in</span> <span class="pre">method</span> <span class="pre">uniform</span> <span class="pre">of</span> <span class="pre">numpy.random.mtrand.RandomState</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue=&lt;built-in</span> <span class="pre">method</span> <span class="pre">uniform</span> <span class="pre">of</span> <span class="pre">numpy.random.mtrand.RandomState</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blackwhite=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_noise.html#image_noise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_noise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a PIL RGB image of specific dimensions made of random dots.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -1704,7 +1705,7 @@ to the height and width of the input image.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>_rgb()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of noises made of random dots.</p>
 </dd>
 </dl>
@@ -1723,7 +1724,7 @@ to the height and width of the input image.</p></li>
 <span class="sig-name descname"><span class="pre">image_rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_outline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antialias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_rectangle.html#image_rectangle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_rectangle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a PIL image of a rectangle.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
 <li><p><strong>height</strong> (<em>int</em>) – Height of the returned image.</p></li>
@@ -1747,7 +1748,7 @@ image.</p></li>
 <li><p><strong>image</strong> (<em>Image</em>) – If None, an image will be created.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of a rectangle.</p>
 </dd>
 </dl>
@@ -1768,7 +1769,7 @@ image.</p></li>
 <span class="sig-name descname"><span class="pre">image_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Hello'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'arial.ttf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyllusion/image/image_text.html#image_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyllusion.image.image_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a PIL image of text.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> (<em>str</em>) – The text displayed in the image returned.</p></li>
 <li><p><strong>width</strong> (<em>int</em>) – Width of the returned image.</p></li>
@@ -1786,7 +1787,7 @@ used for bold, black and italic, respectively.</p></li>
 <li><p><strong>image</strong> (<em>Image</em>) – If None, an image will be created.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>Image</em> – Image of a text.</p>
 </dd>
 </dl>
@@ -1809,7 +1810,7 @@ used for bold, black and italic, respectively.</p></li>
 <dd><p>Rescale data.</p>
 <p>Rescale a numeric variable to a new range.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>Union[list, np.array, pd.Series]</em>) – Raw data.</p></li>
 <li><p><strong>to</strong> (<em>list</em>) – New range of values of x after rescaling.</p></li>
@@ -1818,7 +1819,7 @@ of the data. If None, the minimum and the maximum of the
 provided data will be used.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>list</em> – The rescaled values.</p>
 </dd>
 </dl>
@@ -1833,7 +1834,7 @@ provided data will be used.</p></li>
 
 </section>
 <section id="psychopy">
-<h2>PsychoPy<a class="headerlink" href="#psychopy" title="Permalink to this headline">¶</a></h2>
+<h2>PsychoPy<a class="headerlink" href="#psychopy" title="Permalink to this heading">¶</a></h2>
 <span class="target" id="module-pyllusion.psychopy"></span><p>Pyllusion submodule.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyllusion.psychopy.psychopy_circle">
@@ -1849,7 +1850,7 @@ from the corner). The purpose of this wrapper is to have consistent behaviour fo
 are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
 for more information (<a class="reference external" href="https://www.psychopy.org/api/visual/circle.html">https://www.psychopy.org/api/visual/circle.html</a>).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – A PsychoPy window for displaying one or more stimuli.</p></li>
 <li><p><strong>x</strong> (<em>float</em>) – x-coordinates of the center of the circle, from -1 to 1.</p></li>
@@ -1865,7 +1866,7 @@ colorSpace=’rgb255’ argument has to be added.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>psychopy.visual.Circle()</cite> or <cite>psychopy.visual.GratingStim()</cite>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -1908,7 +1909,7 @@ from the corner). The purpose of this wrapper is to have consistent behaviour fo
 are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
 for more information (<a class="reference external" href="https://www.psychopy.org/api/visual/line.html">https://www.psychopy.org/api/visual/line.html</a>).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – A PsychoPy window for displaying one or more stimuli.</p></li>
 <li><p><strong>x</strong> (<em>int</em>) – x-coordinates of the center of the line, from -1 to 1.</p></li>
@@ -1930,7 +1931,7 @@ to the height and width of the window. Defaults to False.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>psychopy.visual.Line()</cite></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -1973,7 +1974,7 @@ from the corner). The purpose of this wrapper is to have consistent behaviour fo
 are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation
 for more information (<a class="reference external" href="https://www.psychopy.org/api/visual/rect.html">https://www.psychopy.org/api/visual/rect.html</a>).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> (<em>object</em>) – A PsychoPy window for displaying one or more stimuli.</p></li>
 <li><p><strong>x</strong> (<em>float</em>) – x-coordinates of the center of the rectangle, from -1 to 1.</p></li>
@@ -1996,7 +1997,7 @@ to the height and width of the window. Defaults to False.</p></li>
 <li><p><strong>**kwargs</strong> – Additional arguments passed into <cite>psychopy.visual.Rect()</cite></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><em>In-place modification of the PsychoPy window (No explicit return).</em></p>
 </dd>
 </dl>
@@ -2030,7 +2031,7 @@ to the height and width of the window. Defaults to False.</p></li>
 
 </section>
 <section id="module-pyllusion.movement">
-<span id="movement"></span><h2>Movement<a class="headerlink" href="#module-pyllusion.movement" title="Permalink to this headline">¶</a></h2>
+<span id="movement"></span><h2>Movement<a class="headerlink" href="#module-pyllusion.movement" title="Permalink to this heading">¶</a></h2>
 <p>Pyllusion submodule.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyllusion.movement.images_to_gif">
