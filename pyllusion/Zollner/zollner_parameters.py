@@ -2,6 +2,7 @@ import numpy as np
 
 from ..image.utilities import _coord_line
 
+
 def _zollner_parameters(
     illusion_strength=0, difference=0, distractors_n=8, distractors_length=0.66
 ):
@@ -13,7 +14,7 @@ def _zollner_parameters(
     bottom_x1, bottom_y1, bottom_x2, bottom_y2 = coord
 
     # Angle distractors
-    if difference >= 0:
+    if difference <= 0:
         angle = illusion_strength + difference
     else:
         angle = -illusion_strength + difference
@@ -33,7 +34,10 @@ def _zollner_parameters(
     distractors_bottom_y2 = np.zeros(distractors_n)
     for i, x in enumerate(np.linspace(-0.9, 0.9, num=distractors_n)):
         coord, _, _ = _coord_line(
-            y=0.33 + x * slope_top, x=x, length=distractors_length, angle=angle,
+            y=0.33 + x * slope_top,
+            x=x,
+            length=distractors_length,
+            angle=angle,
         )
         x1, y1, x2, y2 = coord
         distractors_top_x1[i] = x1
@@ -42,7 +46,10 @@ def _zollner_parameters(
         distractors_top_y2[i] = y2
 
         coord, _, _ = _coord_line(
-            y=-0.33 + x * slope_bottom, x=x, length=distractors_length, angle=-angle,
+            y=-0.33 + x * slope_bottom,
+            x=x,
+            length=distractors_length,
+            angle=-angle,
         )
         x1, y1, x2, y2 = coord
         distractors_bottom_x1[i] = x1

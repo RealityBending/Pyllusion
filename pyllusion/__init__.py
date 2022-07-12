@@ -1,7 +1,7 @@
 """
 The Pyllusion module.
 """
-__version__ = "0.0.12"
+__version__ = "1.1"
 
 from .Autostereogram import *
 
@@ -23,7 +23,6 @@ from .utilities import *
 from .VerticalHorizontal import *
 from .White import *
 from .Zollner import *
-
 
 # Maintainer info
 __author__ = "The Reality Bending League"

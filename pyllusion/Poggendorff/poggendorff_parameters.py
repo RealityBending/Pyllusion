@@ -7,9 +7,11 @@ def _poggendorff_parameters(illusion_strength=0, difference=0):
 
     y_offset = difference
 
+    if difference < 0:
+        angle = 90 + illusion_strength
+    else:
+        angle = 90 - illusion_strength
     # Coordinates of left line
-    angle = 90 - illusion_strength
-    angle = angle if illusion_strength >= 0 else -angle
     coord, _, _ = _coord_line(x1=0, y1=0, angle=-angle, length=0.75)
     left_x1, left_y1, left_x2, left_y2 = coord
 
@@ -19,9 +21,9 @@ def _poggendorff_parameters(illusion_strength=0, difference=0):
 
     # Congruency
     if np.sign(difference) != np.sign(illusion_strength):
-        congruency = 'Congruent'
+        congruency = "Congruent"
     else:
-        congruency = 'Incongruent'
+        congruency = "Incongruent"
 
     parameters = {
         "Illusion": "Poggendorff",

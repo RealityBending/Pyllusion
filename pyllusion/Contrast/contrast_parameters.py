@@ -36,8 +36,8 @@ def _contrast_parameters_internal(difference=0, illusion_strength=0):
     # Backgrounds
     # A illusion_strength of 1 means a difference of 1%
     mod = np.sign(difference) if difference != 0 else 1
-    background_up = 0.5 - mod * illusion_strength / 200
-    background_low = 0.5 + mod * illusion_strength / 200
+    background_up = 0.5 + mod * illusion_strength / 200
+    background_low = 0.5 - mod * illusion_strength / 200
 
     # Adjustments in case of same contrast between rectangle and background
     if background_up == up:
