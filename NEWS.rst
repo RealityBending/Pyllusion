@@ -1,6 +1,8 @@
 News
 =====
 
+- Zollner: target red lines are now in front of the distractor lines.
+
 1.1.0
 ---------
 
