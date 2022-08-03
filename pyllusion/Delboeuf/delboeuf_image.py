@@ -10,7 +10,13 @@ from .delboeuf_parameters import _delboeuf_parameters
 
 
 def _delboeuf_image(
-    parameters=None, width=800, height=600, outline=10, background="white", **kwargs
+    parameters=None,
+    width=800,
+    height=600,
+    outline=10,
+    background="white",
+    target_only=False,
+    **kwargs
 ):
 
     # Create white canvas and get drawing context
@@ -22,16 +28,18 @@ def _delboeuf_image(
 
     # Loop circles
     for side in ["Left", "Right"]:
+
         # Draw outer circle
-        size_outer = parameters["Size_Outer_" + side]
-        image = image_circle(
-            image=image,
-            x=parameters["Position_" + side],
-            y=0,
-            size=size_outer,
-            color=(0, 0, 0, 0),
-            outline=outline,
-        )
+        if target_only is False:
+            size_outer = parameters["Size_Outer_" + side]
+            image = image_circle(
+                image=image,
+                x=parameters["Position_" + side],
+                y=0,
+                size=size_outer,
+                color=(0, 0, 0, 0),
+                outline=outline,
+            )
 
         # Draw inner circle
         size_inner = parameters["Size_Inner_" + side]

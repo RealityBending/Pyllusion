@@ -35,7 +35,12 @@ class Delboeuf:
     """
 
     def __init__(
-        self, illusion_strength=0, difference=0, size_min=0.25, distance=1, distance_auto=False
+        self,
+        illusion_strength=0,
+        difference=0,
+        size_min=0.25,
+        distance=1,
+        distance_auto=False,
     ):
         """
         Compute attributes for the Delboeuf Illusion.
@@ -105,7 +110,9 @@ class Delboeuf:
         """
         return self.get_parameters()
 
-    def to_image(self, width=800, height=600, outline=10, background="white", **kwargs):
+    def to_image(
+        self, width=800, height=600, outline=10, background="white", target_only=False, **kwargs
+    ):
         """Create a PIL image of the Delboeuf illusion.
 
         Parameters
@@ -118,6 +125,8 @@ class Delboeuf:
             The width of the outline of the circles in the illusion, passed into `image_circle()`.
         background : str
             Color of the background.
+        target_only : bool
+            If true, only draw the red circle.
         **kwargs
             Additional arguments passed into `delboeuf_parameters()`.
 
@@ -136,6 +145,10 @@ class Delboeuf:
         >>>
         >>> delboeuf = pyllusion.Delboeuf(illusion_strength=3)
         >>> delboeuf.to_image()
+        >>>
+        >>> delboeuf = pyllusion.Delboeuf(difference=1)
+        >>> delboeuf.to_image(target_only=True)
+
         """
         img = _delboeuf_image(
             parameters=self.parameters,
@@ -143,11 +156,12 @@ class Delboeuf:
             height=height,
             outline=outline,
             background=background,
+            target_only=target_only,
             **kwargs
         )
         return img
 
-    def to_psychopy(self, window, **kwargs):
+    def to_psychopy(self, window, target_only=False, **kwargs):
         """Create a PsychoPy stimulus of the Delboeuf illusion.
 
         Parameters
@@ -181,4 +195,4 @@ class Delboeuf:
         >>> window.close()
 
         """
-        _delboeuf_psychopy(window, self.parameters, **kwargs)
+        _delboeuf_psychopy(window, self.parameters, target_only=target_only, **kwargs)
