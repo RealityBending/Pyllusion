@@ -6,9 +6,7 @@ def _delboeuf_parameters(
 ):
 
     # Size inner circles
-    parameters = _delboeuf_parameters_sizeinner(
-        difference=difference, size_min=size_min
-    )
+    parameters = _delboeuf_parameters_sizeinner(difference=difference, size_min=size_min)
     inner_size_left = parameters["Size_Inner_Left"]
     inner_size_right = parameters["Size_Inner_Right"]
 
@@ -26,24 +24,16 @@ def _delboeuf_parameters(
 
     # Get location and distances
     if distance_auto is False:
-        distance_reference = 'Between Centers'
+        distance_reference = "Between Centers"
         distance_centers = distance
         position_left, position_right = -(distance_centers / 2), (distance_centers / 2)
-        distance_edges_inner = distance_centers - (
-            inner_size_left / 2 + inner_size_right / 2
-        )
-        distance_edges_outer = distance_centers - (
-            outer_size_left / 2 + outer_size_right / 2
-        )
+        distance_edges_inner = distance_centers - (inner_size_left / 2 + inner_size_right / 2)
+        distance_edges_outer = distance_centers - (outer_size_left / 2 + outer_size_right / 2)
     else:
-        distance_reference = 'Between Edges'
+        distance_reference = "Between Edges"
         distance_edges_outer = distance
-        distance_centers = distance_edges_outer + (
-            inner_size_left / 2 + inner_size_right / 2
-        )
-        distance_edges_inner = distance_centers - (
-            outer_size_left / 2 + outer_size_right / 2
-        )
+        distance_centers = distance_edges_outer + (inner_size_left / 2 + inner_size_right / 2)
+        distance_edges_inner = distance_centers - (outer_size_left / 2 + outer_size_right / 2)
         position_left, position_right = -(distance_centers / 2), (distance_centers / 2)
 
     parameters.update(
@@ -87,38 +77,30 @@ def _delboeuf_parameters_sizeouter(
     # Actual outer size based on illusion
     if difference > 0:  # if right is smaller
         if illusion_strength > 0:
-            outer_size_left = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_left
+            outer_size_left = (1 + np.abs(illusion_strength)) * outer_size_left
             if both_sizes is True:
-                outer_size_right = outer_size_right / np.sqrt(
-                    1 + np.abs(illusion_strength)
-                )
+                outer_size_right = outer_size_right / (1 + np.abs(illusion_strength))
         else:
-            outer_size_right = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_right
+            outer_size_right = (1 + np.abs(illusion_strength)) * outer_size_right
             if both_sizes is True:
-                outer_size_left = outer_size_left / np.sqrt(
-                    1 + np.abs(illusion_strength)
-                )
+                outer_size_left = outer_size_left / (1 + np.abs(illusion_strength))
 
     else:
         if illusion_strength > 0:
-            outer_size_right = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_right
+            outer_size_right = (1 + np.abs(illusion_strength)) * outer_size_right
             if both_sizes is True:
-                outer_size_left = outer_size_left / np.sqrt(
-                    1 + np.abs(illusion_strength)
-                )
+                outer_size_left = outer_size_left / (1 + np.abs(illusion_strength))
         else:
-            outer_size_left = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_left
+            outer_size_left = (1 + np.abs(illusion_strength)) * outer_size_left
             if both_sizes is True:
-                outer_size_right = outer_size_right / np.sqrt(
-                    1 + np.abs(illusion_strength)
-                )
+                outer_size_right = outer_size_right / (1 + np.abs(illusion_strength))
 
     return outer_size_left, outer_size_right
 
 
 def _delboeuf_parameters_sizeinner(difference=0, size_min=0.25):
 
-    size_bigger = np.sqrt(1 + np.abs(difference)) * size_min
+    size_bigger = (1 + np.abs(difference)) * size_min
 
     if difference > 0:  # if right is smaller
         inner_size_right = size_min
@@ -131,9 +113,6 @@ def _delboeuf_parameters_sizeinner(difference=0, size_min=0.25):
         "Difference": difference,
         "Size_Inner_Left": inner_size_left,
         "Size_Inner_Right": inner_size_right,
-        "Size_Inner_Difference": np.pi
-        * (size_bigger / 2) ** 2
-        / np.pi
-        * (size_min / 2) ** 2,
+        "Size_Inner_Difference": np.pi * (size_bigger / 2) ** 2 / np.pi * (size_min / 2) ** 2,
     }
     return parameters

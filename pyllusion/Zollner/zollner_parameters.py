@@ -6,6 +6,8 @@ from ..image.utilities import _coord_line
 def _zollner_parameters(
     illusion_strength=0, difference=0, distractors_n=8, distractors_length=0.66
 ):
+    # Positive difference means pointing towards the left
+    difference = -difference
 
     # Coordinates of target lines
     coord, _, _ = _coord_line(y=0.33, length=10, angle=90 + difference)

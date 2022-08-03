@@ -22,10 +22,10 @@ class Delboeuf:
         A negative sign means that the illusion will enhance the perception of the actual difference in circle sizes
         whereas a positive sign reduces this perception.
     difference : float
-        The objective size difference of the inner circles.
-        Specifically, the size of left inner circle relative to the right (in percentage, e.g., if difference=1,
-        it means that the left inner circle will be 100% bigger, i.e., 2 times bigger than the right).
-        A negative sign would make the left inner circle smaller than the right inner circle.
+        The objective size difference of the inner circles. Specifically, the size of left inner
+        circle relative to the right (in percentage, e.g., if difference=1, it means that the left
+        inner circle will be 100% bigger, i.e., 2 times bigger than the right). A negative sign
+        would make the left inner circle smaller than the right inner circle.
     size_min : float
         Size of smaller inner circle. Defaults to 0.25.
     distance : float
