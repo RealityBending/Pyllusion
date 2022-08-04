@@ -10,7 +10,7 @@ from .ebbinghaus_parameters import _ebbinghaus_parameters
 
 
 def _ebbinghaus_image(
-    parameters=None, width=800, height=600, background="white", **kwargs
+    parameters=None, width=800, height=600, background="white", target_only=False, **kwargs
 ):
 
     # Create white canvas and get drawing context
@@ -22,18 +22,26 @@ def _ebbinghaus_image(
 
     # Outer circles
     for side in ["Left", "Right"]:
-        image = _ebbinghaus_image_draw(image,
-                                       parameters,
-                                       side=side,
-                                       color_inner="red",
-                                       color_outer="black")
+        image = _ebbinghaus_image_draw(
+            image,
+            parameters,
+            side=side,
+            color_inner="red",
+            color_outer="black",
+            target_only=target_only,
+        )
 
     return image
 
-def _ebbinghaus_image_draw(image, p, side="Left", color_inner="red", color_outer="black"):
+
+def _ebbinghaus_image_draw(
+    image, p, side="Left", color_inner="red", color_outer="black", target_only=False
+):
 
     # Draw inner circle
-    image = image_circle(image=image, size=p["Size_Inner_" + side], x=p["Position_" + side], y=0, color=color_inner)
+    image = image_circle(
+        image=image, size=p["Size_Inner_" + side], x=p["Position_" + side], y=0, color=color_inner
+    )
 
     # Get width/height ratio to have equidistant circles
     ratio = image.size[0] / image.size[1]
@@ -43,7 +51,14 @@ def _ebbinghaus_image_draw(image, p, side="Left", color_inner="red", color_outer
     x = x + (p["Position_" + side] - np.mean(x))
 
     # Plot each outer circles
-    for i in range(len(p["Position_Outer_x_" + side])):
-        image = image_circle(image=image, size=p["Size_Outer_" + side], x=x[i], y=p["Position_Outer_y_" + side][i], color=color_outer)
+    if target_only is False:
+        for i in range(len(p["Position_Outer_x_" + side])):
+            image = image_circle(
+                image=image,
+                size=p["Size_Outer_" + side],
+                x=x[i],
+                y=p["Position_Outer_y_" + side][i],
+                color=color_outer,
+            )
 
     return image

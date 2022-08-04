@@ -110,7 +110,7 @@ class Ebbinghaus:
         """
         return self.get_parameters()
 
-    def to_image(self, width=800, height=600, background="white", **kwargs):
+    def to_image(self, width=800, height=600, background="white", target_only=False, **kwargs):
         """Create a PIL image of the Ebbinghaus illusion.
 
         Parameters
@@ -121,6 +121,8 @@ class Ebbinghaus:
             Height of the returned image.
         background : str
             Color of the background.
+        target_only : bool
+            If true, only draw the red circle.
         **kwargs
             Additional arguments passed into `ebbinghaus_parameters()`.
 
@@ -137,25 +139,31 @@ class Ebbinghaus:
         ---------
         >>> import pyllusion
         >>>
-        >>> ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=1, difference=2)
+        >>> ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=1, difference=1.2)
         >>> ebbinghaus.to_image()
+        >>>
+        >>> ebbinghaus.to_image(target_only=True)
+
         """
         img = _ebbinghaus_image(
             parameters=self.parameters,
             width=width,
             height=height,
             background=background,
+            target_only=target_only,
             **kwargs
         )
         return img
 
-    def to_psychopy(self, window, **kwargs):
+    def to_psychopy(self, window, target_only=False, **kwargs):
         """Create a PsychoPy stimulus of the Ebbinghaus illusion.
 
         Parameters
         ----------
         window : object
             The window object initiated by `psychopy.visual.Window` in which the stimulus will be rendered.
+        target_only : bool
+            If true, only draw the red circle.
         **kwargs
             Additional arguments passed into `ebbinghaus_parameters()`.
 
@@ -183,4 +191,4 @@ class Ebbinghaus:
         >>> window.close()
 
         """
-        _ebbinghaus_psychopy(window, self.parameters, **kwargs)
+        _ebbinghaus_psychopy(window, self.parameters, target_only=target_only, **kwargs)

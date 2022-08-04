@@ -167,7 +167,10 @@ class Delboeuf:
         Parameters
         ----------
         window : object
-            The window object initiated by `psychopy.visual.Window` in which the stimulus will be rendered.
+            The window object initiated by `psychopy.visual.Window` in which the stimulus will be
+            rendered.
+        target_only : bool
+            If true, only draw the red circle.
         **kwargs
             Additional arguments passed into `delboeuf_parameters()`.
 
