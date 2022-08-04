@@ -33,9 +33,7 @@ class MullerLyer:
         Distance between the upper and lower horizontal lines.
     """
 
-    def __init__(
-        self, illusion_strength=0, difference=0, size_min=0.5, distance=1
-    ):
+    def __init__(self, illusion_strength=0, difference=0, size_min=0.5, distance=1):
         """
         Compute parameters for the Müller-Lyer illusion.
 
@@ -104,7 +102,9 @@ class MullerLyer:
         """
         return self.get_parameters()
 
-    def to_image(self, width=800, height=600, outline=20, background="white", **kwargs):
+    def to_image(
+        self, width=800, height=600, outline=20, background="white", target_only=False, **kwargs
+    ):
         """
         Create a PIL image of the Müller-Lyer illusion.
 
@@ -120,6 +120,8 @@ class MullerLyer:
             The width of the lines in the illusion, passed into `image_line()`.
         background : str
             Color of the background.
+        target_only : bool
+            If true, only draw the red lines.
         **kwargs
             Additional arguments passed into `mullerlyer_parameters()`.
 
@@ -138,6 +140,8 @@ class MullerLyer:
         >>>
         >>> mullerlyer = pyllusion.MullerLyer(difference=0.5, illusion_strength=20)
         >>> mullerlyer.to_image()
+        >>>
+        >>> mullerlyer.to_image(target_only=True)
         """
         img = _mullerlyer_image(
             parameters=self.parameters,
@@ -145,17 +149,20 @@ class MullerLyer:
             height=height,
             outline=outline,
             background=background,
+            target_only=target_only,
             **kwargs
         )
         return img
 
-    def to_psychopy(self, window, **kwargs):
+    def to_psychopy(self, window, target_only=False, **kwargs):
         """Create a PsychoPy stimulus of the Müller-Lyer illusion.
 
         Parameters
         ----------
         window : object
             The window object initiated by `psychopy.visual.Window` in which the stimulus will be rendered.
+        target_only : bool
+            If true, only draw the red lines.
         **kwargs
             Additional arguments passed into `mullerlyer_parameters()`.
 
@@ -183,4 +190,4 @@ class MullerLyer:
         >>> window.close()
 
         """
-        _mullerlyer_psychopy(window, self.parameters, **kwargs)
+        _mullerlyer_psychopy(window, self.parameters, target_only=target_only, **kwargs)
