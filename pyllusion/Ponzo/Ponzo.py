@@ -35,9 +35,7 @@ class Ponzo:
         Distance between the upper and lower horizontal lines. Defaults to 1.
     """
 
-    def __init__(
-        self, illusion_strength=0, difference=0, size_min=0.5, distance=1
-    ):
+    def __init__(self, illusion_strength=0, difference=0, size_min=0.5, distance=1):
         """
         Compute parameters for the Ponzo illusion.
 
@@ -113,7 +111,9 @@ class Ponzo:
         """
         return self.get_parameters()
 
-    def to_image(self, width=800, height=600, outline=20, background="white", **kwargs):
+    def to_image(
+        self, width=800, height=600, outline=20, background="white", target_only=False, **kwargs
+    ):
         """Create a PIL image of the Ponzo illusion.
 
         Parameters
@@ -126,6 +126,8 @@ class Ponzo:
             The width of the lines in the illusion, passed into `image_line()`.
         background : str
             Color of the background.
+        target_only : bool
+            If True, only the red lines will be drawn.
         **kwargs
             Additional arguments passed into `ponzo_parameters()`.
 
@@ -144,6 +146,8 @@ class Ponzo:
         >>>
         >>> ponzo = pyllusion.Ponzo(illusion_strength=20)
         >>> ponzo.to_image()
+        >>>
+        >>> ponzo.to_image(target_only=True)
         """
         img = _ponzo_image(
             parameters=self.parameters,
@@ -151,17 +155,20 @@ class Ponzo:
             height=height,
             outline=outline,
             background=background,
+            target_only=target_only,
             **kwargs
         )
         return img
 
-    def to_psychopy(self, window, **kwargs):
+    def to_psychopy(self, window, target_only=False, **kwargs):
         """Create a PsychoPy stimulus of the Ponzo illusion.
 
         Parameters
         ----------
         window : object
             The window object in which the stimulus will be rendered.
+        target_only : bool
+            If True, only the red lines will be drawn.
         **kwargs
             Additional arguments passed into `ponzo_parameters()`.
 
@@ -189,4 +196,4 @@ class Ponzo:
         >>> window.close()
 
         """
-        _ponzo_psychopy(window, self.parameters, **kwargs)
+        _ponzo_psychopy(window, self.parameters, target_only=target_only, **kwargs)

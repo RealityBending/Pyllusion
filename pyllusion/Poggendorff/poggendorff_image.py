@@ -1,17 +1,19 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
 
 from ..image import image_line, image_rectangle
 from .poggendorff_parameters import _poggendorff_parameters
 
 
-def _poggendorff_image(
-    parameters=None, width=800, height=600, background="white", **kwargs
-):
+def _poggendorff_image(parameters=None, width=800, height=600, background="white", **kwargs):
 
     # Create white canvas and get drawing context
     if parameters is None:
-        parameters = poggendorff_parameters(**kwargs)
+        parameters = _poggendorff_parameters(**kwargs)
 
     # Background
     image = PIL.Image.new("RGB", (width, height), color=background)
@@ -35,7 +37,7 @@ def _poggendorff_image(
         size_width=parameters["Rectangle_Width"],
         size_height=parameters["Rectangle_Height"],
         color="grey",
-        adjust_height=False
+        adjust_height=False,
     )
 
     return image

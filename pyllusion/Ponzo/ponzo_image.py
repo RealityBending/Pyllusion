@@ -1,11 +1,23 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
 
 from ..image import image_line
 from .ponzo_parameters import _ponzo_parameters
 
 
-def _ponzo_image(parameters=None, width=800, height=600, outline=20, background="white", **kwargs):
+def _ponzo_image(
+    parameters=None,
+    width=800,
+    height=600,
+    outline=20,
+    background="white",
+    target_only=False,
+    **kwargs
+):
 
     # Create white canvas and get drawing context
     if parameters is None:
@@ -15,16 +27,17 @@ def _ponzo_image(parameters=None, width=800, height=600, outline=20, background=
     image = PIL.Image.new("RGB", (width, height), color=background)
 
     # Distractors lines
-    for side in ["Left", "Right"]:
-        image = image_line(
-            image=image,
-            x1=parameters[side + "_x1"],
-            y1=parameters[side + "_y1"],
-            x2=parameters[side + "_x2"],
-            y2=parameters[side + "_y2"],
-            color="black",
-            size=outline,
-        )
+    if target_only is False:
+        for side in ["Left", "Right"]:
+            image = image_line(
+                image=image,
+                x1=parameters[side + "_x1"],
+                y1=parameters[side + "_y1"],
+                x2=parameters[side + "_x2"],
+                y2=parameters[side + "_y2"],
+                color="black",
+                size=outline,
+            )
 
     # Target lines (horizontal)
     for position in ["Bottom", "Top"]:
