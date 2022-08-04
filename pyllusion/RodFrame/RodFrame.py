@@ -24,9 +24,7 @@ class RodFrame:
         negative values rotating anticlockwise.
     """
 
-    def __init__(
-        self, illusion_strength=0, difference=0, size_min=0.5
-    ):
+    def __init__(self, illusion_strength=0, difference=0, size_min=0.5):
         """
         Compute Parameters for the Rod and Frame Illusion.
 
@@ -42,8 +40,7 @@ class RodFrame:
                 negative values rotating anticlockwise.
         """
         self.parameters = _rodframe_parameters(
-            illusion_strength=illusion_strength,
-            difference=difference
+            illusion_strength=illusion_strength, difference=difference
         )
 
     def get_parameters(self):
@@ -71,7 +68,9 @@ class RodFrame:
         """
         return self.get_parameters()
 
-    def to_image(self, width=800, height=600, outline=20, background="white", **kwargs):
+    def to_image(
+        self, width=800, height=600, outline=20, background="white", target_only=False, **kwargs
+    ):
         """Create a PIL image of the Rod and frame illusion.
 
         Parameters
@@ -85,6 +84,8 @@ class RodFrame:
             rectangle border, passed into `image_rectangle()`.
         background : str
             Color of the background.
+        target_only : bool
+            If True, only the red rod will be drawn.
         **kwargs
             Additional arguments passed into `rodframe_parameters()`.
 
@@ -103,6 +104,8 @@ class RodFrame:
         >>>
         >>> rodframe = pyllusion.RodFrame(illusion_strength=65, difference=0)
         >>> rodframe.to_image()
+        >>>
+        >>> rodframe.to_image(target_only=True)
         """
         img = _rodframe_image(
             parameters=self.parameters,
@@ -110,17 +113,20 @@ class RodFrame:
             height=height,
             outline=outline,
             background=background,
+            target_only=target_only,
             **kwargs
         )
         return img
 
-    def to_psychopy(self, window, **kwargs):
+    def to_psychopy(self, window, target_only=False, **kwargs):
         """Create a PsychoPy stimulus of the Rod and Frame illusion.
 
         Parameters
         ----------
         window : object
             The window object in which the stimulus will be rendered.
+        target_only : bool
+            If True, only the red rod will be drawn.
         **kwargs
             Additional arguments passed into `rodframe_parameters()`.
 
@@ -147,4 +153,4 @@ class RodFrame:
         >>> event.waitKeys()  # Press any key to close
         >>> window.close()
         """
-        _rodframe_psychopy(window, self.parameters, **kwargs)
+        _rodframe_psychopy(window, self.parameters, target_only=target_only, **kwargs)
