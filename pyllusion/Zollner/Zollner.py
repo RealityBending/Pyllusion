@@ -31,9 +31,7 @@ class Zollner:
         Length of distractor lines in the background. Defaults to 0.66.
     """
 
-    def __init__(
-        self, illusion_strength=0, difference=0, distractors_n=8, distractors_length=0.66
-    ):
+    def __init__(self, illusion_strength=0, difference=0, distractors_n=8, distractors_length=0.66):
         """
         Compute parameters for the Zöllner illusion.
 
@@ -97,7 +95,7 @@ class Zollner:
         """
         return self.get_parameters()
 
-    def to_image(self, width=800, height=600, background="white", **kwargs):
+    def to_image(self, width=800, height=600, background="white", target_only=False, **kwargs):
         """Create a PIL image of the Zöllner illusion.
 
         Parameters
@@ -108,6 +106,8 @@ class Zollner:
             Height of the returned image.
         background : str
             Color of the background.
+        target_only : bool
+            If True, only the red lines will be drawn.
         **kwargs
             Additional arguments passed into `zollner_parameters()`.
 
@@ -126,23 +126,28 @@ class Zollner:
         >>>
         >>> zollner = pyllusion.Zollner(illusion_strength=75)
         >>> zollner.to_image()
+        >>>
+        >>> zollner.to_image(target_only=True)
         """
         img = _zollner_image(
             parameters=self.parameters,
             width=width,
             height=height,
             background=background,
+            target_only=target_only,
             **kwargs
         )
         return img
 
-    def to_psychopy(self, window, **kwargs):
+    def to_psychopy(self, window, target_only=False, **kwargs):
         """Create a PsychoPy stimulus of the Zöllner illusion.
 
         Parameters
         ----------
         window : object
             The window object in which the stimulus will be rendered.
+        target_only : bool
+            If True, only the red lines will be drawn.
         **kwargs
             Additional arguments passed into `zollner_parameters()`.
 
@@ -170,4 +175,4 @@ class Zollner:
         >>> window.close()
 
         """
-        _zollner_psychopy(window, self.parameters, **kwargs)
+        _zollner_psychopy(window, self.parameters, target_only=target_only, **kwargs)

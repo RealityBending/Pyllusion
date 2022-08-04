@@ -9,7 +9,9 @@ from ..image import image_line
 from .zollner_parameters import _zollner_parameters
 
 
-def _zollner_image(parameters=None, width=800, height=600, background="white", **kwargs):
+def _zollner_image(
+    parameters=None, width=800, height=600, background="white", target_only=False, **kwargs
+):
 
     # Create white canvas and get drawing context
     if parameters is None:
@@ -19,18 +21,19 @@ def _zollner_image(parameters=None, width=800, height=600, background="white", *
     image = PIL.Image.new("RGB", (width, height), color=background)
 
     # Distractors
-    for i in range(parameters["Distractors_n"]):
-        for pos in ["_Top_", "_Bottom_"]:
-            image = image_line(
-                image=image,
-                x1=parameters["Distractors" + pos + "x1"][i],
-                y1=parameters["Distractors" + pos + "y1"][i],
-                x2=parameters["Distractors" + pos + "x2"][i],
-                y2=parameters["Distractors" + pos + "y2"][i],
-                color="black",
-                adjust_height=True,
-                size=20,
-            )
+    if target_only is False:
+        for i in range(parameters["Distractors_n"]):
+            for pos in ["_Top_", "_Bottom_"]:
+                image = image_line(
+                    image=image,
+                    x1=parameters["Distractors" + pos + "x1"][i],
+                    y1=parameters["Distractors" + pos + "y1"][i],
+                    x2=parameters["Distractors" + pos + "x2"][i],
+                    y2=parameters["Distractors" + pos + "y2"][i],
+                    color="black",
+                    adjust_height=True,
+                    size=20,
+                )
 
     # Lines
     for pos in ["Top_", "Bottom_"]:
