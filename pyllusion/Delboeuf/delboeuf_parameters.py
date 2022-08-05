@@ -77,30 +77,30 @@ def _delboeuf_parameters_sizeouter(
     # Actual outer size based on illusion
     if difference > 0:  # if right is smaller
         if illusion_strength > 0:
-            outer_size_left = (1 + np.abs(illusion_strength)) * outer_size_left
+            outer_size_left = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_left
             if both_sizes is True:
-                outer_size_right = outer_size_right / (1 + np.abs(illusion_strength))
+                outer_size_right = outer_size_right / np.sqrt(1 + np.abs(illusion_strength))
         else:
-            outer_size_right = (1 + np.abs(illusion_strength)) * outer_size_right
+            outer_size_right = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_right
             if both_sizes is True:
-                outer_size_left = outer_size_left / (1 + np.abs(illusion_strength))
+                outer_size_left = outer_size_left / np.sqrt(1 + np.abs(illusion_strength))
 
     else:
         if illusion_strength > 0:
-            outer_size_right = (1 + np.abs(illusion_strength)) * outer_size_right
+            outer_size_right = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_right
             if both_sizes is True:
-                outer_size_left = outer_size_left / (1 + np.abs(illusion_strength))
+                outer_size_left = outer_size_left / np.sqrt(1 + np.abs(illusion_strength))
         else:
-            outer_size_left = (1 + np.abs(illusion_strength)) * outer_size_left
+            outer_size_left = np.sqrt(1 + np.abs(illusion_strength)) * outer_size_left
             if both_sizes is True:
-                outer_size_right = outer_size_right / (1 + np.abs(illusion_strength))
+                outer_size_right = outer_size_right / np.sqrt(1 + np.abs(illusion_strength))
 
     return outer_size_left, outer_size_right
 
 
 def _delboeuf_parameters_sizeinner(difference=0, size_min=0.25):
 
-    size_bigger = (1 + np.abs(difference)) * size_min
+    size_bigger = np.sqrt(1 + np.abs(difference)) * size_min
 
     if difference > 0:  # if right is smaller
         inner_size_right = size_min
