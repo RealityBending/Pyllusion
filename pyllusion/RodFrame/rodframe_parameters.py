@@ -8,9 +8,9 @@ def _rodframe_parameters(illusion_strength=0, difference=0):
     rod_angle = -difference
 
     if difference >= 0:
-        frame_angle = illusion_strength
-    else:
         frame_angle = -1 * illusion_strength
+    else:
+        frame_angle = illusion_strength
 
     parameters = {
         "Illusion": "RodFrame",
