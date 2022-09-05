@@ -145,6 +145,7 @@ class Delboeuf:
         >>>
         >>> delboeuf = pyllusion.Delboeuf(illusion_strength=3)
         >>> delboeuf.to_image()
+        >>> delboeuf.parameters
         >>>
         >>> delboeuf = pyllusion.Delboeuf(difference=2)
         >>> delboeuf.to_image(target_only=True)

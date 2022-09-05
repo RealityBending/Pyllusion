@@ -11,8 +11,8 @@ def _delboeuf_parameters(
     inner_size_right = parameters["Size_Inner_Right"]
 
     # Base size outer circles
-    outer_size_left = inner_size_left + (0.2 * size_min)
-    outer_size_right = inner_size_right + (0.2 * size_min)
+    outer_size_left = inner_size_left
+    outer_size_right = inner_size_right
 
     # Actual outer size based on illusion
     outer_size_left, outer_size_right = _delboeuf_parameters_sizeouter(
