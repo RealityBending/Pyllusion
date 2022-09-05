@@ -1,7 +1,7 @@
 News
 =====
 
-- Delboeuf: `illusion_strength=0` now generates the outline circle of the *same size* as the target circles (instead of being slightly bigger). This was done to fix an unintented effect of the prior behavior (see illusion game validation study).
+- Delboeuf: `illusion_strength=0` now generates the outline circle of the *same size* as the target circles (instead of being slightly bigger). This was done to fix an unintented effect of the prior behavior (see illusion game validation study and https://github.com/RealityBending/Pyllusion/issues/17).
 - Add `target_only` where applicable to not draw the "distractor" context.
 - Zöllner: The `illusion_strength` has now an opposite effect (fix based on observed data). This behavior is the same as the original one, which got reversed in 1.1.0.
 - RodFrame: The `difference` effect got inversed.
