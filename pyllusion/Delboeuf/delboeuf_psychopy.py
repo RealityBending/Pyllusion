@@ -18,18 +18,6 @@ def _delboeuf_psychopy(window, parameters=None, target_only=False, **kwargs):
     # Loop circles
     for side in ["Left", "Right"]:
 
-        # Draw inner circle
-        size_inner = parameters["Size_Inner_" + side]
-        psychopy_circle(
-            window,
-            x=parameters["Position_" + side],
-            y=0,
-            size=size_inner,
-            color="red",
-            outline_color="red",
-            outline=0.5,
-        )
-
         # Draw outer circle
         if target_only is False:
             size_outer = parameters["Size_Outer_" + side]
@@ -42,3 +30,15 @@ def _delboeuf_psychopy(window, parameters=None, target_only=False, **kwargs):
                 outline_color="black",
                 outline=3,
             )
+
+        # Draw inner circle
+        size_inner = parameters["Size_Inner_" + side]
+        psychopy_circle(
+            window,
+            x=parameters["Position_" + side],
+            y=0,
+            size=size_inner,
+            color="red",
+            outline_color="red",
+            outline=0.5,
+        )

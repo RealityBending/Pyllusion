@@ -29,12 +29,6 @@ def _delboeuf_image(
     # Loop circles
     for side in ["Left", "Right"]:
 
-        # Draw inner circle
-        size_inner = parameters["Size_Inner_" + side]
-        image = image_circle(
-            image=image, x=parameters["Position_" + side], y=0, size=size_inner, color="red"
-        )
-
         # Draw outer circle
         if target_only is False:
             size_outer = parameters["Size_Outer_" + side]
@@ -46,5 +40,11 @@ def _delboeuf_image(
                 color=(0, 0, 0, 0),
                 outline=outline,
             )
+
+        # Draw inner circle
+        size_inner = parameters["Size_Inner_" + side]
+        image = image_circle(
+            image=image, x=parameters["Position_" + side], y=0, size=size_inner, color="red"
+        )
 
     return image
