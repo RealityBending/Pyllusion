@@ -15,6 +15,7 @@ def _delboeuf_image(
     height=600,
     outline=10,
     background="white",
+    distractor_fill=(0, 0, 0, 0),
     target_only=False,
     **kwargs
 ):
@@ -37,7 +38,7 @@ def _delboeuf_image(
                 x=parameters["Position_" + side],
                 y=0,
                 size=size_outer,
-                color=(0, 0, 0, 0),
+                color=distractor_fill,
                 outline=outline,
             )
 

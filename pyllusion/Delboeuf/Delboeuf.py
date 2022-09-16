@@ -125,6 +125,9 @@ class Delboeuf:
             The width of the outline of the circles in the illusion, passed into `image_circle()`.
         background : str
             Color of the background.
+        distractor_fill : str or tuple
+            Color of the outer distractor circles. Set to ``(0, 0, 0, 0)`` (transparent) by
+            default.
         target_only : bool
             If true, only draw the red circle.
         **kwargs
@@ -147,8 +150,14 @@ class Delboeuf:
         >>> delboeuf.to_image()
         >>> delboeuf.get_parameters()
         >>>
+        >>> # Display only the target (no illusion)
         >>> delboeuf = pyllusion.Delboeuf(difference=2)
         >>> delboeuf.to_image(target_only=True)
+        >>>
+        >>> # Alternative version
+        >>> delboeuf = pyllusion.Delboeuf(illusion_strength=3)
+        >>> delboeuf.to_image(background="grey", distractor_fill="white", outline=0)
+        >>>
 
         """
         img = _delboeuf_image(
