@@ -19,13 +19,13 @@ def image_mosaic(image_list, ncols="auto", nrows="auto"):
 
     Examples
     --------
-    >>> import pyllusion
+    >>> import pyllusion as ill
     >>>
-    >>> img1 = pyllusion.delboeuf_image()
-    >>> img2 = pyllusion.ponzo_image()
-    >>> img3 = pyllusion.rodframe_image()
-    >>> img4 = pyllusion.mullerlyer_image()
-    >>> img5 = pyllusion.ebbinghaus_image()
+    >>> img1 = ill.Delboeuf(illusion_strength=5).to_image()
+    >>> img2 = ill.Ponzo().to_image()
+    >>> img3 = ill.RodFrame().to_image()
+    >>> img4 = ill.MullerLyer().to_image()
+    >>> img5 = ill.Ebbinghaus().to_image()
     >>> pyllusion.image_mosaic([img1, img2, img3, img4, img5], ncols=2)
     """
     # Compute dimensions
@@ -41,7 +41,7 @@ def image_mosaic(image_list, ncols="auto", nrows="auto"):
         nrows = int(n / ncols)
 
     # Generate image
-    new = PIL.Image.new('RGB', (image_list[0].width * ncols, image_list[0].height * nrows))
+    new = PIL.Image.new("RGB", (image_list[0].width * ncols, image_list[0].height * nrows))
     i = 0
     for row in range(nrows):
         for col in range(ncols):
