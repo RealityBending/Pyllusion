@@ -1,6 +1,7 @@
 News
 =====
 
+- Added `image_scramble()` to shuffle / randomize pixels of an image.
 - Ebbinghaus: The location of the distractor circles is now mirrored between the left and the right side, to prevent edge cases where the image is cut one side but not the other.
 - Delboeuf: added `distractor_fill` argument to modulate the color of the outer circles.
 - Delboeuf: `illusion_strength=0` now generates the outline circle of the *same size* as the target circles (instead of being slightly bigger). This was done to fix an unintented effect of the prior behavior (see illusion game validation study and https://github.com/RealityBending/Pyllusion/issues/17).
