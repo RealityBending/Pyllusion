@@ -6,7 +6,7 @@ import PIL.ImageFont
 import PIL.ImageOps
 
 
-def image_scramble(image, blocks=(10, 10), omit=None):
+def image_scramble(image, blocks=None, omit=None):
     """
     Scramble an image.
 
@@ -22,11 +22,12 @@ def image_scramble(image, blocks=(10, 10), omit=None):
     image : PIL.Image
         Image to scramble.
     blocks : tuple
-        Minimum number of blocks in the x and y direction. Might be higher if the
-        image is not divisible by the number of blocks. If ``None``, will scramble
+        Scramble with blocks. Minimum number of blocks in the x and y direction. Might be higher if
+        the image is not divisible by the number of blocks. If ``None``, will scramble
         the pixels.
     omit : str
-        If ``"white"`` or ``"black"``, will scramble all pixels but the totally white or black ones.
+        If ``"white"`` or ``"black"``, will scramble all pixels but the totally white or black
+        ones. Note that the ``blocks`` parameter will be ignored.
 
     Returns
     -------
