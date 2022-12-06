@@ -6,7 +6,7 @@ import PIL.ImageFont
 import PIL.ImageOps
 
 
-def image_scramble(image, blocks=(10, 10)):
+def image_scramble(image, blocks=(10, 10), omit=None):
     """
     Scramble an image.
 
@@ -25,6 +25,8 @@ def image_scramble(image, blocks=(10, 10)):
         Minimum number of blocks in the x and y direction. Might be higher if the
         image is not divisible by the number of blocks. If ``None``, will scramble
         the pixels.
+    omit : str
+        If ``"white"`` or ``"black"``, will scramble all pixels but the totally white or black ones.
 
     Returns
     -------
@@ -39,10 +41,15 @@ def image_scramble(image, blocks=(10, 10)):
     >>> ill.image_scramble(image, blocks=(10, 10))
     >>> ill.image_scramble(image, blocks=(100, 100))
     >>> ill.image_scramble(image, blocks=None)
+    >>> ill.image_scramble(image, omit="white")
+    >>> ill.image_scramble(image, omit="black")
 
     """
+    # If using a mask, do bespoke operation
+    if omit is not None:
+        return _scramble_with_mask(image, omit=omit)
+
     array = np.array(image)
-    # https://stackoverflow.com/questions/74541109/
 
     if blocks is None:
         array = _shuffled(_shuffled(array.swapaxes(0, 1)).swapaxes(0, 1))
@@ -59,10 +66,32 @@ def image_scramble(image, blocks=(10, 10)):
     return PIL.Image.fromarray(array)
 
 
-def _shuffle_2D(x):
-    return _shuffled(_shuffled(x.swapaxes(0, 1)).swapaxes(0, 1))
+def _scramble_with_mask(image, omit="white"):
+    # https://stackoverflow.com/questions/74541109/
+    array = np.array(image.convert("RGB"))  # Forge to RGB to have only 3 dimensions
+
+    # Get mask of non-white or non-black pixels
+    if omit == "white":
+        mask = np.array(image.convert("L")) != 255
+    elif omit == "black":
+        mask = np.array(image.convert("L")) != 0
+    else:
+        raise ValueError("omit must be either 'white' or 'black'")
+
+    # Make a single 24-bit number for each pixel, instead of 3x 8-bit numbers
+    u32 = np.dot(array.astype(np.uint32), [1, 256, 65536])
+    u32[mask] = _shuffled(u32[mask])
+
+    # Now split 24-bit entities back into RGB888
+    r = u32 & 0xFF
+    g = (u32 >> 8) & 0xFF
+    b = (u32 >> 16) & 0xFF
+    array = np.dstack((r, g, b)).astype(np.uint8)
+    return PIL.Image.fromarray(array)
 
 
+# Internals
+# ---------
 def _shuffled(x):
     """Return a shuffled array. Because python does it in-place."""
     np.random.shuffle(x)
