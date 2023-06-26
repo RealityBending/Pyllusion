@@ -41,8 +41,8 @@ reticulate::use_python("C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd6
 ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png)
 ![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
 ![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
-![Tests](https://github.com/RealityBending/Pyllusion/workflows/%F0%9F%93%8A%20Tests/badge.svg)
-![](https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg)
+[![Tests](https://github.com/RealityBending/Pyllusion/actions/workflows/tests.yml/badge.svg)](https://github.com/RealityBending/Pyllusion/actions/workflows/tests.yml)
+[![](https://img.shields.io/badge/paper-Pyllusion-9C27B0)](https://journals.sagepub.com/doi/10.1177/03010066211057347)
 
 **A Parametric Framework to Generate Visual Illusions using Python**
 

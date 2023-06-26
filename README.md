@@ -1,9 +1,8 @@
 
 ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png)
 ![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
-![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
-![Tests](https://github.com/RealityBending/Pyllusion/workflows/%F0%9F%93%8A%20Tests/badge.svg)
-![](https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg)
+[![Tests](https://github.com/RealityBending/Pyllusion/actions/workflows/tests.yml/badge.svg)](https://github.com/RealityBending/Pyllusion/actions/workflows/tests.yml)
+[![](https://img.shields.io/badge/paper-Pyllusion-9C27B0)](https://journals.sagepub.com/doi/10.1177/03010066211057347)
 
 **A Parametric Framework to Generate Visual Illusions using Python**
 
@@ -358,9 +357,9 @@ by blending images of faces with noise-like images.
 Blending of images can be achieved: as followed
 
 ``` python
-pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png", 
-                                 n=[20, 300, 4000], 
-                                 sd=[4, 2, 1], 
+pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png",
+                                 n=[20, 300, 4000],
+                                 sd=[4, 2, 1],
                                  weight=[3, 2, 1],
                                  alpha=80,
                                  blur=0.5)
@@ -437,17 +436,17 @@ Pyllusion can be easily integrated into
     # Load packages
     import pyllusion
     from psychopy import visual, event
-    
+
     # Create parameters
     delboeuf = pyllusion.Delboeuf(illusion_strength=1, difference=2)
-    
+
     # Initiate Window
     window = visual.Window(size=[1920, 1080], winType='pygame',
                            color='white', fullscr=False)
-    
+
     # Display illusion
     delboeuf.to_psychopy(window)
-    
+
     # Refresh and close window
     window.flip()
     event.waitKeys()  # Press any key to close
