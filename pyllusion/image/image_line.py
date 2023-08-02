@@ -1,4 +1,8 @@
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
 
 from .utilities import _coord_line
 
@@ -118,7 +122,7 @@ def image_line(
 
     # resize with antialiasing
     if antialias is True:
-        mask = mask.resize(image.size, PIL.Image.ANTIALIAS)
+        mask = mask.resize(image.size, PIL.Image.Resampling.LANCZOS)
 
     # Blur the image a bit
     if blur > 0:

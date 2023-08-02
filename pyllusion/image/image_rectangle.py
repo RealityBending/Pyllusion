@@ -1,4 +1,8 @@
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
 
 from .utilities import _color, _coord_rectangle
 
@@ -63,7 +67,7 @@ def image_rectangle(
         If set to True, the size_height can be adjusted to the height and width of the
         image.
     image : Image
-        If None, an image will be created.    
+        If None, an image will be created.
 
     Returns
     -------
@@ -120,7 +124,7 @@ def image_rectangle(
 
     # resize with antialiasing
     if antialias is True:
-        mask = mask.resize(image.size, PIL.Image.ANTIALIAS)
+        mask = mask.resize(image.size, PIL.Image.Resampling.LANCZOS)
 
     # Blur the image a bit
     if blur > 0:

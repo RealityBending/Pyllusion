@@ -1,5 +1,6 @@
 import numpy as np
-import PIL.ImageColor, PIL.ImageFont
+import PIL.ImageColor
+import PIL.ImageFont
 
 from .rescale import rescale
 
@@ -59,7 +60,7 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid", method="pil"):
         # Convert diameter based on height
         diameter = int(rescale(diameter, to=[0, height], scale=[0, 2]))
         diameter = 2 if diameter < 2 else diameter
-        
+
     radius = diameter / 2
     # Choose diameter and centre
     coord = [(x - radius, y - radius), (x + radius, y + radius)]
@@ -84,7 +85,7 @@ def _coord_text(
     >>> image  = PIL.Image.new('RGB', (500, 500), color = "white")
     >>> draw = PIL.ImageDraw.Draw(image, 'RGB')
     >>>
-    >>> coord, font = _coord_text(image, size="auto", x=-0.5, y=0.5)  #doctest: +SKIP
+    >>> coord, font, x , y = _coord_text(image, size="auto", x=-0.5, y=0.5)  #doctest: +SKIP
     >>> draw.text(coord, text="hello", fill="black", font=font)  #doctest: +SKIP
     >>> image  #doctest: +SKIP
     """
@@ -107,16 +108,20 @@ def _coord_text(
             and top_left_y > 0.01 * height
             and bottom_y < 0.99 * height
         ):
-            loaded_font = PIL.ImageFont.truetype(font, size)
-            text_width, text_height = loaded_font.getsize(text)
-            top_left_x = x - (text_width / 2)
-            top_left_y = y - (text_height / 2)
-            right_x = top_left_x + text_width
-            bottom_y = top_left_y + text_height
-            size += 1  # Increment text size
+            try:  # In case size is too small
+                loaded_font = PIL.ImageFont.truetype(font, size)
+                text_width, text_height = loaded_font.getbbox(text)[2:4]
+                top_left_x = x - (text_width / 2)
+                top_left_y = y - (text_height / 2)
+                right_x = top_left_x + text_width
+                bottom_y = top_left_y + text_height
+            except OSError:
+                pass
+            size += 0.5  # Increment text size
     else:
         loaded_font = PIL.ImageFont.truetype(font, size)
-        text_width, text_height = loaded_font.getsize(text)
+        # text_width, text_height = loaded_font.getsize(text)
+        text_width, text_height = loaded_font.getbbox(text)[2:4]
         top_left_x = x - (text_width / 2)
         top_left_y = y - (text_height / 2)
 

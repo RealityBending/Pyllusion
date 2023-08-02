@@ -1,7 +1,12 @@
 import numpy as np
-import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
+import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFilter
+import PIL.ImageFont
+import PIL.ImageOps
 
 from .utilities import _color, _coord_circle
+
 
 def image_circles(
     width=500,
@@ -202,7 +207,7 @@ def image_circle(
 
     # resize with antialiasing
     if antialias is True:
-        mask = mask.resize(image.size, PIL.Image.ANTIALIAS)
+        mask = mask.resize(image.size, PIL.Image.Resampling.LANCZOS)
 
     # Blur the image a bit
     if blur > 0:
