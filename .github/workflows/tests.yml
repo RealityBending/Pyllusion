@@ -20,15 +20,12 @@ jobs:
                 #  - macos-latest  # macOS-10.14
                 #  - windows-latest  # windows-2019
                 python-version: [3.11, 3.12]
-                #exclude:
-                #  - platform: windows-latest
-                #    python-version: 3.8
 
         steps:
             - uses: actions/checkout@master
 
             - name: Set up Python ${{ matrix.python-version }}
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v5
               with:
                   python-version: ${{ matrix.python-version }}
 
@@ -42,4 +39,4 @@ jobs:
                   cd $GITHUB_WORKSPACE && python -m tox -e py
 
             - name: Upload coverage to Codecov
-              uses: codecov/codecov-action@v1
+              uses: codecov/codecov-action@v3

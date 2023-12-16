@@ -26,7 +26,7 @@ def fig2img(fig):
     >>>
     >>> plt.plot([1, 2, 3, 4, 5])
     >>> fig = plt.gcf()
-    >>> fig2img(fig)
+    >>> pyllusion.fig2img(fig)
 
     """
     buffer = io.BytesIO()

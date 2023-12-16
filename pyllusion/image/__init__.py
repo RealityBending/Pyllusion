@@ -2,7 +2,7 @@
 Pyllusion submodule.
 """
 
-from .fig2image import fig2image
+from .fig2img import fig2img
 from .image_blob import image_blob, image_blobs
 from .image_circle import image_circle, image_circles
 from .image_line import image_line
@@ -25,5 +25,5 @@ __all__ = [
     "image_mosaic",
     "image_scramble",
     "rescale",
-    "fig2image"
+    "fig2img"
 ]
