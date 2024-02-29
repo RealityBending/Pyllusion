@@ -10,7 +10,7 @@ from .ebbinghaus_parameters import _ebbinghaus_parameters
 
 
 def _ebbinghaus_image(
-    parameters=None, width=800, height=600, background="white", target_only=False, **kwargs
+    parameters=None, width=800, height=600, background="white", target_only=False, target_fill="red", distractor_fill="black", **kwargs
 ):
 
     # Create white canvas and get drawing context
@@ -26,8 +26,8 @@ def _ebbinghaus_image(
             image,
             parameters,
             side=side,
-            color_inner="red",
-            color_outer="black",
+            color_inner=target_fill,
+            color_outer=distractor_fill,
             target_only=target_only,
         )
 
