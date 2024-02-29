@@ -16,7 +16,7 @@ def image_text(
     size="auto",
     color="black",
     background="white",
-    font="arial.ttf",
+    font="default",
     blur=0,
     image=None,
 ):
@@ -46,7 +46,7 @@ def image_text(
     font : str
         The name of the font to be used. Note that the font is what controls features like
         bold / italic. For instance, 'arialbd.ttf', 'ariblk.ttf' or 'ariali.ttf' can be
-        used for bold, black and italic, respectively.
+        used for bold, black and italic, respectively. If "default", will use ``PIL.ImageFont.load_default()``
     blur : int
         The degree of blur filter for the image returned.
     image : Image
@@ -66,7 +66,7 @@ def image_text(
     >>> image = pyllusion.image_text(image=image, size=20, x=0.5, text="Bold and blurred", font="arialbd.ttf", blur=0.005)
     >>> image
     >>> pyllusion.image_text(text="3D", width=1600, height=900, font="arial.ttf", blur=0.01)
-    >>> image
+    >>> pyllusion.image_text(text="BIG")
     """
     # Get image
     if image is None:

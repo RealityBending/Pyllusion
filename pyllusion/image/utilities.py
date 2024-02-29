@@ -1,6 +1,7 @@
 import numpy as np
 import PIL.ImageColor
 import PIL.ImageFont
+import functools
 
 from .rescale import rescale
 
@@ -72,7 +73,7 @@ def _coord_circle(image, diameter=0.1, x=0, y=0, unit="grid", method="pil"):
 
 
 def _coord_text(
-    image, text="hello", size="auto", x=0, y=0, font="arial.ttf", unit="grid",
+    image, text="hello", size="auto", x=0, y=0, font="default", unit="grid",
     method="pil"
 ):
     """Get text coordinates
@@ -98,6 +99,11 @@ def _coord_text(
         elif method == "psychopy":
             y = int(rescale(y, to=[0, height], scale=[-1, 1]))
 
+    if isinstance(font, str) and font == "default":
+        get_font = functools.partial(PIL.ImageFont.load_default)
+    else:
+        get_font = functools.partial(PIL.ImageFont.truetype, font=font)
+
     if size == "auto":
         # Initialize values
         size, top_left_x, top_left_y, right_x, bottom_y = 0, width, height, 0, 0
@@ -109,8 +115,8 @@ def _coord_text(
             and bottom_y < 0.99 * height
         ):
             try:  # In case size is too small
-                loaded_font = PIL.ImageFont.truetype(font, size)
-                text_width, text_height = loaded_font.getbbox(text)[2:4]
+                font = get_font(size=size)
+                text_width, text_height = font.getbbox(text)[2:4]
                 top_left_x = x - (text_width / 2)
                 top_left_y = y - (text_height / 2)
                 right_x = top_left_x + text_width
@@ -119,15 +125,15 @@ def _coord_text(
                 pass
             size += 0.5  # Increment text size
     else:
-        loaded_font = PIL.ImageFont.truetype(font, size)
+        font = get_font(size=size)
         # text_width, text_height = loaded_font.getsize(text)
-        text_width, text_height = loaded_font.getbbox(text)[2:4]
+        text_width, text_height = font.getbbox(text)[2:4]
         top_left_x = x - (text_width / 2)
         top_left_y = y - (text_height / 2)
 
     coord = top_left_x, top_left_y
 
-    return coord, loaded_font, x, y
+    return coord, font, x, y
 
 
 def _coord_line(
