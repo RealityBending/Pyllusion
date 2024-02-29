@@ -41,7 +41,7 @@ def image_mosaic(image_list, ncols="auto", nrows="auto"):
         nrows = int(n / ncols)
 
     # Generate image
-    new = PIL.Image.new("RGB", (image_list[0].width * ncols, image_list[0].height * nrows))
+    new = PIL.Image.new("RGB", (image_list[0].width * ncols, image_list[0].height * nrows), color=(255, 255, 255))
     i = 0
     for row in range(nrows):
         for col in range(ncols):
