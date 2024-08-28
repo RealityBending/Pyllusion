@@ -32,7 +32,10 @@ jobs:
             - name: Install dependencies
               run: |
                   python -m pip install --upgrade setuptools pip wheel
-                  python -m pip install tox
+                  python -m pip install numpy
+                  python -m pip install pandas
+                  python -m pip install scipy
+                  python -m pip install Pillow
 
             - name: Test with tox
               run: |
