@@ -36,9 +36,9 @@ def image_mosaic(image_list, ncols="auto", nrows="auto"):
         ncols = int(np.ceil(np.sqrt(n)))
         nrows = int(n / ncols)
     elif ncols == "auto" and nrows != "auto":
-        ncols = int(n / nrows)
+        ncols = int(np.ceil(n / nrows))
     elif ncols != "auto" and nrows == "auto":
-        nrows = int(n / ncols)
+        nrows = int(np.ceil(n / ncols))
 
     # Generate image
     new = PIL.Image.new("RGB", (image_list[0].width * ncols, image_list[0].height * nrows), color=(255, 255, 255))
