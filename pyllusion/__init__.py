@@ -1,7 +1,7 @@
 """
 The Pyllusion module.
 """
-__version__ = "1.2"
+__version__ = "1.3"
 
 from .Autostereogram import *
 
