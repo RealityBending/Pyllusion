@@ -305,7 +305,7 @@ it’s a mind-blowing experience 🤯
 
 The function is highly customisable, and we can use a black and white
 image as a **depth mask** (in this case, the [picture of a
-skull](https://github.com/DominiqueMakowski/Pyllusion/docs/img/depthmask.png)
+skull](https://raw.githubusercontent.com/RealityBending/Pyllusion/master/docs/img/depthmask.png)
 that you will see as emerging from the background), and customise the
 pattern used by providing another function (here, the `image_circles()`
 function to which we can provide additional arguments like `blackwhite`,
