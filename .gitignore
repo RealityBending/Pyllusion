@@ -5,5 +5,5 @@ pyllusion\__pycache__\
 pyllusion.egg
 try_stuff.py
 .Rhistory
-ebbinghaus_parameters.mp4
+paper/presentations/*.mp4
 .eggs/*

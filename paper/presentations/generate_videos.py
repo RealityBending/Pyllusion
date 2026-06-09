@@ -32,7 +32,7 @@ import pyllusion
 FPS = 24
 WIDTH = 800
 HEIGHT = 544  # divisible by 16 for codec compatibility
-OUTPUT = "ebbinghaus_parameters.mp4"
+OUTPUT = "ebbinghaus.mp4"
 
 # ── Layout constants ────────────────────────────────────────────────────────
 LEFT_BAR = 100  # width of vertical illusion_strength slider strip
