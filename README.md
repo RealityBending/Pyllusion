@@ -1,6 +1,7 @@
 
 ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png)
 ![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
+![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
 [![Tests](https://github.com/RealityBending/Pyllusion/actions/workflows/tests.yml/badge.svg)](https://github.com/RealityBending/Pyllusion/actions/workflows/tests.yml)
 [![](https://img.shields.io/badge/paper-Pyllusion-9C27B0)](https://journals.sagepub.com/doi/10.1177/03010066211057347)
 
@@ -19,9 +20,9 @@ The parametric approach implemented in this software proposes to
 the *difference* and *illusion strength*. These two parameters can be
 modulated to independently impact either the objective difference of the
 core components of the illusion (e.g., the difference between the two
-segments in the [Müller-Lyer](#müller-lyer-illusion) illusion)
-or the intensity of the illusion effect (e.g., the angle of the
-“distractors” arrows).
+segments in the [Müller-Lyer](#müller-lyer-illusion) illusion) or the
+intensity of the illusion effect (e.g., the angle of the “distractors”
+arrows).
 
 Describing illusions using a set of parameters aims at fostering
 **reproducible science**, allowing neuroscientists to easily report,
@@ -53,7 +54,11 @@ issue](https://github.com/RealityBending/Pyllusion/issues) with the
 
 You can cite the package as follows:
 
-- Makowski, D., Lau, Z. J., Pham, T., Paul Boyce, W., & Annabel Chen, S. H. (2021). [A Parametric Framework to Generate Visual Illusions Using Python](https://journals.sagepub.com/doi/abs/10.1177/03010066211057347). Perception, 50(11), 950-965.
+- Makowski, D., Lau, Z. J., Pham, T., Paul Boyce, W., & Annabel
+  Chen, S. H. (2021). [A Parametric Framework to Generate Visual
+  Illusions Using
+  Python](https://journals.sagepub.com/doi/abs/10.1177/03010066211057347).
+  Perception, 50(11), 950-965.
 
 ## Features
 
@@ -262,8 +267,8 @@ white.to_image()
 
 The **Kanizsa Square** is an [illusory
 contour](https://en.wikipedia.org/wiki/Illusory_contours) illusion. See
-[Keane et
-al., 2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
+[Keane et al.,
+2019](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6667222/).
 
 Some studies have tested the effect of the Kanizsa Square in individuals
 with schizophrenia, but the finding of greater resistance to the
@@ -271,7 +276,7 @@ illusion is not robust (King et al., 2017).
 
 ![](https://www.researchgate.net/profile/Ken_Manktelow/publication/6821211/figure/fig2/AS:277716826902534@1443224259391/Kanizsa-square-An-illusory-figure-induced-by-edges-showing-an-illusory-contour-and-an.png)
 
-  - **TO DO** *(consider helping\!)*
+- **TO DO** *(consider helping!)*
 
 ### Autostereograms
 
@@ -305,7 +310,7 @@ it’s a mind-blowing experience 🤯
 
 The function is highly customisable, and we can use a black and white
 image as a **depth mask** (in this case, the [picture of a
-skull](https://raw.githubusercontent.com/RealityBending/Pyllusion/master/docs/img/depthmask.png)
+skull](https://github.com/DominiqueMakowski/Pyllusion/docs/img/depthmask.png)
 that you will see as emerging from the background), and customise the
 pattern used by providing another function (here, the `image_circles()`
 function to which we can provide additional arguments like `blackwhite`,
@@ -357,9 +362,9 @@ by blending images of faces with noise-like images.
 Blending of images can be achieved: as followed
 
 ``` python
-pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png",
-                                 n=[20, 300, 4000],
-                                 sd=[4, 2, 1],
+pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png", 
+                                 n=[20, 300, 4000], 
+                                 sd=[4, 2, 1], 
                                  weight=[3, 2, 1],
                                  alpha=80,
                                  blur=0.5)
@@ -374,18 +379,18 @@ In visual perception, the **[kinetic depth
 effect](https://en.wikipedia.org/wiki/Kinetic_depth_effect)** refers to
 the phenomenon whereby the three-dimensional structural form of an
 object can be perceived when the object is moving (Wallach & O’Connell,
-1953; [Mamassian &
-Wallace, 2010](https://jov.arvojournals.org/article.aspx?articleid=2191769)).
-One of its derivative is the **Transparency-From-Motion** illusion,
+1953; [Mamassian & Wallace,
+2010](https://jov.arvojournals.org/article.aspx?articleid=2191769)). One
+of its derivative is the **Transparency-From-Motion** illusion,
 consisting in the superposition of two dot clouds moving in different
 directions that results in the perception of two transparent layers (See
-;
-[Schütz, 2014](https://jov.arvojournals.org/article.aspx?articleid=2193903);
-[Wexler et
-al., 2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf);
-[Schütz &
-Mamassian, 2016](https://jov.arvojournals.org/article.aspx?articleid=2548036)
-and <http://lab-perception.org/demo/p/tfm> for a demo).
+; [Schütz,
+2014](https://jov.arvojournals.org/article.aspx?articleid=2193903);
+[Wexler et al.,
+2015](https://www.pnas.org/content/pnas/112/48/14990.full.pdf); [Schütz
+& Mamassian,
+2016](https://jov.arvojournals.org/article.aspx?articleid=2548036) and
+<http://lab-perception.org/demo/p/tfm> for a demo).
 
 ``` python
 parameters = pyllusion.motiontransparency_parameters(angle=45)
@@ -402,10 +407,10 @@ pyllusion.images_to_gif(images, path="Transparency_From_Motion.gif", fps=paramet
 
 ### Pinna illusion
 
-See also **[Zeljic et
-al., 2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717)**.
+See also **[Zeljic et al.,
+2021](https://www.sciencedirect.com/science/article/pii/S0278584620303717)**.
 
-  - **TO DO** *(consider helping\!)*
+- **TO DO** *(consider helping!)*
 
 ![](http://psychedelic-information-theory.com/upload/img/pinna-illusion-image.jpg)
 
@@ -416,7 +421,7 @@ See also [David Novick’s](https://twitter.com/NovickProf) tweets
 and
 [**here**](https://twitter.com/NovickProf/status/1358787676326031360).
 
-  - **TO DO** *(consider helping\!)*
+- **TO DO** *(consider helping!)*
 
 ![](https://pbs.twimg.com/media/Erdge3AXIAcisZj.png)
 
@@ -431,7 +436,7 @@ and
 ## PsychoPy Integration
 
 Pyllusion can be easily integrated into
-[PsychoPy](https://www.psychopy.org/) for running experiments as well\!
+[PsychoPy](https://www.psychopy.org/) for running experiments as well!
 
     # Load packages
     import pyllusion

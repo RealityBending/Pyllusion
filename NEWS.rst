@@ -1,6 +1,27 @@
 News
 =====
 
+1.5
+---------
+
+**Fixes**
+
+- ``Delboeuf`` and ``Ebbinghaus``: fixed ``Size_Inner_Difference`` in ``get_parameters()``. An operator
+  precedence slip (``np.pi * a**2 / np.pi * b**2``, which evaluates as ``(pi * a**2 / pi) * b**2``) made
+  it return the product of the two squared radii instead of a difference of areas - it reported
+  0.000244140625 for two circles of *identical* size. It is now the signed difference between the areas
+  of the two inner circles, positive when the left circle is larger, as its docstring always described.
+  Both illusions were affected, since ``Ebbinghaus`` reuses the same helper. **Any analysis that used
+  this value will need re-running.**
+- Corrected the name of that entry in the ``Delboeuf`` and ``Ebbinghaus`` docstrings, where it was
+  listed as ``Sine_Inner_Difference``.
+
+**Misc**
+
+- Repaired the "Render README" workflow, which could not run: it installed reticulate from GitHub
+  (rate limited without a token), never installed Pyllusion itself although ``README.Rmd`` imports it,
+  and relied on a hard-coded local path to a Python distribution.
+
 1.4
 ---------
 
