@@ -114,43 +114,75 @@ Representative findings
 +-------------------------------+------------------------------------+--------------------------------------+
 
 
-Open questions for the Pyllusion API
-------------------------------------
-Every Pyllusion illusion exposes ``difference`` (the objective, physical difference) and
-``illusion_strength`` (the contextual manipulation that biases perception of it). Chromostereopsis does
-not map onto that cleanly, because the perceived attribute is *depth*, and a flat PNG has no objective
-depth. Candidate resolutions, to discuss:
+Candidate design (two swapped panels)
+-------------------------------------
+Two square panels side by side, each a dithered coloured disc inside a dithered coloured surround,
+separated by a bare black annulus. The two panels use the *same* two colours with the roles swapped:
+one shows a red disc on a blue surround, the other a blue disc on a red surround. Prototyped in
+``chromostereopsis_image.py``.
 
-1. ``illusion_strength`` = the chromatic manipulation. Signed, so that positive = the red-forward
-   configuration and negative = the reversing configuration (e.g. swapped hues, or a light background).
-   Magnitude could be driven by hue separation, by saturation, or by the red-blue luminance ratio -
-   these need to be teased apart rather than bundled, or the parameter is uninterpretable.
-2. ``difference`` = an objective *pictorial* depth cue placed in opposition to the colour cue, so the
-   observer's task ("which patch is in front?") has a ground truth. Options:
+Why this layout is appealing: the two panels are geometrically identical and use the same two colours,
+so they differ only in which colour is figure and which is ground. The chromostereoptic prediction is
+that the red disc advances and the blue disc recedes, giving opposite depth percepts on the two sides
+from a stimulus that is otherwise balanced.
 
-   - occlusion / overlap: which patch actually overlaps the other (clean, binary-ish, easy to draw);
-   - relative size, or a size gradient;
-   - blur, as a defocus cue.
+This also suggests a way out of the "no objective depth" problem, because it lets us move the judged
+attribute from depth to **size**:
 
-   Occlusion looks like the best first candidate: it is unambiguous, continuously parameterisable via
-   overlap amount, and it is the cue chromostereopsis has to fight against.
-3. Alternatively ``difference`` = objective luminance difference between the two patches - but luminance
-   is itself a driver of the illusion, so this confounds the two parameters. Probably a dead end, worth
-   noting so we do not revisit it.
+- ``difference`` = the objective size difference between the two discs (left radius relative to right),
+  exactly as in Delboeuf and Ebbinghaus. The observer is asked which disc is larger.
+- ``illusion_strength`` = the chromatic manipulation, signed, the sign setting which panel gets the red
+  disc (so the predicted bias flips with it).
 
-Further decisions:
+The rationale is size constancy: a disc that appears nearer at the same retinal size should appear
+*smaller*, so chromostereopsis should bias size judgements in a predictable direction. This is testable
+with the machinery Pyllusion already has, and the anecdotal pixel-art reports that red "seems larger"
+are at least consistent with a size effect existing. It is a hypothesis, though, not an established
+finding - if chromostereopsis turns out not to bias size, the design collapses back to a pure depth
+judgement with no ground truth.
 
-- Should the class offer an ``equiluminant=True`` mode? We already have ``analyze_luminance()`` in
-  ``pyllusion.utilities``, so matching sRGB relative luminance across the two colours is cheap. Real
-  equiluminance is observer-specific, so this would be an approximation and must be documented as one.
-- Which geometry: bars/gratings (closest to the literature), two patches side by side (closest to the
-  rest of Pyllusion), or a figure/ground shape? Bars are what the effect sizes above were measured with.
-- Parameters to expose for edges: sharp vs dithered transition, outline colour and thickness.
-- ``get_parameters()`` should probably record background luminance and the two colours' luminances, since
-  the stimulus is not reproducible across displays without them.
-- The docstring for the eventual class must warn that (a) the effect is binocular and will not appear in
-  screenshots or single-eye viewing, and (b) strength is display- and observer-dependent, so it is not a
-  calibrated depth manipulation the way the size illusions are calibrated size manipulations.
+Measured on the prototype
+-------------------------
+Two things the first renders turned up:
+
+1. **The two panels are not luminance-matched by default.** With the default geometry the disc and the
+   surround have different areas, and red is about three times more luminous than blue in sRGB. The
+   panel with the red *surround* therefore comes out much brighter overall: mean relative luminance
+   0.064 vs 0.043, a ~49% difference. Since brightness is itself a depth (and probably size) cue, this
+   confounds exactly the comparison we want to make.
+
+   Fix: choose the radius so that disc area equals surround area, which makes each panel contain equal
+   amounts of red and blue and so equalises the two panels as wholes. With ``gap=0.08`` that radius is
+   ``0.757``, and it brings the two panels to 0.053 vs 0.051 (residual is dither sampling noise).
+   Note this only works at ``difference=0``; once the radii differ the areas cannot both be matched, so
+   there will be a small residual luminance difference that scales with ``difference``. Worth
+   quantifying and reporting in ``get_parameters()``.
+
+2. **The dither pattern currently differs between panels.** Making both panels use the *same* dither
+   pattern would remove one more source of variation, leaving colour assignment as the only difference.
+   Cheap to do and probably worth it.
+
+Remaining open questions
+------------------------
+- **What does the magnitude of ``illusion_strength`` vary?** The sign is settled (which panel gets the
+  red disc) but the magnitude currently does nothing. Candidates: saturation of the colour pair, hue
+  separation, or the red:blue luminance ratio. The luminance ratio is the best-supported choice, since
+  it is the dominant modulator in the literature and is directly measurable - but it partly conflates
+  the chromatic cue with the brightness cue, which is arguably the honest thing to do given that the
+  everyday illusion is that compound.
+- **Does chromostereopsis actually bias size?** The whole ``difference`` mapping rests on this. Needs
+  checking against the literature, and it may simply need piloting.
+- Should the class offer an ``equiluminant=True`` mode? ``analyze_luminance()`` in
+  ``pyllusion.utilities`` makes matching sRGB relative luminance cheap. Real equiluminance is
+  observer-specific, so this would be an approximation and must be documented as one.
+- Geometry: the effect sizes in the table above were measured with bars, not discs. Should we also
+  offer a bar/grating variant to stay comparable with the literature?
+- Dither parameters to settle: cell size, density, and whether the gap annulus should be tunable.
+- ``get_parameters()`` should record background luminance and both colours' luminances, since the
+  stimulus is not reproducible across displays without them.
+- The eventual class docstring must warn that (a) the effect is binocular and will not appear in
+  screenshots or single-eye viewing, and (b) strength is display- and observer-dependent, so this is not
+  a calibrated depth manipulation the way the size illusions are calibrated size manipulations.
 
 
 Sources to verify
