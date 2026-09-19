@@ -24,11 +24,14 @@ knitr::opts_chunk$set(
 
 
 
-# Setup python - you need to change the path to your python distribution
+# Setup python - locally, point `local_python` at your own python distribution. On CI the
+# interpreter comes from RETICULATE_PYTHON instead, so the local path is skipped there (it also
+# gets skipped if it does not exist, so a wrong path does not break anyone else's render).
 library(reticulate)
-# reticulate::use_python("D:/Downloads/WPy64-3902/python-3.9.0.amd64/")
-reticulate::use_python("C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd64")
-# reticulate::use_python("C:/Users/Pham Thanh Tam/Desktop/WPy-3710b/python-3.7.1.amd64")
+local_python <- "C:/Users/Zen Juen/Downloads/WPy64-3850/python-3.8.5.amd64"
+if (!nzchar(Sys.getenv("CI")) && dir.exists(local_python)) {
+  reticulate::use_python(local_python)
+}
 
 
 # matplotlib <- import("matplotlib")

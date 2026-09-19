@@ -16,6 +16,12 @@ News
 - Corrected the name of that entry in the ``Delboeuf`` and ``Ebbinghaus`` docstrings, where it was
   listed as ``Sine_Inner_Difference``.
 
+**Misc**
+
+- Repaired the "Render README" workflow, which could not run: it installed reticulate from GitHub
+  (rate limited without a token), never installed Pyllusion itself although ``README.Rmd`` imports it,
+  and relied on a hard-coded local path to a Python distribution.
+
 1.4
 ---------
 
