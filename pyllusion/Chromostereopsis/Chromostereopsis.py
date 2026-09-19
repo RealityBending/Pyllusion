@@ -126,13 +126,13 @@ so they differ only in which colour is figure and which is ground. The chromoste
 that the red disc advances and the blue disc recedes, giving opposite depth percepts on the two sides
 from a stimulus that is otherwise balanced.
 
-This also suggests a way out of the "no objective depth" problem, because it lets us move the judged
-attribute from depth to **size**:
+This also gives a way out of the "no objective depth" problem, because it lets us move the judged
+attribute from depth to **size**. Decided:
 
 - ``difference`` = the objective size difference between the two discs (left radius relative to right),
   exactly as in Delboeuf and Ebbinghaus. The observer is asked which disc is larger.
-- ``illusion_strength`` = the chromatic manipulation, signed, the sign setting which panel gets the red
-  disc (so the predicted bias flips with it).
+- ``illusion_strength`` = deferred. Only its *sign* is wired up for now, setting which panel gets the
+  ``color1`` disc; what the magnitude should scale is still open (see below).
 
 The rationale is size constancy: a disc that appears nearer at the same retinal size should appear
 *smaller*, so chromostereopsis should bias size judgements in a predictable direction. This is testable
@@ -158,28 +158,56 @@ Two things the first renders turned up:
    there will be a small residual luminance difference that scales with ``difference``. Worth
    quantifying and reporting in ``get_parameters()``.
 
-2. **The dither pattern currently differs between panels.** Making both panels use the *same* dither
-   pattern would remove one more source of variation, leaving colour assignment as the only difference.
-   Cheap to do and probably worth it.
+2. **The dither pattern differed between panels.** Now shared by default (``dither_shared``), so colour
+   assignment is the only difference between the two panels.
+
+
+Exposed parameters
+------------------
+``chromostereopsis_parameters.py`` exposes the factors from the literature review as knobs, so their
+effect on the illusion can be measured rather than guessed. Grouped by the factor they target:
+
+=====================  ==========================================================================
+Patterning             ``density``, ``density_inner``, ``dither_size``, ``dither_shared``
+Luminance              ``luminance1``, ``luminance2``, ``equiluminant``
+Contrast               ``background`` (raising it lowers both colours' contrast at once)
+Colour pairing         ``color1``, ``color2``
+Geometry               ``radius``, ``gap``, ``area_matched``
+Reproducibility        ``seed``
+=====================  ==========================================================================
+
+Two notes on measuring luminance and contrast with these:
+
+- ``luminance1``/``luminance2`` scale in *linear light*, not in 8-bit code values, so ``0.5`` really is
+  half the luminance (it maps red 255 -> 188, not -> 128). ``density`` is a second, independent
+  luminance knob: it scales a region's mean luminance without touching its pixel colour, which makes it
+  a useful way to dissociate "how bright the region is" from "how bright the colour is".
+- **On a black background, Michelson contrast is 1 for every colour**, so ``Contrast_Color*`` carries no
+  information there and a non-black ``background`` is needed to manipulate contrast at all. Useful
+  landmark: mid-grey ``#808080`` has relative luminance 0.216, almost exactly that of pure red (0.213),
+  so a mid-grey background is very nearly isoluminant with red while still being far from blue.
+
+The parameters dict reports the derived quantities too - each colour's relative luminance, their ratio,
+each colour's contrast against the background, the disc/surround areas, and the predicted mean luminance
+of each panel. The panel luminances are computed analytically from areas and densities, and agree with
+rendered stimuli to within dither sampling noise (0.0518/0.0795 predicted vs 0.0527/0.0798 measured at
+the defaults), so the brightness confound can be read off a condition without rendering it.
 
 Remaining open questions
 ------------------------
-- **What does the magnitude of ``illusion_strength`` vary?** The sign is settled (which panel gets the
-  red disc) but the magnitude currently does nothing. Candidates: saturation of the colour pair, hue
-  separation, or the red:blue luminance ratio. The luminance ratio is the best-supported choice, since
-  it is the dominant modulator in the literature and is directly measurable - but it partly conflates
-  the chromatic cue with the brightness cue, which is arguably the honest thing to do given that the
-  everyday illusion is that compound.
+- **What does the magnitude of ``illusion_strength`` vary?** Deferred by agreement. Candidates:
+  saturation of the colour pair, hue separation, or the red:blue luminance ratio. The luminance ratio is
+  the best-supported choice, since it is the dominant modulator in the literature and is directly
+  measurable - but it partly conflates the chromatic cue with the brightness cue, which is arguably the
+  honest thing to do given that the everyday illusion is that compound. Note that whichever is chosen,
+  it will overlap with the parameters already exposed above, so ``illusion_strength`` is likely to end
+  up as a convenience wrapper over some of them rather than an independent knob.
 - **Does chromostereopsis actually bias size?** The whole ``difference`` mapping rests on this. Needs
   checking against the literature, and it may simply need piloting.
-- Should the class offer an ``equiluminant=True`` mode? ``analyze_luminance()`` in
-  ``pyllusion.utilities`` makes matching sRGB relative luminance cheap. Real equiluminance is
-  observer-specific, so this would be an approximation and must be documented as one.
 - Geometry: the effect sizes in the table above were measured with bars, not discs. Should we also
   offer a bar/grating variant to stay comparable with the literature?
-- Dither parameters to settle: cell size, density, and whether the gap annulus should be tunable.
-- ``get_parameters()`` should record background luminance and both colours' luminances, since the
-  stimulus is not reproducible across displays without them.
+- No ``Chromostereopsis`` class yet: the natural time to add one (with ``to_image()`` and
+  ``get_parameters()``) is once ``illusion_strength`` is settled.
 - The eventual class docstring must warn that (a) the effect is binocular and will not appear in
   screenshots or single-eye viewing, and (b) strength is display- and observer-dependent, so this is not
   a calibrated depth manipulation the way the size illusions are calibrated size manipulations.
