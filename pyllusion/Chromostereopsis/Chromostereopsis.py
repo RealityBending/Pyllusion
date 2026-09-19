@@ -195,21 +195,34 @@ battery: ``size=0.25`` and ``distance=1`` give 75 px discs with centres 400 px a
 800x600 canvas, identical to ``pyllusion.Delboeuf()``. The disc is the analogue of Delboeuf's inner
 circle (the judged target) and the square panel of its outer circle (the context).
 
-``size_panel`` is left at ``None`` by default, which sets it to the area-matched value - so the
-brightness confound is off by default rather than something you have to remember to switch on. The gap
-("the black outline") is ``gap``, in the same grid units. Raising it grows the area-matched panel with
-it, since the surround has to grow to keep its area equal to the disc's.
+Only the *discs* are tied to Delboeuf. The panels are sized separately by ``size_panel``, which by
+default fills each half of the image (side equal to the centre-to-centre distance in pixels), so the
+surround acts as the background of the stimulus rather than as a patch floating on black. Setting it to
+``"match"`` shrinks it to the area-matched size, and any float in between brings the surround closer to
+the disc. The gap ("the black outline") is ``gap``, in the same grid units; raising it grows the
+area-matched panel with it, since the surround has to keep its area equal to the disc's.
 
-Two consequences of matching Delboeuf worth keeping in mind:
+Three consequences worth keeping in mind:
 
-- **The stimulus is small.** Delboeuf's geometry puts the whole panel at ~102 px on the default canvas.
-  The literature reports chromostereopsis as stronger for larger stimuli and longer viewing distances,
-  so the matched defaults may well sit at the weak end of the effect. Raising ``size`` (or rendering
-  larger) is the easy fix, at the cost of no longer matching Delboeuf exactly - a trade-off to make
-  deliberately rather than by accident.
-- **The dither has little room.** ``dither_size`` is in pixels and does not scale with the image, so at
-  ~102 px panels the default of 2 px gives ~50 cells across. Rendering larger without raising it changes
-  the appearance; hold ``Dither_Cells_Across`` constant instead.
+- **Filling the halves reinstates the brightness confound, badly.** The area match only holds at one
+  particular panel size. At the default filling size the surround is ~35x the disc area, so the panel
+  with the red surround is about **2.7x brighter** than the panel with the blue one (measured half
+  luminances 0.069 vs 0.025). That is far larger than the ~1.5x imbalance that prompted the area match
+  in the first place.
+
+  ``equiluminant=True`` removes it exactly, at *any* panel size: if the two colours have equal
+  luminance then the two panels hold the same coloured area, just swapped, so the imbalance cannot
+  arise geometrically (measured ratio 0.99 at the filling size). For a study using large panels this is
+  effectively required rather than optional, and it is the one setting that lets the panel size be
+  varied freely without confounding it with brightness.
+- **The two panels touch at the midline**, since the default side is exactly the centre distance. That
+  puts a hard red|blue vertical edge down the centre of the image. Border contrast is one of the things
+  the literature reports as able to *reverse* perceived depth, so this edge is not neutral. Dropping
+  ``size_panel`` slightly below the automatic value (e.g. 1.25 instead of 1.33 at 800x600) inserts a
+  background gutter between them.
+- **The dither scale does not follow the panel.** ``dither_size`` is in pixels, so the same value gives
+  ~200 cells across a filling panel but ~50 across an area-matched one. Hold ``Dither_Cells_Across``
+  constant rather than ``dither_size`` when comparing across panel sizes.
 
 The parameters dict reports the derived quantities too - each colour's relative luminance, their ratio,
 each colour's contrast against the background, the disc/surround areas, and the predicted mean luminance

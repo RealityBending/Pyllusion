@@ -64,8 +64,10 @@ def _chromostereopsis_panel(
     if rng is None:
         rng = np.random.default_rng()
 
-    # Distance of every pixel from the centre of the panel, in pixels
-    coords = np.arange(size) - (size - 1) / 2
+    # Distance of every pixel from the centre of the panel, in pixels. The centre is put *on* a pixel
+    # (rather than at (size - 1) / 2, which falls between pixels for an even panel) so that the disc
+    # comes out at the same diameter whatever the panel's parity - otherwise an even panel loses a pixel.
+    coords = np.arange(size) - size // 2
     distance = np.sqrt(coords[:, None] ** 2 + coords[None, :] ** 2)
 
     is_inner = distance <= radius
@@ -109,7 +111,8 @@ def _chromostereopsis_image(parameters=None, width=800, height=600, **kwargs):
         Passed to :func:`_chromostereopsis_parameters`.
     """
     if parameters is None:
-        parameters = _chromostereopsis_parameters(**kwargs)
+        # width/height are forwarded because the automatic `size_panel` needs the aspect ratio
+        parameters = _chromostereopsis_parameters(width=width, height=height, **kwargs)
 
     rng = np.random.default_rng(parameters["Seed"])
 
