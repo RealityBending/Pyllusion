@@ -49,5 +49,12 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md docs/img
-          git commit -m 'Re-build README.Rmd' || echo "No changes to commit"
-          git push origin HEAD:"${GITHUB_REF_NAME}" || echo "Nothing to push"
+          # Only commit and push when the render actually changed something. Guarding these with
+          # `|| echo` instead would hide auth, branch-protection and non-fast-forward failures behind
+          # a green run (a push with nothing to send already exits 0, so it never needed a guard).
+          if git diff --staged --quiet; then
+            echo "Render produced no changes"
+          else
+            git commit -m 'Re-build README.Rmd'
+            git push origin HEAD:"${GITHUB_REF_NAME}"
+          fi
