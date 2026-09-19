@@ -88,7 +88,7 @@ class Delboeuf:
             - **Illusion_Type** : `Congruent` if the illusion enhances the perception of the objective difference in the illusion, and `Incongruent` if it reduces the perceived  difference.
             - **Size_Inner_Left** : Size of the inner left circle.
             - **Size_Inner_Right** : Size of the inner right circle.
-            - **Sine_Inner_Difference** : Difference in areas of the left and right inner circles.
+            - **Size_Inner_Difference** : Difference in areas of the left and right inner circles (signed, positive when the left circle is larger).
             - **Size_Outer_Left** : Size of the outer left rim.
             - **Size_Outer_Right** : Size of the outer right rim.
             - **Distance** : Distance between the circles, by modifying `distance` of delboeuf_parameters().

@@ -1,4 +1,6 @@
 import numpy as np
+import pytest
+
 import pyllusion
 
 
@@ -498,3 +500,26 @@ def test_analyze_luminance():
 
     out = pyllusion.analyze_luminance(image, average=False)
     assert out["Luminance"].shape == (50, 50)
+
+
+def test_size_inner_difference():
+    # `Size_Inner_Difference` is the signed difference between the areas of the two inner circles.
+    # It used to be mis-parenthesised (`pi * a**2 / pi * b**2`, which is the product of the squared
+    # radii) and returned 0.000244140625 for two circles of identical size.
+    for illusion in [pyllusion.Delboeuf, pyllusion.Ebbinghaus]:
+        # Identical circles -> no difference
+        parameters = illusion(difference=0).get_parameters()
+        assert parameters["Size_Inner_Difference"] == 0
+
+        # Positive difference -> left circle larger -> positive area difference
+        parameters = illusion(difference=1).get_parameters()
+        area_left = np.pi * (parameters["Size_Inner_Left"] / 2) ** 2
+        area_right = np.pi * (parameters["Size_Inner_Right"] / 2) ** 2
+        assert parameters["Size_Inner_Difference"] == pytest.approx(area_left - area_right)
+        assert parameters["Size_Inner_Difference"] > 0
+        # difference=1 doubles the area, as the size is scaled by sqrt(1 + abs(difference))
+        assert area_left == pytest.approx(2 * area_right)
+
+        # Sign follows the side the larger circle is on
+        parameters = illusion(difference=-1).get_parameters()
+        assert parameters["Size_Inner_Difference"] < 0

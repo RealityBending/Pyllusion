@@ -109,10 +109,17 @@ def _delboeuf_parameters_sizeinner(difference=0, size_min=0.25):
         inner_size_right = size_bigger
         inner_size_left = size_min
 
+    # Signed difference between the areas of the two inner circles, positive when the left one is
+    # larger. Note the parentheses: written as `np.pi * a**2 / np.pi * b**2` this evaluates left to
+    # right as `(pi * a**2 / pi) * b**2`, i.e. the product of the squared radii, which is what this
+    # returned before.
+    area_left = np.pi * (inner_size_left / 2) ** 2
+    area_right = np.pi * (inner_size_right / 2) ** 2
+
     parameters = {
         "Difference": difference,
         "Size_Inner_Left": inner_size_left,
         "Size_Inner_Right": inner_size_right,
-        "Size_Inner_Difference": np.pi * (size_bigger / 2) ** 2 / np.pi * (size_min / 2) ** 2,
+        "Size_Inner_Difference": area_left - area_right,
     }
     return parameters
