@@ -172,7 +172,7 @@ Patterning             ``density``, ``density_inner``, ``dither_size``, ``dither
 Luminance              ``luminance1``, ``luminance2``, ``equiluminant``
 Contrast               ``background`` (raising it lowers both colours' contrast at once)
 Colour pairing         ``color1``, ``color2``
-Geometry               ``radius``, ``gap``, ``area_matched``
+Geometry               ``size``, ``size_panel``, ``gap``, ``distance``
 Reproducibility        ``seed``
 =====================  ==========================================================================
 
@@ -186,6 +186,30 @@ Two notes on measuring luminance and contrast with these:
   information there and a non-black ``background`` is needed to manipulate contrast at all. Useful
   landmark: mid-grey ``#808080`` has relative luminance 0.216, almost exactly that of pure red (0.213),
   so a mid-grey background is very nearly isoluminant with red while still being far from blue.
+
+Geometry matched to Delboeuf
+----------------------------
+Sizes and distances use Pyllusion's grid units (sizes a proportion of the image height, positions -1 to
+1 across the width), and the defaults are set to match Delboeuf so the two illusions can sit in the same
+battery: ``size=0.25`` and ``distance=1`` give 75 px discs with centres 400 px apart on the default
+800x600 canvas, identical to ``pyllusion.Delboeuf()``. The disc is the analogue of Delboeuf's inner
+circle (the judged target) and the square panel of its outer circle (the context).
+
+``size_panel`` is left at ``None`` by default, which sets it to the area-matched value - so the
+brightness confound is off by default rather than something you have to remember to switch on. The gap
+("the black outline") is ``gap``, in the same grid units. Raising it grows the area-matched panel with
+it, since the surround has to grow to keep its area equal to the disc's.
+
+Two consequences of matching Delboeuf worth keeping in mind:
+
+- **The stimulus is small.** Delboeuf's geometry puts the whole panel at ~102 px on the default canvas.
+  The literature reports chromostereopsis as stronger for larger stimuli and longer viewing distances,
+  so the matched defaults may well sit at the weak end of the effect. Raising ``size`` (or rendering
+  larger) is the easy fix, at the cost of no longer matching Delboeuf exactly - a trade-off to make
+  deliberately rather than by accident.
+- **The dither has little room.** ``dither_size`` is in pixels and does not scale with the image, so at
+  ~102 px panels the default of 2 px gives ~50 cells across. Rendering larger without raising it changes
+  the appearance; hold ``Dither_Cells_Across`` constant instead.
 
 The parameters dict reports the derived quantities too - each colour's relative luminance, their ratio,
 each colour's contrast against the background, the disc/surround areas, and the predicted mean luminance

@@ -19,6 +19,7 @@ red disc on a blue surround and the other a blue disc on a red surround.
 import numpy as np
 import PIL.Image
 
+from ..image.rescale import rescale
 from .chromostereopsis_parameters import _chromostereopsis_parameters
 
 
@@ -27,11 +28,11 @@ def _chromostereopsis_panel(
     color_inner=(255, 0, 0),
     color_surround=(0, 0, 255),
     background=(0, 0, 0),
-    radius=0.58,
-    gap=0.08,
+    radius=37.5,
+    gap=6,
     density=0.5,
     density_inner=None,
-    dither_size=10,
+    dither_size=2,
     dither=None,
     rng=None,
 ):
@@ -45,7 +46,9 @@ def _chromostereopsis_panel(
     color_inner, color_surround, background : tuple
         RGB of the disc's pixels, of the surround's pixels, and of everything else.
     radius, gap : float
-        Radius of the disc and width of the bare annulus, as a proportion of half the panel side.
+        Radius of the disc and width of the bare annulus, in pixels (fractional is fine). Kept in
+        pixels rather than panel-relative units so that the disc lands on exactly the diameter the grid
+        geometry asks for, instead of being discretised twice.
     density, density_inner : float
         Proportion of dither cells that get coloured, in the surround and in the disc.
     dither_size : int
@@ -61,8 +64,8 @@ def _chromostereopsis_panel(
     if rng is None:
         rng = np.random.default_rng()
 
-    # Distance of every pixel from the centre, in units of half the panel side
-    coords = (np.arange(size) - (size - 1) / 2) / ((size - 1) / 2)
+    # Distance of every pixel from the centre of the panel, in pixels
+    coords = np.arange(size) - (size - 1) / 2
     distance = np.sqrt(coords[:, None] ** 2 + coords[None, :] ** 2)
 
     is_inner = distance <= radius
@@ -82,7 +85,7 @@ def _chromostereopsis_panel(
     return panel
 
 
-def _chromostereopsis_dither(size, dither_size=10, rng=None):
+def _chromostereopsis_dither(size, dither_size=2, rng=None):
     """Uniform [0, 1) draw per dither cell, upsampled to `size` x `size` pixels."""
     if rng is None:
         rng = np.random.default_rng()
@@ -91,7 +94,7 @@ def _chromostereopsis_dither(size, dither_size=10, rng=None):
     return np.repeat(np.repeat(cells, dither_size, axis=0), dither_size, axis=1)[:size, :size]
 
 
-def _chromostereopsis_image(parameters=None, width=800, height=400, margin=0.05, **kwargs):
+def _chromostereopsis_image(parameters=None, width=800, height=600, **kwargs):
     """Draw the two-panel stimulus.
 
     Parameters
@@ -99,9 +102,9 @@ def _chromostereopsis_image(parameters=None, width=800, height=400, margin=0.05,
     parameters : dict
         Output of :func:`_chromostereopsis_parameters`. Built from ``**kwargs`` if not given.
     width, height : int
-        Size of the returned image. Each panel is a square, sized to fit the height.
-    margin : float
-        Space between and around the panels, as a proportion of the panel side.
+        Size of the returned image. Defaults match the other illusions. The panels are sized and placed
+        from the grid-unit geometry in ``parameters``, as in the rest of Pyllusion: sizes scale with the
+        height, positions run from -1 to 1 across the width.
     **kwargs
         Passed to :func:`_chromostereopsis_parameters`.
     """
@@ -109,7 +112,10 @@ def _chromostereopsis_image(parameters=None, width=800, height=400, margin=0.05,
         parameters = _chromostereopsis_parameters(**kwargs)
 
     rng = np.random.default_rng(parameters["Seed"])
-    panel_size = int(height * (1 - 2 * margin))
+
+    # Grid units -> pixels, the same way _coord_circle() does it: sizes against the height, positions
+    # against the width.
+    panel_size = int(rescale(parameters["Size_Panel"], to=[0, height], scale=[0, 2]))
 
     # One shared dither pattern, or one per panel
     dither = None
@@ -118,30 +124,24 @@ def _chromostereopsis_image(parameters=None, width=800, height=400, margin=0.05,
             panel_size, dither_size=parameters["Dither_Size"], rng=rng
         )
 
-    panels = []
-    for side, radius in [("Left", parameters["Size_Left"]), ("Right", parameters["Size_Right"])]:
-        panels.append(
-            _chromostereopsis_panel(
-                size=panel_size,
-                color_inner=parameters["Color_Inner_" + side],
-                color_surround=parameters["Color_Surround_" + side],
-                background=parameters["Color_Background"],
-                radius=radius,
-                gap=parameters["Gap"],
-                density=parameters["Density"],
-                density_inner=parameters["Density_Inner"],
-                dither_size=parameters["Dither_Size"],
-                dither=dither,
-                rng=rng,
-            )
-        )
-
-    # Paste both panels onto the canvas
     image = PIL.Image.new("RGB", (width, height), color=tuple(parameters["Color_Background"]))
-    y = (height - panel_size) // 2
-    x_gap = int(panel_size * margin)
-    x = (width - (2 * panel_size + x_gap)) // 2
-    image.paste(PIL.Image.fromarray(panels[0]), (x, y))
-    image.paste(PIL.Image.fromarray(panels[1]), (x + panel_size + x_gap, y))
+
+    for side in ["Left", "Right"]:
+        panel = _chromostereopsis_panel(
+            size=panel_size,
+            color_inner=parameters["Color_Inner_" + side],
+            color_surround=parameters["Color_Surround_" + side],
+            background=parameters["Color_Background"],
+            radius=rescale(parameters["Size_" + side], to=[0, height], scale=[0, 2]) / 2,
+            gap=rescale(parameters["Gap"], to=[0, height], scale=[0, 2]),
+            density=parameters["Density"],
+            density_inner=parameters["Density_Inner"],
+            dither_size=parameters["Dither_Size"],
+            dither=dither,
+            rng=rng,
+        )
+        # Paste centred on the panel's grid position
+        x = int(rescale(parameters["Position_" + side], to=[0, width], scale=[-1, 1]))
+        image.paste(PIL.Image.fromarray(panel), (x - panel_size // 2, (height - panel_size) // 2))
 
     return image
