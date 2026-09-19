@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyllusion.movement.motiontransparency &#8212; Pyllusion 1.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
+    <title>pyllusion.movement.motiontransparency &#8212; Pyllusion 1.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css?v=4468db6d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../../_static/documentation_options.js?v=0ed52906"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../../../_static/logo.ai"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
 <meta charset='utf-8'>
@@ -41,9 +37,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/logo.png"></span>
+        <a class="navbar-brand" href="../../../index.html">
           Pyllusion</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.4</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -60,7 +56,6 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
@@ -108,46 +103,59 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+<form action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for pyllusion.movement.motiontransparency</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">..image</span> <span class="kn">import</span> <span class="n">image_circle</span><span class="p">,</span> <span class="n">image_circles</span>
-<span class="kn">from</span> <span class="nn">.movement_matrix</span> <span class="kn">import</span> <span class="n">movement_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..image</span><span class="w"> </span><span class="kn">import</span> <span class="n">image_circle</span><span class="p">,</span> <span class="n">image_circles</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.movement_matrix</span><span class="w"> </span><span class="kn">import</span> <span class="n">movement_matrix</span>
 
 
-<div class="viewcode-block" id="motiontransparency_images"><a class="viewcode-back" href="../../../functions.html#pyllusion.movement.motiontransparency_images">[docs]</a><span class="k">def</span> <span class="nf">motiontransparency_images</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="motiontransparency_images">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.movement.motiontransparency_images">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">motiontransparency_images</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt;</span>
 <span class="sd">    &gt;&gt;&gt; parameters = pyllusion.motiontransparency_parameters(angle=45, duration=4, n=100, fps=20, speed=2)</span>
 <span class="sd">    &gt;&gt;&gt; images = pyllusion.motiontransparency_images(parameters)  #doctest: +ELLIPSIS</span>
 <span class="sd">    - 0.00% ...</span>
-<span class="sd">    &gt;&gt;&gt; # pyllusion.images_to_gif(images, path=&quot;Transparency_From_Motion.gif&quot;, fps=parameters[&quot;FPS&quot;])</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &gt;&gt;&gt; # pyllusion.images_to_gif(images, path="Transparency_From_Motion.gif", fps=parameters["FPS"])</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">parameters</span> <span class="o">=</span> <span class="n">motiontransparency_parameters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="c1"># Adjust for screen ratio</span>
     <span class="k">if</span> <span class="n">width</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">height</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">height</span> <span class="o">/</span> <span class="n">width</span><span class="p">)</span>
+        <span class="n">parameters</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">height</span> <span class="o">/</span> <span class="n">width</span><span class="p">)</span>
 
     <span class="c1"># Generate PIL images</span>
     <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;n_Frames&quot;</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"n_Frames"</span><span class="p">]):</span>
         <span class="c1"># Print progression</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;n_Frames&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"- </span><span class="si">%.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">parameters</span><span class="p">[</span><span class="s2">"n_Frames"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
 
         <span class="c1"># Background circle</span>
         <span class="n">image</span> <span class="o">=</span> <span class="n">image_circle</span><span class="p">(</span>
             <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
             <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
             <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">"grey"</span><span class="p">,</span>
             <span class="n">outline</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-            <span class="n">color_outline</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+            <span class="n">color_outline</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span>
             <span class="n">background</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
             <span class="n">antialias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span>
@@ -155,11 +163,11 @@
         <span class="c1"># Draw points</span>
         <span class="n">image</span> <span class="o">=</span> <span class="n">image_circles</span><span class="p">(</span>
             <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
-            <span class="n">n</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;n_Points&quot;</span><span class="p">],</span>
-            <span class="n">x</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-            <span class="n">y</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-            <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span>
+            <span class="n">n</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"n_Points"</span><span class="p">],</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"x"</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"y"</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="s2">"grey"</span><span class="p">,</span>
             <span class="n">size</span><span class="o">=</span><span class="mf">0.015</span><span class="p">,</span>
             <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="p">)</span>
@@ -169,9 +177,12 @@
     <span class="k">return</span> <span class="n">images</span></div>
 
 
-<div class="viewcode-block" id="motiontransparency_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.movement.motiontransparency_parameters">[docs]</a><span class="k">def</span> <span class="nf">motiontransparency_parameters</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="motiontransparency_parameters">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.movement.motiontransparency_parameters">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">motiontransparency_parameters</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    """</span>
     <span class="n">n_frames</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">duration</span> <span class="o">*</span> <span class="n">fps</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">angle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -188,16 +199,17 @@
     <span class="p">)</span>
 
     <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
-        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span>
-        <span class="s2">&quot;Angle&quot;</span><span class="p">:</span> <span class="n">angle</span><span class="p">,</span>
-        <span class="s2">&quot;Speed&quot;</span><span class="p">:</span> <span class="n">speed</span><span class="p">,</span>
-        <span class="s2">&quot;Duration&quot;</span><span class="p">:</span> <span class="n">duration</span><span class="p">,</span>
-        <span class="s2">&quot;FPS&quot;</span><span class="p">:</span> <span class="n">fps</span><span class="p">,</span>
-        <span class="s2">&quot;n_Frames&quot;</span><span class="p">:</span> <span class="n">n_frames</span><span class="p">,</span>
-        <span class="s2">&quot;n_Points&quot;</span><span class="p">:</span> <span class="n">n</span><span class="p">,</span>
+        <span class="s2">"x"</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+        <span class="s2">"y"</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span>
+        <span class="s2">"Angle"</span><span class="p">:</span> <span class="n">angle</span><span class="p">,</span>
+        <span class="s2">"Speed"</span><span class="p">:</span> <span class="n">speed</span><span class="p">,</span>
+        <span class="s2">"Duration"</span><span class="p">:</span> <span class="n">duration</span><span class="p">,</span>
+        <span class="s2">"FPS"</span><span class="p">:</span> <span class="n">fps</span><span class="p">,</span>
+        <span class="s2">"n_Frames"</span><span class="p">:</span> <span class="n">n_frames</span><span class="p">,</span>
+        <span class="s2">"n_Points"</span><span class="p">:</span> <span class="n">n</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">parameters</span></div>
+
 </pre></div>
 
     </div>

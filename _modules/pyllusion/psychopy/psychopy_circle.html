@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyllusion.psychopy.psychopy_circle &#8212; Pyllusion 1.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
+    <title>pyllusion.psychopy.psychopy_circle &#8212; Pyllusion 1.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css?v=4468db6d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../../_static/documentation_options.js?v=0ed52906"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../../../_static/logo.ai"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
 <meta charset='utf-8'>
@@ -41,9 +37,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/logo.png"></span>
+        <a class="navbar-brand" href="../../../index.html">
           Pyllusion</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.4</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -60,7 +56,6 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
@@ -108,26 +103,39 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+<form action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for pyllusion.psychopy.psychopy_circle</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">..image.utilities</span> <span class="kn">import</span> <span class="n">_coord_circle</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">..image.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">_coord_circle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 
-<div class="viewcode-block" id="psychopy_circle"><a class="viewcode-back" href="../../../functions.html#pyllusion.psychopy.psychopy_circle">[docs]</a><span class="k">def</span> <span class="nf">psychopy_circle</span><span class="p">(</span>
+<div class="viewcode-block" id="psychopy_circle">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.psychopy.psychopy_circle">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">psychopy_circle</span><span class="p">(</span>
     <span class="n">window</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span>
     <span class="n">outline</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">outline_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">outline_color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">blur</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Creates a PsychoPy stimulus of a circle.</span>
 
 <span class="sd">    The `*_circle` functions are meant to facilitate the creation of primitive shapes,</span>
@@ -136,7 +144,7 @@
 <span class="sd">    This function is intended to create circles similar to `image_circle()` within PsychoPy.</span>
 <span class="sd">    It is essentially a wrapper around PsychoPy `psychopy.visual.Circle()`. The difference lies</span>
 <span class="sd">    within the names of the arguments and the values that they take (e.g., we use a consistent</span>
-<span class="sd">    x-y plane [-1, 1; -1, 1] for the screen &quot;space&quot; with 0 as the center, instead of pixels starting</span>
+<span class="sd">    x-y plane [-1, 1; -1, 1] for the screen "space" with 0 as the center, instead of pixels starting</span>
 <span class="sd">    from the corner). The purpose of this wrapper is to have consistent behaviour for functions that</span>
 <span class="sd">    are based on the different backends (e.g., PIL, PsychoPy). See the PsychoPy documentation</span>
 <span class="sd">    for more information (https://www.psychopy.org/api/visual/circle.html).</span>
@@ -152,12 +160,12 @@
 <span class="sd">        y-coordinates of the center of the circle, from -1 to 1.</span>
 <span class="sd">    color : Union[list, str]</span>
 <span class="sd">        The fill color of the circle as single string value or [r, g, b] list, in which</span>
-<span class="sd">        colorSpace=&#39;rgb255&#39; argument has to be added.</span>
+<span class="sd">        colorSpace='rgb255' argument has to be added.</span>
 <span class="sd">    outline : float</span>
 <span class="sd">        The width of the outline of the circle.</span>
 <span class="sd">    outline_color : Union[list, str]</span>
 <span class="sd">        The outline color of the circle as single string value or [r, g, b] list, in which</span>
-<span class="sd">        colorSpace=&#39;rgb255&#39; argument has to be added.</span>
+<span class="sd">        colorSpace='rgb255' argument has to be added.</span>
 <span class="sd">    alpha : float</span>
 <span class="sd">        The opacity of the circle relative to the background, from 1.0 (opaque) to</span>
 <span class="sd">        0.0 (transparent).</span>
@@ -180,34 +188,34 @@
 <span class="sd">    &gt;&gt;&gt; from psychopy import visual, event</span>
 
 <span class="sd">    &gt;&gt;&gt; # Initiate window</span>
-<span class="sd">    &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&quot;white&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType='pygame', color="white")</span>
 
 <span class="sd">    &gt;&gt;&gt; # Draw circle</span>
-<span class="sd">    &gt;&gt;&gt; pyllusion.psychopy_circle(window, color=&quot;yellow&quot;, y=0.5)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.psychopy_circle(window, color="yellow", y=0.5)</span>
 
 <span class="sd">    &gt;&gt;&gt; # Refresh and close window</span>
 <span class="sd">    &gt;&gt;&gt; window.flip()</span>
 <span class="sd">    &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
 <span class="sd">    &gt;&gt;&gt; window.close()</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># Try loading psychopy</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">psychopy</span><span class="w"> </span><span class="kn">import</span> <span class="n">visual</span>
     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
-            <span class="s2">&quot;The &#39;psychopy&#39; module is required for this function to run. &quot;</span><span class="p">,</span>
-            <span class="s2">&quot;Please install it first (`pip install PsychoPy`).&quot;</span><span class="p">,</span>
+            <span class="s2">"The 'psychopy' module is required for this function to run. "</span><span class="p">,</span>
+            <span class="s2">"Please install it first (`pip install PsychoPy`)."</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="c1"># Get coordinates</span>
-    <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_coord_circle</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">diameter</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;psychopy&quot;</span><span class="p">)</span>
+    <span class="n">radius</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_coord_circle</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">diameter</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"psychopy"</span><span class="p">)</span>
 
 
     <span class="c1"># Circle parameters</span>
     <span class="c1">## Draw circle if blur = 0</span>
     <span class="k">if</span> <span class="n">blur</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">circle</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">win</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pix&quot;</span><span class="p">,</span> <span class="n">fillColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+        <span class="n">circle</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">win</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">"pix"</span><span class="p">,</span> <span class="n">fillColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
                                <span class="n">lineColor</span><span class="o">=</span><span class="n">outline_color</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
                                <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span> <span class="n">lineWidth</span><span class="o">=</span><span class="n">outline</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">circle</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
@@ -222,11 +230,11 @@
     <span class="k">elif</span> <span class="n">blur</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">grating</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">GratingStim</span><span class="p">(</span><span class="n">tex</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">radius</span><span class="o">*</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">radius</span><span class="o">*</span><span class="mi">2</span><span class="p">)]),</span>
                                      <span class="n">win</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
-                                     <span class="n">units</span><span class="o">=</span><span class="s2">&quot;pix&quot;</span><span class="p">,</span>
+                                     <span class="n">units</span><span class="o">=</span><span class="s2">"pix"</span><span class="p">,</span>
                                      <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="n">radius</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">radius</span><span class="o">*</span><span class="mi">2</span><span class="p">],</span>
-                                     <span class="n">mask</span><span class="o">=</span><span class="s1">&#39;raisedCos&#39;</span><span class="p">,</span>
+                                     <span class="n">mask</span><span class="o">=</span><span class="s1">'raisedCos'</span><span class="p">,</span>
                                      <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">grating</span><span class="o">.</span><span class="n">maskParams</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fringeWidth&#39;</span><span class="p">:</span> <span class="n">blur</span><span class="p">}</span>
+        <span class="n">grating</span><span class="o">.</span><span class="n">maskParams</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'fringeWidth'</span><span class="p">:</span> <span class="n">blur</span><span class="p">}</span>
         <span class="c1"># grating.pos = [x-width/2, y-height/2]</span>
         <span class="n">grating</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="n">window</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
 
@@ -235,6 +243,7 @@
 
         <span class="c1"># Display circle</span>
         <span class="n">grating</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div>
+
 </pre></div>
 
     </div>

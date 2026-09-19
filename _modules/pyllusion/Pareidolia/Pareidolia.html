@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyllusion.Pareidolia.Pareidolia &#8212; Pyllusion 1.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
+    <title>pyllusion.Pareidolia.Pareidolia &#8212; Pyllusion 1.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css?v=4468db6d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../../_static/documentation_options.js?v=0ed52906"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../../../_static/logo.ai"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
 <meta charset='utf-8'>
@@ -41,9 +37,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/logo.png"></span>
+        <a class="navbar-brand" href="../../../index.html">
           Pyllusion</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.4</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -60,7 +56,6 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
@@ -108,17 +103,30 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+<form action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for pyllusion.Pareidolia.Pareidolia</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">PIL.Image</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PIL.Image</span><span class="o">,</span><span class="w"> </span><span class="nn">PIL.ImageFilter</span><span class="o">,</span><span class="w"> </span><span class="nn">PIL.ImageOps</span>
 
-<span class="kn">from</span> <span class="nn">..image.image_blob</span> <span class="kn">import</span> <span class="n">image_blobs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..image.image_blob</span><span class="w"> </span><span class="kn">import</span> <span class="n">image_blobs</span>
 
 
-<div class="viewcode-block" id="Pareidolia"><a class="viewcode-back" href="../../../functions.html#pyllusion.Pareidolia">[docs]</a><span class="k">class</span> <span class="nc">Pareidolia</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Pareidolia">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.Pareidolia">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pareidolia</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A class to create (pseudo)noise images.</span>
 
 <span class="sd">    Pareidolia is the tendency to incorrectly perceive of a stimulus as an object</span>
@@ -126,8 +134,8 @@
 <span class="sd">    of such phenomenon, this function creates pure-noise images using bivariate</span>
 <span class="sd">    Gaussian blobs with different standard deviations (SD).</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="sd">    """</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="n">sd</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">weight</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">blur</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
     <span class="p">):</span>
 
@@ -140,20 +148,22 @@
 
         <span class="c1"># Load pattern</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pattern</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="s2">&quot;WHITE&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"RGBA"</span><span class="p">,</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="s2">"WHITE"</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pattern</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;WHITE&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"RGBA"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">"WHITE"</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pattern</span><span class="p">,</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pattern</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">size</span>
     
-<div class="viewcode-block" id="Pareidolia.draw"><a class="viewcode-back" href="../../../functions.html#pyllusion.Pareidolia.draw">[docs]</a>    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">negative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a PIL image of a Pareidolia image.</span>
+<div class="viewcode-block" id="Pareidolia.draw">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.Pareidolia.draw">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">negative</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Create a PIL image of a Pareidolia image.</span>
 <span class="sd">    </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        negative : bool</span>
-<span class="sd">            Activate &#39;True&#39; to invert pixel values (negative-positive inverting) of an image. Defaults to &#39;False&#39;.</span>
+<span class="sd">            Activate 'True' to invert pixel values (negative-positive inverting) of an image. Defaults to 'False'.</span>
 <span class="sd">            Passed to ``PIL.ImageOps.invert``.</span>
 <span class="sd">    </span>
 <span class="sd">        Returns</span>
@@ -172,12 +182,12 @@
 <span class="sd">        &gt;&gt;&gt; pareidolia = pyllusion.Pareidolia((480, 480), n=[20, 300, 4000], sd=[4, 2, 1], weight=[3, 2, 1], alpha=80, blur=0.5)</span>
 <span class="sd">        &gt;&gt;&gt; pareidolia.draw()  #doctest: +ELLIPSIS</span>
 <span class="sd">        &lt;PIL.Image.Image ...&gt;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="c1"># Convert to black and white RGB (with white background)</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="s2">&quot;WHITE&quot;</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"RGBA"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="s2">"WHITE"</span><span class="p">)</span>
         <span class="n">img</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">'RGB'</span><span class="p">)</span>
     
         <span class="c1"># Make it negative if need be</span>
         <span class="k">if</span> <span class="n">negative</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
@@ -187,8 +197,8 @@
         <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">ImageFilter</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blur</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">))</span>
     
         <span class="c1"># Generate noise</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sd</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
-        <span class="n">noise</span> <span class="o">=</span> <span class="n">image_blobs</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sd</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">)</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sd</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="n">image_blobs</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="n">sd</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"RGB"</span><span class="p">)</span>
 
         <span class="c1"># Blend with noise</span>
         <span class="n">stim</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">blend</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
@@ -196,7 +206,9 @@
         <span class="c1"># Normalize</span>
         <span class="n">stim</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">ImageOps</span><span class="o">.</span><span class="n">autocontrast</span><span class="p">(</span><span class="n">stim</span><span class="p">)</span>
     
-        <span class="k">return</span> <span class="n">stim</span></div></div>
+        <span class="k">return</span> <span class="n">stim</span></div>
+</div>
+
 </pre></div>
 
     </div>

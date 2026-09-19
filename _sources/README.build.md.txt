@@ -1,9 +1,8 @@
 
 ![](https://github.com/RealityBending/Pyllusion/blob/master/docs/img/logo.png)
 ![](https://img.shields.io/pypi/pyversions/pyllusion.svg?logo=python&logoColor=FFE873)
-![](https://img.shields.io/pypi/v/pyllusion.svg?logo=pypi&logoColor=FFE873)
-![Tests](https://github.com/RealityBending/Pyllusion/workflows/%F0%9F%93%8A%20Tests/badge.svg)
-![](https://codecov.io/gh/RealityBending/Pyllusion/branch/master/graph/badge.svg)
+[![Tests](https://github.com/RealityBending/Pyllusion/actions/workflows/tests.yml/badge.svg)](https://github.com/RealityBending/Pyllusion/actions/workflows/tests.yml)
+[![](https://img.shields.io/badge/paper-Pyllusion-9C27B0)](https://journals.sagepub.com/doi/10.1177/03010066211057347)
 
 **A Parametric Framework to Generate Visual Illusions using Python**
 
@@ -20,7 +19,7 @@ The parametric approach implemented in this software proposes to
 the *difference* and *illusion strength*. These two parameters can be
 modulated to independently impact either the objective difference of the
 core components of the illusion (e.g., the difference between the two
-segments in the [Müller-Lyer](#müller-lyer-illusion-illusion) illusion)
+segments in the [Müller-Lyer](#müller-lyer-illusion) illusion)
 or the intensity of the illusion effect (e.g., the angle of the
 “distractors” arrows).
 
@@ -306,7 +305,7 @@ it’s a mind-blowing experience 🤯
 
 The function is highly customisable, and we can use a black and white
 image as a **depth mask** (in this case, the [picture of a
-skull](https://github.com/DominiqueMakowski/Pyllusion/docs/img/depthmask.png)
+skull](https://raw.githubusercontent.com/RealityBending/Pyllusion/master/docs/img/depthmask.png)
 that you will see as emerging from the background), and customise the
 pattern used by providing another function (here, the `image_circles()`
 function to which we can provide additional arguments like `blackwhite`,
@@ -358,9 +357,9 @@ by blending images of faces with noise-like images.
 Blending of images can be achieved: as followed
 
 ``` python
-pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png", 
-                                 n=[20, 300, 4000], 
-                                 sd=[4, 2, 1], 
+pareidolia = pyllusion.Pareidolia(pattern="docs/img/snake.png",
+                                 n=[20, 300, 4000],
+                                 sd=[4, 2, 1],
                                  weight=[3, 2, 1],
                                  alpha=80,
                                  blur=0.5)
@@ -437,17 +436,17 @@ Pyllusion can be easily integrated into
     # Load packages
     import pyllusion
     from psychopy import visual, event
-    
+
     # Create parameters
     delboeuf = pyllusion.Delboeuf(illusion_strength=1, difference=2)
-    
+
     # Initiate Window
     window = visual.Window(size=[1920, 1080], winType='pygame',
                            color='white', fullscr=False)
-    
+
     # Display illusion
     delboeuf.to_psychopy(window)
-    
+
     # Refresh and close window
     window.flip()
     event.waitKeys()  # Press any key to close

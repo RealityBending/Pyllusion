@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyllusion.Ebbinghaus.Ebbinghaus &#8212; Pyllusion 1.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
+    <title>pyllusion.Ebbinghaus.Ebbinghaus &#8212; Pyllusion 1.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css?v=4468db6d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../../_static/documentation_options.js?v=0ed52906"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../../../_static/logo.ai"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
 <meta charset='utf-8'>
@@ -41,9 +37,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/logo.png"></span>
+        <a class="navbar-brand" href="../../../index.html">
           Pyllusion</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.4</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -60,7 +56,6 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
@@ -108,16 +103,29 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+<form action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for pyllusion.Ebbinghaus.Ebbinghaus</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.ebbinghaus_image</span> <span class="kn">import</span> <span class="n">_ebbinghaus_image</span>
-<span class="kn">from</span> <span class="nn">.ebbinghaus_parameters</span> <span class="kn">import</span> <span class="n">_ebbinghaus_parameters</span>
-<span class="kn">from</span> <span class="nn">.ebbinghaus_psychopy</span> <span class="kn">import</span> <span class="n">_ebbinghaus_psychopy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.ebbinghaus_image</span><span class="w"> </span><span class="kn">import</span> <span class="n">_ebbinghaus_image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.ebbinghaus_parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">_ebbinghaus_parameters</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.ebbinghaus_psychopy</span><span class="w"> </span><span class="kn">import</span> <span class="n">_ebbinghaus_psychopy</span>
 
 
-<div class="viewcode-block" id="Ebbinghaus"><a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus">[docs]</a><span class="k">class</span> <span class="nc">Ebbinghaus</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Ebbinghaus">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Ebbinghaus</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A class to generate the Ebbinghaus Illusion.</span>
 
 <span class="sd">    The Ebbinghaus illusion is an optical illusion of relative size perception,</span>
@@ -146,12 +154,12 @@
 <span class="sd">        Distance between circles. Defaults to 1.</span>
 <span class="sd">    distance_auto : bool</span>
 <span class="sd">        If true, distance is between edges (fixed spacing), if false, between centers (fixed location).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">illusion_strength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">difference</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size_min</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">distance_auto</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Compute parameters for the Ebbinghaus Illusion.</span>
 
 <span class="sd">        Parameters</span>
@@ -173,7 +181,7 @@
 <span class="sd">                Distance between circles. Defaults to 1.</span>
 <span class="sd">            distance_auto : bool</span>
 <span class="sd">                If true, distance is between edges (fixed spacing), if false, between centers (fixed location).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">_ebbinghaus_parameters</span><span class="p">(</span>
             <span class="n">illusion_strength</span><span class="o">=</span><span class="n">illusion_strength</span><span class="p">,</span>
             <span class="n">difference</span><span class="o">=</span><span class="n">difference</span><span class="p">,</span>
@@ -182,8 +190,10 @@
             <span class="n">distance_auto</span><span class="o">=</span><span class="n">distance_auto</span><span class="p">,</span>
         <span class="p">)</span>
 
-<div class="viewcode-block" id="Ebbinghaus.get_parameters"><a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Ebbinghaus.get_parameters">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.get_parameters">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns a dictionary of parameters passed into the Ebbinghaus illusion.</span>
 
 <span class="sd">        Returns</span>
@@ -192,7 +202,7 @@
 <span class="sd">            Dictionary of parameters of the Ebbinghaus illusion, including:</span>
 
 <span class="sd">            - **Difference** : Objective difference in the target features, by modifying `difference` of ebbinghaus_parameters()</span>
-<span class="sd">            - **Illusion** : Name of the illusion, &#39;Ebbinghaus&#39;.</span>
+<span class="sd">            - **Illusion** : Name of the illusion, 'Ebbinghaus'.</span>
 <span class="sd">            - **Illusion_Strength** : The strength of the surrounding context in biasing illusion, by modifying `illusion_strength` of ebbinghaus_parameters().</span>
 <span class="sd">            - **Illusion_Type** : `Congruent` if the illusion enhances the perception of the objective difference in the illusion, and `Incongruent` if it reduces the perceived difference.</span>
 <span class="sd">            - **Size_Inner_Left** : Size of the inner left circle.</span>
@@ -201,7 +211,7 @@
 <span class="sd">            - **Size_Outer_Left** : Size of the surrounding circles around the left inner circle.</span>
 <span class="sd">            - **Size_Outer_Right** : Size of the surrounding circles around the right inner circle.</span>
 <span class="sd">            - **Distance**: Distance between the circles, by modifying `distance` of ebbinghaus_parameters().</span>
-<span class="sd">            - **Distance_Reference** : Distance between circles is computed &#39;Between Edges&#39; or `Between Centers`, by modifying `distance_auto` of ebbinghaus_parameters().</span>
+<span class="sd">            - **Distance_Reference** : Distance between circles is computed 'Between Edges' or `Between Centers`, by modifying `distance_auto` of ebbinghaus_parameters().</span>
 <span class="sd">            - **Distance_Edges_Inner** : Distance between the edges of the inner left and right circles.</span>
 <span class="sd">            - **Distance_Edges_Outer** : Distance between the edges of the surrounding left circles and right circles.</span>
 <span class="sd">            - **Size_Inner_Smaller** : Size of the smaller inner circle, equates to `size_min` of ebbinghaus_parameters().</span>
@@ -214,17 +224,23 @@
 <span class="sd">            - **Position_Outer_y_Right** : y-coordinates of the right surrounding circles.</span>
 <span class="sd">            - **Position_Left** : Position of the left inner circle.</span>
 <span class="sd">            - **Position_Right** : Position of the right inner circle.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span></div>
 
-<div class="viewcode-block" id="Ebbinghaus.to_dict"><a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Ebbinghaus.to_dict">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Alias for `get_parameters()`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Ebbinghaus.to_image"><a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.to_image">[docs]</a>    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a PIL image of the Ebbinghaus illusion.</span>
+
+<div class="viewcode-block" id="Ebbinghaus.to_image">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.to_image">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">target_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Create a PIL image of the Ebbinghaus illusion.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -234,6 +250,8 @@
 <span class="sd">            Height of the returned image.</span>
 <span class="sd">        background : str</span>
 <span class="sd">            Color of the background.</span>
+<span class="sd">        target_only : bool</span>
+<span class="sd">            If true, only draw the red circle.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `ebbinghaus_parameters()`.</span>
 
@@ -250,25 +268,34 @@
 <span class="sd">        ---------</span>
 <span class="sd">        &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">        &gt;&gt;&gt;</span>
-<span class="sd">        &gt;&gt;&gt; ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=1, difference=2)</span>
+<span class="sd">        &gt;&gt;&gt; ebbinghaus = pyllusion.Ebbinghaus(illusion_strength=1, difference=1.2)</span>
 <span class="sd">        &gt;&gt;&gt; ebbinghaus.to_image()</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; ebbinghaus.to_image(target_only=True)</span>
+
+<span class="sd">        """</span>
         <span class="n">img</span> <span class="o">=</span> <span class="n">_ebbinghaus_image</span><span class="p">(</span>
             <span class="n">parameters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
             <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
             <span class="n">background</span><span class="o">=</span><span class="n">background</span><span class="p">,</span>
+            <span class="n">target_only</span><span class="o">=</span><span class="n">target_only</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">img</span></div>
 
-<div class="viewcode-block" id="Ebbinghaus.to_psychopy"><a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.to_psychopy">[docs]</a>    <span class="k">def</span> <span class="nf">to_psychopy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a PsychoPy stimulus of the Ebbinghaus illusion.</span>
+
+<div class="viewcode-block" id="Ebbinghaus.to_psychopy">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.Ebbinghaus.to_psychopy">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_psychopy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">target_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Create a PsychoPy stimulus of the Ebbinghaus illusion.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        window : object</span>
 <span class="sd">            The window object initiated by `psychopy.visual.Window` in which the stimulus will be rendered.</span>
+<span class="sd">        target_only : bool</span>
+<span class="sd">            If true, only draw the red circle.</span>
 <span class="sd">        **kwargs</span>
 <span class="sd">            Additional arguments passed into `ebbinghaus_parameters()`.</span>
 
@@ -285,7 +312,7 @@
 <span class="sd">        &gt;&gt;&gt; ebbinghaus = pyllusion.Ebbinghaus(difference=2, illusion_strength=3)</span>
 
 <span class="sd">        &gt;&gt;&gt; # Initiate Window</span>
-<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType=&#39;pygame&#39;, color=&#39;white&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; window = visual.Window(size=[800, 600], winType='pygame', color='white')</span>
 
 <span class="sd">        &gt;&gt;&gt; # Display illusion</span>
 <span class="sd">        &gt;&gt;&gt; ebbinghaus.to_psychopy(window)</span>
@@ -295,8 +322,10 @@
 <span class="sd">        &gt;&gt;&gt; event.waitKeys()  # Press any key to close</span>
 <span class="sd">        &gt;&gt;&gt; window.close()</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">_ebbinghaus_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
+<span class="sd">        """</span>
+        <span class="n">_ebbinghaus_psychopy</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="n">target_only</span><span class="o">=</span><span class="n">target_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+</div>
+
 </pre></div>
 
     </div>

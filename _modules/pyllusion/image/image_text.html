@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyllusion.image.image_text &#8212; Pyllusion 1.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/example_gallery_styles.css" />
+    <title>pyllusion.image.image_text &#8212; Pyllusion 1.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/bootstrap-sphinx.css?v=4468db6d" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/logo.ai"/>
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../../_static/documentation_options.js?v=0ed52906"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../../../_static/logo.ai"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
 <meta charset='utf-8'>
@@ -41,9 +37,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/logo.png"></span>
+        <a class="navbar-brand" href="../../../index.html">
           Pyllusion</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.4</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -60,7 +56,6 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html#overview">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../psychopathology.html">Visual Illusions and Psychopathology</a></li>
@@ -108,32 +103,45 @@
 
 <div class="container">
   <div class="row">
-    <div class="body col-md-12 content" role="main">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+<form action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
       
   <h1>Source code for pyllusion.image.image_text</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">PIL.Image</span>
-<span class="kn">import</span> <span class="nn">PIL.ImageDraw</span>
-<span class="kn">import</span> <span class="nn">PIL.ImageFilter</span>
-<span class="kn">import</span> <span class="nn">PIL.ImageFont</span>
-<span class="kn">import</span> <span class="nn">PIL.ImageOps</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">PIL.Image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PIL.ImageDraw</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PIL.ImageFilter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PIL.ImageFont</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">PIL.ImageOps</span>
 
-<span class="kn">from</span> <span class="nn">.utilities</span> <span class="kn">import</span> <span class="n">_coord_text</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">_coord_text</span>
 
 
-<div class="viewcode-block" id="image_text"><a class="viewcode-back" href="../../../functions.html#pyllusion.image.image_text">[docs]</a><span class="k">def</span> <span class="nf">image_text</span><span class="p">(</span>
-    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span>
+<div class="viewcode-block" id="image_text">
+<a class="viewcode-back" href="../../../functions.html#pyllusion.image.image_text">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">image_text</span><span class="p">(</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">"Hello"</span><span class="p">,</span>
     <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
-    <span class="n">background</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
-    <span class="n">font</span><span class="o">=</span><span class="s2">&quot;arial.ttf&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span>
+    <span class="n">background</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span>
+    <span class="n">font</span><span class="o">=</span><span class="s2">"default"</span><span class="p">,</span>
     <span class="n">blur</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Creates a PIL image of text.</span>
 
 
@@ -150,7 +158,7 @@
 <span class="sd">    y : int</span>
 <span class="sd">        y-coordinates of the center of the text display, from -1 to 1.</span>
 <span class="sd">    size : int</span>
-<span class="sd">        Requested size, in points, for the text. If &quot;auto&quot;, the maximum size that</span>
+<span class="sd">        Requested size, in points, for the text. If "auto", the maximum size that</span>
 <span class="sd">        fits the image will be chosen.</span>
 <span class="sd">    color : str</span>
 <span class="sd">        Text color.</span>
@@ -158,8 +166,8 @@
 <span class="sd">        Background color.</span>
 <span class="sd">    font : str</span>
 <span class="sd">        The name of the font to be used. Note that the font is what controls features like</span>
-<span class="sd">        bold / italic. For instance, &#39;arialbd.ttf&#39;, &#39;ariblk.ttf&#39; or &#39;ariali.ttf&#39; can be</span>
-<span class="sd">        used for bold, black and italic, respectively.</span>
+<span class="sd">        bold / italic. For instance, 'arialbd.ttf', 'ariblk.ttf' or 'ariali.ttf' can be</span>
+<span class="sd">        used for bold, black and italic, respectively. If "default", will use ``PIL.ImageFont.load_default()``</span>
 <span class="sd">    blur : int</span>
 <span class="sd">        The degree of blur filter for the image returned.</span>
 <span class="sd">    image : Image</span>
@@ -174,22 +182,22 @@
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import pyllusion</span>
 <span class="sd">    &gt;&gt;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; image = pyllusion.image_text(text=&quot;Hello&quot;, size=40)</span>
-<span class="sd">    &gt;&gt;&gt; image = pyllusion.image_text(image=image, size=30, y=0.5, text=&quot;I&#39;m Red&quot;, color=&quot;red&quot;)</span>
-<span class="sd">    &gt;&gt;&gt; image = pyllusion.image_text(image=image, size=20, x=0.5, text=&quot;Bold and blurred&quot;, font=&quot;arialbd.ttf&quot;, blur=0.005)</span>
+<span class="sd">    &gt;&gt;&gt; image = pyllusion.image_text(text="Hello", size=40)</span>
+<span class="sd">    &gt;&gt;&gt; image = pyllusion.image_text(image=image, size=30, y=0.5, text="I'm Red", color="red")</span>
+<span class="sd">    &gt;&gt;&gt; image = pyllusion.image_text(image=image, size=20, x=0.5, text="Bold and blurred", font="arialbd.ttf", blur=0.005)</span>
 <span class="sd">    &gt;&gt;&gt; image</span>
-<span class="sd">    &gt;&gt;&gt; pyllusion.image_text(text=&quot;3D&quot;, width=1600, height=900, font=&quot;arial.ttf&quot;, blur=0.01)</span>
-<span class="sd">    &gt;&gt;&gt; image</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.image_text(text="3D", width=1600, height=900, font="arial.ttf", blur=0.01)</span>
+<span class="sd">    &gt;&gt;&gt; pyllusion.image_text(text="BIG")</span>
+<span class="sd">    """</span>
     <span class="c1"># Get image</span>
     <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"RGBA"</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">background</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"RGBA"</span><span class="p">)</span>
     <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
 
     <span class="c1"># Create mask</span>
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"RGBA"</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
     <span class="n">draw</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
 
     <span class="c1"># Get coordinates</span>
@@ -206,6 +214,7 @@
     <span class="n">image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">alpha_composite</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">image</span></div>
+
 </pre></div>
 
     </div>
