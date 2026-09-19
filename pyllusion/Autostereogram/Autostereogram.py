@@ -33,6 +33,8 @@ class Autostereogram:
     
         if invert is False:
             self.depth_map = PIL.ImageOps.invert(depth_map)
+        else:
+            self.depth_map = depth_map
 
         # Get size of depth map
         self.width, self.height = self.depth_map.size
@@ -91,7 +93,10 @@ class Autostereogram:
                     image_pixels[x, y] = self.strip_pixels[x, y]
                 else:
                     shift_amplitude = self.depth * (depth_pixels[x, y] / self.n_repetitions)
-                    image_pixels[x, y] = image_pixels[x - self.strip_width + shift_amplitude, y]
+                    # Clip to stay within the image (can happen for narrow strips)
+                    source_x = int(x - self.strip_width + shift_amplitude)
+                    source_x = min(max(source_x, 0), self.width - 1)
+                    image_pixels[x, y] = image_pixels[source_x, y]
     
         # Add guide
         if guide is True:

@@ -1,6 +1,36 @@
 News
 =====
 
+1.4
+---------
+
+**Compatibility**
+
+- Fixed ``image_blob()``, ``image_blobs()`` and ``Pareidolia`` which were broken by the removal of
+  ``np.int`` (NumPy >= 1.24) and of ``scipy.signal.gaussian`` (SciPy >= 1.13).
+- Fixed ``image_text()`` (and ``Autostereogram``) which crashed with recent versions of Pillow when
+  using the default ``size="auto"``.
+- ``image_noise()`` no longer passes the ``mode`` argument to ``PIL.Image.fromarray()``
+  (deprecated, removed in Pillow 13).
+- ``images_to_gif()`` now passes the frame duration to ``imageio`` in milliseconds, as expected by
+  recent versions (GIFs were previously played back at the wrong speed, and the deprecated ``fps``
+  argument is no longer used).
+
+**Fixes**
+
+- ``Autostereogram(invert=True)`` used to fail with an ``AttributeError``.
+- ``Autostereogram`` no longer raises an ``IndexError`` for small images / narrow pattern strips.
+- ``Pareidolia.draw()`` no longer overwrites ``self.sd``, so calling it several times now gives
+  consistent results.
+
+**Misc**
+
+- Requires Python >= 3.9, Pillow >= 10.1 and SciPy >= 1.13.
+- Tests are now run against Python 3.10-3.13 and cover the illusions/functions above.
+
+1.3
+---------
+
 - Added `image_scramble()` to shuffle / randomize pixels of an image.
 - Ebbinghaus: The location of the distractor circles is now mirrored between the left and the right side, to prevent edge cases where the image is cut one side but not the other.
 - Delboeuf: added `distractor_fill` argument to modulate the color of the outer circles.

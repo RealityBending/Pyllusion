@@ -1,4 +1,5 @@
 Introduction
 ================
 
-.. mdinclude:: README.build.md
+.. include:: README.build.md
+   :parser: myst_parser.sphinx_

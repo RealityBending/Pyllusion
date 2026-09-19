@@ -430,3 +430,71 @@ def test_white():
 
     out3 = white2.to_image(width=900, height=900)
     assert out3.size == (900, 900)
+
+
+def test_image_text():
+
+    out1 = pyllusion.image_text(text="Hello", width=400, height=300)
+    assert out1.size == (400, 300)
+
+    # size="auto" (the default) used to crash with recent Pillow versions
+    out2 = pyllusion.image_text(text="Hello", width=400, height=300, size=40)
+    assert out2.size == (400, 300)
+    # The auto-sized text is bigger, hence darker (more black pixels)
+    assert np.mean(np.array(out1.convert("L"))) < np.mean(np.array(out2.convert("L")))
+
+
+def test_blobs():
+
+    np.random.seed(42)
+    out1 = pyllusion.image_blobs(width=200, height=100, n=10, sd=8)
+    assert out1.size == (200, 100)
+
+    out2 = pyllusion.image_blob(x=100, y=50, width=200, height=100, sd=8)
+    assert out2.size == (200, 100)
+
+
+def test_pareidolia():
+
+    np.random.seed(42)
+    pareidolia = pyllusion.Pareidolia((120, 120), n=[5, 50], sd=[4, 2], weight=[2, 1])
+    out1 = pareidolia.draw()
+    assert out1.size == (120, 120)
+
+    # Drawing twice must not change the parameters (nor the output)
+    assert list(pareidolia.sd) == [4, 2]
+    np.random.seed(42)
+    out2 = pareidolia.draw()
+    assert np.array_equal(np.array(out1), np.array(out2))
+
+    assert pareidolia.draw(negative=True).size == (120, 120)
+
+
+def test_autostereogram():
+
+    np.random.seed(42)
+    out1 = pyllusion.Autostereogram(stimulus="3D", width=200, height=120).draw()
+    assert out1.size == (200, 120)
+
+    out2 = pyllusion.Autostereogram(stimulus="3D", width=200, height=120, invert=True).draw()
+    assert out2.size == (200, 120)
+
+
+def test_image_scramble():
+
+    np.random.seed(42)
+    image = pyllusion.image_noise(width=80, height=80)
+    out1 = pyllusion.image_scramble(image)
+    assert out1.size == image.size
+
+
+def test_analyze_luminance():
+
+    np.random.seed(42)
+    image = (np.random.rand(50, 50, 3) * 255).astype(int)
+    out = pyllusion.analyze_luminance(image, average=True)
+    assert list(out) == ["Luminance", "Luminance_Perceived"]
+    assert 0 <= out["Luminance"] <= 1
+
+    out = pyllusion.analyze_luminance(image, average=False)
+    assert out["Luminance"].shape == (50, 50)

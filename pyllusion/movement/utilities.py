@@ -1,9 +1,10 @@
 def images_to_gif(images, path="mygif.gif", fps=30):
-    """
+    """Save a list of PIL images as an animated GIF.
+
     >>> import pyllusion
     >>>
-    >>> pyllusion.image_blobs(n=500)  #doctest: +ELLIPSIS
-     <PIL.Image.Image ...>
+    >>> images = pyllusion.movement_circles(n=50, duration=2, fps=30)
+    >>> # pyllusion.images_to_gif(images, path="mygif.gif", fps=30)
     """
     try:
         import imageio
@@ -12,5 +13,6 @@ def images_to_gif(images, path="mygif.gif", fps=30):
             "The 'imageio' module is required for this function to run. ",
             "Please install it by running `pip install imageio`",
         )
-    duration = 1 / fps
-    imageio.mimsave(path, images, duration=duration, fps=fps)
+    # imageio expects the duration of each frame in milliseconds
+    duration = 1000 / fps
+    imageio.mimsave(path, images, duration=duration)

@@ -1,5 +1,5 @@
 Visual Illusions and Psychopathology
-#################
+####################################
 
 Neurocognitive deficits have been widely investigated using visual illusions as illusory paradigms demonstrate different contextual influences on visual perception (Chen et al., 2015; Corbett & Enns, 2006; Roberts et al., 2005). Visual illusions are thus valuable tools for revealing core features of pathological conditions.
 
@@ -12,7 +12,7 @@ While individuals along the schizophreniform spectrum display apparent resistanc
 However, the lack of consistency in the tasks’ methodologies has posed a significant challenge to advancing our theoretical understanding of the role of visual perception and reality construction in the psychopathology of schizophrenia (King et al., 2017). Specifically, the finding of an increased perceptual accuracy towards high-level illusions has failed to replicate in several other studies (e.g., Parnas et al., 2001; Spencer & Ghorashi, 2014; Yang et al., 2013), and other kinds of illusions (e.g., the Poggendorff illusion) have simply not been sufficiently tested (Kantrowitz et al., 2009).
 
 Autistic Spectrum Disorder
-------------------------
+--------------------------
 Individuals with autistic spectrum disorder (ASD) comprise another clinical group that demonstrates a similar immunity to perceptual biases, supporting the existence of difficulties in global processing and, conversely, an enhanced preference for idiosyncratic and detailed information (Happe, 1996). Hence, individuals with ASD appear as protected as the clinical schizophrenia population against the contextual influences of illusions in biasing perception, allowing them to perceive elements accurately in a local fashion (Gori et al., 2016; referred to as a ‘weak central coherence,’ Mitchell et al., 2010; Walter et al., 2009). Some work has also been successful in delineating the underlying cognitive mechanisms employed by different illusions, revealing that autistic traits in a typical population were related to greater resistance to the Müller-Lyer illusion, but not the Ebbinghaus or Ponzo illusions (Chouinard et al., 2013).
 
 One possible explanation for this dissociation relates to the extent of global processing engaged by the illusions, with the Müller-Lyer illusion (a within-object illusion where contextual elements and the target stimulus are physically joined) requiring more cognitive resources for the local binding of features than the Ebbinghaus and Ponzo illusions (a between-object illusion where contextual elements and the target stimulus are physically separate, Ben-Shalom & Ganel, 2012).

@@ -11,12 +11,12 @@ Delboeuf
    :members: 
 
 Ebbinghaus
-+++++++++
+++++++++++
 .. autoclass:: pyllusion.Ebbinghaus
    :members: 
 
 MullerLyer
-+++++++++
+++++++++++
 .. autoclass:: pyllusion.MullerLyer
    :members: 
 
@@ -26,7 +26,7 @@ Ponzo
    :members: 
 
 VerticalHorizontal
-+++++++++
+++++++++++++++++++
 .. autoclass:: pyllusion.VerticalHorizontal
    :members: 
 
@@ -36,7 +36,7 @@ Zollner
    :members: 
 
 Poggendorff
-+++++++++
++++++++++++
 .. autoclass:: pyllusion.Poggendorff
    :members: 
 
@@ -51,12 +51,12 @@ White
    :members: 
 
 Autostereogram
-+++++++++
+++++++++++++++
 .. autoclass:: pyllusion.Autostereogram
    :members: 
 
 Pareidolia
-+++++++++
+++++++++++
 .. autoclass:: pyllusion.Pareidolia
    :members: 
 
@@ -67,7 +67,7 @@ Image
    :members: 
 
 PsychoPy
--------
+--------
 
 .. automodule:: pyllusion.psychopy
    :members: 

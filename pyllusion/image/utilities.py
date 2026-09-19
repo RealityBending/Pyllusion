@@ -106,7 +106,7 @@ def _coord_text(
 
     if size == "auto":
         # Initialize values
-        size, top_left_x, top_left_y, right_x, bottom_y = 0, width, height, 0, 0
+        size, top_left_x, top_left_y, right_x, bottom_y = 0.5, width, height, 0, 0
         # Loop until max size is reached
         while (
             top_left_x > 0.01 * width
@@ -121,7 +121,7 @@ def _coord_text(
                 top_left_y = y - (text_height / 2)
                 right_x = top_left_x + text_width
                 bottom_y = top_left_y + text_height
-            except OSError:
+            except (OSError, ValueError):
                 pass
             size += 0.5  # Increment text size
     else:

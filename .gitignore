@@ -7,3 +7,10 @@ try_stuff.py
 .Rhistory
 paper/presentations/*.mp4
 .eggs/*
+.coverage
+coverage.xml
+.tox/
+*.egg-info/
+build/
+docs/README.build.md
+docs/_build/

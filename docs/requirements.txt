@@ -1,10 +1,7 @@
 wheel
 mock
-m2r
-recommonmark
+myst-parser
 sphinx
-nbsphinx
-git+https://github.com/Chilipp/sphinx-nbexamples.git@master
 matplotlib
 Pillow
 numpy

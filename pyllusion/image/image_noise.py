@@ -54,7 +54,7 @@ def image_noise(
     pixels = np.array([_rgb(r), _rgb(g), _rgb(b)]).T
 
     # Convert to PIL image
-    image = PIL.Image.fromarray(pixels.astype("uint8"), "RGB")
+    image = PIL.Image.fromarray(pixels.astype("uint8"))  # 3 uint8 channels -> RGB
 
     # Convert to black and white
     if blackwhite is True:

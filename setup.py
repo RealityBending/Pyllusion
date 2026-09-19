@@ -14,9 +14,9 @@ def find_version():
 
 # ------------------
 
-dependencies = ["numpy", "pandas", "Pillow", "scipy"]
-setup_requirements = ["pytest-runner", "numpy"]
-test_requirements = dependencies + ["pytest", "matplotlib", "coverage", "scikit-image"]
+dependencies = ["numpy", "pandas", "Pillow>=10.1.0", "scipy>=1.13.0"]
+setup_requirements = ["numpy"]
+test_requirements = dependencies + ["pytest", "pytest-cov", "matplotlib", "coverage", "scikit-image"]
 
 
 setup(
@@ -33,8 +33,6 @@ setup(
     # Dependencies
     install_requires=dependencies,
     setup_requires=setup_requirements,
-    test_suite="pytest",
-    tests_require=test_requirements,
     extras_require={"test": test_requirements},
     dependency_links=[],
     # Misc
@@ -44,16 +42,21 @@ setup(
     keywords="python pyllusion visual optical illusions",
     url="https://github.com/RealityBending/Pyllusion/",
     download_url="https://github.com/RealityBending/Pyllusion/zipball/master",
+    python_requires=">=3.9",
     classifiers=[
         "Intended Audience :: Science/Research",
         "Intended Audience :: Developers",
-        "Programming Language :: Python",
         "Topic :: Software Development",
         "Topic :: Scientific/Engineering",
         "Operating System :: Microsoft :: Windows",
         "Operating System :: Unix",
         "Operating System :: MacOS",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
     ],
 )

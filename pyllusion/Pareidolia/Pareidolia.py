@@ -1,5 +1,5 @@
 import numpy as np
-import PIL.Image
+import PIL.Image, PIL.ImageFilter, PIL.ImageOps
 
 from ..image.image_blob import image_blobs
 
@@ -74,8 +74,8 @@ class Pareidolia:
         img = img.filter(PIL.ImageFilter.GaussianBlur(self.blur / 100 * self.width))
     
         # Generate noise
-        self.sd = np.array(self.sd) / 100 * self.width
-        noise = image_blobs(img.size, n=self.n, sd=self.sd, weight=self.weight).convert("RGB")
+        sd = np.array(self.sd) / 100 * self.width
+        noise = image_blobs(img.size, n=self.n, sd=sd, weight=self.weight).convert("RGB")
 
         # Blend with noise
         stim = PIL.Image.blend(img, noise, alpha=self.alpha / 100)

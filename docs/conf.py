@@ -23,18 +23,8 @@ import re
 import sys
 
 import mock
-import recommonmark
-from m2r import MdInclude
-from recommonmark.parser import CommonMarkParser
-from recommonmark.transform import AutoStructify
 import sphinx_bootstrap_theme
 
-
-# The suffix(es) of source filenames.
-# You can specify multiple suffix as a list of string:
-source_parsers = {
-    '.md': CommonMarkParser
-}
 
 sys.path.insert(0, os.path.abspath('../'))
 
@@ -46,18 +36,19 @@ sys.path.insert(0, os.path.abspath('../'))
 # "![](abc.xyz.png)". Finally, the processed README.md file is written
 # to the docs folder.
 
-with open("../README.md", "r") as f:
+with open("../README.md", "r", encoding="utf-8") as f:
     README_content = f.read()
-links = set(re.compile("\!\[\]\(docs.*\)").findall(README_content))
+links = set(re.compile(r"\!\[\]\(docs.*\)").findall(README_content))
 for link in links:
     link_new = link.replace("docs/", "")
     README_content = README_content.replace(link, link_new)
-with open("README.build.md", "w") as f:
+with open("README.build.md", "w", encoding="utf-8") as f:
     f.write(README_content)
 
 
 # -- Mock modules ---------------------------------------------
-MOCK_MODULES = ['PIL.Image', 'PIL.ImageDraw', 'PIL.ImageFilter', 'PIL.ImageFont', 'PIL.ImageOps', 'PIL.ImageColor', 'visual', 'event']
+# Pillow is a real dependency (installed via requirements.txt), only PsychoPy is mocked
+MOCK_MODULES = ['psychopy', 'visual', 'event']
 
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
@@ -82,12 +73,13 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     #'sphinx-bootstrap-theme',
-    'nbsphinx',
-    'sphinx_nbexamples',
     'matplotlib.sphinxext.plot_directive',
     'sphinx_copybutton',
-    'recommonmark'
+    'myst_parser',
 ]
+
+# myst-parser: generate anchors for headings (so that in-page links from the README work)
+myst_heading_anchors = 3
 
 # matplotlib plot directive
 plot_include_source = True
@@ -99,10 +91,6 @@ import pandas as pd"""
 
 # on_rtd is whether we are on readthedocs.org
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-
-# sphinx-nbexamples
-process_examples = not os.path.exists(os.path.join(os.path.dirname(__file__), 'examples'))
-not_document_data = 'sphinx_nbexamples.gallery_config'
 
 # Style autodoc
 napoleon_google_docstring = False
@@ -116,7 +104,6 @@ templates_path = ['_templates']
 
 source_suffix = {
     '.rst': 'restructuredtext',
-    '.txt': 'restructuredtext',
     '.md': 'markdown',
 }
 
@@ -154,7 +141,7 @@ release = version
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -179,7 +166,7 @@ html_theme = 'bootstrap'
 html_favicon = "img/logo.ai"
 html_logo = "img/logo.png"
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
-html_static_path = ["_static"]
+html_static_path = []
 
 # Theme options are theme-specific and customize the look and feel of a theme further.
 # html_theme_options = {
@@ -283,21 +270,3 @@ texinfo_documents = [
 # Other
 add_module_names = False  # so functions aren’t prepended with the name of the package/module
 add_function_parentheses = True  # to ensure that parentheses are added to the end of all function names
-
-
-# -- Setup for recommonmark ---------------------------------------------
-def setup(app):
-    # Use m2r only for mdinclude and recommonmark for everything else
-    # https://github.com/readthedocs/recommonmark/issues/191#issuecomment-622369992
-    app.add_config_value('recommonmark_config', {
-            # 'url_resolver': lambda url: github_doc_root + url,
-            'auto_toc_tree_section': 'Contents',
-            }, True)
-    app.add_transform(AutoStructify)
-
-    # from m2r to make `mdinclude` work
-    app.add_config_value('no_underscore_emphasis', False, 'env')
-    app.add_config_value('m2r_parse_relative_links', False, 'env')
-    app.add_config_value('m2r_anonymous_references', False, 'env')
-    app.add_config_value('m2r_disable_inline_math', False, 'env')
-    app.add_directive('mdinclude', MdInclude)

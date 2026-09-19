@@ -1,6 +1,6 @@
 import numpy as np
 import PIL.Image, PIL.ImageDraw, PIL.ImageFilter, PIL.ImageFont, PIL.ImageOps
-import scipy.signal
+import scipy.signal.windows
 
 from .rescale import rescale
 from .utilities import _coord_circle
@@ -56,7 +56,7 @@ def image_blobs(width=500, height=500, n=100, sd=8, weight=1):
         x = np.random.randint(width, size=n[i])
         y = np.random.randint(height, size=n[i])
         parent_blob = _image_blob_parent(sd=int(current_sd), parent_width=parent_width)
-        w = np.int(len(parent_blob) / 2)
+        w = int(len(parent_blob) / 2)
         for j in range(int(n[i])):
             # Crop the blob and multiply by weight
             array += (parent_blob[w - y[j] : (w - y[j]) + height, w - x[j] : (w - x[j]) + width] * weight[i])
@@ -112,7 +112,7 @@ def _image_blob(x=400, y=300, width=800, height=600, sd=30):
     >>> plt.imshow(array)  #doctest: +ELLIPSIS
     """
     parent_blob = _image_blob_parent(x=x, y=y, width=width, height=height, sd=sd)
-    w = np.int(len(parent_blob) / 2)
+    w = int(len(parent_blob) / 2)
     return parent_blob[w - y : (w - y) + height, w - x : (w - x) + width]
 
 
@@ -124,7 +124,7 @@ def _image_blob_parent(x=400, y=300, width=800, height=600, sd=30, parent_width=
     """
     if parent_width is None:
         parent_width = 3 * (np.max([x, y,  height - x, width - y]))
-    gkern1d = scipy.signal.gaussian(parent_width, std=sd).reshape(parent_width, 1)
+    gkern1d = scipy.signal.windows.gaussian(parent_width, std=sd).reshape(parent_width, 1)
     return np.outer(gkern1d, gkern1d)
 
 

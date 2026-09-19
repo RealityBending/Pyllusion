@@ -19,7 +19,7 @@ The parametric approach implemented in this software proposes to
 the *difference* and *illusion strength*. These two parameters can be
 modulated to independently impact either the objective difference of the
 core components of the illusion (e.g., the difference between the two
-segments in the [Müller-Lyer](#müller-lyer-illusion-illusion) illusion)
+segments in the [Müller-Lyer](#müller-lyer-illusion) illusion)
 or the intensity of the illusion effect (e.g., the angle of the
 “distractors” arrows).
 
